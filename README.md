@@ -1,5 +1,5 @@
 # Joyful-Pandas
-你家的熊猫今天快乐吗？
+- ![avatar](panda.jpg)
 
 #### 一、写作初衷
 
