@@ -1,5 +1,5 @@
 # Joyful-Pandas
-<img src="picture/panda.jpeg" width="240" height="高度" alt="图片名称" align=center>
+<img src="picture/panda.jpeg" width="240" height="高度" alt="图片名称" align="center">
 
 #### 一、写作初衷
 
