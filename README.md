@@ -1,5 +1,5 @@
 # Joyful-Pandas
-- ![avatar](panda.jpg)
+<img src="picture/panda.jpeg" width="240" height="高度" alt="图片名称" align=center>
 
 #### 一、写作初衷
 
@@ -33,12 +33,12 @@
 
 #### 三、版本要求
 
-１、使用低版本的Padas可能会引起部分错误，Jupyter中运行的版本如下：
+１、Pandas于2020年1月29日发布了1.0.0的版本，本项目全部使用新版本
 
 ```
 Python: 3.6+
 Numpy: 1.17.4
-Pandas: 0.25.3
+Pandas: 1.0.0
 Matplotlib: 3.1.2
 ```
 
