@@ -32,7 +32,7 @@
 
 #### 三、项目导图
 
-![](picture/Pandas.png)
+![](picture/pandas.png)
 
 #### 四、版本要求
 
