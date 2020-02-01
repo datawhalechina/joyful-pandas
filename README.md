@@ -8,7 +8,7 @@
 
 上个学期（2019秋季），我偶然找到了一本完全关于Pandas的书，Theodore Petrou所著的Pandas Cookbook，现在可在网上下到pdf，不过现在还没有中文版。寒假开始后，立即快速地过了一遍，发现之前很多搞不清的概念得到了较好的解答，逐步地再对着User Guide一字一句查看，最后总是建立了大的一些宏观概念。
 
-最关键的一步，我想是通读了官方User Guide的绝大部分内容，这可能是非常重要的一个台阶，毕竟官方的教程总是会告诉你重点在哪里。因此，经过了一段时间的思考，结合了Wes Mckinney（Pandas之父）的[Python for Data Analysis](<https://www.cnblogs.com/javaVIP/p/10695232.html>)、先前提到的[Pandas Cookbook](<http://93.174.95.29/_ads/23950B4446ABB5DD27168D6B0FB2C8DB>)和官方的[User Guide](<https://pandas.pydata.org/pandas-docs/version/1.0.0/user_guide/index.html>)，由此想按照自己的思路编一套关于Pandas的教程，完整梳理Pandas的主线内容，杜绝浅尝辄止，保证涉及每个部分的核心概念和函数。最后，希望达到的境界自然是“所写所得即所想”，这大概需要更多的实践，也是努力实现的目标方向。
+最关键的一步，我想是通读了官方User Guide的绝大部分内容，这可能是非常重要的一个台阶，毕竟官方的教程总是会告诉你重点在哪里。因此，经过了一段时间的思考，结合了Wes Mckinney（Pandas之父）的[Python for Data Analysis](<http://93.174.95.29/_ads/A3AD6E6B2504B95EC39A6C57D465BA5D>)、先前提到的[Pandas Cookbook](<http://93.174.95.29/_ads/23950B4446ABB5DD27168D6B0FB2C8DB>)和官方的[User Guide](<https://pandas.pydata.org/pandas-docs/version/1.0.0/user_guide/index.html>)，由此想按照自己的思路编一套关于Pandas的教程，完整梳理Pandas的主线内容，杜绝浅尝辄止，保证涉及每个部分的核心概念和函数。最后，希望达到的境界自然是“所写所得即所想”，这大概需要更多的实践，也是努力实现的目标方向。
 
 关于项目的名字，我想原先使用Pandas时非常的痛苦（Painful），那现在是时候转变为“Joyful-Pandas”了！
 
@@ -99,6 +99,16 @@
 |                                                              | [五、问题与练习]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC5%E7%AB%A0%20%E5%90%88%E5%B9%B6.ipynb#%E4%BA%94%E3%80%81%E9%97%AE%E9%A2%98%E4%B8%8E%E7%BB%83%E4%B9%A0>) | [问题]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC5%E7%AB%A0%20%E5%90%88%E5%B9%B6.ipynb#%E3%80%90%E9%97%AE%E9%A2%98%E4%B8%80%E3%80%91-%E8%AF%B7%E6%80%9D%E8%80%83%E4%BB%80%E4%B9%88%E6%98%AFappend/assign/combine/update/concat/merge/join%E5%90%84%E8%87%AA%E6%9C%80%E9%80%82%E5%90%88%E4%BD%BF%E7%94%A8%E7%9A%84%E5%9C%BA%E6%99%AF%EF%BC%8C%E5%B9%B6%E4%B8%BE%E5%87%BA%E7%9B%B8%E5%BA%94%E7%9A%84%E4%BE%8B%E5%AD%90%E3%80%82>) |
 |                                                              |                                                              | [练习一]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC5%E7%AB%A0%20%E5%90%88%E5%B9%B6.ipynb#%E3%80%90%E7%BB%83%E4%B9%A0%E4%B8%80%E3%80%91%E6%9C%892%E5%BC%A0%E5%85%AC%E5%8F%B8%E7%9A%84%E5%91%98%E5%B7%A5%E4%BF%A1%E6%81%AF%E8%A1%A8%EF%BC%8C%E6%AF%8F%E4%B8%AA%E5%85%AC%E5%8F%B8%E5%85%B1%E6%9C%8916%E5%90%8D%E5%91%98%E5%B7%A5%EF%BC%8C%E5%85%B1%E6%9C%89%E4%BA%94%E4%B8%AA%E5%85%AC%E5%8F%B8%EF%BC%8C%E8%AF%B7%E8%A7%A3%E5%86%B3%E5%A6%82%E4%B8%8B%E9%97%AE%E9%A2%98%EF%BC%9A>) |
 |                                                              |                                                              | [练习二]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC5%E7%AB%A0%20%E5%90%88%E5%B9%B6.ipynb#%E3%80%90%E7%BB%83%E4%B9%A0%E4%BA%8C%E3%80%91%E6%9C%892%E5%BC%A0%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%88%86%E6%95%B0%E8%A1%A8%EF%BC%88%E5%88%86%E6%95%B0%E9%9A%8F%E6%9C%BA%E7%94%9F%E6%88%90%EF%BC%89%EF%BC%8C%E4%BD%86%E4%B8%93%E4%B8%9A%E8%AF%BE%EF%BC%88%E5%AD%A6%E7%A7%91%E5%9F%BA%E7%A1%80%E8%AF%BE%E3%80%81%E4%B8%93%E4%B8%9A%E5%BF%85%E4%BF%AE%E8%AF%BE%E3%80%81%E4%B8%93%E4%B8%9A%E9%80%89%E4%BF%AE%E8%AF%BE%EF%BC%89%E4%B8%8E%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B%E6%B7%B7%E5%9C%A8%E4%B8%80%E8%B5%B7%EF%BC%8C%E8%AF%B7%E8%A7%A3%E5%86%B3%E5%A6%82%E4%B8%8B%E9%97%AE%E9%A2%98%EF%BC%9A>) |
+|                                                              |                                                              |                                                              |
+|                                                              |                                                              |                                                              |
+|                                                              |                                                              |                                                              |
+|                                                              |                                                              |                                                              |
+|                                                              |                                                              |                                                              |
+|                                                              |                                                              |                                                              |
+|                                                              |                                                              |                                                              |
+|                                                              |                                                              |                                                              |
+|                                                              |                                                              |                                                              |
+|                                                              |                                                              |                                                              |
 
 #### 四、版本要求
 
@@ -119,7 +129,7 @@ Matplotlib: 3.1.2
 
 #### 六、参考资料
 
-1、[Python for Data Analysis](<https://www.cnblogs.com/javaVIP/p/10695232.html>) Wes McKinney著
+1、[Python for Data Analysis](<http://93.174.95.29/_ads/A3AD6E6B2504B95EC39A6C57D465BA5D>) Wes McKinney著
 
 2、[Pandas Cookbook](<http://93.174.95.29/_ads/23950B4446ABB5DD27168D6B0FB2C8DB>) Theodore Petrou著
 
