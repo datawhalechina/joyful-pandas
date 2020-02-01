@@ -1,0 +1,5 @@
+col1	col2	col3	col4
+2	a	1.4	apple
+3	b	3.4	banana
+6	c	2.5	orange
+5	d	3.2	lemon
