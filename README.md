@@ -106,8 +106,24 @@
 |                                                              |                                                              | [5. convert_dtypes方法]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC6%E7%AB%A0%20%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE.ipynb#5.--convert_dtypes%E6%96%B9%E6%B3%95>) |
 |                                                              | [二、缺失数据的运算与分组]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC6%E7%AB%A0%20%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE.ipynb#%E4%BA%8C%E3%80%81%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE%E7%9A%84%E8%BF%90%E7%AE%97%E4%B8%8E%E5%88%86%E7%BB%84>) |                                                              |
 |                                                              | [三、填充、剔除与插值]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC6%E7%AB%A0%20%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE.ipynb#%E4%B8%89%E3%80%81%E5%A1%AB%E5%85%85%E3%80%81%E5%89%94%E9%99%A4%E4%B8%8E%E6%8F%92%E5%80%BC>) |                                                              |
-|                                                              | [四、问题与练习]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC6%E7%AB%A0%20%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE.ipynb#%E5%9B%9B%E3%80%81%E9%97%AE%E9%A2%98%E4%B8%8E%E7%BB%83%E4%B9%A0>) |                                                              |
-| [第7章 文本数据]()                                           |                                                              |                                                              |
+|                                                              | [四、问题与练习]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC6%E7%AB%A0%20%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE.ipynb#%E5%9B%9B%E3%80%81%E9%97%AE%E9%A2%98%E4%B8%8E%E7%BB%83%E4%B9%A0>) | [问题]()                                                     |
+|                                                              |                                                              | [练习一]()                                                   |
+|                                                              |                                                              | [练习二]()                                                   |
+| [第7章 文本数据]()                                           | [一、string类型的性质]()                                     | [1. string与object的区别]()                                  |
+|                                                              |                                                              | [2. string类型的转换]()                                      |
+|                                                              | [二、拆分与拼接]()                                           | [1. str.split方法]()                                         |
+|                                                              |                                                              | [2. str.cat方法]()                                           |
+|                                                              | [三、替换]()                                                 | [1. str.replace的常见用法]()                                 |
+|                                                              |                                                              | [2. 子组与函数替换]()                                        |
+|                                                              |                                                              | [3. 关于str.replace的注意事项]()                             |
+|                                                              | [四、子串匹配与提取]()                                       | [1. str.extract方法]()                                       |
+|                                                              |                                                              | [2. str.extractall方法]()                                    |
+|                                                              |                                                              | [3. str.contains和str.match]()                               |
+|                                                              | [五、常用字符串方法]()                                       | [1. 过滤型方法]()                                            |
+|                                                              |                                                              | [2. isnumeric方法]()                                         |
+|                                                              | [六、问题与练习]()                                           | [问题]()                                                     |
+|                                                              |                                                              | [练习一]()                                                   |
+|                                                              |                                                              | [练习二]()                                                   |
 | [第8章 分类数据]()                                           |                                                              |                                                              |
 | [第9章 时序数据]()                                           |                                                              |                                                              |
 | [第10章 可视化]()                                            |                                                              |                                                              |
@@ -120,6 +136,10 @@
 |                                                              |                                                              | [练习二]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88.ipynb#%E7%AC%AC4%E7%AB%A0%EF%BC%9A%E7%BB%83%E4%B9%A0%E4%BA%8C>) |
 |                                                              | [第5章]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88.ipynb#%E7%AC%AC5%E7%AB%A0%EF%BC%9A%E7%BB%83%E4%B9%A0%E4%B8%80>) | [练习一]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88.ipynb#%E7%AC%AC5%E7%AB%A0%EF%BC%9A%E7%BB%83%E4%B9%A0%E4%B8%80>) |
 |                                                              |                                                              | [练习二]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88.ipynb#%E7%AC%AC5%E7%AB%A0%EF%BC%9A%E7%BB%83%E4%B9%A0%E4%BA%8C>) |
+|                                                              | [第6章]()                                                    | [练习一]()                                                   |
+|                                                              |                                                              | [练习二]()                                                   |
+|                                                              | [第7章]()                                                    | [练习一]()                                                   |
+|                                                              |                                                              | [练习二]()                                                   |
 
 #### 四、版本要求
 
