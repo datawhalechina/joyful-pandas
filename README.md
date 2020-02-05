@@ -6,7 +6,7 @@
 
 曾经也尝试过去零星地学Pandas，但不得不说这个包实在太过庞大，每次使用总觉得盲人摸象，每个函数的参数也很多，学习的路线并不是十分平缓。如果你刚刚手上使用Pandas，那么在碎片的学习过程中，报错是常常发生的事，并且很难修（因为不理解内部的操作），即使修好了下次又不会，令人有些沮丧。
 
-上个学期（2019秋季），我偶然找到了一本完全关于Pandas的书，Theodore Petrou所著的Pandas Cookbook，现在可在网上下到pdf，不过现在还没有中文版。寒假开始后，立即快速地过了一遍，发现之前很多搞不清的概念得到了较好的解答，逐步地再对着User Guide一字一句查看，最后总是建立了大的一些宏观概念。
+2019秋季，我偶然找到了一本完全关于Pandas的书，Theodore Petrou所著的Pandas Cookbook，现在可在网上下到pdf，不过现在还没有中文版。寒假开始后，立即快速地过了一遍，发现之前很多搞不清的概念得到了较好的解答，逐步地再对着User Guide一字一句查看，最后总是建立了大的一些宏观概念。
 
 最关键的一步，我想是通读了官方User Guide的绝大部分内容，这可能是非常重要的一个台阶，毕竟官方的教程总是会告诉你重点在哪里。因此，经过了一段时间的思考，结合了Wes Mckinney（Pandas之父）的[Python for Data Analysis](<http://93.174.95.29/_ads/A3AD6E6B2504B95EC39A6C57D465BA5D>)、先前提到的[Pandas Cookbook](<http://93.174.95.29/_ads/23950B4446ABB5DD27168D6B0FB2C8DB>)和官方的[User Guide](<https://pandas.pydata.org/pandas-docs/version/1.0.0/user_guide/index.html>)，由此想按照自己的思路编一套关于Pandas的教程，完整梳理Pandas的主线内容，杜绝浅尝辄止，保证涉及每个部分的核心概念和函数。最后，希望达到的境界自然是“所写所得即所想”，这大概需要更多的实践，也是努力实现的目标方向。
 
@@ -14,19 +14,17 @@
 
 #### 二、编排思路
 
-本项目共有十一章，可以大致分为5个板块：
+本项目共有十章，可以大致分为4个板块：Pandas基础、四类操作、四类数据、例子。
 
 1、拿到数据必然先要读取它，分析完了数据必然是要保存它，读取了数据之后，我们面对了怎样的对象（Series? of Dataframe?）是第一重要的课题，因此了解序列和数据框的常规操作及其组件（component）便是必须涉及的内容。
 
-2、对于一个DataFrame而言，果一个操作使得它的元素信息减少了，那就对应了索引，即第二章的内容；如果这个操作使得数据的信息被充分地使用，那有两种可能，第一是数据被分组，从组内提取了关键的信息，第二就是数据呈现的结构或形态上的变化，使得我们更容易地能够地进一步处理数据，这两者分别对应了第三章与第四章的内容；最终如果一个操作使得原本不属于这个数据框的信息被加入了进来，那往往是涉及到了合并操作，对应了第五章的内容。从数据信息增减的角度，拆解成了3个板块，4个章节，几乎串联其了官方文档关于数据框操作的全部内容，我想这样的安排是合适的。
+2、对于一个DataFrame而言，如果一个操作使得它的元素信息减少了，那就对应了索引，即第二章的内容；如果这个操作使得数据的信息被充分地使用，那有两种可能，第一是数据被分组，从组内提取了关键的信息，第二就是数据呈现的结构或形态上的变化，使得我们更容易地能够地进一步处理数据，这两者分别对应了第三章与第四章的内容；最终如果一个操作使得原本不属于这个数据框的信息被加入了进来，那往往是涉及到了合并操作，对应了第五章的内容。从数据信息增减的角度，拆解成了3个板块，4个章节，几乎串联其了官方文档关于数据框操作的全部内容，我想这样的安排是合适的。
 
-3、如果说前面我们关心了序列和数据框这两种容器的结构和操作，那么下面就要关心其中的元素。其中，将涉及四类特殊的数据类型：缺失型数据、文本型数据、分类型数据和时间序列型数据，分别对应了6-9章的内容。
+3、如果说前面我们关心了序列和数据框这两种容器的结构和操作，那么下面就要关心其中的元素。其中，将涉及四类特殊的数据类型：缺失型数据、文本型数据、分类型数据和时间序列型数据，分别对应了6-9章的内容，并且在缺失型数据和文本型数据中，将详细涉及Pandas1.0版本新的Nullable和string数据类型，这也是从上一个版本0.25.3升级后具有最大改动的方面。
 
-4、在第10章中，我们将涉及Pandas中的可视化，了解如何实现Matplotlib和Pandas之间的无缝衔接。
+4、正如前面所说，Pandas的学习往往是任务驱动型，一个操作或者某个方法，不去使用自然会很快地忘记（除非你天赋异禀！），因此我前九章都会添加“问题和练习”的部分。其中，问题中出现的往往是对于教程中某个细节的深入与补充，或者是关于这一章函数方法的实践理解，希望你能够查阅相关资料阅读以解决问题；而练习部分包含了两个综合题，分别是两个不同的案例，相当于对前面所学知识的考察与综合运用，虽然并不是非常复杂，但是想要全部完成，还是需要花一些功夫。最终，在第10章中会添加个人认为难度较大的问题（不定期更新），具有一定的挑战性，如果有更好的解决方案，欢迎交流分享，谢谢：）
 
-5、正如前面所说，Pandas的学习往往是任务驱动型，一个操作或者某个方法，不去使用自然会很快地忘记（除非你天赋异禀！），因此我在2-9章都会添加“问题和练习”的部分。其中，问题中出现的往往是对于教程中某个细节的深入，或者在这一个章节中重要的函数，希望你能够查阅相关资料阅读以解决问题；而练习部分包含了两个综合题，分别是两个不同的案例，相当于对前面所学知识的考察与综合运用，虽然并不是非常复杂，但是想要全部完成，的确是要动一些脑筋才行。最终，在第11章中会添加若干个我曾经遇到过但解决方案复杂，或者我想到的某一个一时半会儿还没有解决办法的问题，具有一定的挑战性，如果有较好的解决方案，欢迎交流分享，谢谢：）
-
-6、基于完整性，我也为所有的练习编写了参考答案，当然它可能不是最好的（也许永远没有最好的），但是不失为一种提示与策略。
+基于完整性，我也为所有的练习编写了参考答案，当然它可能不是最好的（也许永远没有最好的），但是不失为一种提示与策略。
 
 最后，祝你有所收获！
 
@@ -105,9 +103,14 @@
 |                                                              |                                                              | [3. Nullable类型与NA符号]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC6%E7%AB%A0%20%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE.ipynb#3.-Nullable%E7%B1%BB%E5%9E%8B%E4%B8%8ENA%E7%AC%A6%E5%8F%B7>) |
 |                                                              |                                                              | [4. NA的特性]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC6%E7%AB%A0%20%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE.ipynb#4.-NA%E7%9A%84%E7%89%B9%E6%80%A7>) |
 |                                                              |                                                              | [5. convert_dtypes方法]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC6%E7%AB%A0%20%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE.ipynb#5.--convert_dtypes%E6%96%B9%E6%B3%95>) |
-|                                                              | [二、缺失数据的运算与分组]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC6%E7%AB%A0%20%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE.ipynb#%E4%BA%8C%E3%80%81%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE%E7%9A%84%E8%BF%90%E7%AE%97%E4%B8%8E%E5%88%86%E7%BB%84>) |                                                              |
-|                                                              | [三、填充、剔除与插值]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC6%E7%AB%A0%20%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE.ipynb#%E4%B8%89%E3%80%81%E5%A1%AB%E5%85%85%E3%80%81%E5%89%94%E9%99%A4%E4%B8%8E%E6%8F%92%E5%80%BC>) |                                                              |
-|                                                              | [四、问题与练习]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC6%E7%AB%A0%20%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE.ipynb#%E5%9B%9B%E3%80%81%E9%97%AE%E9%A2%98%E4%B8%8E%E7%BB%83%E4%B9%A0>) | [问题]()                                                     |
+|                                                              | [二、缺失数据的运算与分组]()                                 | [1. 加号与乘号规则]()                                        |
+|                                                              |                                                              | [2. groupby方法中的缺失值]()                                 |
+|                                                              | [三、填充与剔除]()                                           | [1. fillna方法]()                                            |
+|                                                              |                                                              | [2. dropna方法]()                                            |
+|                                                              | [四、插值（interpolation）]()                                | [1. 线性插值]()                                              |
+|                                                              |                                                              | [2. 高级插值方法]()                                          |
+|                                                              |                                                              | [3. interpolate中的限制参数]()                               |
+|                                                              | [五、问题与练习]()                                           | [问题]()                                                     |
 |                                                              |                                                              | [练习一]()                                                   |
 |                                                              |                                                              | [练习二]()                                                   |
 | [第7章 文本数据]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC7%E7%AB%A0%20%E6%96%87%E6%9C%AC%E6%95%B0%E6%8D%AE.ipynb#%E7%AC%AC7%E7%AB%A0-%E6%96%87%E6%9C%AC%E6%95%B0%E6%8D%AE>) | [一、string类型的性质]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC7%E7%AB%A0%20%E6%96%87%E6%9C%AC%E6%95%B0%E6%8D%AE.ipynb#%E4%B8%80%E3%80%81string%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%80%A7%E8%B4%A8>) | [1. string与object的区别]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC7%E7%AB%A0%20%E6%96%87%E6%9C%AC%E6%95%B0%E6%8D%AE.ipynb#1.-string%E4%B8%8Eobject%E7%9A%84%E5%8C%BA%E5%88%AB>) |
@@ -125,10 +128,20 @@
 |                                                              | [六、问题与练习]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC7%E7%AB%A0%20%E6%96%87%E6%9C%AC%E6%95%B0%E6%8D%AE.ipynb#%E5%85%AD%E3%80%81%E9%97%AE%E9%A2%98%E4%B8%8E%E7%BB%83%E4%B9%A0>) | [问题]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC7%E7%AB%A0%20%E6%96%87%E6%9C%AC%E6%95%B0%E6%8D%AE.ipynb#%E3%80%90%E9%97%AE%E9%A2%98%E4%B8%80%E3%80%91-rsplit%E6%96%B9%E6%B3%95%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E5%AE%83%E5%9C%A8%E4%BB%80%E4%B9%88%E5%9C%BA%E5%90%88%E4%B8%8B%E9%80%82%E7%94%A8%EF%BC%9F>) |
 |                                                              |                                                              | [练习一]()                                                   |
 |                                                              |                                                              | [练习二]()                                                   |
-| [第8章 分类数据]()                                           |                                                              |                                                              |
+| [第8章 分类数据]()                                           | [一、category的创建及其性质]()                               | [1. 分类变量的创建]()                                        |
+|                                                              |                                                              | [2. 分类变量的结构]()                                        |
+|                                                              |                                                              | [3. 类别的修改]()                                            |
+|                                                              | [二、分类变量的排序]()                                       | [1. 序的建立]()                                              |
+|                                                              |                                                              | [2. 排序]()                                                  |
+|                                                              | [三、分类变量的比较操作]()                                   | [1. 与标量或等长序列的比较]()                                |
+|                                                              |                                                              | [2. 与另一分类变量的比较]()                                  |
+|                                                              | [四、问题与练习]                                             | [问题]()                                                     |
+|                                                              |                                                              | [练习一]()                                                   |
+|                                                              |                                                              | [练习二]()                                                   |
 | [第9章 时序数据]()                                           |                                                              |                                                              |
-| [第10章 可视化]()                                            |                                                              |                                                              |
-| [第11章 有挑战性的例子]()                                    |                                                              |                                                              |
+| [第10章 有挑战性的例子]()                                    | [一、评委打分]()                                             | [方法一]()                                                   |
+|                                                              |                                                              | [方法二]()                                                   |
+|                                                              |                                                              | [方法三]()                                                   |
 | [参考答案](  <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88.ipynb#%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88>) | [第2章]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88.ipynb#%E7%AC%AC2%E7%AB%A0%EF%BC%9A%E7%BB%83%E4%B9%A0%E4%B8%80>) | [练习一](  <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88.ipynb#%E7%AC%AC2%E7%AB%A0%EF%BC%9A%E7%BB%83%E4%B9%A0%E4%B8%80>) |
 |                                                              |                                                              | [练习二](  <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88.ipynb#%E7%AC%AC2%E7%AB%A0%EF%BC%9A%E7%BB%83%E4%B9%A0%E4%BA%8C>) |
 |                                                              | [第3章](  <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88.ipynb#%E7%AC%AC3%E7%AB%A0%EF%BC%9A%E7%BB%83%E4%B9%A0%E4%B8%80>) | [练习一](  <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88.ipynb#%E7%AC%AC3%E7%AB%A0%EF%BC%9A%E7%BB%83%E4%B9%A0%E4%B8%80>) |
@@ -141,16 +154,21 @@
 |                                                              |                                                              | [练习二]()                                                   |
 |                                                              | [第7章]()                                                    | [练习一]()                                                   |
 |                                                              |                                                              | [练习二]()                                                   |
+|                                                              | [第8章]()                                                    | [练习一]()                                                   |
+|                                                              |                                                              | [练习二]()                                                   |
 
 #### 四、版本要求
 
-１、Pandas于2020年1月29日发布了1.0.0的版本，本项目全部使用新版本
+１、Pandas于2020年1月29日发布了1.0.0的版本，本项目全部使用新版本。
 
 ```
-Python: 3.6+
-Numpy: 1.17.4
+Python: 3.7
+Numpy: 1.18.1
 Pandas: 1.0.0
-Matplotlib: 3.1.2
+Matplotlib: 3.1.3
+Scipy：1.4.1
+xlrd：1.2.0
+openpyxl：3.0.3
 ```
 
 #### 五、反馈
