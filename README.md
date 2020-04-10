@@ -1,6 +1,6 @@
 # Joyful-Pandas
 
-【本教程与Pandas官方最新发行版本保持同步，当前版本：v-1.0.1（Released on 2020.2.5）】
+【本教程与Pandas官方最新发行版本保持同步，当前版本：[v-1.0.3](<https://github.com/pandas-dev/pandas/releases>)】
 
 #### 一、写作初衷
 
@@ -24,7 +24,7 @@
 
 3、如果说前面我们关心了序列和数据框这两种容器的结构和操作，那么下面就要关心其中的元素。其中，将涉及四类特殊的数据类型：缺失型数据、文本型数据、分类型数据和时间序列型数据，分别对应了6-9章的内容，并且在缺失型数据和文本型数据中，将详细涉及Pandas1.0版本新的Nullable和string数据类型，这也是从上一个版本0.25.3升级后具有最大改动的方面。
 
-4、正如前面所说，Pandas的学习往往是任务驱动型，一个操作或者某个方法，不去使用自然会很快地忘记（除非你天赋异禀！），因此我前九章都会添加“问题和练习”的部分。其中，问题中出现的往往是对于教程中某个细节的深入与补充，或者是关于这一章函数方法的实践理解，希望你能够查阅相关资料阅读以解决问题；而练习部分包含了两个综合题（两个的不同案例），相当于对前面所学的综合运用，虽不是非常复杂，但是想要全完成，还是需要花一些功夫。最终，在第10章中会添加个人认为难度较大的问题（不定期更新），具有一定的挑战性，如果有更好的解决方案，欢迎交流分享，谢谢：）
+4、正如前面所说，Pandas的学习往往是任务驱动型，一个操作或者某个方法，不去使用自然会很快地忘记（除非你天赋异禀！），因此我前九章都会添加“问题和练习”的部分。其中，问题中出现的往往是对于教程中某个细节的深入与补充，或者是关于这一章函数方法的实践理解，希望你能够查阅相关资料阅读以解决问题；而练习部分包含了两个综合题（两个的不同案例），相当于对前面所学的综合运用，虽不是非常复杂，但是想要全完成，还是需要花一些功夫。最终，在第10章中会添加若干难度不一的综合问题（不定期更新）。
 
 基于完整性，我为所有的练习写了参考答案，当然它不一定是优秀的解析，但是不失为一种提示与策略。
 
@@ -144,9 +144,14 @@
 |                                                              | [三、重采样]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC9%E7%AB%A0%20%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE.ipynb#%E4%B8%89%E3%80%81%E9%87%8D%E9%87%87%E6%A0%B7>) | [1. resample对象的基本操作]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC9%E7%AB%A0%20%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE.ipynb#1.-resample%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C>) |
 |                                                              |                                                              | [2. 采样聚合]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC9%E7%AB%A0%20%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE.ipynb#2.-%E9%87%87%E6%A0%B7%E8%81%9A%E5%90%88>) |
 |                                                              |                                                              | [3. 采样组的迭代]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC9%E7%AB%A0%20%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE.ipynb#3.-%E9%87%87%E6%A0%B7%E7%BB%84%E7%9A%84%E8%BF%AD%E4%BB%A3>) |
-| [第10章 有挑战性的例子]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC10%E7%AB%A0%20%E6%9C%89%E6%8C%91%E6%88%98%E6%80%A7%E7%9A%84%E4%BE%8B%E5%AD%90.ipynb?flush_cache=true#%E7%AC%AC10%E7%AB%A0-%E6%9C%89%E6%8C%91%E6%88%98%E6%80%A7%E7%9A%84%E4%BE%8B%E5%AD%90>) | [一、评委打分]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC10%E7%AB%A0%20%E6%9C%89%E6%8C%91%E6%88%98%E6%80%A7%E7%9A%84%E4%BE%8B%E5%AD%90.ipynb?flush_cache=true#%E4%B8%80%E3%80%81%E8%AF%84%E5%A7%94%E6%89%93%E5%88%86>) | [方法一]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC10%E7%AB%A0%20%E6%9C%89%E6%8C%91%E6%88%98%E6%80%A7%E7%9A%84%E4%BE%8B%E5%AD%90.ipynb?flush_cache=true#%E3%80%90%E6%96%B9%E6%B3%95%E4%B8%80%E3%80%91%E6%80%9D%E7%BB%B4%E9%87%8F%E8%BE%83%E5%A4%A7%EF%BC%8C%E6%9C%89%E6%8A%80%E5%B7%A7%E6%80%A7%EF%BC%8C%E5%AF%B9Pandas%E4%BE%9D%E8%B5%96%E8%BE%83%E5%B0%91>) |
-|                                                              |                                                              | [方法二]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC10%E7%AB%A0%20%E6%9C%89%E6%8C%91%E6%88%98%E6%80%A7%E7%9A%84%E4%BE%8B%E5%AD%90.ipynb?flush_cache=true#%E3%80%90%E6%96%B9%E6%B3%95%E4%BA%8C%E3%80%91%E6%80%9D%E8%B7%AF%E7%AE%80%E5%8D%95%EF%BC%8C%E4%BD%86%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4%E8%BE%83%E9%95%BF>) |
-|                                                              |                                                              | [方法三]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC10%E7%AB%A0%20%E6%9C%89%E6%8C%91%E6%88%98%E6%80%A7%E7%9A%84%E4%BE%8B%E5%AD%90.ipynb?flush_cache=true#%E3%80%90%E6%96%B9%E6%B3%95%E4%B8%89%E3%80%91%E5%9F%BA%E6%9C%AC%E4%B8%8E%E6%96%B9%E6%B3%95%E4%BA%8C%E7%B1%BB%E4%BC%BC%EF%BC%8C%E4%BD%86%E5%80%9F%E5%8A%A9pivot%E5%87%BD%E6%95%B0%E5%A4%A7%E5%B9%85%E6%8F%90%E9%AB%98%E9%80%9F%E5%BA%A6>) |
+|                                                              | [四、窗口函数]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC9%E7%AB%A0%20%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE.ipynb#%E5%9B%9B%E3%80%81%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0>) | [1. Rolling]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC9%E7%AB%A0%20%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE.ipynb#1.-Rolling>) |
+|                                                              |                                                              | [2. Expanding]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC9%E7%AB%A0%20%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE.ipynb#2.-Expanding>) |
+|                                                              | [五、问题与练习]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC9%E7%AB%A0%20%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE.ipynb#%E4%BA%94%E3%80%81%E9%97%AE%E9%A2%98%E4%B8%8E%E7%BB%83%E4%B9%A0>) | [1. 问题]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC9%E7%AB%A0%20%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE.ipynb#%E3%80%90%E9%97%AE%E9%A2%98%E4%B8%80%E3%80%91-%E5%A6%82%E4%BD%95%E5%AF%B9date_range%E8%BF%9B%E8%A1%8C%E6%89%B9%E9%87%8F%E5%8A%A0%E5%B8%A7%E6%93%8D%E4%BD%9C%E6%88%96%E5%AF%B9%E6%9F%90%E4%B8%80%E6%97%B6%E9%97%B4%E6%AE%B5%E5%8A%A0%E5%A4%A7%E6%97%B6%E9%97%B4%E6%88%B3%E5%AF%86%E5%BA%A6%EF%BC%9F>) |
+|                                                              |                                                              | [2. 练习]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC9%E7%AB%A0%20%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE.ipynb#%E3%80%90%E7%BB%83%E4%B9%A0%E4%B8%80%E3%80%91-%E7%8E%B0%E6%9C%89%E4%B8%80%E4%BB%BD%E5%85%B3%E4%BA%8E%E6%9F%90%E8%B6%85%E5%B8%82%E7%89%9B%E5%A5%B6%E9%94%80%E5%94%AE%E9%A2%9D%E7%9A%84%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E6%95%B0%E6%8D%AE%EF%BC%8C%E8%AF%B7%E5%AE%8C%E6%88%90%E4%B8%8B%E5%88%97%E9%97%AE%E9%A2%98%EF%BC%9A>) |
+| [第10章 不定期更新的例子]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC10%E7%AB%A0%20%E4%B8%8D%E5%AE%9A%E6%9C%9F%E6%9B%B4%E6%96%B0%E7%9A%84%E4%BE%8B%E5%AD%90.ipynb#%E7%AC%AC10%E7%AB%A0-%E4%B8%8D%E5%AE%9A%E6%9C%9F%E6%9B%B4%E6%96%B0%E7%9A%84%E4%BE%8B%E5%AD%90>) | [一、评委打分]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC10%E7%AB%A0%20%E4%B8%8D%E5%AE%9A%E6%9C%9F%E6%9B%B4%E6%96%B0%E7%9A%84%E4%BE%8B%E5%AD%90.ipynb#%E4%B8%80%E3%80%81%E8%AF%84%E5%A7%94%E6%89%93%E5%88%86>) | [方法一]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC10%E7%AB%A0%20%E4%B8%8D%E5%AE%9A%E6%9C%9F%E6%9B%B4%E6%96%B0%E7%9A%84%E4%BE%8B%E5%AD%90.ipynb#%E3%80%90%E6%96%B9%E6%B3%95%E4%B8%80%E3%80%91%E6%80%9D%E7%BB%B4%E9%87%8F%E8%BE%83%E5%A4%A7%EF%BC%8C%E6%9C%89%E6%8A%80%E5%B7%A7%E6%80%A7%EF%BC%8C%E5%AF%B9Pandas%E4%BE%9D%E8%B5%96%E8%BE%83%E5%B0%91>) |
+|                                                              |                                                              | [方法二]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC10%E7%AB%A0%20%E4%B8%8D%E5%AE%9A%E6%9C%9F%E6%9B%B4%E6%96%B0%E7%9A%84%E4%BE%8B%E5%AD%90.ipynb#%E3%80%90%E6%96%B9%E6%B3%95%E4%BA%8C%E3%80%91%E6%80%9D%E8%B7%AF%E7%AE%80%E5%8D%95%EF%BC%8C%E4%BD%86%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4%E8%BE%83%E9%95%BF>) |
+|                                                              |                                                              | [方法三]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E7%AC%AC10%E7%AB%A0%20%E4%B8%8D%E5%AE%9A%E6%9C%9F%E6%9B%B4%E6%96%B0%E7%9A%84%E4%BE%8B%E5%AD%90.ipynb#%E3%80%90%E6%96%B9%E6%B3%95%E4%B8%89%E3%80%91%E5%9F%BA%E6%9C%AC%E4%B8%8E%E6%96%B9%E6%B3%95%E4%BA%8C%E7%B1%BB%E4%BC%BC%EF%BC%8C%E4%BD%86%E5%80%9F%E5%8A%A9pivot%E5%87%BD%E6%95%B0%E5%A4%A7%E5%B9%85%E6%8F%90%E9%AB%98%E9%80%9F%E5%BA%A6>) |
+|                                                              | [二、企业收入熵指数]()                                       | [参考答案]()                                                 |
 |                                                              | [...]()                                                      | [...]()                                                      |
 | [参考答案](  <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88.ipynb#%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88>) | [第1章]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88.ipynb#%E7%AC%AC1%E7%AB%A0%EF%BC%9A%E7%BB%83%E4%B9%A0%E4%B8%80>) | [练习一]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88.ipynb#%E7%AC%AC1%E7%AB%A0%EF%BC%9A%E7%BB%83%E4%B9%A0%E4%B8%80>) |
 |                                                              |                                                              | [练习二]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88.ipynb#%E7%AC%AC1%E7%AB%A0%EF%BC%9A%E7%BB%83%E4%B9%A0%E4%BA%8C>) |
@@ -164,13 +169,15 @@
 |                                                              |                                                              | [练习二]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88.ipynb#%E7%AC%AC7%E7%AB%A0%EF%BC%9A%E7%BB%83%E4%B9%A0%E4%BA%8C>) |
 |                                                              | [第8章]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88.ipynb#%E7%AC%AC8%E7%AB%A0-%E7%BB%83%E4%B9%A0%E4%B8%80>) | [练习一]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88.ipynb#%E7%AC%AC8%E7%AB%A0-%E7%BB%83%E4%B9%A0%E4%B8%80>) |
 |                                                              |                                                              | [练习二]( <https://nbviewer.jupyter.org/github/GYHHAHA/Joyful-Pandas/blob/master/%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88.ipynb#%E7%AC%AC8%E7%AB%A0-%E7%BB%83%E4%B9%A0%E4%BA%8C>) |
+|                                                              | [第9章]()                                                    | [练习一]()                                                   |
+|                                                              |                                                              | [练习二]()                                                   |
 
-#### 四、版本要求
+#### 四、使用的版本
 
 ```
 python: 3.7
 numpy: 1.18.1
-pandas: 1.0.1
+pandas: 1.0.3
 matplotlib: 3.1.3
 scipy：1.4.1
 xlrd：1.2.0
@@ -189,4 +196,4 @@ openpyxl：3.0.3
 
 2、[Pandas Cookbook](<http://93.174.95.29/_ads/23950B4446ABB5DD27168D6B0FB2C8DB>) Theodore Petrou著
 
-3、[User Guide](<https://pandas.pydata.org/pandas-docs/version/1.0.0/user_guide/index.html>) Pandas开发团队编写
+3、[User Guide](<https://pandas.pydata.org/docs/user_guide/index.html#user-guide>) Pandas开发团队编写
