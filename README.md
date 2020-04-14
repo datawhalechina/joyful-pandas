@@ -200,4 +200,4 @@ openpyxl：3.0.3
 
 #### 七、推广
 
-<img src="picture/qrcode.jpeg" style="zoom:50%"/>
+<img src="picture/qrcode.jpeg" height="450px" width="400px"/>
