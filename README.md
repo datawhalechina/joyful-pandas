@@ -1,8 +1,8 @@
 # Joyful-Pandas
 
-【本教程与Pandas官方最新发行版本保持同步，当前版本：[v-1.0.3](<https://github.com/pandas-dev/pandas/releases>)】
+【注意1】使用教程前请务必将Pandas升级到[最新版本](https://github.com/pandas-dev/pandas/releases)，否则可能会有代码运行报错！
 
-【注意】使用教程前请务必将Pandas升级到最新版本，否则可能会有代码运行报错
+【注意2】由于在Pandas的1.1.x发布后，修复了一些第七章中关于string类型处理的bug，而原教程基于了1.0.3的版本，因此可能会出现运行结果与描述部分不一致的情况，这将会在2020年12月初正式发布Joyful-Pandas电子版时一并修正，望谅解！
 
 #### 一、写作初衷
 
