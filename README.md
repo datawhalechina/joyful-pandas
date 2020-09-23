@@ -12,7 +12,7 @@
 
 2019秋季，我偶然找到了一本完全关于Pandas的书，Theodore Petrou所著的Pandas Cookbook，现在可在网上下到pdf，不过现在还没有中文版。寒假开始后，立即快速地过了一遍，发现之前很多搞不清的概念得到了较好的解答，逐步地再对着User Guide一字一句查看，最后总算是建立了大的一些宏观概念。
 
-最关键的一步，我想是通读了官方User Guide的绝大部分内容，这可能是非常重要的一个台阶，毕竟官方的教程总是会告诉你重点在哪里。因此，经过了一段时间的思考，结合了Wes Mckinney（Pandas之父）的[Python for Data Analysis](<http://93.174.95.29/_ads/A3AD6E6B2504B95EC39A6C57D465BA5D>)、先前提到的[Pandas Cookbook](<http://93.174.95.29/_ads/23950B4446ABB5DD27168D6B0FB2C8DB>)和官方的[User Guide](<https://pandas.pydata.org/pandas-docs/version/1.0.0/user_guide/index.html>)，由此想按照自己的思路编一套关于Pandas的教程，完整梳理Pandas的主线内容，杜绝浅尝辄止，保证涉及每个部分的核心概念和函数。最后，希望达到的境界自然是“所写所得即所想”，这大概需要更多的实践，也是努力实现的目标方向。
+最关键的一步，我想是通读了官方User Guide的绝大部分内容，这可能是非常重要的一个台阶，毕竟官方的教程总是会告诉你重点在哪里。因此，经过了一段时间的思考，结合了Wes Mckinney（Pandas之父）的[Python for Data Analysis](<http://93.174.95.29/_ads/A3AD6E6B2504B95EC39A6C57D465BA5D>)、先前提到的[Pandas Cookbook](<http://93.174.95.29/_ads/23950B4446ABB5DD27168D6B0FB2C8DB>)和官方的[User Guide](<https://pandas.pydata.org/docs/user_guide/index.html#user-guide>)，由此想按照自己的思路编一套关于Pandas的教程，完整梳理Pandas的主线内容，杜绝浅尝辄止，保证涉及每个部分的核心概念和函数。最后，希望达到的境界自然是“所写所得即所想”，这大概需要更多的实践，也是努力实现的目标方向。
 
 关于项目的名字，我想原先使用Pandas时非常的痛苦（Painful），那现在是时候转变为“Joyful-Pandas”了！
 
