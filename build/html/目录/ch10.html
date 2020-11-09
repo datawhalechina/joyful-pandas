@@ -1,0 +1,470 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第十章 时序数据 &#8212; Joyful Pandas 1.0.0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/s4defs-roles.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.30270b6e4c972e43c488.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="第十一章 数据清洗" href="ch11.html" />
+    <link rel="prev" title="第九章 分类数据" href="ch9.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/finallogo1.png" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../%E4%B8%BB%E9%A1%B5.html">Joyful Pandas</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">目录</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../%E5%8F%82%E4%B8%8E%E8%B4%A1%E7%8C%AE.html">参与贡献</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../%E8%81%94%E7%B3%BB%E4%BD%9C%E8%80%85.html">联系作者</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../Datawhale.html">Datawhale</a>
+        </li>
+        
+        
+        <li class="nav-item">
+            <a class="nav-link nav-external" href="https://pandas.pydata.org/docs/index.html">Pandas官网<i class="fas fa-external-link-alt"></i></a>
+        </li>
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/datawhalechina/joyful-pandas" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+        
+          
+              <li class="">
+                  <a href="%E5%89%8D%E8%A8%80.html">前言</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch1.html">第一章 预备知识</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch2.html">第二章 pandas基础</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch3.html">第三章 索引</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch4.html">第四章 分组</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch5.html">第五章 变形</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch6.html">第六章 连接</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch7.html">第七章 缺失数据</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch8.html">第八章 文本数据</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch9.html">第九章 分类数据</a>
+              </li>
+          
+        
+          
+              <li class="active">
+                  <a href="">第十章 时序数据</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch11.html">第十一章 数据清洗</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch12.html">第十二章 特征工程</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch13.html">第十三章 性能优化</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch14.html">第十四章 案例分析</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88.html">参考答案</a>
+              </li>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id2" class="nav-link">一、时间序列中的基本对象</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id3" class="nav-link">二、时间戳</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id4" class="nav-link">三、时间差</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id5" class="nav-link">四、时间段</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id6" class="nav-link">五、日期偏置</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id7" class="nav-link">六、重采样</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="id1">
+<h1>第十章 时序数据<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>一、时间序列中的基本对象<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>时间序列的概念在日常生活中十分常见，但对于一个具体的时序事件而言，可以从多个时间对象的角度来描述。例如2020年9月7日周一早上8点整需要到教室上课，这个课会在当天早上10点结束，其中包含了哪些时间概念？</p>
+<ul class="simple">
+<li><p>第一，会出现时间戳（Date times）的概念，即’2020-9-7 08:00:00’和’2020-9-7 10:00:00’这两个时间点分别代表了上课和下课的时刻，在pandas中称为 <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> 。同时，一系列的时间戳可以组成 <code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code> ，而将它放到Series中后，Series的类型就变为了 <code class="docutils literal notranslate"><span class="pre">datetime64[ns]</span></code> ，如果有涉及时区则为 <code class="docutils literal notranslate"><span class="pre">datetime64[ns,</span> <span class="pre">tz]</span></code>，其中tz是timezone的简写。</p></li>
+<li><p>第二，会出现时间差（Time deltas）的概念，即上课需要的时间，两个 <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> 做差就得到了时间差，pandas中利用 <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code> 来表示。类似的，一系列的时间差就组成了 <code class="docutils literal notranslate"><span class="pre">TimedeltaIndex</span></code>， 而将它放到Series中后，Series的类型就变为了 <code class="docutils literal notranslate"><span class="pre">timedelta64[ns]</span></code> 。</p></li>
+<li><p>第三，会出现时间段（Time spans）的概念，即在8点到10点这个区间都会持续地在上课，在pandas利用 <code class="docutils literal notranslate"><span class="pre">Period</span></code> 来表示。类似的，一系列的时间段就组成了 <code class="docutils literal notranslate"><span class="pre">PeriodIndex</span></code>， 而将它放到Series中后，Series的类型就变为了 <code class="docutils literal notranslate"><span class="pre">Period</span></code> 。</p></li>
+<li><p>第四，会出现日期偏置（Date offsets）的概念，假设你只知道9月的第一个周一早上8点要去上课，但不知道具体的日期，那么就需要一个类型来处理此类需求。再例如，想要知道2020年9月7日后的第30个工作日是哪一天，那么时间差就解决不了你的问题，从而pandas中的 <code class="docutils literal notranslate"><span class="pre">DateOffset</span></code> 就出现了。同时，pandas中没有为一列时间偏置专门设计存储类型，理由也很简单，因为需求比较奇怪，一般来说我们只需要对一批时间特征做一个统一的特殊日期偏置。</p></li>
+</ul>
+<p>通过这个简单的例子，就能够容易地总结出官方文档中的这个 <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/timeseries.html#overview">表格</a> ：</p>
+<table class="table">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 21%" />
+<col style="width: 16%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>概念</p></th>
+<th class="head"><p>单元素类型</p></th>
+<th class="head"><p>数组类型</p></th>
+<th class="head"><p>pandas数据类型</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Date times</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Timestamp</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">datetime64[ns]</span></code> or <code class="docutils literal notranslate"><span class="pre">datetime64[ns,</span> <span class="pre">tz]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Time deltas</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Timedelta</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TimedeltaIndex</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">timedelta64[ns]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Time spans</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Period</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PeriodIndex</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">period[freq]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Date offsets</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DateOffset</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>下面就分别介绍这四种基本时间对象及其操作。</p>
+</div>
+<div class="section" id="id3">
+<h2>二、时间戳<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id4">
+<h2>三、时间差<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id5">
+<h2>四、时间段<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id6">
+<h2>五、日期偏置<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="caution admonition">
+<p class="admonition-title">关于时区问题的说明</p>
+<blockquote>
+<div><p>各类时间对象的开发，除了使用python内置的datetime模块，pandas还利用了dateutil模块，很大一部分是为了处理时区问题。总所周知，我国是没有夏令时调整时间一说的，但有些国家会有这种做法，导致了相对而言一天里可能会有23/24/25个小时，也就是relativedelta，这使得Offset对象和Timedelta对象有了对同一问题处理产生不同结果的现象，其中的规则也较为复杂，官方文档的写法存在部分描述错误，并且难以对描述做出统一修正，因为牵涉到了Offset相关的很多组件。因此，本教程完全不考虑时区处理，如果对时区处理的时间偏置有兴趣了解讨论，可以联系我或者参见 <a class="reference external" href="https://github.com/pandas-dev/pandas/pull/36516">这里</a> 的讨论。</p>
+</div></blockquote>
+</div>
+<p>六、窗口函数</p>
+<div class="hint admonition">
+<p class="admonition-title">窗口对象</p>
+<blockquote>
+<div><p>在Pandas中一共设计了三类窗口对象：Rolling对象（滑动窗口）、Expanding对象（扩张窗口）以及EMW（指数加权窗口）对象。</p>
+</div></blockquote>
+</div>
+<ol class="arabic simple">
+<li><p>滑动窗口</p></li>
+</ol>
+<p>所谓使用rolling滑窗函数就是对某一个定长区域的数据进行相应聚合，因此在聚合之前，首先需要通过 <code class="docutils literal notranslate"><span class="pre">.rolling</span></code> 得到滑窗对象。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="gp">In [2]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+
+<span class="gp">In [3]: </span><span class="n">roller</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="gp">In [4]: </span><span class="n">roller</span>
+<span class="gh">Out[4]: </span><span class="go">Rolling [window=3,center=False,axis=0]</span>
+</pre></div>
+</div>
+<p>在得到了Rolling对象后，能够使用相应的聚合函数进行计算：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">roller</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="gh">Out[5]: </span><span class="go"></span>
+<span class="go">0    NaN</span>
+<span class="go">1    NaN</span>
+<span class="go">2    2.0</span>
+<span class="go">3    3.0</span>
+<span class="go">4    4.0</span>
+<span class="go">dtype: float64</span>
+
+<span class="gp">In [6]: </span><span class="n">roller</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="gh">Out[6]: </span><span class="go"></span>
+<span class="go">0     NaN</span>
+<span class="go">1     NaN</span>
+<span class="go">2     6.0</span>
+<span class="go">3     9.0</span>
+<span class="go">4    12.0</span>
+<span class="go">dtype: float64</span>
+</pre></div>
+</div>
+<p>同样如对于第四章介绍的groupby对象一样，能够使用apply方法进行自定义聚合，例如上述的均值滑窗可以如下地等效写出：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">roller</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="gh">Out[7]: </span><span class="go"></span>
+<span class="go">0    NaN</span>
+<span class="go">1    NaN</span>
+<span class="go">2    2.0</span>
+<span class="go">3    3.0</span>
+<span class="go">4    4.0</span>
+<span class="go">dtype: float64</span>
+</pre></div>
+</div>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="gp">In [9]: </span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="gh">Out[9]: </span><span class="go">&lt;matplotlib.collections.PathCollection at 0x1f598b41248&gt;</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/ch1.png"><img alt="../_images/ch1.png" src="../_images/ch1.png" style="width: 400px;" /></a>
+<iframe class="markdown-player"
+
+src="https://player.bilibili.com/player.html?aid=583388526&bvid=BV1Hz4y197yi&cid=199953467&page=1;high_quality=1&amp;danmaku=0&amp;as_wide=1"
+
+width="80%" height="460" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe><div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>这是一个笔记</p>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>扩张窗口</p></li>
+<li><p>指数加权窗口</p></li>
+<li><p>类窗口函数</p></li>
+</ol>
+<p>s.diff.replace.fillna.fillna</p>
+</div>
+<div class="section" id="id7">
+<h2>六、重采样<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>round
+shift
+diff
+ceil floor</p>
+<div class="math notranslate nohighlight">
+\[\nabla^2 f =
+\frac{1}{r^2} \frac{\partial}{\partial r}
+\left( r^2 \frac{\partial f}{\partial r} \right) +
+\frac{1}{r^2 \sin \theta} \frac{\partial f}{\partial \theta}
+\left( \sin \theta \, \frac{\partial f}{\partial \theta} \right) +
+\frac{1}{r^2 \sin^2\theta} \frac{\partial^2 f}{\partial \phi^2}\]</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.30270b6e4c972e43c488.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020, Datawhale, 耿远昊.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

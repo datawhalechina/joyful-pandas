@@ -1,0 +1,5 @@
+col1	col2	col3	col4
+2	a	1.4	apple 2020/1/1
+3	b	3.4	banana 2020/1/2
+6	c	2.5	orange 2020/1/5
+5	d	3.2	lemon 2020/1/7
