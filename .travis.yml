@@ -24,4 +24,5 @@ install:
   - conda install pydata-sphinx-theme --channel conda-forge
 
 script:
-  # Your test script goes here
+  - make clean
+  - make html
