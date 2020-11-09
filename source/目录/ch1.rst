@@ -61,7 +61,7 @@ Ex1：改进矩阵计算的性能
     L_res = []
     for i in range(m):
         for j in range(n):
-            norm_value = ((B[i]-U[j])**2).sum()
+            norm_value = ((B[i] - U[j])**2).sum()
             L_res.append(norm_value*Z[i][j])
     sum(L_res)
 
