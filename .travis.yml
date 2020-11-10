@@ -20,7 +20,7 @@ install:
   # Replace dep1 dep2 ... with your dependencies
   - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION
   - conda activate test-environment
-  - conda install numpy pandas matplotlib sphnix
+  - conda install numpy pandas matplotlib sphinx
   - conda install pydata-sphinx-theme --channel conda-forge
 
 script:
