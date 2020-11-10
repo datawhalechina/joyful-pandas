@@ -24,6 +24,7 @@ install:
   - conda install pandas
   - conda install matplotlib
   - conda install sphinx
+  - conda install ipython
   - conda install pydata-sphinx-theme --channel conda-forge
 
 script:
