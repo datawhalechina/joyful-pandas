@@ -18,7 +18,7 @@ install:
   - conda info -a
 
   # Replace dep1 dep2 ... with your dependencies
-  - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION
+  - conda create -q -n test-environment python=3.7
   - conda activate test-environment
   - conda install numpy
   - conda install pandas
