@@ -42,7 +42,7 @@
 
 通过颜色的标记，更容易地能够理解其变形的过程：
 
-.. image:: ../_static/ch5_pivot.png
+.. image:: ../_static/ch5_pivot.PNG
    :height: 342.8 px
    :width: 300 px
    :scale: 100 %
@@ -86,7 +86,7 @@
 
 根据唯一性原则，新表的行索引等价于对 ``index`` 中的多列使用 ``drop_duplicates`` ，而列索引的长度为 ``values`` 中的元素个数乘以 ``columns`` 的唯一组合数量（与 ``index`` 类似） 。从下面的示意图中能够比较容易地理解相应的操作：
 
-.. image:: ../_static/ch5_mulpivot.png
+.. image:: ../_static/ch5_mulpivot.PNG
    :height: 484.18 px
    :width: 430 px
    :scale: 100 %
@@ -160,7 +160,7 @@
 
 ``melt`` 的主要参数和压缩的过程如下图所示：
 
-.. image:: ../_static/ch5_melt.png
+.. image:: ../_static/ch5_melt.PNG
    :height: 480 px
    :width: 500 px
    :scale: 100 %
@@ -193,7 +193,7 @@
 
 具体的变换过程由下图进行展示，属相同概念的元素使用了一致的颜色标出：
 
-.. image:: ../_static/ch5_wtl.png
+.. image:: ../_static/ch5_wtl.PNG
    :height: 480 px
    :width: 500 px
    :scale: 100 %
