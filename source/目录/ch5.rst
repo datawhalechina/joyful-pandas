@@ -193,7 +193,7 @@
 
 具体的变换过程由下图进行展示，属相同概念的元素使用了一致的颜色标出：
 
-.. image:: ../_static/ch5_wtl.PNG
+.. image:: ../_static/ch5_wtl.png
    :height: 480 px
    :width: 500 px
    :scale: 100 %
