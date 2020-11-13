@@ -263,29 +263,23 @@
 <h1>目录<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="%E5%89%8D%E8%A8%80.html">前言</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="%E5%89%8D%E8%A8%80.html#pandas">一、Pandas的背景</a></li>
-<li class="toctree-l2"><a class="reference internal" href="%E5%89%8D%E8%A8%80.html#id2">二、写作初衷</a></li>
-<li class="toctree-l2"><a class="reference internal" href="%E5%89%8D%E8%A8%80.html#id3">三、目标读者</a></li>
-<li class="toctree-l2"><a class="reference internal" href="%E5%89%8D%E8%A8%80.html#id4">四、章节结构</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="%E5%89%8D%E8%A8%80.html">前言</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch1.html">第一章 预备知识</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="ch1.html#python">一、Python基础</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ch1.html#id2">1. 列表推导式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ch1.html#id2">1. 列表推导式与条件赋值</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ch1.html#map">2. 匿名函数与map方法</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ch1.html#reducefilter">3. reduce与filter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ch1.html#zipenumerate">4. zip对象与enumerate方法</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ch1.html#id3">5. 格式化输出</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ch1.html#zipenumerate">3. zip对象与enumerate方法</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="ch1.html#numpy">二、Numpy基础</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="ch1.html#np">1. np数组的构造</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ch1.html#id4">2. np数组的变形</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ch1.html#id5">3. 常用的数组方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ch1.html#id3">2. np数组的变形与合并</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ch1.html#id4">3. np数组的切片与索引</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ch1.html#id5">4. 常用函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ch1.html#id6">5. 向量与矩阵的计算</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="ch1.html#id6">三、练习</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch1.html#id7">三、练习</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="ch1.html#ex1">Ex1：改进矩阵计算的性能</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ch1.html#ex2">Ex2：连续整数的最大长度</a></li>
 </ul>
@@ -484,12 +478,29 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ch10.html">第十章 时序数据</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ch10.html#id2">一、时间序列中的基本对象</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ch10.html#id3">二、时间戳</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ch10.html#id4">三、时间差</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ch10.html#id5">四、时间段</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ch10.html#id6">五、日期偏置</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ch10.html#id7">六、重采样</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch10.html#id2">一、时序中的基本对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch10.html#id3">二、时间戳</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ch10.html#timestamp">1. Timestamp的构造与属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ch10.html#datetime">2. Datetime序列的生成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ch10.html#dt">3. dt对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ch10.html#id4">4. 时间戳的切片与索引</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ch10.html#id5">三、时间差</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ch10.html#timedelta">1. Timedelta的生成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ch10.html#id6">2. Timedelta的运算</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ch10.html#id7">四、日期偏置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ch10.html#offset">1. Offset对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ch10.html#id8">2. 偏置字符串</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ch10.html#id9">五、时序中的滑窗与分组</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ch10.html#id10">1. 滑动窗口</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ch10.html#id11">2. 重采样</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ch11.html">第十一章 数据清洗</a></li>
