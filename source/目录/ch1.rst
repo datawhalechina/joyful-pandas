@@ -267,7 +267,7 @@ zip函数能够把多个可迭代对象打包成一个元组构成的可迭代�
     target.reshape((4,2), order='C') # 按照行读取和填充
     target.reshape((4,2), order='F') # 按照列读取和填充
 
-特别地，由于被调用数组的大小是确定的，reshape允许有一个维度存在空缺，此时只需填充-1即可：
+特别地，由于被调用数组的大小是确定的， `reshape` 允许有一个维度存在空缺，此时只需填充-1即可：
 
 .. ipython:: python
 
@@ -384,7 +384,54 @@ zip函数能够把多个可迭代对象打包成一个元组构成的可迭代�
     np.cov(target1, target2)
     np.corrcoef(target1, target2)
 
-5. 向量与矩阵的计算
+最后，需要说明二维 ``Numpy`` 数组中统计函数的 ``axis`` 参数，它能够进行某一个维度下的统计特征计算，当 ``axis=0`` 时结果为列的统计指标，当 ``axis=1`` 时结果为行的统计指标：
+
+.. ipython:: python
+
+    target = np.arange(1,10).reshape(3,-1)
+    target
+    target.sum(0)
+    target.sum(1)
+
+5. 广播机制
+---------------------
+
+广播机制用于处理两个不同维度数组之间的操作，这里只讨论不超过两维的数组广播机制。
+
+【a】标量和数组的操作
+
+当一个标量和数组进行运算时，标量会自动把大小扩充为数组大小，之后进行逐元素操作：
+
+.. ipython:: python
+
+    res = 3 * np.ones((2,2)) + 1
+    res
+    res = 1 / res
+    res
+
+【b】二维数组之间的操作
+
+当两个数组维度完全一致时，使用对应元素的操作，否则会报错，除非其中的某个数组的维度是 :math:`m\times 1` 或者 :math:`1\times n` ，那么会扩充其具有 :math:`1` 的维度为另一个数组对应维度的大小。例如， :math:`1\times 2` 数组和 :math:`3\times 2` 数组做逐元素运算时会把第一个数组扩充为 :math:`3\times 2` ，扩充时的对应数值进行赋值。但是，需要注意的是，如果第一个数组的维度是 :math:`1\times 3` ，那么由于在第二维上的大小不匹配且不为 :math:`1` ，此时报错。
+
+.. ipython:: python
+
+    res = np.ones((3,2))
+    res
+    res * np.array([[2,3]]) # 扩充第一维度为3
+    res * np.array([[2],[3],[4]]) # 扩充第二维度为2
+    res * np.array([[2]]) # 等价于两次扩充
+
+【c】一维数组与二维数组的操作
+
+当一维数组 :math:`A_k` 与二维数组 :math:`B_{m,n}` 操作时，等价于把一维数组视作 :math:`A_{1,k}` 的二维数组，使用的广播法则与【b】中一致，当 :math:`k!=n` 且 :math:`k, n` 都不是 :math:`1` 时报错。
+
+.. ipython:: python
+
+    np.ones(3) + np.ones((2,3))
+    np.ones(3) + np.ones((2,1))
+    np.ones(1) + np.ones((2,3))
+
+6. 向量与矩阵的计算
 --------------------------
 
 【a】向量内积： ``dot``
@@ -452,10 +499,55 @@ other  --                            sum(abs(x)**ord)**(1./ord)
 三、练习
 ===================
 
-Ex1：改进矩阵计算的性能
+Ex1：利用列表推导式写矩阵乘法
+------------------------------------
+
+一般的矩阵乘法根据公式，可以由三重循环写出：
+
+.. ipython:: python
+
+    M1 = np.random.rand(2,3)
+    M2 = np.random.rand(3,4)
+    res = np.empty((M1.shape[0],M2.shape[1]))
+    for i in range(M1.shape[0]):
+        for j in range(M2.shape[1]):
+            item = 0
+            for k in range(M1.shape[1]):
+                item += M1[i][k] * M2[k][j]
+            res[i][j] = item
+    ((M1@M2 - res) < 1e-15).all() # 排除数值误差
+
+请将其改写为列表推导式的形式。
+
+Ex2：更新矩阵
+------------------
+
+设矩阵 :math:`A_{m\times n}` ，现在对 :math:`A` 中的每一个元素进行更新生成矩阵 :math:`B` ，更新方法是 :math:`\displaystyle B_{ij}=A_{ij}\sum_{k=1}^n\frac{1}{A_{ik}}` ，例如下面的矩阵为 :math:`A` ，则 :math:`B_{2,2}=5\times(\frac{1}{4}+\frac{1}{5}+\frac{1}{6})=\frac{37}{12}` ，请利用 ``Numpy`` 高效实现。 
+
+.. math::
+
+    A=\left[ \begin{matrix} 1 & 2 &3\\4&5&6\\7&8&9 \end{matrix} \right]
+
+Ex3：卡方统计量
+--------------------------
+
+设矩阵 :math:`A_{m\times n}` ，记 :math:`B_{ij} = \frac{(\sum_{i=1}^mA_{ij})\times (\sum_{j=1}^nA_{ij})}{\sum_{i=1}^m\sum_{i=1}^nA_{ij}}` ，定义卡方值如下：
+
+.. math::
+
+    \chi^2 = \sum_{i=1}^m\sum_{j=1}^n\frac{(A_{ij}-B_{ij})^2}{B_{ij}}
+
+请利用 ``Numpy`` 对给定的矩阵 :math:`A` 计算 :math:`\chi^2` 。
+
+.. ipython:: python
+
+    np.random.seed(0)
+    A = np.random.randint(10, 20, (8, 5))
+
+Ex4：改进矩阵计算的性能
 ------------------------------
 
-设 :math:`Z` 为 :math:`m\times n` 的矩阵， :math:`B` 和 :math:`U` 分别是 :math:`m\times p` 和 :math:`n\times p` 的矩阵， :math:`B_i` 为 :math:`B` 的第 :math:`i` 行， :math:`U_j` 为 :math:`U` 的第 :math:`j` 行，下面定义 :math:`\displaystyle R=\sum_{i=1}^m\sum_{j=1}^n\|B_i-U_j\|_2^2Z_{ij}` ，其中 :math:`\|\mathbf{a}\|_2^2` 表示向量 :math:`\mathbf{a}` 的分量平方和 :math:`\sum_i a_i^2` 。
+设 :math:`Z` 为 :math:`m\times n` 的矩阵， :math:`B` 和 :math:`U` 分别是 :math:`m\times p` 和 :math:`p\times n` 的矩阵， :math:`B_i` 为 :math:`B` 的第 :math:`i` 行， :math:`U_j` 为 :math:`U` 的第 :math:`j` 列，下面定义 :math:`\displaystyle R=\sum_{i=1}^m\sum_{j=1}^n\|B_i-U_j\|_2^2Z_{ij}` ，其中 :math:`\|\mathbf{a}\|_2^2` 表示向量 :math:`\mathbf{a}` 的分量平方和 :math:`\sum_i a_i^2` 。
 
 现有某人根据如下给定的样例数据计算 :math:`R` 的值，请充分利用 ``Numpy`` 中的函数，基于此问题改进这段代码的性能。
 
@@ -464,19 +556,22 @@ Ex1：改进矩阵计算的性能
     np.random.seed(0)
     m, n, p = 100, 80, 50
     B = np.random.randint(0, 2, (m, p))
-    U = np.random.randint(0, 2, (n, p))
+    U = np.random.randint(0, 2, (p, n))
     Z = np.random.randint(0, 2, (m, n))
 
 .. ipython:: python
 
-    L_res = []
-    for i in range(m):
-        for j in range(n):
-            norm_value = ((B[i]-U[j])**2).sum()
-            L_res.append(norm_value*Z[i][j])
-    sum(L_res)
+    def solution(B=B, U=U, Z=Z):
+        L_res = []
+        for i in range(m):
+            for j in range(n):
+                norm_value = ((B[i]-U[:,j])**2).sum()
+                L_res.append(norm_value*Z[i][j])
+        return sum(L_res)
 
-Ex2：连续整数的最大长度
+    solution(B, U, Z)
+
+Ex5：连续整数的最大长度
 ------------------------------
 
-输入一个整数的 ``Numpy`` 数组，返回其中连续整数子数组的最大长度。例如，输入 [1,2,5,6,7]，[5,6,7]为具有最大长度的连续整数子数组，因此输出3；输入[3,2,1,2,3,4,6]，[1,2,3,4]为具有最大长度的连续整数子数组，因此输出4。请充分利用 ``Numpy`` 的内置函数完成。（提示：考虑使用 ``nonzero, diff`` 函数）
+输入一个整数的 ``Numpy`` 数组，返回其中递增连续整数子数组的最大长度，正向是指递增方向。例如，输入 [1,2,5,6,7]，[5,6,7]为具有最大长度的连续整数子数组，因此输出3；输入[3,2,1,2,3,4,6]，[1,2,3,4]为具有最大长度的连续整数子数组，因此输出4。请充分利用 ``Numpy`` 的内置函数完成。（提示：考虑使用 ``nonzero, diff`` 函数）

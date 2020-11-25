@@ -1,7 +1,0 @@
-****************************
-参考答案
-****************************
-
-np.diff(np.nonzero(np.r_[1,np.diff(x)!=1,1])).max()
-
-((np.ones((m,n))*(B**2).sum(1).reshape([m,1]) + np.ones((m,n))*(U.T**2).sum(0) - 2*B@U.T)*Z).sum()

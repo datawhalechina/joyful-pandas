@@ -42,7 +42,7 @@
 
 通过颜色的标记，更容易地能够理解其变形的过程：
 
-.. image:: ../_static/ch5_pivot.PNG
+.. image:: ../_static/ch5_pivot.png
    :height: 342.8 px
    :width: 300 px
    :scale: 100 %
@@ -86,7 +86,7 @@
 
 根据唯一性原则，新表的行索引等价于对 ``index`` 中的多列使用 ``drop_duplicates`` ，而列索引的长度为 ``values`` 中的元素个数乘以 ``columns`` 的唯一组合数量（与 ``index`` 类似） 。从下面的示意图中能够比较容易地理解相应的操作：
 
-.. image:: ../_static/ch5_mulpivot.PNG
+.. image:: ../_static/ch5_mulpivot.png
    :height: 484.18 px
    :width: 430 px
    :scale: 100 %
@@ -160,7 +160,7 @@
 
 ``melt`` 的主要参数和压缩的过程如下图所示：
 
-.. image:: ../_static/ch5_melt.PNG
+.. image:: ../_static/ch5_melt.png
    :height: 480 px
    :width: 500 px
    :scale: 100 %
@@ -189,20 +189,20 @@
                       'Chinese_Mid':[80, 75], 'Math_Mid':[90, 85],
                       'Chinese_Final':[80, 75], 'Math_Final':[90, 85]})
    df
-   pd.wide_to_long(df, stubnames=['Chinese', 'Math'], i = ['Class', 'Name'], j='Examination', sep='_', suffix='.+')
+   pd.wide_to_long(df,
+                   stubnames=['Chinese', 'Math'],
+                   i = ['Class', 'Name'],
+                   j='Examination',
+                   sep='_',
+                   suffix='.+')
 
 具体的变换过程由下图进行展示，属相同概念的元素使用了一致的颜色标出：
 
-.. image:: ../_static/ch5_wtl.PNG
+.. image:: ../_static/ch5_wtl.png
    :height: 480 px
    :width: 500 px
    :scale: 100 %
    :align: center
-
-.. admonition:: 练一练
-   :class: hint
-
-    从功能上看， ``melt`` 方法应当属于 ``wide_to_long`` 的一类特殊情况，即 ``stubnames`` 只有一类。请把前面生成 ``df_melted`` 的例子，用 ``wide_to_long`` 进行改写，使其返回相同的结果。（提示：对列名增加适当的前缀）
 
 下面给出一个比较复杂的案例，把之前在 ``pivot`` 一节中多列操作的结果（产生了多级索引），利用 ``wide_to_long`` 函数，将其转为原来的形态。其中，使用了第八章的 ``str.split`` 函数，目前暂时只需将其理解为对序列按照某个分隔符进行拆分即可。
 
@@ -350,3 +350,41 @@
 .. ipython:: python
 
    pd.get_dummies(df.Grade).head()
+
+四、练习
+====================
+
+Ex1：美国非法药物数据集
+---------------------------------
+
+现有一份关于美国非法药物的数据集，其中 ``SubstanceName, DrugReports`` 分别指药物名称和报告数量：
+
+.. ipython:: python
+
+   df = pd.read_csv('data/drugs.csv').sort_values([
+        'State','COUNTY','SubstanceName'],ignore_index=True)
+   df.head(3)
+
+1. 将数据转为如下的形式：
+
+.. image:: ../_static/Ex5_1.png
+   :height: 173 px
+   :width: 637 px
+   :scale: 100 %
+   :align: center
+
+2. 将第1问中的结果恢复为原表。
+3. 按 ``State`` 分别统计每年的报告数量总和，其中 ``State, YYYY`` 分别为列索引和行索引，要求分别使用 ``pivot_table`` 函数与 ``groupby+unstack`` 两种不同的策略实现，并体会它们之间的联系。
+
+Ex2：特殊的wide_to_long方法
+-------------------------------------
+
+从功能上看， ``melt`` 方法应当属于 ``wide_to_long`` 的一种特殊情况，即 ``stubnames`` 只有一类。请使用 ``wide_to_long`` 生成 ``melt`` 一节中的 ``df_melted`` 。（提示：对列名增加适当的前缀）
+
+.. ipython:: python
+
+   df = pd.DataFrame({'Class':[1,2],
+                     'Name':['San Zhang', 'Si Li'],
+                     'Chinese':[80, 90],
+                     'Math':[80, 75]})
+   df

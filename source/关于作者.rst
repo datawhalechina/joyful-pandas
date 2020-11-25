@@ -1,0 +1,22 @@
+*********
+关于作者
+*********
+
+邮件
+------
+
+1801214626@qq.com 
+
+Github
+--------
+
+https://github.com/GYHHAHA
+
+微信
+---------
+
+.. image:: _static/wx.png
+   :height: 200px
+   :width: 200 px
+   :scale: 100 %
+   :align: left

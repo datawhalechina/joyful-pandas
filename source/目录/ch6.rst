@@ -270,3 +270,29 @@
     df1 = pd.DataFrame({'A':[1,2], 'B':[3,np.nan]})
     df2 = pd.DataFrame({'A':[5,6], 'B':[7,8]}, index=[1,2])
     df1.combine_first(df2)
+
+四、练习
+=================
+
+Ex1：美国疫情数据集
+------------------------------
+
+现有美国4月12日至11月16日的疫情报表，请将 ``New York`` 的 ``Confirmed, Deaths, Recovered, Active`` 合并为一张表，索引为按如下方法生成的日期字符串序列：
+
+.. ipython:: python
+
+    date = pd.date_range('20200412', '20201116').to_series()
+    date = date.dt.month.astype('string').str.zfill(2
+           ) +'-'+ date.dt.day.astype('string'
+           ).str.zfill(2) +'-'+ '2020'
+    date = date.tolist()
+    date[:5]
+
+Ex2：实现join函数
+------------------------------
+
+请实现带有 ``how`` 参数的 ``join`` 函数
+
+* 假设连接的两表无公共列
+* 调用方式为 ``join(df1, df2, how="left")``
+* 给出测试样例
