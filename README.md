@@ -2,10 +2,10 @@
 
 ### 介绍
 
-data：数据集
-ebook：教程电子版
-notebook：教程notebook版
-source：网页版源代码
+* data：数据集
+* ebook：教程电子版
+* notebook：教程notebook版
+* source：网页版源代码
 
 ### 参考资料
 
@@ -17,7 +17,7 @@ source：网页版源代码
 
 ### 推广
 
-<img src="picture/qrcode.jpeg" height="270px" width="225px"/>
+<img src="source/_static/qrcode.jpeg" height="270px" width="225px"/>
 
 ### LICENSE
 

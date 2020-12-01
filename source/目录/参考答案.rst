@@ -159,7 +159,8 @@ Ex1：口袋妖怪数据集
 
 .. ipython:: python
 
-     df['Type 1'].replace({i:str.upper(i) for i in df['Type 1'].unique()})
+    df['Type 1'].replace({i:str.upper(i) for i in df['Type 1'
+                ].unique()}).head()
     df['Type 1'].apply(lambda x:str.upper(x)).head()
 
 (c)

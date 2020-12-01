@@ -1,0 +1,326 @@
+/*
+ * CSS hacks and small modification for my Sphinx website
+ * :copyright: Copyright 2013-2016 Lilian Besson
+ * :license: GPLv3, see LICENSE for details.
+ */
+
+
+/* Colors and text decoration.
+ For example, :black:`text in black` or :blink:`text blinking` in rST. */
+
+.black {
+    color: black;
+}
+
+.gray {
+    color: gray;
+}
+
+.grey {
+    color: gray;
+}
+
+.silver {
+    color: silver;
+}
+
+.white {
+    color: white;
+}
+
+.maroon {
+    color: maroon;
+}
+
+.red {
+    color: red;
+}
+
+.magenta {
+    color: magenta;
+}
+
+.fuchsia {
+    color: fuchsia;
+}
+
+.pink {
+    color: pink;
+}
+
+.orange {
+    color: orange;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.lime {
+    color: lime;
+}
+
+.green {
+    color: green;
+}
+
+.olive {
+    color: olive;
+}
+
+.teal {
+    color: teal;
+}
+
+.cyan {
+    color: cyan;
+}
+
+.aqua {
+    color: aqua;
+}
+
+.blue {
+    color: blue;
+}
+
+.navy {
+    color: navy;
+}
+
+.purple {
+    color: purple;
+}
+
+.under {
+    text-decoration: underline;
+}
+
+.over {
+    text-decoration: overline;
+}
+
+.blink {
+    text-decoration: blink;
+}
+
+.line {
+    text-decoration: line-through;
+}
+
+.strike {
+    text-decoration: line-through;
+}
+
+.it {
+    font-style: italic;
+}
+
+.ob {
+    font-style: oblique;
+}
+
+.small {
+    font-size: small;
+}
+
+.large {
+    font-size: large;
+}
+
+.smallpar {
+    font-size: small;
+}
+
+
+/* Style pour les badges en bas de la page. */
+
+div.supportBadges {
+    margin: 1em;
+    text-align: right;
+}
+
+div.supportBadges ul {
+    padding: 0;
+    display: inline;
+}
+
+div.supportBadges li {
+    display: inline;
+}
+
+div.supportBadges a {
+    margin-right: 1px;
+    opacity: 0.6;
+}
+
+div.supportBadges a:hover {
+    opacity: 1;
+}
+
+
+/* Details elements in the sidebar */
+
+a.reference {
+    border-bottom: none;
+    text-decoration: none;
+}
+
+ul.details {
+    font-size: 80%;
+}
+
+ul.details li p {
+    font-size: 85%;
+}
+
+ul.externallinks {
+    font-size: 85%;
+}
+
+
+/* Pour le drapeau de langue */
+
+img.languageswitch {
+    width: 50px;
+    height: 32px;
+    margin-left: 5px;
+    vertical-align: bottom;
+}
+
+div.sphinxsidebar {
+    overflow: hidden !important;
+    font-size: 120%;
+    word-wrap: break-word;
+    width: 300px;
+    max-width: 300px;
+}
+
+div.sphinxsidebar h3 {
+    font-size: 125%;
+}
+
+div.sphinxsidebar h4 {
+    font-size: 110%;
+}
+
+div.sphinxsidebar a {
+    font-size: 85%;
+}
+
+
+/* Image style for scrollUp jQuery plugin */
+
+#scrollUpLeft {
+    bottom: 50px;
+    left: 260px;
+    height: 38px;
+    width: 38px;
+    background: url('//perso.crans.org/besson/_images/.top.svg');
+    background: url('../_images/.top.svg');
+}
+
+@media screen and (max-width: 875px) {
+    #scrollUpLeft {
+        right: 50px;
+        left: auto;
+    }
+}
+
+
+/* responsive for font-size. */
+
+@media (max-width: 875px) {
+    body {
+        font-size: 105%;
+        /* Increase font size for responsive theme */
+    }
+}
+
+@media (max-width: 1480px) and (min-width: 876px) {
+    body {
+        font-size: 110%;
+        /* Increase font size for not-so-big screens */
+    }
+}
+
+@media (min-width: 1481px) {
+    body {
+        font-size: 115%;
+        /* Increase even more font size for big screens */
+    }
+}
+
+
+/* Social Icons in the sidebar (available: twitter, facebook, linkedin, google+, bitbucket, github) */
+
+.social-icons {
+    display: inline-block;
+    margin: 0;
+    text-align: center;
+}
+
+.social-icons a {
+    background: none no-repeat scroll center top #444444;
+    border: 1px solid #F6F6F6;
+    border-radius: 50% 50% 50% 50%;
+    display: inline-block;
+    height: 35px;
+    width: 35px;
+    margin: 0;
+    text-indent: -9000px;
+    transition: all 0.2s ease 0s;
+    text-align: center;
+    border-bottom: none;
+}
+
+.social-icons li {
+    display: inline-block;
+    list-style-type: none;
+    border-bottom: none;
+}
+.social-icons li a {
+    border-bottom: none;
+}
+
+.social-icons a:hover {
+    background-color: #666666;
+    transition: all 0.2s ease 0s;
+    text-decoration: none;
+}
+
+.social-icons a.facebook {
+    background-image: url('../_images/.facebook.png');
+    background-image: url('//perso.crans.org/besson/_images/.facebook.png');
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-size: 35px 35px;
+}
+
+.social-icons a.bitbucket {
+    background-image: url('../_images/.bitbucket.png');
+    background-image: url('//perso.crans.org/besson/_images/.bitbucket.png');
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-size: 35px 35px;
+}
+
+.social-icons li a.github {
+    background-image: url('../_images/.github.png');
+    background-image: url('//perso.crans.org/besson/_images/.github.png');
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-size: 35px 35px;
+}
+
+.social-icons li a.wikipedia {
+    background-image: url('../_images/.wikipedia.png');
+    background-image: url('//perso.crans.org/besson/_images/.wikipedia.png');
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-size: 35px 35px;
+}

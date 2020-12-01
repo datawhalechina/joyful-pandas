@@ -14,8 +14,7 @@ Joyful Pandas
 
    主页
    目录/index
-   参与贡献
    关于作者
    Datawhale
 
-test
+简介待补充
