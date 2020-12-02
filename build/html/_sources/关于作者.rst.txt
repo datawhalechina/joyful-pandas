@@ -1,0 +1,42 @@
+*********
+关于作者
+*********
+
+Contributions to pandas project
+======================================
+
+Merged：
+-------------
+
+* `#33783 <https://github.com/pandas-dev/pandas/pull/33783>`__ DOC: fix doc for crosstab with Categorical data input
+* `#36516 <https://github.com/pandas-dev/pandas/pull/36516>`__ DOC: Correct inconsistent description on default DateOffset setting
+* `#37607 <https://github.com/pandas-dev/pandas/pull/37607>`__ BUG: nunique not ignoring both None and np.nan
+* `#38029 <https://github.com/pandas-dev/pandas/pull/38029>`__ BUG: unstack with missing levels results in incorrect index names
+* `#37830 <https://github.com/pandas-dev/pandas/pull/37830>`__ BUG: MultiIndex.drop does not raise if labels are partially found
+* `#38089 <https://github.com/pandas-dev/pandas/pull/38089>`__ BUG: merge_ordered fails with list-like left_by or right_by
+
+Working On：
+----------------------
+
+* `#38170  <https://github.com/pandas-dev/pandas/pull/38170>`__ BUG: unexpected merge_ordered results caused by wrongly groupby
+* `#38173  <https://github.com/pandas-dev/pandas/pull/38173>`__ BUG: array-like quantile fails on column groupby
+* `#37805 <https://github.com/pandas-dev/pandas/pull/37805>`__ ENH: Add end and end_day options for origin from resample
+
+Mail
+=================
+
+1801214626@qq.com 
+
+Github
+================
+
+https://github.com/GYHHAHA
+
+WeChat
+===============
+
+.. image:: _static/wx.png
+   :height: 200px
+   :width: 200 px
+   :scale: 100 %
+   :align: left
