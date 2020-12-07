@@ -2,10 +2,18 @@
 
 # ！！！仓库调整中，最终版本以12月12日为准
 
+### 网页版
+
+https://datawhalechina.github.io/joyful-pandas/build/html/%E7%9B%AE%E5%BD%95/index.html
+
+### 论坛
+
+http://datawhale.club/c/team-learning/IntroductionToPandas/12
+
 ### 文件内容
 
 * data：数据集
-* ebook：教程电子版（点击[此处](https://datawhalechina.github.io/joyful-pandas/build/html/%E7%9B%AE%E5%BD%95/index.html)查看网页版）
+* ebook：教程电子版
 * notebook：教程notebook版
 
 ### 参考资料
@@ -15,10 +23,6 @@
 * [Pandas Cookbook](<http://93.174.95.29/_ads/23950B4446ABB5DD27168D6B0FB2C8DB>) Theodore Petrou著
 
 * [User Guide](<https://pandas.pydata.org/docs/user_guide/index.html#user-guide>) Pandas开发团队编写
-
-### 论坛
-
-http://datawhale.club/c/team-learning/IntroductionToPandas/12
 
 ### 交流群
 
