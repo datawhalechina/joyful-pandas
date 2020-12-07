@@ -1,6 +1,6 @@
 # Joyful-Pandas
 
-$\color{red}{！！！仓库调整中，最终版本以12月12日为准}$
+# ！！！仓库调整中，最终版本以12月12日为准
 
 ### 文件内容
 
@@ -22,11 +22,11 @@ http://datawhale.club/c/team-learning/IntroductionToPandas/12
 
 ### 交流群
 
-<img src="source/_static/qun.jpg" height="388px" width="336px"/>
+<img src="source/_static/qun.jpg" width="50%"/>
 
 ### 推广
 
-<img src="source/_static/qrcode.jpeg" height="388px" width="336px"/>
+<img src="source/_static/qrcode.jpeg" width="50%"/>
 
 ### LICENSE
 
