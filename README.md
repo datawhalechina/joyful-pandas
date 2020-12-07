@@ -22,11 +22,11 @@ http://datawhale.club/c/team-learning/IntroductionToPandas/12
 
 ### 交流群
 
-<img src="source/_static/qun.jpg" width="50%"/>
+<img src="source/_static/qun.jpg" width="25%"/>
 
 ### 推广
 
-<img src="source/_static/qrcode.jpeg" width="50%"/>
+<img src="source/_static/qrcode.jpeg" width="25%"/>
 
 ### LICENSE
 
