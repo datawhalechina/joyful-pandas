@@ -153,7 +153,7 @@
 .. admonition:: 关于polynomial和spline插值的注意事项
    :class: caution
 
-    在 ``interpolate`` 中如果选用 ``polynomial`` 的插值方法，它内部调用的是 ``scipy.interpolate.interp1d(*,*,kind=order)`` ，这个函数内部调用的是 ``make_interp_spline`` 方法，因此其实是样条插值而不是类似于 ``numpy`` 中的 ``polyfit`` 多项式拟合插值；而当选用 ``spline`` 方法时，``pandas`` 调用的是 ``scipy.interpolate.UnivariateSpline`` 而不是普通的样条插值。这一部分的文档描述比较混乱，而且这种参数的设计也是不合理的，当使用这两类插值方法时，用户一定要小心谨慎地根据自己的实际需求选取恰当的插值方法。
+    在 ``interpolate`` 中如果选用 ``polynomial`` 的插值方法，它内部调用的是 ``scipy.interpolate.interp1d(*,*,kind=order)`` ，这个函数内部调用的是 ``make_interp_spline`` 方法，因此其实是样条插值而不是类似于 ``numpy`` 中的 ``polyfit`` 多项式拟合插值；而当选用 ``spline`` 方法时， ``pandas`` 调用的是 ``scipy.interpolate.UnivariateSpline`` 而不是普通的样条插值。这一部分的文档描述比较混乱，而且这种参数的设计也是不合理的，当使用这两类插值方法时，用户一定要小心谨慎地根据自己的实际需求选取恰当的插值方法。
 
 三、Nullable类型
 ========================
@@ -178,14 +178,6 @@
     np.nan == None
     np.nan == False
 
-在 ``pandas`` 中无论是 ``None`` 还是 ``np.nan`` ，存入序列或表中都会以 ``np.nan`` 的形式存储：
-
-.. ipython:: python
-
-    pd.Series([1, None])
-    pd.Series([1, np.nan])
-
-
 值得注意的是，虽然在对缺失序列或表格的元素进行比较操作的时候， ``np.nan`` 的对应位置会返回 ``False`` ，但是在使用 ``equals`` 函数进行两张表或两个序列的相同性检验时，会自动跳过两侧表都是缺失值的位置，直接返回 ``True`` ：
 
 .. ipython:: python
@@ -197,7 +189,7 @@
     s1.equals(s2)
     s1.equals(s3)
 
-在时间序列的对象中， ``pandas`` 利用 pd.NaT 来指代缺失值，它的作用和 ``np.nan`` 是一致的（时间序列的对象和构造将在第十章讨论）：
+在时间序列的对象中， ``pandas`` 利用 ``pd.NaT`` 来指代缺失值，它的作用和 ``np.nan`` 是一致的（时间序列的对象和构造将在第十章讨论）：
 
 .. ipython:: python
 
@@ -210,7 +202,7 @@
 
     pd.Series([1, 'two'])
 
-``NaT`` 问题的根源来自于 np.nan 的本身是一种浮点类型，而如果浮点和时间类型混合存储，如果不设计新的内置缺失类型来处理，就会变成含糊不清的 ``object`` 类型，这显然是不希望看到的。
+``NaT`` 问题的根源来自于 ``np.nan`` 的本身是一种浮点类型，而如果浮点和时间类型混合存储，如果不设计新的内置缺失类型来处理，就会变成含糊不清的 ``object`` 类型，这显然是不希望看到的。
 
 .. ipython:: python
 
@@ -228,7 +220,7 @@
 2. Nullable类型的性质
 -------------------------
 
-从字面意义上看 ``Nullable`` 就是可空的，言下之意就是序列类型不受缺失值的影响。例如，在上述三个 ``Nullable`` 类型中存储缺失值，都会转为 ``pandas`` 内置的 ``pd.NA``：
+从字面意义上看 ``Nullable`` 就是可空的，言下之意就是序列类型不受缺失值的影响。例如，在上述三个 ``Nullable`` 类型中存储缺失值，都会转为 ``pandas`` 内置的 ``pd.NA`` ：
 
 .. ipython:: python
 

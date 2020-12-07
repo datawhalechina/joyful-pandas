@@ -2,6 +2,8 @@
 
 # ！！！仓库调整中，最终版本以12月12日为准
 
+ 请在使用教程前确认pandas版本不低于1.1.0
+
 ### 网页版
 
 https://datawhalechina.github.io/joyful-pandas/build/html/%E7%9B%AE%E5%BD%95/index.html
