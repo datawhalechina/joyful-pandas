@@ -1,0 +1,5 @@
+col1 |||| col2
+TS |||| This is an apple.
+GQ |||| My name is Bob.
+WT |||| Well done!
+PT |||| May I help you?

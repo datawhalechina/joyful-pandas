@@ -1,4 +1,4 @@
-School,Grade,Name,Gender,Height,Weight,Transfer,Test_Number,Test_Time,Time_Record
+School,Grade,Name,Gender,Height,Weight,Transfer,Test_Number,Test_Date,Time_Record
 Shanghai Jiao Tong University,Freshman,Gaopeng Yang,Female,158.9,46,N,1,2019/10/5,0:04:34
 Peking University,Freshman,Changqiang You,Male,166.5,70,N,1,2019/9/4,0:04:20
 Shanghai Jiao Tong University,Senior,Mei Sun,Male,188.9,89,N,2,2019/9/12,0:05:22
@@ -192,7 +192,7 @@ Fudan University,Junior,Chunjuan Zhang,Female,158.9,47,N,2,2019/9/18,0:05:09
 Shanghai Jiao Tong University,Junior,Changli Qin,Male,177.3,,N,1,2019/11/21,0:03:57
 Tsinghua University,Junior,Li Sun,Female,166.6,54,N,2,2019/9/3,0:04:45
 Shanghai Jiao Tong University,Senior,Gaojuan Wang,Male,166.8,70,N,1,2019/12/23,0:03:54
-Tsinghua University,Senior,Xiaoqiang Qin,Male,193.9,97,N,2,2019/11/6,0:05:09
+Tsinghua University,Senior,Xiaoqiang Qin,Male,193.9,79,N,2,2019/11/6,0:05:09
 Peking University,Senior,Yanmei Qian,Female,160.3,49,,1,2019/12/3,0:05:08
 Fudan University,Junior,Xiaojuan Sun,Female,153.9,46,N,2,2019/10/17,0:04:31
 Tsinghua University,Senior,Li Zhao,Female,160.9,50,N,3,2019/9/22,0:04:03
