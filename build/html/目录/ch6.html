@@ -329,7 +329,7 @@
 <span class="go">1      Si Li   30      F</span>
 </pre></div>
 </div>
-<p>如果两个表中想要连接的列不具备相同的列名，可以通过 <span class="incremental">left_on</span> 和 <span class="incremental">right_on</span> 指定：</p>
+<p>如果两个表中想要连接的列不具备相同的列名，可以通过 <code class="docutils literal notranslate"><span class="pre">left_on</span></code> 和 <code class="docutils literal notranslate"><span class="pre">right_on</span></code> 指定：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;df1_name&#39;</span><span class="p">:[</span><span class="s1">&#39;San Zhang&#39;</span><span class="p">,</span><span class="s1">&#39;Si Li&#39;</span><span class="p">],</span>
 <span class="gp">   ...: </span>                    <span class="s1">&#39;Age&#39;</span><span class="p">:[</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]})</span>
 <span class="gp">   ...: </span>
@@ -568,7 +568,7 @@
 <span class="go">2    Wu Wang   21</span>
 </pre></div>
 </div>
-<p>对于 <code class="docutils literal notranslate"><span class="pre">assign</span></code> 而言，虽然可以利用其添加新的列，但一般通过 <code class="docutils literal notranslate"><span class="pre">df['new_col']</span> <span class="pre">=</span> <span class="pre">...</span></code> 的形式就可以等价地添加新列。同时，使用 <span class="incremental">[]</span> 修改的缺点是它会直接在原表上进行改动，而 <code class="docutils literal notranslate"><span class="pre">assign</span></code> 返回的是一个临时副本：</p>
+<p>对于 <code class="docutils literal notranslate"><span class="pre">assign</span></code> 而言，虽然可以利用其添加新的列，但一般通过 <code class="docutils literal notranslate"><span class="pre">df['new_col']</span> <span class="pre">=</span> <span class="pre">...</span></code> 的形式就可以等价地添加新列。同时，使用 <code class="docutils literal notranslate"><span class="pre">[]</span></code> 修改的缺点是它会直接在原表上进行改动，而 <code class="docutils literal notranslate"><span class="pre">assign</span></code> 返回的是一个临时副本：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [45]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">])</span>
 
 <span class="gp">In [46]: </span><span class="n">df1</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">Grade</span><span class="o">=</span><span class="n">s</span><span class="p">)</span>

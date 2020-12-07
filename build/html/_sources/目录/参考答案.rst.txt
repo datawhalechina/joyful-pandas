@@ -80,8 +80,7 @@ Ex4：改进矩阵计算的性能
 
 .. ipython:: python
 
-    ((np.ones((m,n))*(B**2).sum(1).reshape(-1,1) +
-      np.ones((m,n))*(U**2).sum(0) - 2*B@U)*Z).sum()
+    (((B**2).sum(1).reshape(-1,1) + (U**2).sum(0) - 2*B@U)*Z).sum()
 
 对比它们的性能：
 

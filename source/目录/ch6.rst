@@ -48,7 +48,7 @@
                         'Gender':['F','M']})
     df1.merge(df2, on='Name', how='left')
 
-如果两个表中想要连接的列不具备相同的列名，可以通过 `left_on` 和 `right_on` 指定：
+如果两个表中想要连接的列不具备相同的列名，可以通过 ``left_on`` 和 ``right_on`` 指定：
 
 .. ipython:: python
     
@@ -193,7 +193,7 @@
     s = pd.Series(['Wu Wang', 21], index = df1.columns)
     df1.append(s, ignore_index=True)
 
-对于 ``assign`` 而言，虽然可以利用其添加新的列，但一般通过 ``df['new_col'] = ...`` 的形式就可以等价地添加新列。同时，使用 `[]` 修改的缺点是它会直接在原表上进行改动，而 ``assign`` 返回的是一个临时副本：
+对于 ``assign`` 而言，虽然可以利用其添加新的列，但一般通过 ``df['new_col'] = ...`` 的形式就可以等价地添加新列。同时，使用 ``[]`` 修改的缺点是它会直接在原表上进行改动，而 ``assign`` 返回的是一个临时副本：
 
 .. ipython:: python
 

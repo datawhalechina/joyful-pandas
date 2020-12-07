@@ -151,11 +151,15 @@
             <a href="#contributions-to-pandas-project" class="nav-link">Contributions to pandas project</a><ul class="nav section-nav flex-column">
                 
         <li class="nav-item toc-entry toc-h3">
-            <a href="#merged" class="nav-link">Merged：</a>
+            <a href="#merged" class="nav-link">Merged</a>
         </li>
     
         <li class="nav-item toc-entry toc-h3">
-            <a href="#working-on" class="nav-link">Working On：</a>
+            <a href="#working-on" class="nav-link">Working On</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#to-do" class="nav-link">To Do</a>
         </li>
     
             </ul>
@@ -191,22 +195,35 @@
 <div class="section" id="contributions-to-pandas-project">
 <h2>Contributions to pandas project<a class="headerlink" href="#contributions-to-pandas-project" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="merged">
-<h3>Merged：<a class="headerlink" href="#merged" title="Permalink to this headline">¶</a></h3>
+<h3>Merged<a class="headerlink" href="#merged" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/pandas-dev/pandas/pull/33783">#33783</a> DOC: fix doc for crosstab with Categorical data input</p></li>
-<li><p><a class="reference external" href="https://github.com/pandas-dev/pandas/pull/36516">#36516</a> DOC: Correct inconsistent description on default DateOffset setting</p></li>
-<li><p><a class="reference external" href="https://github.com/pandas-dev/pandas/pull/37607">#37607</a> BUG: nunique not ignoring both None and np.nan</p></li>
-<li><p><a class="reference external" href="https://github.com/pandas-dev/pandas/pull/38029">#38029</a> BUG: unstack with missing levels results in incorrect index names</p></li>
-<li><p><a class="reference external" href="https://github.com/pandas-dev/pandas/pull/37830">#37830</a> BUG: MultiIndex.drop does not raise if labels are partially found</p></li>
-<li><p><a class="reference external" href="https://github.com/pandas-dev/pandas/pull/38089">#38089</a> BUG: merge_ordered fails with list-like left_by or right_by</p></li>
+<li><p><a class="reference external" href="https://github.com/pandas-dev/pandas/pull/33783">#33783</a> DOC: fix doc for <code class="docutils literal notranslate"><span class="pre">crosstab</span></code> with Categorical data input</p></li>
+<li><p><a class="reference external" href="https://github.com/pandas-dev/pandas/pull/36516">#36516</a> DOC: Correct inconsistent description on default <code class="docutils literal notranslate"><span class="pre">DateOffset</span></code> setting</p></li>
+<li><p><a class="reference external" href="https://github.com/pandas-dev/pandas/pull/37607">#37607</a> BUG: <code class="docutils literal notranslate"><span class="pre">nunique</span></code> not ignoring both <code class="docutils literal notranslate"><span class="pre">None</span></code> and <code class="docutils literal notranslate"><span class="pre">np.nan</span></code></p></li>
+<li><p><a class="reference external" href="https://github.com/pandas-dev/pandas/pull/37830">#37830</a> BUG: <code class="docutils literal notranslate"><span class="pre">MultiIndex.drop</span></code> does not raise if labels are partially found</p></li>
+<li><p><a class="reference external" href="https://github.com/pandas-dev/pandas/pull/38089">#38089</a> BUG: <code class="docutils literal notranslate"><span class="pre">merge_ordered</span></code> fails with list-like <code class="docutils literal notranslate"><span class="pre">left_by</span></code> or <code class="docutils literal notranslate"><span class="pre">right_by</span></code></p></li>
+<li><p><a class="reference external" href="https://github.com/pandas-dev/pandas/pull/38170">#38170</a> BUG: unexpected <code class="docutils literal notranslate"><span class="pre">merge_ordered</span></code> results caused by wrongly groupby</p></li>
+<li><p><a class="reference external" href="https://github.com/pandas-dev/pandas/pull/38173">#38173</a> BUG: array-like <code class="docutils literal notranslate"><span class="pre">quantile</span></code> fails on column <code class="docutils literal notranslate"><span class="pre">groupby</span></code></p></li>
+<li><p><a class="reference external" href="https://github.com/pandas-dev/pandas/pull/38029">#38029</a> BUG: <code class="docutils literal notranslate"><span class="pre">unstack</span></code> with missing levels results in incorrect <code class="docutils literal notranslate"><span class="pre">index</span></code> names</p></li>
+<li><p><a class="reference external" href="https://github.com/pandas-dev/pandas/pull/38257">#38257</a> BUG: <code class="docutils literal notranslate"><span class="pre">groupby.apply</span></code> on the <code class="docutils literal notranslate"><span class="pre">NaN</span></code> group drops values with original <code class="docutils literal notranslate"><span class="pre">axes</span></code> return</p></li>
 </ul>
 </div>
 <div class="section" id="working-on">
-<h3>Working On：<a class="headerlink" href="#working-on" title="Permalink to this headline">¶</a></h3>
+<h3>Working On<a class="headerlink" href="#working-on" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/pandas-dev/pandas/pull/38170">#38170</a> BUG: unexpected merge_ordered results caused by wrongly groupby</p></li>
-<li><p><a class="reference external" href="https://github.com/pandas-dev/pandas/pull/38173">#38173</a> BUG: array-like quantile fails on column groupby</p></li>
-<li><p><a class="reference external" href="https://github.com/pandas-dev/pandas/pull/37805">#37805</a> ENH: Add end and end_day options for origin from resample</p></li>
+<li><p><a class="reference external" href="https://github.com/pandas-dev/pandas/pull/37805">#37805</a> ENH: Add <code class="docutils literal notranslate"><span class="pre">end</span></code> and <code class="docutils literal notranslate"><span class="pre">end_day</span></code> options for <code class="docutils literal notranslate"><span class="pre">origin</span></code> from <code class="docutils literal notranslate"><span class="pre">resample</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="to-do">
+<h3>To Do<a class="headerlink" href="#to-do" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>BUG: Further investigation into <a class="reference external" href="https://github.com/pandas-dev/pandas/pull/37622">#37622</a></p></li>
+<li><p>ENH: Conditional <code class="docutils literal notranslate"><span class="pre">join</span></code> or <code class="docutils literal notranslate"><span class="pre">merge</span></code></p></li>
+<li><p>ENH: More edge checks for <code class="docutils literal notranslate"><span class="pre">merge</span></code></p></li>
+<li><p>ENH: <code class="docutils literal notranslate"><span class="pre">Hollow</span> <span class="pre">rolling</span></code> implementation</p></li>
+<li><p>ENH: <code class="docutils literal notranslate"><span class="pre">Polynomial</span> <span class="pre">interpolation</span></code> consistency with <code class="docutils literal notranslate"><span class="pre">np.polyfit</span></code></p></li>
+<li><p>PERF: Cythonize <code class="docutils literal notranslate"><span class="pre">Kendall</span></code> coefficient computation module</p></li>
+<li><p>DEPR: Deprecating <code class="docutils literal notranslate"><span class="pre">DateOffset</span></code> args don’t end in ‘s’ (totally remove in 2.0)</p></li>
 </ul>
 </div>
 </div>

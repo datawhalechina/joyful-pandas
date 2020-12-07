@@ -1,11 +1,12 @@
 # Joyful-Pandas
 
-### 介绍
+$\color{red}{！！！仓库调整中，最终版本以12月12日为准}$
+
+### 文件内容
 
 * data：数据集
 * ebook：教程电子版
 * notebook：教程notebook版
-* source：网页版源代码
 
 ### 参考资料
 
@@ -15,9 +16,17 @@
 
 * [User Guide](<https://pandas.pydata.org/docs/user_guide/index.html#user-guide>) Pandas开发团队编写
 
+### 论坛
+
+http://datawhale.club/c/team-learning/IntroductionToPandas/12
+
+### 交流群
+
+<img src="source/_static/qun.jpg" height="388px" width="336px"/>
+
 ### 推广
 
-<img src="source/_static/qrcode.jpeg" height="270px" width="225px"/>
+<img src="source/_static/qrcode.jpeg" height="388px" width="336px"/>
 
 ### LICENSE
 

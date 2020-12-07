@@ -5,22 +5,34 @@
 Contributions to pandas project
 ======================================
 
-Merged：
+Merged
 -------------
 
-* `#33783 <https://github.com/pandas-dev/pandas/pull/33783>`__ DOC: fix doc for crosstab with Categorical data input
-* `#36516 <https://github.com/pandas-dev/pandas/pull/36516>`__ DOC: Correct inconsistent description on default DateOffset setting
-* `#37607 <https://github.com/pandas-dev/pandas/pull/37607>`__ BUG: nunique not ignoring both None and np.nan
-* `#38029 <https://github.com/pandas-dev/pandas/pull/38029>`__ BUG: unstack with missing levels results in incorrect index names
-* `#37830 <https://github.com/pandas-dev/pandas/pull/37830>`__ BUG: MultiIndex.drop does not raise if labels are partially found
-* `#38089 <https://github.com/pandas-dev/pandas/pull/38089>`__ BUG: merge_ordered fails with list-like left_by or right_by
+* `#33783 <https://github.com/pandas-dev/pandas/pull/33783>`__ DOC: fix doc for ``crosstab`` with Categorical data input
+* `#36516 <https://github.com/pandas-dev/pandas/pull/36516>`__ DOC: Correct inconsistent description on default ``DateOffset`` setting
+* `#37607 <https://github.com/pandas-dev/pandas/pull/37607>`__ BUG: ``nunique`` not ignoring both ``None`` and ``np.nan``
+* `#37830 <https://github.com/pandas-dev/pandas/pull/37830>`__ BUG: ``MultiIndex.drop`` does not raise if labels are partially found
+* `#38089 <https://github.com/pandas-dev/pandas/pull/38089>`__ BUG: ``merge_ordered`` fails with list-like ``left_by`` or ``right_by``
+* `#38170  <https://github.com/pandas-dev/pandas/pull/38170>`__ BUG: unexpected ``merge_ordered`` results caused by wrongly groupby
+* `#38173  <https://github.com/pandas-dev/pandas/pull/38173>`__ BUG: array-like ``quantile`` fails on column ``groupby``
+* `#38029 <https://github.com/pandas-dev/pandas/pull/38029>`__ BUG: ``unstack`` with missing levels results in incorrect ``index`` names
+* `#38257 <https://github.com/pandas-dev/pandas/pull/38257>`__ BUG: ``groupby.apply`` on the ``NaN`` group drops values with original ``axes`` return
 
-Working On：
+Working On
 ----------------------
 
-* `#38170  <https://github.com/pandas-dev/pandas/pull/38170>`__ BUG: unexpected merge_ordered results caused by wrongly groupby
-* `#38173  <https://github.com/pandas-dev/pandas/pull/38173>`__ BUG: array-like quantile fails on column groupby
-* `#37805 <https://github.com/pandas-dev/pandas/pull/37805>`__ ENH: Add end and end_day options for origin from resample
+* `#37805 <https://github.com/pandas-dev/pandas/pull/37805>`__ ENH: Add ``end`` and ``end_day`` options for ``origin`` from ``resample``
+
+To Do
+-------------
+
+* BUG: Further investigation into `#37622 <https://github.com/pandas-dev/pandas/pull/37622>`__
+* ENH: Conditional ``join`` or ``merge``
+* ENH: More edge checks for ``merge``
+* ENH: ``Hollow rolling`` implementation
+* ENH: ``Polynomial interpolation`` consistency with ``np.polyfit``
+* PERF: Cythonize ``Kendall`` coefficient computation module
+* DEPR: Deprecating ``DateOffset`` args don't end in 's' (totally remove in 2.0)
 
 Mail
 =================
