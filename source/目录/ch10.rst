@@ -12,13 +12,13 @@
 
 时间序列的概念在日常生活中十分常见，但对于一个具体的时序事件而言，可以从多个时间对象的角度来描述。例如2020年9月7日周一早上8点整需要到教室上课，这个课会在当天早上10点结束，其中包含了哪些时间概念？
 
-* 第一，会出现时间戳（Date times）的概念，即'2020-9-7 08:00:00'和'2020-9-7 10:00:00'这两个时间点分别代表了上课和下课的时刻，在pandas中称为 ``Timestamp`` 。同时，一系列的时间戳可以组成 ``DatetimeIndex`` ，而将它放到Series中后，Series的类型就变为了 ``datetime64[ns]`` ，如果有涉及时区则为 ``datetime64[ns, tz]``，其中tz是timezone的简写。
+* 第一，会出现时间戳（Date times）的概念，即'2020-9-7 08:00:00'和'2020-9-7 10:00:00'这两个时间点分别代表了上课和下课的时刻，在 ``pandas`` 中称为 ``Timestamp`` 。同时，一系列的时间戳可以组成 ``DatetimeIndex`` ，而将它放到 ``Series`` 中后， ``Series`` 的类型就变为了 ``datetime64[ns]`` ，如果有涉及时区则为 ``datetime64[ns, tz]`` ，其中tz是timezone的简写。
 
-* 第二，会出现时间差（Time deltas）的概念，即上课需要的时间，两个 ``Timestamp`` 做差就得到了时间差，pandas中利用 ``Timedelta`` 来表示。类似的，一系列的时间差就组成了 ``TimedeltaIndex``， 而将它放到Series中后，Series的类型就变为了 ``timedelta64[ns]`` 。
+* 第二，会出现时间差（Time deltas）的概念，即上课需要的时间，两个 ``Timestamp`` 做差就得到了时间差，pandas中利用 ``Timedelta`` 来表示。类似的，一系列的时间差就组成了 ``TimedeltaIndex`` ， 而将它放到 ``Series`` 中后， ``Series`` 的类型就变为了 ``timedelta64[ns]`` 。
 
-* 第三，会出现时间段（Time spans）的概念，即在8点到10点这个区间都会持续地在上课，在pandas利用 ``Period`` 来表示。类似的，一系列的时间段就组成了 ``PeriodIndex``， 而将它放到Series中后，Series的类型就变为了 ``Period`` 。
+* 第三，会出现时间段（Time spans）的概念，即在8点到10点这个区间都会持续地在上课，在 ``pandas`` 利用 ``Period`` 来表示。类似的，一系列的时间段就组成了 ``PeriodIndex`` ， 而将它放到 ``Series`` 中后， ``Series`` 的类型就变为了 ``Period`` 。
 
-* 第四，会出现日期偏置（Date offsets）的概念，假设你只知道9月的第一个周一早上8点要去上课，但不知道具体的日期，那么就需要一个类型来处理此类需求。再例如，想要知道2020年9月7日后的第30个工作日是哪一天，那么时间差就解决不了你的问题，从而pandas中的 ``DateOffset`` 就出现了。同时，pandas中没有为一列时间偏置专门设计存储类型，理由也很简单，因为需求比较奇怪，一般来说我们只需要对一批时间特征做一个统一的特殊日期偏置。
+* 第四，会出现日期偏置（Date offsets）的概念，假设你只知道9月的第一个周一早上8点要去上课，但不知道具体的日期，那么就需要一个类型来处理此类需求。再例如，想要知道2020年9月7日后的第30个工作日是哪一天，那么时间差就解决不了你的问题，从而 ``pandas`` 中的 ``DateOffset`` 就出现了。同时， ``pandas`` 中没有为一列时间偏置专门设计存储类型，理由也很简单，因为需求比较奇怪，一般来说我们只需要对一批时间特征做一个统一的特殊日期偏置。
 
 通过这个简单的例子，就能够容易地总结出官方文档中的这个 `表格 <https://pandas.pydata.org/docs/user_guide/timeseries.html#overview>`__ ：
 
@@ -266,19 +266,19 @@ Example5：取出5月初至7月15日
 
 .. ipython:: python
 
-    s.dt.seconds
+    s.dt.seconds.head()
 
 如果不想对天数取余而直接对应秒数，可以使用 ``total_seconds``
 
 .. ipython:: python
 
-    s.dt.total_seconds()
+    s.dt.total_seconds().head()
 
 与时间戳序列类似，取整函数也是可以在 ``dt`` 对象上使用的：
 
 .. ipython:: python
 
-    pd.to_timedelta(df.Time_Record).dt.round('min')
+    pd.to_timedelta(df.Time_Record).dt.round('min').head()
 
 2. Timedelta的运算
 ---------------------
@@ -411,7 +411,7 @@ Example5：取出5月初至7月15日
 
     s.shift(freq='50D').head()
 
-另外，``datetime64[ns]`` 的序列进行 ``diff`` 后就能够得到 ``timedelta64[ns]`` 的序列，这能够使用户方便地观察有序时间序列的间隔：
+另外， ``datetime64[ns]`` 的序列进行 ``diff`` 后就能够得到 ``timedelta64[ns]`` 的序列，这能够使用户方便地观察有序时间序列的间隔：
 
 .. ipython:: python
 
