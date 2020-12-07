@@ -22,7 +22,7 @@ copyright = '2020, Datawhale, 耿远昊'
 author = '耿远昊'
 
 # The full version, including alpha/beta/rc tags
-release = '1.0.0'
+release = '1.0'
 
 rst_prolog = """
 .. include:: <s5defs.txt>
@@ -61,7 +61,7 @@ html_theme = 'pydata_sphinx_theme'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
-html_logo = "_static/finallogo1.png"
+html_logo = "_static/finallogo1.svg"
 
 html_css_files = ['css/s4defs-roles.css']
 

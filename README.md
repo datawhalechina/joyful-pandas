@@ -5,7 +5,7 @@
 ### 文件内容
 
 * data：数据集
-* ebook：教程电子版
+* ebook：教程电子版（点击[此处](https://datawhalechina.github.io/joyful-pandas/build/html/%E7%9B%AE%E5%BD%95/index.html)查看网页版）
 * notebook：教程notebook版
 
 ### 参考资料

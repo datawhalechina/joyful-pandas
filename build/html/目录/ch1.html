@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>第一章 预备知识 &#8212; Joyful Pandas 1.0.0 documentation</title>
+    <title>第一章 预备知识 &#8212; Joyful Pandas 1.0 documentation</title>
     
   <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
 
@@ -51,7 +51,7 @@
 
     
     <a class="navbar-brand" href="../index.html">
-      <img src="../_static/finallogo1.png" class="logo" alt="logo">
+      <img src="../_static/finallogo1.svg" class="logo" alt="logo">
     </a>
     
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -503,37 +503,37 @@
 <p>【c】随机矩阵： <code class="docutils literal notranslate"><span class="pre">np.random</span></code></p>
 <p>最常用的随机生成函数为 <code class="docutils literal notranslate"><span class="pre">rand,</span> <span class="pre">randn,</span> <span class="pre">randint,</span> <span class="pre">choice</span></code> ，它们分别表示0-1均匀分布的随机数组、标准正态的随机数组、随机整数组和随机列表抽样：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [38]: </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># 生成服从0-1均匀分布的三个随机数</span>
-<span class="gh">Out[38]: </span><span class="go">array([0.81786845, 0.79557948, 0.80943817])</span>
+<span class="gh">Out[38]: </span><span class="go">array([0.49138005, 0.72979326, 0.39683913])</span>
 
 <span class="gp">In [39]: </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># 注意这里传入的不是元组，每个维度大小分开输入</span>
 <span class="gh">Out[39]: </span><span class="go"></span>
-<span class="go">array([[0.19489288, 0.21718353, 0.80093442],</span>
-<span class="go">       [0.51333437, 0.33665558, 0.2103151 ],</span>
-<span class="go">       [0.87885697, 0.59732481, 0.41016433]])</span>
+<span class="go">array([[0.00754745, 0.99014149, 0.16122699],</span>
+<span class="go">       [0.95868763, 0.6586729 , 0.12354633],</span>
+<span class="go">       [0.78799959, 0.45823188, 0.66253439]])</span>
 </pre></div>
 </div>
 <p>对于服从区间 <span class="math notranslate nohighlight">\(a\)</span> 到 <span class="math notranslate nohighlight">\(b\)</span> 上的均匀分布可以如下生成：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [40]: </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">15</span>
 
 <span class="gp">In [41]: </span><span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">a</span>
-<span class="gh">Out[41]: </span><span class="go">array([12.53530654, 12.57983824,  7.28204474])</span>
+<span class="gh">Out[41]: </span><span class="go">array([13.32749979, 11.51207337,  9.35479302])</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">randn</span></code> 生成了 <span class="math notranslate nohighlight">\(N\rm{(\mathbf{0}, \mathbf{I})}\)</span> 的标准正态分布：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [42]: </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gh">Out[42]: </span><span class="go">array([ 0.88229795, -0.42291955, -1.50601003])</span>
+<span class="gh">Out[42]: </span><span class="go">array([-1.20409407, -0.38804821,  0.36942718])</span>
 
 <span class="gp">In [43]: </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="gh">Out[43]: </span><span class="go"></span>
-<span class="go">array([[ 1.12035152,  0.57136201],</span>
-<span class="go">       [-0.51938014, -1.34929233]])</span>
+<span class="go">array([[-0.45415419, -0.06418181],</span>
+<span class="go">       [-0.63714137, -0.95838978]])</span>
 </pre></div>
 </div>
 <p>对于服从方差为 <span class="math notranslate nohighlight">\(\sigma^2\)</span> 均值为 <span class="math notranslate nohighlight">\(\mu\)</span> 的一元正态分布可以如下生成：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [44]: </span><span class="n">sigma</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">3</span>
 
 <span class="gp">In [45]: </span><span class="n">mu</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigma</span>
-<span class="gh">Out[45]: </span><span class="go">array([-1.28735557,  5.68120919,  5.12167836])</span>
+<span class="gh">Out[45]: </span><span class="go">array([ 0.45656184,  1.41040703, -0.23751482])</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">randint</span></code> 可以指定生成随机整数的最小值最大值和维度大小：</p>
@@ -541,26 +541,26 @@
 
 <span class="gp">In [47]: </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
 <span class="gh">Out[47]: </span><span class="go"></span>
-<span class="go">array([[10,  5],</span>
-<span class="go">       [12,  9]])</span>
+<span class="go">array([[12, 13],</span>
+<span class="go">       [ 6,  9]])</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">choice</span></code> 可以从给定的列表中，以一定概率和方式抽取结果，当不指定概率时为均匀采样，默认抽取方式为有放回抽样：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [48]: </span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]</span>
 
 <span class="gp">In [49]: </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">my_list</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.1</span> <span class="p">,</span><span class="mf">0.1</span><span class="p">])</span>
-<span class="gh">Out[49]: </span><span class="go">array([&#39;b&#39;, &#39;c&#39;], dtype=&#39;&lt;U1&#39;)</span>
+<span class="gh">Out[49]: </span><span class="go">array([&#39;b&#39;, &#39;a&#39;], dtype=&#39;&lt;U1&#39;)</span>
 
 <span class="gp">In [50]: </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">my_list</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="gh">Out[50]: </span><span class="go"></span>
-<span class="go">array([[&#39;a&#39;, &#39;a&#39;, &#39;d&#39;],</span>
-<span class="go">       [&#39;d&#39;, &#39;b&#39;, &#39;a&#39;],</span>
-<span class="go">       [&#39;d&#39;, &#39;b&#39;, &#39;c&#39;]], dtype=&#39;&lt;U1&#39;)</span>
+<span class="go">array([[&#39;d&#39;, &#39;c&#39;, &#39;b&#39;],</span>
+<span class="go">       [&#39;d&#39;, &#39;b&#39;, &#39;c&#39;],</span>
+<span class="go">       [&#39;b&#39;, &#39;c&#39;, &#39;a&#39;]], dtype=&#39;&lt;U1&#39;)</span>
 </pre></div>
 </div>
 <p>当返回的元素个数与原列表相同时，等价于使用 <code class="docutils literal notranslate"><span class="pre">permutation</span></code> 函数，即打散原列表：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [51]: </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
-<span class="gh">Out[51]: </span><span class="go">array([&#39;b&#39;, &#39;d&#39;, &#39;a&#39;, &#39;c&#39;], dtype=&#39;&lt;U1&#39;)</span>
+<span class="gh">Out[51]: </span><span class="go">array([&#39;c&#39;, &#39;b&#39;, &#39;d&#39;, &#39;a&#39;], dtype=&#39;&lt;U1&#39;)</span>
 </pre></div>
 </div>
 <p>最后，需要提到的是随机种子，它能够固定随机数的输出结果：</p>
