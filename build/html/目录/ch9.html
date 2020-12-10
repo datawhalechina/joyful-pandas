@@ -323,7 +323,7 @@
 </div>
 <p>在一个分类类型的 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 中定义了 <code class="docutils literal notranslate"><span class="pre">cat</span></code> 对象，它和上一章中介绍的 <code class="docutils literal notranslate"><span class="pre">str</span></code> 对象类似，定义了一些属性和方法来进行分类类别的操作。</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="n">s</span><span class="o">.</span><span class="n">cat</span>
-<span class="gh">Out[6]: </span><span class="go">&lt;pandas.core.arrays.categorical.CategoricalAccessor object at 0x000001DB34D97E48&gt;</span>
+<span class="gh">Out[6]: </span><span class="go">&lt;pandas.core.arrays.categorical.CategoricalAccessor object at 0x000002A1DDEB54C8&gt;</span>
 </pre></div>
 </div>
 <p>对于一个具体的分类，有两个组成部分，其一为类别的本身，它以 <code class="docutils literal notranslate"><span class="pre">Index</span></code> 类型存储，其二为是否有序，它们都可以通过 <code class="docutils literal notranslate"><span class="pre">cat</span></code> 的属性被访问：</p>
@@ -623,7 +623,7 @@
 <span class="gh">Out[50]: </span><span class="go">Interval(0, 1, closed=&#39;right&#39;)</span>
 </pre></div>
 </div>
-<p>其属性包含了 <code class="docutils literal notranslate"><span class="pre">mid,</span> <span class="pre">length,</span> <span class="pre">right,</span> <span class="pre">left,</span> <span class="pre">closed,</span></code> ，分别表示中点、长度、右端点、左端点和开闭状态。</p>
+<p>其属性包含了 <code class="docutils literal notranslate"><span class="pre">mid,</span> <span class="pre">length,</span> <span class="pre">right,</span> <span class="pre">left,</span> <span class="pre">closed</span></code> ，分别表示中点、长度、右端点、左端点和开闭状态。</p>
 <p>使用 <code class="docutils literal notranslate"><span class="pre">in</span></code> 可以判断元素是否属于区间：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [51]: </span><span class="mf">0.5</span> <span class="ow">in</span> <span class="n">my_interval</span>
 <span class="gh">Out[51]: </span><span class="go">True</span>

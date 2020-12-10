@@ -325,10 +325,10 @@
 <h2>一、时序中的基本对象<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>时间序列的概念在日常生活中十分常见，但对于一个具体的时序事件而言，可以从多个时间对象的角度来描述。例如2020年9月7日周一早上8点整需要到教室上课，这个课会在当天早上10点结束，其中包含了哪些时间概念？</p>
 <ul class="simple">
-<li><p>第一，会出现时间戳（Date times）的概念，即’2020-9-7 08:00:00’和’2020-9-7 10:00:00’这两个时间点分别代表了上课和下课的时刻，在pandas中称为 <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> 。同时，一系列的时间戳可以组成 <code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code> ，而将它放到Series中后，Series的类型就变为了 <code class="docutils literal notranslate"><span class="pre">datetime64[ns]</span></code> ，如果有涉及时区则为 <code class="docutils literal notranslate"><span class="pre">datetime64[ns,</span> <span class="pre">tz]</span></code>，其中tz是timezone的简写。</p></li>
-<li><p>第二，会出现时间差（Time deltas）的概念，即上课需要的时间，两个 <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> 做差就得到了时间差，pandas中利用 <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code> 来表示。类似的，一系列的时间差就组成了 <code class="docutils literal notranslate"><span class="pre">TimedeltaIndex</span></code>， 而将它放到Series中后，Series的类型就变为了 <code class="docutils literal notranslate"><span class="pre">timedelta64[ns]</span></code> 。</p></li>
-<li><p>第三，会出现时间段（Time spans）的概念，即在8点到10点这个区间都会持续地在上课，在pandas利用 <code class="docutils literal notranslate"><span class="pre">Period</span></code> 来表示。类似的，一系列的时间段就组成了 <code class="docutils literal notranslate"><span class="pre">PeriodIndex</span></code>， 而将它放到Series中后，Series的类型就变为了 <code class="docutils literal notranslate"><span class="pre">Period</span></code> 。</p></li>
-<li><p>第四，会出现日期偏置（Date offsets）的概念，假设你只知道9月的第一个周一早上8点要去上课，但不知道具体的日期，那么就需要一个类型来处理此类需求。再例如，想要知道2020年9月7日后的第30个工作日是哪一天，那么时间差就解决不了你的问题，从而pandas中的 <code class="docutils literal notranslate"><span class="pre">DateOffset</span></code> 就出现了。同时，pandas中没有为一列时间偏置专门设计存储类型，理由也很简单，因为需求比较奇怪，一般来说我们只需要对一批时间特征做一个统一的特殊日期偏置。</p></li>
+<li><p>第一，会出现时间戳（Date times）的概念，即’2020-9-7 08:00:00’和’2020-9-7 10:00:00’这两个时间点分别代表了上课和下课的时刻，在 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 中称为 <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> 。同时，一系列的时间戳可以组成 <code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code> ，而将它放到 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 中后， <code class="docutils literal notranslate"><span class="pre">Series</span></code> 的类型就变为了 <code class="docutils literal notranslate"><span class="pre">datetime64[ns]</span></code> ，如果有涉及时区则为 <code class="docutils literal notranslate"><span class="pre">datetime64[ns,</span> <span class="pre">tz]</span></code> ，其中tz是timezone的简写。</p></li>
+<li><p>第二，会出现时间差（Time deltas）的概念，即上课需要的时间，两个 <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> 做差就得到了时间差，pandas中利用 <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code> 来表示。类似的，一系列的时间差就组成了 <code class="docutils literal notranslate"><span class="pre">TimedeltaIndex</span></code> ， 而将它放到 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 中后， <code class="docutils literal notranslate"><span class="pre">Series</span></code> 的类型就变为了 <code class="docutils literal notranslate"><span class="pre">timedelta64[ns]</span></code> 。</p></li>
+<li><p>第三，会出现时间段（Time spans）的概念，即在8点到10点这个区间都会持续地在上课，在 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 利用 <code class="docutils literal notranslate"><span class="pre">Period</span></code> 来表示。类似的，一系列的时间段就组成了 <code class="docutils literal notranslate"><span class="pre">PeriodIndex</span></code> ， 而将它放到 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 中后， <code class="docutils literal notranslate"><span class="pre">Series</span></code> 的类型就变为了 <code class="docutils literal notranslate"><span class="pre">Period</span></code> 。</p></li>
+<li><p>第四，会出现日期偏置（Date offsets）的概念，假设你只知道9月的第一个周一早上8点要去上课，但不知道具体的日期，那么就需要一个类型来处理此类需求。再例如，想要知道2020年9月7日后的第30个工作日是哪一天，那么时间差就解决不了你的问题，从而 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">DateOffset</span></code> 就出现了。同时， <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 中没有为一列时间偏置专门设计存储类型，理由也很简单，因为需求比较奇怪，一般来说我们只需要对一批时间特征做一个统一的特殊日期偏置。</p></li>
 </ul>
 <p>通过这个简单的例子，就能够容易地总结出官方文档中的这个 <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/timeseries.html#overview">表格</a> ：</p>
 <table class="table">
@@ -772,54 +772,36 @@
 </pre></div>
 </div>
 <p>对于 <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code> 序列，同样也定义了 <code class="docutils literal notranslate"><span class="pre">dt</span></code> 对象，上面主要定义了的属性包括 <code class="docutils literal notranslate"><span class="pre">days,</span> <span class="pre">seconds,</span> <span class="pre">mircroseconds,</span> <span class="pre">nanoseconds</span></code> ，它们分别返回了对应的时间差特征。需要注意的是，这里的 <code class="docutils literal notranslate"><span class="pre">seconds</span></code> 不是指单纯的秒，而是对天数取余后剩余的秒数：</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [64]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">seconds</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [64]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">seconds</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gh">Out[64]: </span><span class="go"></span>
-<span class="go">0      274</span>
-<span class="go">1      260</span>
-<span class="go">2      322</span>
-<span class="go">3      248</span>
-<span class="go">4      322</span>
-<span class="go">      ... </span>
-<span class="go">195    271</span>
-<span class="go">196    243</span>
-<span class="go">197    288</span>
-<span class="go">198    298</span>
-<span class="go">199    305</span>
-<span class="go">Name: Time_Record, Length: 200, dtype: int64</span>
+<span class="go">0    274</span>
+<span class="go">1    260</span>
+<span class="go">2    322</span>
+<span class="go">3    248</span>
+<span class="go">4    322</span>
+<span class="go">Name: Time_Record, dtype: int64</span>
 </pre></div>
 </div>
 <p>如果不想对天数取余而直接对应秒数，可以使用 <code class="docutils literal notranslate"><span class="pre">total_seconds</span></code></p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [65]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [65]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gh">Out[65]: </span><span class="go"></span>
-<span class="go">0      274.0</span>
-<span class="go">1      260.0</span>
-<span class="go">2      322.0</span>
-<span class="go">3      248.0</span>
-<span class="go">4      322.0</span>
-<span class="go">       ...  </span>
-<span class="go">195    271.0</span>
-<span class="go">196    243.0</span>
-<span class="go">197    288.0</span>
-<span class="go">198    298.0</span>
-<span class="go">199    305.0</span>
-<span class="go">Name: Time_Record, Length: 200, dtype: float64</span>
+<span class="go">0    274.0</span>
+<span class="go">1    260.0</span>
+<span class="go">2    322.0</span>
+<span class="go">3    248.0</span>
+<span class="go">4    322.0</span>
+<span class="go">Name: Time_Record, dtype: float64</span>
 </pre></div>
 </div>
 <p>与时间戳序列类似，取整函数也是可以在 <code class="docutils literal notranslate"><span class="pre">dt</span></code> 对象上使用的：</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [66]: </span><span class="n">pd</span><span class="o">.</span><span class="n">to_timedelta</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Time_Record</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="s1">&#39;min&#39;</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [66]: </span><span class="n">pd</span><span class="o">.</span><span class="n">to_timedelta</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Time_Record</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="s1">&#39;min&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gh">Out[66]: </span><span class="go"></span>
-<span class="go">0     0 days 00:05:00</span>
-<span class="go">1     0 days 00:04:00</span>
-<span class="go">2     0 days 00:05:00</span>
-<span class="go">3     0 days 00:04:00</span>
-<span class="go">4     0 days 00:05:00</span>
-<span class="go">            ...      </span>
-<span class="go">195   0 days 00:05:00</span>
-<span class="go">196   0 days 00:04:00</span>
-<span class="go">197   0 days 00:05:00</span>
-<span class="go">198   0 days 00:05:00</span>
-<span class="go">199   0 days 00:05:00</span>
-<span class="go">Name: Time_Record, Length: 200, dtype: timedelta64[ns]</span>
+<span class="go">0   0 days 00:05:00</span>
+<span class="go">1   0 days 00:04:00</span>
+<span class="go">2   0 days 00:05:00</span>
+<span class="go">3   0 days 00:04:00</span>
+<span class="go">4   0 days 00:05:00</span>
+<span class="go">Name: Time_Record, dtype: timedelta64[ns]</span>
 </pre></div>
 </div>
 </div>
@@ -1027,19 +1009,19 @@
 <span class="gp">In [107]: </span><span class="n">r</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="s1">&#39;30D&#39;</span><span class="p">)</span>
 
 <span class="gp">In [108]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-<span class="gh">Out[108]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x1db2ef35408&gt;]</span>
+<span class="gh">Out[108]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x2a1da751f88&gt;]</span>
 
 <span class="gp">In [109]: </span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;BOLL LINES&#39;</span><span class="p">)</span>
 <span class="gh">Out[109]: </span><span class="go">Text(0.5, 1.0, &#39;BOLL LINES&#39;)</span>
 
 <span class="gp">In [110]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
-<span class="gh">Out[110]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x1db303b3588&gt;]</span>
+<span class="gh">Out[110]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x2a1da793d08&gt;]</span>
 
 <span class="gp">In [111]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">+</span><span class="n">r</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
-<span class="gh">Out[111]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x1db3037b088&gt;]</span>
+<span class="gh">Out[111]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x2a1da793cc8&gt;]</span>
 
 <span class="gp">In [112]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">-</span><span class="n">r</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
-<span class="gh">Out[112]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x1db303775c8&gt;]</span>
+<span class="gh">Out[112]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x2a1da7d0348&gt;]</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/ch10.png"><img alt="../_images/ch10.png" src="../_images/ch10.png" style="width: 400px;" /></a>
@@ -1054,7 +1036,7 @@
 <span class="go">dtype: int32</span>
 </pre></div>
 </div>
-<p>另外，<code class="docutils literal notranslate"><span class="pre">datetime64[ns]</span></code> 的序列进行 <code class="docutils literal notranslate"><span class="pre">diff</span></code> 后就能够得到 <code class="docutils literal notranslate"><span class="pre">timedelta64[ns]</span></code> 的序列，这能够使用户方便地观察有序时间序列的间隔：</p>
+<p>另外， <code class="docutils literal notranslate"><span class="pre">datetime64[ns]</span></code> 的序列进行 <code class="docutils literal notranslate"><span class="pre">diff</span></code> 后就能够得到 <code class="docutils literal notranslate"><span class="pre">timedelta64[ns]</span></code> 的序列，这能够使用户方便地观察有序时间序列的间隔：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [114]: </span><span class="n">my_series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 
 <span class="gp">In [115]: </span><span class="n">my_series</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>

@@ -190,7 +190,7 @@
     my_interval = pd.Interval(0, 1, 'right')
     my_interval
 
-其属性包含了 ``mid, length, right, left, closed,`` ，分别表示中点、长度、右端点、左端点和开闭状态。
+其属性包含了 ``mid, length, right, left, closed`` ，分别表示中点、长度、右端点、左端点和开闭状态。
 
 使用 ``in`` 可以判断元素是否属于区间：
 

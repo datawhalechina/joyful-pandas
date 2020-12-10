@@ -350,7 +350,7 @@
 <span class="gp">In [5]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;abcd&#39;</span><span class="p">,</span> <span class="s1">&#39;efg&#39;</span><span class="p">,</span> <span class="s1">&#39;hi&#39;</span><span class="p">])</span>
 
 <span class="gp">In [6]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span>
-<span class="gh">Out[6]: </span><span class="go">&lt;pandas.core.strings.StringMethods at 0x1db34a9b048&gt;</span>
+<span class="gh">Out[6]: </span><span class="go">&lt;pandas.core.strings.StringMethods at 0x2a1dee90bc8&gt;</span>
 
 <span class="gp">In [7]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="c1"># pandas中str对象上的upper方法</span>
 <span class="gh">Out[7]: </span><span class="go"></span>
@@ -400,7 +400,7 @@
 </div>
 <div class="section" id="string">
 <h3>3. string类型<a class="headerlink" href="#string" title="Permalink to this headline">¶</a></h3>
-<p>在上一章提到，从 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 的 <code class="docutils literal notranslate"><span class="pre">1.0.0</span></code> 版本开始，引入了 <code class="docutils literal notranslate"><span class="pre">string</span></code> 类型，其引入的动机在于：原来所有的字符串类型都会以 <code class="docutils literal notranslate"><span class="pre">object</span></code> 类型的 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 进行存储，但 <code class="docutils literal notranslate"><span class="pre">object</span></code> 类型只应当存储混合类型，例如同时存储浮点、字符串、字典、列表、自定义类型等，因此字符串有必要同数值型或 <span class="incremental">category</span> 一样，具有自己的数据存放类型，从而引入了 <code class="docutils literal notranslate"><span class="pre">string</span></code> 类型。</p>
+<p>在上一章提到，从 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 的 <code class="docutils literal notranslate"><span class="pre">1.0.0</span></code> 版本开始，引入了 <code class="docutils literal notranslate"><span class="pre">string</span></code> 类型，其引入的动机在于：原来所有的字符串类型都会以 <code class="docutils literal notranslate"><span class="pre">object</span></code> 类型的 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 进行存储，但 <code class="docutils literal notranslate"><span class="pre">object</span></code> 类型只应当存储混合类型，例如同时存储浮点、字符串、字典、列表、自定义类型等，因此字符串有必要同数值型或 <code class="docutils literal notranslate"><span class="pre">category</span></code> 一样，具有自己的数据存放类型，从而引入了 <code class="docutils literal notranslate"><span class="pre">string</span></code> 类型。</p>
 <p>总体上说，绝大多数对于 <code class="docutils literal notranslate"><span class="pre">object</span></code> 和 <code class="docutils literal notranslate"><span class="pre">string</span></code> 类型的序列使用 <code class="docutils literal notranslate"><span class="pre">str</span></code> 对象方法产生的结果是一致，但是在下面提到的两点上有较大差异：</p>
 <p>首先，应当尽量保证每一个序列中的值都是字符串的情况下才使用 <code class="docutils literal notranslate"><span class="pre">str</span></code> 属性，但这并不是必须的，其必要条件是序列中至少有一个可迭代（Iterable）对象，包括但不限于字符串、字典、列表。对于一个可迭代对象， <code class="docutils literal notranslate"><span class="pre">string</span></code> 类型的 <code class="docutils literal notranslate"><span class="pre">str</span></code> 对象和 <code class="docutils literal notranslate"><span class="pre">object</span></code> 类型的 <code class="docutils literal notranslate"><span class="pre">str</span></code> 对象返回结果可能是不同的。</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;temp_1&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;temp_2&#39;</span><span class="p">},</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;my_string&#39;</span><span class="p">])</span>
@@ -473,7 +473,7 @@
 <span class="go">dtype: boolean</span>
 </pre></div>
 </div>
-<p>最后需要注意的是，对于全体元素为数值类型的序列，即使其类型为 <code class="docutils literal notranslate"><span class="pre">object</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">category</span></code> 也不允许直接使用 <code class="docutils literal notranslate"><span class="pre">str</span></code> 属性。如果需要把数字当成 <code class="docutils literal notranslate"><span class="pre">string</span></code> 类型处理，可以使用 <code class="docutils literal notranslate"><span class="pre">astype</span></code> 强制转换为 <code class="docutils literal notranslate"><span class="pre">string</span></code> 类型的 <code class="docutils literal notranslate"><span class="pre">Series</span></code>：</p>
+<p>最后需要注意的是，对于全体元素为数值类型的序列，即使其类型为 <code class="docutils literal notranslate"><span class="pre">object</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">category</span></code> 也不允许直接使用 <code class="docutils literal notranslate"><span class="pre">str</span></code> 属性。如果需要把数字当成 <code class="docutils literal notranslate"><span class="pre">string</span></code> 类型处理，可以使用 <code class="docutils literal notranslate"><span class="pre">astype</span></code> 强制转换为 <code class="docutils literal notranslate"><span class="pre">string</span></code> 类型的 <code class="docutils literal notranslate"><span class="pre">Series</span></code> ：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [26]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">12</span><span class="p">,</span> <span class="mi">345</span><span class="p">,</span> <span class="mi">6789</span><span class="p">])</span>
 
 <span class="gp">In [27]: </span><span class="n">s</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -513,7 +513,7 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>.</p></td>
-<td><p>匹配除换行符以外的任意字符。</p></td>
+<td><p>匹配除换行符以外的任意字符</p></td>
 </tr>
 <tr class="row-odd"><td><p>[ ]</p></td>
 <td><p>字符类，匹配方括号中包含的任意字符。</p></td>
@@ -531,13 +531,13 @@
 <td><p>匹配前面的子表达式零次或一次</p></td>
 </tr>
 <tr class="row-even"><td><p>{n,m}</p></td>
-<td><p>花括号，匹配前面字符至少 n 次，但是不超过 m 次。</p></td>
+<td><p>花括号，匹配前面字符至少 n 次，但是不超过 m 次</p></td>
 </tr>
 <tr class="row-odd"><td><p>(xyz)</p></td>
 <td><p>字符组，按照确切的顺序匹配字符xyz。</p></td>
 </tr>
 <tr class="row-even"><td><p>|</p></td>
-<td><p>分支结构，匹配符号之前的字符或后面的字符。</p></td>
+<td><p>分支结构，匹配符号之前的字符或后面的字符</p></td>
 </tr>
 <tr class="row-odd"><td><p>\</p></td>
 <td><p>转义符，它可以还原元字符原来的含义</p></td>
@@ -634,7 +634,7 @@
 <h2>三、文本处理的五类操作<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id9">
 <h3>1. 拆分<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">str.split</span></code> 能够把字符串的列进行拆分， 其中第一个参数为正则表达式，可选参数包括从左到右的最大拆分次数 <code class="docutils literal notranslate"><span class="pre">n</span></code> ，是否展开为多个列 <code class="docutils literal notranslate"><span class="pre">expand</span></code> 。</p>
+<p><code class="docutils literal notranslate"><span class="pre">str.split</span></code> 能够把字符串的列进行拆分，其中第一个参数为正则表达式，可选参数包括从左到右的最大拆分次数 <code class="docutils literal notranslate"><span class="pre">n</span></code> ，是否展开为多个列 <code class="docutils literal notranslate"><span class="pre">expand</span></code> 。</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [42]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;上海市黄浦区方浜中路249号&#39;</span><span class="p">,</span>
 <span class="gp">   ....: </span>            <span class="s1">&#39;上海市宝山区密山路5号&#39;</span><span class="p">])</span>
 <span class="gp">   ....: </span>
@@ -674,7 +674,7 @@
 <span class="go">dtype: object</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">str.cat</span></code> 用于合并两个序列，主要参数为连接符 <code class="docutils literal notranslate"><span class="pre">sep</span></code> 、连接形式 <code class="docutils literal notranslate"><span class="pre">join`</span> <span class="pre">以及缺失值替代符号</span> <span class="pre">``na_rep</span></code> ，其中连接形式默认为以索引为键的左连接。</p>
+<p><code class="docutils literal notranslate"><span class="pre">str.cat</span></code> 用于合并两个序列，主要参数为连接符 <code class="docutils literal notranslate"><span class="pre">sep</span></code> 、连接形式 <code class="docutils literal notranslate"><span class="pre">join</span></code> 以及缺失值替代符号 <code class="docutils literal notranslate"><span class="pre">na_rep</span></code> ，其中连接形式默认为以索引为键的左连接。</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [48]: </span><span class="n">s1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">])</span>
 
 <span class="gp">In [49]: </span><span class="n">s2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span><span class="s1">&#39;dog&#39;</span><span class="p">])</span>
@@ -786,8 +786,8 @@
 </div>
 <p>当需要对不同部分进行有差别的替换时，可以利用 <code class="docutils literal notranslate"><span class="pre">子组</span></code> 的方法，并且此时可以通过传入自定义的替换函数来分别进行处理，注意 <code class="docutils literal notranslate"><span class="pre">group(k)</span></code> 代表匹配到的第 <code class="docutils literal notranslate"><span class="pre">k</span></code> 个子组（圆括号之间的内容）：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [66]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;上海市黄浦区方浜中路249号&#39;</span><span class="p">,</span>
-<span class="gp">   ....: </span>            <span class="s1">&#39;上海市宝山区密山路5号&#39;</span><span class="p">,</span>
-<span class="gp">   ....: </span>            <span class="s1">&#39;北京市昌平区北农路2号&#39;</span><span class="p">])</span>
+<span class="gp">   ....: </span>               <span class="s1">&#39;上海市宝山区密山路5号&#39;</span><span class="p">,</span>
+<span class="gp">   ....: </span>               <span class="s1">&#39;北京市昌平区北农路2号&#39;</span><span class="p">])</span>
 <span class="gp">   ....: </span>
 
 <span class="gp">In [67]: </span><span class="n">pat</span> <span class="o">=</span> <span class="s1">&#39;(\w+市)(\w+区)(\w+路)(\d+号)&#39;</span>
@@ -1121,7 +1121,7 @@
 <ol class="arabic simple">
 <li><p>将 <code class="docutils literal notranslate"><span class="pre">year</span></code> 列改为整数年份存储。</p></li>
 <li><p>将 <code class="docutils literal notranslate"><span class="pre">floor</span></code> 列替换为 <code class="docutils literal notranslate"><span class="pre">Level,</span> <span class="pre">Highest</span></code> 两列，其中的元素分别为 <code class="docutils literal notranslate"><span class="pre">string</span></code> 类型的层类别（高层、中层、低层）与整数类型的最高层数。</p></li>
-<li><p>计算房屋每平米的均价 <code class="docutils literal notranslate"><span class="pre">avg_price</span></code>，以 <code class="docutils literal notranslate"><span class="pre">***元/平米</span></code> 的格式存储到表中，其中 <code class="docutils literal notranslate"><span class="pre">***</span></code> 为整数。</p></li>
+<li><p>计算房屋每平米的均价 <code class="docutils literal notranslate"><span class="pre">avg_price</span></code> ，以 <code class="docutils literal notranslate"><span class="pre">***元/平米</span></code> 的格式存储到表中，其中 <code class="docutils literal notranslate"><span class="pre">***</span></code> 为整数。</p></li>
 </ol>
 </div>
 <div class="section" id="ex2">

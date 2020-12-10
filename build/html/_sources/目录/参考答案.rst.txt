@@ -716,7 +716,7 @@ Ex2：钻石数据集
 
 .. ipython:: python
 
-    %timeit -n 30 s_cat.nunique() 
+    %timeit -n 30 s_cat.nunique()
 
 2.
 
