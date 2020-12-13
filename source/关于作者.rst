@@ -13,7 +13,7 @@ Merged
 * `#37607 <https://github.com/pandas-dev/pandas/pull/37607>`__ BUG: ``nunique`` not ignoring both ``None`` and ``np.nan``
 * `#37830 <https://github.com/pandas-dev/pandas/pull/37830>`__ BUG: ``MultiIndex.drop`` does not raise if labels are partially found
 * `#38089 <https://github.com/pandas-dev/pandas/pull/38089>`__ BUG: ``merge_ordered`` fails with list-like ``left_by`` or ``right_by``
-* `#38170  <https://github.com/pandas-dev/pandas/pull/38170>`__ BUG: unexpected ``merge_ordered`` results caused by wrongly groupby
+* `#38170  <https://github.com/pandas-dev/pandas/pull/38170>`__ BUG: unexpected ``merge_ordered`` results caused by wrongly ``groupby``
 * `#38173  <https://github.com/pandas-dev/pandas/pull/38173>`__ BUG: array-like ``quantile`` fails on column ``groupby``
 * `#38029 <https://github.com/pandas-dev/pandas/pull/38029>`__ BUG: ``unstack`` with missing levels results in incorrect ``index`` names
 * `#38257 <https://github.com/pandas-dev/pandas/pull/38257>`__ BUG: ``groupby.apply`` on the ``NaN`` group drops values with original ``axes`` return
@@ -21,7 +21,7 @@ Merged
 Working On
 ----------------------
 
-* `#37805 <https://github.com/pandas-dev/pandas/pull/37805>`__ ENH: Add ``end`` and ``end_day`` options for ``origin`` from ``resample``
+* `#38408 <https://github.com/pandas-dev/pandas/pull/38408>`__ ENH: ENH: add end and end_day ``origin`` for ``resample``
 
 To Do
 -------------

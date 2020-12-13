@@ -32,7 +32,7 @@
 
     [m+'_'+n for m in ['a', 'b'] for n in ['c', 'd']]
 
-除了列表推导式，另一个实用的语法糖是条件赋值，其形式为 ``value = a if condition else b`` ：
+除了列表推导式，另一个实用的语法糖是带有 ``if`` 选择的条件赋值，其形式为 ``value = a if condition else b`` ：
 
 .. ipython:: python
 
