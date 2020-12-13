@@ -32,7 +32,7 @@
 
     [m+'_'+n for m in ['a', 'b'] for n in ['c', 'd']]
 
-除了列表推导式，另一个实用的语法糖是条件赋值，其形式为 ``value = a if condition else b`` ：
+除了列表推导式，另一个实用的语法糖是带有 ``if`` 选择的条件赋值，其形式为 ``value = a if condition else b`` ：
 
 .. ipython:: python
 
@@ -50,7 +50,7 @@
     else:
         value = b
 
-下面举一个例子，截断列表中超过5的元素：
+下面举一个例子，截断列表中超过5的元素，即超过5的用5代替，小于5的保留原来的值：
 
 .. ipython:: python
 
