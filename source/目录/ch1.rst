@@ -196,11 +196,11 @@ zip函数能够把多个可迭代对象打包成一个元组构成的可迭代�
     sigma, mu = 2.5, 3
     mu + np.random.randn(3) * sigma
 
-``randint`` 可以指定生成随机整数的最小值最大值和维度大小：
+``randint`` 可以指定生成随机整数的最小值最大值（不包含）和维度大小：
 
 .. ipython:: python
 
-    low, high, size = 5, 15, (2,2)
+    low, high, size = 5, 15, (2,2) # 生成5到14的随机整数
     np.random.randint(low, high, size)
 
 ``choice`` 可以从给定的列表中，以一定概率和方式抽取结果，当不指定概率时为均匀采样，默认抽取方式为有放回抽样：
