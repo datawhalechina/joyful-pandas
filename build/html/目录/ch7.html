@@ -303,7 +303,7 @@
 <h2>一、缺失值的统计和删除<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id3">
 <h3>1. 缺失信息的统计<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<p>缺失数据可以使用 <code class="docutils literal notranslate"><span class="pre">isna</span></code> 或 <code class="docutils literal notranslate"><span class="pre">isnull</span></code> （两个函数没有区别）来查看每个单元格是否缺失，通过和 <code class="docutils literal notranslate"><span class="pre">sum</span></code> 的组合可以计算出每列缺失值的比例：</p>
+<p>缺失数据可以使用 <code class="docutils literal notranslate"><span class="pre">isna</span></code> 或 <code class="docutils literal notranslate"><span class="pre">isnull</span></code> （两个函数没有区别）来查看每个单元格是否缺失，结合 <code class="docutils literal notranslate"><span class="pre">mean</span></code> 可以计算出每列缺失值的比例：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/learn_pandas.csv&#39;</span><span class="p">,</span>
 <span class="gp">   ...: </span>                 <span class="n">usecols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Grade&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Gender&#39;</span><span class="p">,</span> <span class="s1">&#39;Height&#39;</span><span class="p">,</span>
 <span class="gp">   ...: </span>                            <span class="s1">&#39;Weight&#39;</span><span class="p">,</span> <span class="s1">&#39;Transfer&#39;</span><span class="p">])</span>
@@ -318,7 +318,7 @@
 <span class="go">3  False  False   False    True   False     False</span>
 <span class="go">4  False  False   False   False   False     False</span>
 
-<span class="gp">In [5]: </span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># 查看缺失的比例</span>
+<span class="gp">In [5]: </span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="c1"># 查看缺失的比例</span>
 <span class="gh">Out[5]: </span><span class="go"></span>
 <span class="go">Grade       0.000</span>
 <span class="go">Name        0.000</span>
@@ -894,7 +894,7 @@
 <span class="go">3  43.0  NaN  0</span>
 <span class="go">4   NaN  NaN  0</span>
 
-<span class="gp">In [99]: </span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">In [99]: </span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="gh">Out[99]: </span><span class="go"></span>
 <span class="go">X_1    0.855</span>
 <span class="go">X_2    0.894</span>

@@ -164,7 +164,7 @@ zip函数能够把多个可迭代对象打包成一个元组构成的可迭代�
     np.eye(3) # 3*3的单位矩阵
     np.eye(3, k=1) # 偏移主对角线1个单位的伪单位矩阵
     np.full((2,3), 10) # 元组传入大小，10表示填充数值
-    np.full((2,3), [1,2,3]) # 通过传入列表填充每列的值
+    np.full((2,3), [1,2,3]) # 每行填入相同的列表
 
 【c】随机矩阵： ``np.random``
 
@@ -182,6 +182,12 @@ zip函数能够把多个可迭代对象打包成一个元组构成的可迭代�
     a, b = 5, 15
     (b - a) * np.random.rand(3) + a
 
+一般的，可以选择已有的库函数：
+
+.. ipython:: python
+
+    np.random.uniform(5, 15, 3)
+
 ``randn`` 生成了 :math:`N\rm{(\mathbf{0}, \mathbf{I})}` 的标准正态分布：
 
 .. ipython:: python
@@ -195,6 +201,12 @@ zip函数能够把多个可迭代对象打包成一个元组构成的可迭代�
 
     sigma, mu = 2.5, 3
     mu + np.random.randn(3) * sigma
+
+同样的，也可选择从已有函数生成：
+
+.. ipython:: python
+
+    np.random.normal(3, 2.5, 3)
 
 ``randint`` 可以指定生成随机整数的最小值最大值（不包含）和维度大小：
 
@@ -211,7 +223,7 @@ zip函数能够把多个可迭代对象打包成一个元组构成的可迭代�
     np.random.choice(my_list, 2, replace=False, p=[0.1, 0.7, 0.1 ,0.1])
     np.random.choice(my_list, (3,3))
 
-当返回的元素个数与原列表相同时，等价于使用 ``permutation`` 函数，即打散原列表：
+当返回的元素个数与原列表相同时，不放回抽样等价于使用 ``permutation`` 函数，即打散原列表：
 
 .. ipython:: python
 
@@ -417,9 +429,9 @@ zip函数能够把多个可迭代对象打包成一个元组构成的可迭代�
 
     res = np.ones((3,2))
     res
-    res * np.array([[2,3]]) # 扩充第一维度为3
-    res * np.array([[2],[3],[4]]) # 扩充第二维度为2
-    res * np.array([[2]]) # 等价于两次扩充
+    res * np.array([[2,3]]) # 第二个数组扩充第一维度为3
+    res * np.array([[2],[3],[4]]) # 第二个数组扩充第二维度为2
+    res * np.array([[2]]) # 等价于两次扩充，第二个数组两个维度分别扩充为3和2
 
 【c】一维数组与二维数组的操作
 
@@ -468,11 +480,11 @@ other  --                            sum(abs(x)**ord)**(1./ord)
 
 .. ipython:: python
 
-    martix_target =  np.arange(4).reshape(-1,2)
-    martix_target 
-    np.linalg.norm(martix_target, 'fro')
-    np.linalg.norm(martix_target, np.inf)
-    np.linalg.norm(martix_target, 2)
+    matrix_target =  np.arange(4).reshape(-1,2)
+    matrix_target 
+    np.linalg.norm(matrix_target, 'fro')
+    np.linalg.norm(matrix_target, np.inf)
+    np.linalg.norm(matrix_target, 2)
 
 .. ipython:: python
 
@@ -574,4 +586,4 @@ Ex4：改进矩阵计算的性能
 Ex5：连续整数的最大长度
 ------------------------------
 
-输入一个整数的 ``Numpy`` 数组，返回其中递增连续整数子数组的最大长度。例如，输入 [1,2,5,6,7]，[5,6,7]为具有最大长度的递增连续整数子数组，因此输出3；输入[3,2,1,2,3,4,6]，[1,2,3,4]为具有最大长度的递增连续整数子数组，因此输出4。请充分利用 ``Numpy`` 的内置函数完成。（提示：考虑使用 ``nonzero, diff`` 函数）
+输入一个整数的 ``Numpy`` 数组，返回其中严格递增连续整数子数组的最大长度。例如，输入 [1,2,5,6,7]，[5,6,7]为具有最大长度的递增连续整数子数组，因此输出3；输入[3,2,1,2,3,4,6]，[1,2,3,4]为具有最大长度的递增连续整数子数组，因此输出4。请充分利用 ``Numpy`` 的内置函数完成。（提示：考虑使用 ``nonzero, diff`` 函数）
