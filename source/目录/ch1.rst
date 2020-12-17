@@ -527,7 +527,7 @@ Ex1：利用列表推导式写矩阵乘法
             for k in range(M1.shape[1]):
                 item += M1[i][k] * M2[k][j]
             res[i][j] = item
-    ((M1@M2 - res) < 1e-15).all() # 排除数值误差
+    (np.abs((M1@M2 - res) < 1e-15)).all() # 排除数值误差
 
 请将其改写为列表推导式的形式。
 

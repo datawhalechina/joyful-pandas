@@ -20,7 +20,7 @@ install:
   # Replace dep1 dep2 ... with your dependencies
   - conda create -q -n test-environment python=3.7
   - conda activate test-environment
-  - conda install numpy pandas matplotlib sphinx ipython xlrd tabulate openpyxl scipy scikit-learn
+  - conda install numpy pandas matplotlib sphinx ipython xlrd=1.2.0 tabulate openpyxl scipy scikit-learn
   - conda install pydata-sphinx-theme --channel conda-forge
 
 script:
