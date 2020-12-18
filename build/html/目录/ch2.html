@@ -325,7 +325,7 @@
 <span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
-<p>在开始学习前，请保证 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 的版本号不低于如下所示的版本，否则请务必升级！</p>
+<p>在开始学习前，请保证 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 的版本号不低于如下所示的版本，否则请务必升级！请确认已经安装了 <code class="docutils literal notranslate"><span class="pre">xlrd,</span> <span class="pre">xlwt,</span> <span class="pre">openpyxl</span></code> 这三个包，其中xlrd版本不得高于 <code class="docutils literal notranslate"><span class="pre">2.0.0</span></code> 。</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span>
 <span class="gh">Out[3]: </span><span class="go">&#39;1.1.5&#39;</span>
 </pre></div>
@@ -917,7 +917,7 @@
 <span class="go">dtype: float64</span>
 </pre></div>
 </div>
-<p>数值替换包含了 <code class="docutils literal notranslate"><span class="pre">round,</span> <span class="pre">abs,</span> <span class="pre">clip</span></code> 方法，它们分别表示取整、取绝对值和截断：</p>
+<p>数值替换包含了 <code class="docutils literal notranslate"><span class="pre">round,</span> <span class="pre">abs,</span> <span class="pre">clip</span></code> 方法，它们分别表示按照给定精度四舍五入、取绝对值和截断：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [79]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.2345</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">])</span>
 
 <span class="gp">In [80]: </span><span class="n">s</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -983,7 +983,7 @@
 <span class="go">Senior   Qiang Zheng     183.9    87.0</span>
 </pre></div>
 </div>
-<p>在排序中，进场遇到多列排序的问题，比如在体重相同的情况下，对身高进行排序，并且保持身高降序排列，体重升序排列：</p>
+<p>在排序中，经常遇到多列排序的问题，比如在体重相同的情况下，对身高进行排序，并且保持身高降序排列，体重升序排列：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [86]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Weight&#39;</span><span class="p">,</span><span class="s1">&#39;Height&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gh">Out[86]: </span><span class="go"></span>
 <span class="go">                       Height  Weight</span>
@@ -1221,7 +1221,7 @@
 <div class="hint admonition">
 <p class="admonition-title">练一练</p>
 <blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">rolling</span></code> 对象的默认窗口方向都是向前的，某些情况下用户需要向后的窗口，例如对1,2,3设定向后窗口为2的 <code class="docutils literal notranslate"><span class="pre">sum</span></code> 操作，结果为3,5,NaN，此时应该如何实现向后的滑窗操作？（提示：使用 <code class="docutils literal notranslate"><span class="pre">shift</span></code> ）</p>
+<div><p><code class="docutils literal notranslate"><span class="pre">rolling</span></code> 对象的默认窗口方向都是向前的，某些情况下用户需要向后的窗口，例如对1,2,3设定向后窗口为2的 <code class="docutils literal notranslate"><span class="pre">sum</span></code> 操作，结果为3,5,NaN，此时应该如何实现向后的滑窗操作？</p>
 </div></blockquote>
 </div>
 </div>
@@ -1297,7 +1297,7 @@
 \[\begin{split}y_t &amp;=\frac{\sum_{i=0}^{t} w_i x_{t-i}}{\sum_{i=0}^{t} w_i} \\
 &amp;=\frac{x_t + (1 - \alpha)x_{t-1} + (1 - \alpha)^2 x_{t-2} + ...
 + (1 - \alpha)^{t} x_{0}}{1 + (1 - \alpha) + (1 - \alpha)^2 + ...
-+ (1 - \alpha)^{t-1}}\\\end{split}\]</div>
++ (1 - \alpha)^{t}}\\\end{split}\]</div>
 <p>对于 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 而言，可以用 <code class="docutils literal notranslate"><span class="pre">ewm</span></code> 对象如下计算指数平滑后的序列：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [118]: </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
@@ -1326,7 +1326,7 @@
 <ol class="arabic simple" start="2">
 <li><p>作为滑动窗口的 <code class="docutils literal notranslate"><span class="pre">ewm</span></code> 窗口</p></li>
 </ol>
-<p>从第1问中可以看到， <code class="docutils literal notranslate"><span class="pre">ewm</span></code> 作为一种扩张窗口的特例，只能从序列的第一个元素开始加权。现在希望给定一个限制窗口 <code class="docutils literal notranslate"><span class="pre">n</span></code> ，只对包含自身最近的 <code class="docutils literal notranslate"><span class="pre">n</span></code> 个窗口进行滑动加权平滑。请根据滑窗函数，给出新的 <span class="math notranslate nohighlight">\(w_i\)</span> 与 <span class="math notranslate nohighlight">\(y_t\)</span> 的更新公式，并通过 <code class="docutils literal notranslate"><span class="pre">rolling</span></code> 窗口实现这一功能。</p>
+<p>从第1问中可以看到， <code class="docutils literal notranslate"><span class="pre">ewm</span></code> 作为一种扩张窗口的特例，只能从序列的第一个元素开始加权。现在希望给定一个限制窗口 <code class="docutils literal notranslate"><span class="pre">n</span></code> ，只对包含自身的最近的 <code class="docutils literal notranslate"><span class="pre">n</span></code> 个元素作为窗口进行滑动加权平滑。请根据滑窗函数，给出新的 <span class="math notranslate nohighlight">\(w_i\)</span> 与 <span class="math notranslate nohighlight">\(y_t\)</span> 的更新公式，并通过 <code class="docutils literal notranslate"><span class="pre">rolling</span></code> 窗口实现这一功能。</p>
 </div>
 </div>
 </div>
