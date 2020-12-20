@@ -477,13 +477,13 @@
 </div>
 <p>对比它们的性能：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [24]: </span><span class="o">%</span><span class="k">timeit</span> -n 30 solution(B, U, Z)
-<span class="go">88.4 ms +- 11.9 ms per loop (mean +- std. dev. of 7 runs, 30 loops each)</span>
+<span class="go">38.2 ms +- 402 us per loop (mean +- std. dev. of 7 runs, 30 loops each)</span>
 </pre></div>
 </div>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [25]: </span><span class="o">%</span><span class="k">timeit</span> -n 30 ((np.ones((m,n))*(B**2).sum(1).reshape(-1,1) +\
 <span class="gp">   ....: </span>                  <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">U</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">B</span><span class="nd">@U</span><span class="p">)</span><span class="o">*</span><span class="n">Z</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="gp">   ....: </span>
-<span class="go">607 us +- 8.04 us per loop (mean +- std. dev. of 7 runs, 30 loops each)</span>
+<span class="go">593 us +- 15.2 us per loop (mean +- std. dev. of 7 runs, 30 loops each)</span>
 </pre></div>
 </div>
 </div>
@@ -542,18 +542,19 @@
 <ol class="loweralpha simple" start="3">
 <li></li>
 </ol>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [36]: </span><span class="n">L_full</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span><span class="n">j</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Type 1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="p">(</span>
-<span class="gp">   ....: </span>          <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Type 1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">])]</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [36]: </span><span class="n">L_full</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span><span class="n">j</span> <span class="k">if</span> <span class="n">j</span><span class="o">!=</span><span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">i</span><span class="o">!=</span><span class="n">j</span> <span class="k">else</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span>
+<span class="gp">   ....: </span>          <span class="s1">&#39;Type 1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span>
+<span class="gp">   ....: </span>          <span class="s1">&#39;Type 1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">])]</span>
 <span class="gp">   ....: </span>
 
-<span class="gp">In [37]: </span><span class="n">L_part</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span><span class="n">j</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Type 1&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Type 2&#39;</span>
-<span class="gp">   ....: </span>         <span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))]</span>
+<span class="gp">In [37]: </span><span class="n">L_part</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span><span class="n">j</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span> <span class="k">else</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+<span class="gp">   ....: </span>          <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Type 1&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Type 2&#39;</span><span class="p">])]</span>
 <span class="gp">   ....: </span>
 
 <span class="gp">In [38]: </span><span class="n">res</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">L_full</span><span class="p">)</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">L_part</span><span class="p">))</span>
 
 <span class="gp">In [39]: </span><span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="c1"># 太多，不打印了</span>
-<span class="gh">Out[39]: </span><span class="go">188</span>
+<span class="gh">Out[39]: </span><span class="go">170</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
@@ -928,7 +929,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [87]: </span><span class="n">my_groupby</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;Type&#39;</span><span class="p">)</span>
-<span class="gh">Out[87]: </span><span class="go">&lt;__main__.my_groupby at 0x15d3debddc8&gt;</span>
+<span class="gh">Out[87]: </span><span class="go">&lt;__main__.my_groupby at 0x20f04c74ec8&gt;</span>
 </pre></div>
 </div>
 <p>单列分组：</p>
@@ -1523,11 +1524,11 @@
 </pre></div>
 </div>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [181]: </span><span class="o">%</span><span class="k">timeit</span> -n 30 s_obj.nunique()
-<span class="go">5.14 ms +- 375 us per loop (mean +- std. dev. of 7 runs, 30 loops each)</span>
+<span class="go">2.31 ms +- 171 us per loop (mean +- std. dev. of 7 runs, 30 loops each)</span>
 </pre></div>
 </div>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [182]: </span><span class="o">%</span><span class="k">timeit</span> -n 30 s_cat.nunique()
-<span class="go">1.28 ms +- 25.1 us per loop (mean +- std. dev. of 7 runs, 30 loops each)</span>
+<span class="go">542 us +- 8.19 us per loop (mean +- std. dev. of 7 runs, 30 loops each)</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">

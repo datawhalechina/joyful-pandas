@@ -137,10 +137,11 @@ Ex1：口袋妖怪数据集
 
 .. ipython:: python
 
-    L_full = [i+' '+j for i in df['Type 1'].unique() for j in (
-              df['Type 1'].unique().tolist() + [''])]
-    L_part = [i+' '+j for i, j in zip(df['Type 1'], df['Type 2'
-             ].replace(np.nan, ''))]
+    L_full = [i+' '+j if j!='' and i!=j else i for i in df[
+              'Type 1'].unique() for j in (df[
+              'Type 1'].unique().tolist() + [''])]
+    L_part = [i+' '+j if not isinstance(j, float) else i for i, j in zip(
+              df['Type 1'], df['Type 2'])]
     res = set(L_full).difference(set(L_part))
     len(res) # 太多，不打印了
 
