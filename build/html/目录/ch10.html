@@ -1,0 +1,1240 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第十章 时序数据 &#8212; Joyful Pandas 1.0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/s4defs-roles.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.30270b6e4c972e43c488.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="参考答案" href="%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88.html" />
+    <link rel="prev" title="第九章 分类数据" href="ch9.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/finallogo1.svg" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../%E4%B8%BB%E9%A1%B5.html">Joyful Pandas</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">目录</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../%E5%85%B3%E4%BA%8E%E4%BD%9C%E8%80%85.html">关于作者</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../Datawhale.html">Datawhale</a>
+        </li>
+        
+        
+        <li class="nav-item">
+            <a class="nav-link nav-external" href="https://pandas.pydata.org/docs/index.html">Pandas官网<i class="fas fa-external-link-alt"></i></a>
+        </li>
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/datawhalechina/joyful-pandas" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+        
+          
+              <li class="">
+                  <a href="%E5%89%8D%E8%A8%80.html">前言</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch1.html">第一章 预备知识</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch2.html">第二章 pandas基础</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch3.html">第三章 索引</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch4.html">第四章 分组</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch5.html">第五章 变形</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch6.html">第六章 连接</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch7.html">第七章 缺失数据</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch8.html">第八章 文本数据</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch9.html">第九章 分类数据</a>
+              </li>
+          
+        
+          
+              <li class="active">
+                  <a href="">第十章 时序数据</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88.html">参考答案</a>
+              </li>
+          
+        
+      
+      
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id2" class="nav-link">一、时序中的基本对象</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id3" class="nav-link">二、时间戳</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#timestamp" class="nav-link">1. Timestamp的构造与属性</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#datetime" class="nav-link">2. Datetime序列的生成</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#dt" class="nav-link">3. dt对象</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id4" class="nav-link">4. 时间戳的切片与索引</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id5" class="nav-link">三、时间差</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#timedelta" class="nav-link">1. Timedelta的生成</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id6" class="nav-link">2. Timedelta的运算</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id7" class="nav-link">四、日期偏置</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#offset" class="nav-link">1. Offset对象</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id8" class="nav-link">2. 偏置字符串</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id9" class="nav-link">五、时序中的滑窗与分组</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id10" class="nav-link">1. 滑动窗口</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id11" class="nav-link">2. 重采样</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id12" class="nav-link">六、练习</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#ex1" class="nav-link">Ex1：太阳辐射数据集</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#ex2" class="nav-link">Ex2：水果销量数据集</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="id1">
+<h1>第十章 时序数据<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+<div class="section" id="id2">
+<h2>一、时序中的基本对象<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>时间序列的概念在日常生活中十分常见，但对于一个具体的时序事件而言，可以从多个时间对象的角度来描述。例如2020年9月7日周一早上8点整需要到教室上课，这个课会在当天早上10点结束，其中包含了哪些时间概念？</p>
+<ul class="simple">
+<li><p>第一，会出现时间戳（Date times）的概念，即’2020-9-7 08:00:00’和’2020-9-7 10:00:00’这两个时间点分别代表了上课和下课的时刻，在 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 中称为 <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> 。同时，一系列的时间戳可以组成 <code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code> ，而将它放到 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 中后， <code class="docutils literal notranslate"><span class="pre">Series</span></code> 的类型就变为了 <code class="docutils literal notranslate"><span class="pre">datetime64[ns]</span></code> ，如果有涉及时区则为 <code class="docutils literal notranslate"><span class="pre">datetime64[ns,</span> <span class="pre">tz]</span></code> ，其中tz是timezone的简写。</p></li>
+<li><p>第二，会出现时间差（Time deltas）的概念，即上课需要的时间，两个 <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> 做差就得到了时间差，pandas中利用 <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code> 来表示。类似的，一系列的时间差就组成了 <code class="docutils literal notranslate"><span class="pre">TimedeltaIndex</span></code> ， 而将它放到 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 中后， <code class="docutils literal notranslate"><span class="pre">Series</span></code> 的类型就变为了 <code class="docutils literal notranslate"><span class="pre">timedelta64[ns]</span></code> 。</p></li>
+<li><p>第三，会出现时间段（Time spans）的概念，即在8点到10点这个区间都会持续地在上课，在 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 利用 <code class="docutils literal notranslate"><span class="pre">Period</span></code> 来表示。类似的，一系列的时间段就组成了 <code class="docutils literal notranslate"><span class="pre">PeriodIndex</span></code> ， 而将它放到 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 中后， <code class="docutils literal notranslate"><span class="pre">Series</span></code> 的类型就变为了 <code class="docutils literal notranslate"><span class="pre">Period</span></code> 。</p></li>
+<li><p>第四，会出现日期偏置（Date offsets）的概念，假设你只知道9月的第一个周一早上8点要去上课，但不知道具体的日期，那么就需要一个类型来处理此类需求。再例如，想要知道2020年9月7日后的第30个工作日是哪一天，那么时间差就解决不了你的问题，从而 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">DateOffset</span></code> 就出现了。同时， <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 中没有为一列时间偏置专门设计存储类型，理由也很简单，因为需求比较奇怪，一般来说我们只需要对一批时间特征做一个统一的特殊日期偏置。</p></li>
+</ul>
+<p>通过这个简单的例子，就能够容易地总结出官方文档中的这个 <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/timeseries.html#overview">表格</a> ：</p>
+<table class="table">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 24%" />
+<col style="width: 18%" />
+<col style="width: 32%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>概念</p></th>
+<th class="head"><p>单元素类型</p></th>
+<th class="head"><p>数组类型</p></th>
+<th class="head"><p>pandas数据类型</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Date times</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Timestamp</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">datetime64[ns]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Time deltas</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Timedelta</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TimedeltaIndex</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">timedelta64[ns]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Time spans</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Period</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PeriodIndex</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">period[freq]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Date offsets</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DateOffset</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>由于时间段对象 <code class="docutils literal notranslate"><span class="pre">Period/PeriodIndex</span></code> 的使用频率并不高，因此将不进行讲解，而只涉及时间戳序列、时间差序列和日期偏置的相关内容。</p>
+</div>
+<div class="section" id="id3">
+<h2>二、时间戳<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="timestamp">
+<h3>1. Timestamp的构造与属性<a class="headerlink" href="#timestamp" title="Permalink to this headline">¶</a></h3>
+<p>单个时间戳的生成利用 <code class="docutils literal notranslate"><span class="pre">pd.Timestamp</span></code> 实现，一般而言的常见日期格式都能被成功地转换：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">ts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2020/1/1&#39;</span><span class="p">)</span>
+
+<span class="gp">In [4]: </span><span class="n">ts</span>
+<span class="gh">Out[4]: </span><span class="go">Timestamp(&#39;2020-01-01 00:00:00&#39;)</span>
+
+<span class="gp">In [5]: </span><span class="n">ts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2020-1-1 08:10:30&#39;</span><span class="p">)</span>
+
+<span class="gp">In [6]: </span><span class="n">ts</span>
+<span class="gh">Out[6]: </span><span class="go">Timestamp(&#39;2020-01-01 08:10:30&#39;)</span>
+</pre></div>
+</div>
+<p>通过 <code class="docutils literal notranslate"><span class="pre">year,</span> <span class="pre">month,</span> <span class="pre">day,</span> <span class="pre">hour,</span> <span class="pre">min,</span> <span class="pre">second</span></code> 可以获取具体的数值：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">ts</span><span class="o">.</span><span class="n">year</span>
+<span class="gh">Out[7]: </span><span class="go">2020</span>
+
+<span class="gp">In [8]: </span><span class="n">ts</span><span class="o">.</span><span class="n">month</span>
+<span class="gh">Out[8]: </span><span class="go">1</span>
+
+<span class="gp">In [9]: </span><span class="n">ts</span><span class="o">.</span><span class="n">day</span>
+<span class="gh">Out[9]: </span><span class="go">1</span>
+
+<span class="gp">In [10]: </span><span class="n">ts</span><span class="o">.</span><span class="n">hour</span>
+<span class="gh">Out[10]: </span><span class="go">8</span>
+
+<span class="gp">In [11]: </span><span class="n">ts</span><span class="o">.</span><span class="n">minute</span>
+<span class="gh">Out[11]: </span><span class="go">10</span>
+
+<span class="gp">In [12]: </span><span class="n">ts</span><span class="o">.</span><span class="n">second</span>
+<span class="gh">Out[12]: </span><span class="go">30</span>
+</pre></div>
+</div>
+<p>在 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 中，时间戳的最小精度为纳秒 <code class="docutils literal notranslate"><span class="pre">ns</span></code> ，由于使用了64位存储，可以表示的时间范围大约可以如下计算：</p>
+<div class="math notranslate nohighlight">
+\[\rm Time\,Range = \frac{2^{64}}{10^9\times 60\times 60\times 24\times 365} \approx 585 (Years)\]</div>
+<p>通过 <code class="docutils literal notranslate"><span class="pre">pd.Timestamp.max</span></code> 和 <code class="docutils literal notranslate"><span class="pre">pd.Timestamp.min</span></code> 可以获取时间戳表示的范围，可以看到确实表示的区间年数大小正如上述计算结果：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="o">.</span><span class="n">max</span>
+<span class="gh">Out[13]: </span><span class="go">Timestamp(&#39;2262-04-11 23:47:16.854775807&#39;)</span>
+
+<span class="gp">In [14]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="o">.</span><span class="n">min</span>
+<span class="gh">Out[14]: </span><span class="go">Timestamp(&#39;1677-09-21 00:12:43.145225&#39;)</span>
+
+<span class="gp">In [15]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="o">.</span><span class="n">max</span><span class="o">.</span><span class="n">year</span> <span class="o">-</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="o">.</span><span class="n">min</span><span class="o">.</span><span class="n">year</span>
+<span class="gh">Out[15]: </span><span class="go">585</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="datetime">
+<h3>2. Datetime序列的生成<a class="headerlink" href="#datetime" title="Permalink to this headline">¶</a></h3>
+<p>一组时间戳可以组成时间序列，可以用 <code class="docutils literal notranslate"><span class="pre">to_datetime</span></code> 和 <code class="docutils literal notranslate"><span class="pre">date_range</span></code> 来生成。其中， <code class="docutils literal notranslate"><span class="pre">to_datetime</span></code> 能够把一列时间戳格式的对象转换成为 <code class="docutils literal notranslate"><span class="pre">datetime64[ns]</span></code> 类型的时间序列：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">([</span><span class="s1">&#39;2020-1-1&#39;</span><span class="p">,</span> <span class="s1">&#39;2020-1-3&#39;</span><span class="p">,</span> <span class="s1">&#39;2020-1-6&#39;</span><span class="p">])</span>
+<span class="gh">Out[16]: </span><span class="go">DatetimeIndex([&#39;2020-01-01&#39;, &#39;2020-01-03&#39;, &#39;2020-01-06&#39;], dtype=&#39;datetime64[ns]&#39;, freq=None)</span>
+
+<span class="gp">In [17]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/learn_pandas.csv&#39;</span><span class="p">)</span>
+
+<span class="gp">In [18]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Test_Date</span><span class="p">)</span>
+
+<span class="gp">In [19]: </span><span class="n">s</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[19]: </span><span class="go"></span>
+<span class="go">0   2019-10-05</span>
+<span class="go">1   2019-09-04</span>
+<span class="go">2   2019-09-12</span>
+<span class="go">3   2020-01-03</span>
+<span class="go">4   2019-11-06</span>
+<span class="go">Name: Test_Date, dtype: datetime64[ns]</span>
+</pre></div>
+</div>
+<p>在极少数情况，时间戳的格式不满足转换时，可以强制使用 <code class="docutils literal notranslate"><span class="pre">format</span></code> 进行匹配：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [20]: </span><span class="n">temp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">([</span><span class="s1">&#39;2020</span><span class="se">\\</span><span class="s1">1</span><span class="se">\\</span><span class="s1">1&#39;</span><span class="p">,</span><span class="s1">&#39;2020</span><span class="se">\\</span><span class="s1">1</span><span class="se">\\</span><span class="s1">3&#39;</span><span class="p">],</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y</span><span class="se">\\</span><span class="s1">%m</span><span class="se">\\</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="gp">In [21]: </span><span class="n">temp</span>
+<span class="gh">Out[21]: </span><span class="go">DatetimeIndex([&#39;2020-01-01&#39;, &#39;2020-01-03&#39;], dtype=&#39;datetime64[ns]&#39;, freq=None)</span>
+</pre></div>
+</div>
+<p>注意上面由于传入的是列表，而非 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 内部的 <code class="docutils literal notranslate"><span class="pre">Series</span></code> ，因此返回的是 <code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code> ，如果想要转为 <code class="docutils literal notranslate"><span class="pre">datetime64[ns]</span></code> 的序列，需要显式用 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 转化：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [22]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[22]: </span><span class="go"></span>
+<span class="go">0   2020-01-01</span>
+<span class="go">1   2020-01-03</span>
+<span class="go">dtype: datetime64[ns]</span>
+</pre></div>
+</div>
+<p>另外，还存在一种把表的多列时间属性拼接转为时间序列的 <code class="docutils literal notranslate"><span class="pre">to_datetime</span></code> 操作，此时的列名必须和以下给定的时间关键词列名一致：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [23]: </span><span class="n">df_date_cols</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">2020</span><span class="p">],</span>
+<span class="gp">   ....: </span>                             <span class="s1">&#39;month&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="gp">   ....: </span>                             <span class="s1">&#39;day&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="gp">   ....: </span>                             <span class="s1">&#39;hour&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+<span class="gp">   ....: </span>                             <span class="s1">&#39;minute&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span>
+<span class="gp">   ....: </span>                             <span class="s1">&#39;second&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">]})</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [24]: </span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_date_cols</span><span class="p">)</span>
+<span class="gh">Out[24]: </span><span class="go"></span>
+<span class="go">0   2020-01-01 10:30:20</span>
+<span class="go">1   2020-01-02 20:50:40</span>
+<span class="go">dtype: datetime64[ns]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">date_range</span></code> 是一种生成连续间隔时间的一种方法，其重要的参数为 <code class="docutils literal notranslate"><span class="pre">start,</span> <span class="pre">end,</span> <span class="pre">freq,</span> <span class="pre">periods</span></code> ，它们分别表示开始时间，结束时间，时间间隔，时间戳个数。其中，四个中的三个参数决定了，那么剩下的一个就随之确定了。这里要注意，开始或结束日期如果作为端点则它会被包含：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [25]: </span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2020-1-1&#39;</span><span class="p">,</span><span class="s1">&#39;2020-1-21&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;10D&#39;</span><span class="p">)</span> <span class="c1"># 包含</span>
+<span class="gh">Out[25]: </span><span class="go">DatetimeIndex([&#39;2020-01-01&#39;, &#39;2020-01-11&#39;, &#39;2020-01-21&#39;], dtype=&#39;datetime64[ns]&#39;, freq=&#39;10D&#39;)</span>
+
+<span class="gp">In [26]: </span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2020-1-1&#39;</span><span class="p">,</span><span class="s1">&#39;2020-2-28&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;10D&#39;</span><span class="p">)</span>
+<span class="gh">Out[26]: </span><span class="go"></span>
+<span class="go">DatetimeIndex([&#39;2020-01-01&#39;, &#39;2020-01-11&#39;, &#39;2020-01-21&#39;, &#39;2020-01-31&#39;,</span>
+<span class="go">               &#39;2020-02-10&#39;, &#39;2020-02-20&#39;],</span>
+<span class="go">              dtype=&#39;datetime64[ns]&#39;, freq=&#39;10D&#39;)</span>
+
+<span class="gp">In [27]: </span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2020-1-1&#39;</span><span class="p">,</span>
+<span class="gp">   ....: </span>              <span class="s1">&#39;2020-2-28&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># 由于结束日期无法取到，freq不为10天</span>
+<span class="gp">   ....: </span>
+<span class="gh">Out[27]: </span><span class="go"></span>
+<span class="go">DatetimeIndex([&#39;2020-01-01 00:00:00&#39;, &#39;2020-01-12 14:24:00&#39;,</span>
+<span class="go">               &#39;2020-01-24 04:48:00&#39;, &#39;2020-02-04 19:12:00&#39;,</span>
+<span class="go">               &#39;2020-02-16 09:36:00&#39;, &#39;2020-02-28 00:00:00&#39;],</span>
+<span class="go">              dtype=&#39;datetime64[ns]&#39;, freq=None)</span>
+</pre></div>
+</div>
+<p>这里的 <code class="docutils literal notranslate"><span class="pre">freq</span></code> 参数与 <code class="docutils literal notranslate"><span class="pre">DateOffset</span></code> 对象紧密相关，将在第四节介绍其具体的用法。</p>
+<div class="hint admonition">
+<p class="admonition-title">练一练</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> 上定义了一个 <code class="docutils literal notranslate"><span class="pre">value</span></code> 属性，其返回的整数值代表了从1970年1月1日零点到给定时间戳相差的纳秒数，请利用这个属性构造一个随机生成给定日期区间内日期序列的函数。</p>
+</div></blockquote>
+</div>
+<p>最后，要介绍一种改变序列采样频率的方法 <code class="docutils literal notranslate"><span class="pre">asfreq</span></code> ，它能够根据给定的 <code class="docutils literal notranslate"><span class="pre">freq</span></code> 对序列进行类似于 <code class="docutils literal notranslate"><span class="pre">reindex</span></code> 的操作：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [28]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+<span class="gp">   ....: </span>            <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">([</span>
+<span class="gp">   ....: </span>                <span class="s1">&#39;2020-1-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="k">i</span> for i in range(1,10,2)]))
+<span class="gp">   ....: </span>
+
+<span class="gp">In [29]: </span><span class="n">s</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[29]: </span><span class="go"></span>
+<span class="go">2020-01-01    0.836578</span>
+<span class="go">2020-01-03    0.678419</span>
+<span class="go">2020-01-05    0.711897</span>
+<span class="go">2020-01-07    0.487429</span>
+<span class="go">2020-01-09    0.604705</span>
+<span class="go">dtype: float64</span>
+
+<span class="gp">In [30]: </span><span class="n">s</span><span class="o">.</span><span class="n">asfreq</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[30]: </span><span class="go"></span>
+<span class="go">2020-01-01    0.836578</span>
+<span class="go">2020-01-02         NaN</span>
+<span class="go">2020-01-03    0.678419</span>
+<span class="go">2020-01-04         NaN</span>
+<span class="go">2020-01-05    0.711897</span>
+<span class="go">Freq: D, dtype: float64</span>
+
+<span class="gp">In [31]: </span><span class="n">s</span><span class="o">.</span><span class="n">asfreq</span><span class="p">(</span><span class="s1">&#39;12H&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[31]: </span><span class="go"></span>
+<span class="go">2020-01-01 00:00:00    0.836578</span>
+<span class="go">2020-01-01 12:00:00         NaN</span>
+<span class="go">2020-01-02 00:00:00         NaN</span>
+<span class="go">2020-01-02 12:00:00         NaN</span>
+<span class="go">2020-01-03 00:00:00    0.678419</span>
+<span class="go">Freq: 12H, dtype: float64</span>
+</pre></div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">datetime64[ns]序列的最值与均值</p>
+<blockquote>
+<div><p>前面提到了 <code class="docutils literal notranslate"><span class="pre">datetime64[ns]</span></code> 本质上可以理解为一个大整数，对于一个该类型的序列，可以使用 <code class="docutils literal notranslate"><span class="pre">max,</span> <span class="pre">min,</span> <span class="pre">mean</span></code> ，来取得最大时间戳、最小时间戳和“平均”时间戳。</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="dt">
+<h3>3. dt对象<a class="headerlink" href="#dt" title="Permalink to this headline">¶</a></h3>
+<p>如同 <code class="docutils literal notranslate"><span class="pre">category,</span> <span class="pre">string</span></code> 的序列上定义了 <code class="docutils literal notranslate"><span class="pre">cat,</span> <span class="pre">str</span></code> 来完成分类数据和文本数据的操作，在时序类型的序列上定义了 <code class="docutils literal notranslate"><span class="pre">dt</span></code> 对象来完成许多时间序列的相关操作。这里对于 <code class="docutils literal notranslate"><span class="pre">datetime64[ns]</span></code> 类型而言，可以大致分为三类操作：取出时间相关的属性、判断时间戳是否满足条件、取整操作。</p>
+<p>第一类操作的常用属性包括： <code class="docutils literal notranslate"><span class="pre">date,</span> <span class="pre">time,</span> <span class="pre">year,</span> <span class="pre">month,</span> <span class="pre">day,</span> <span class="pre">hour,</span> <span class="pre">minute,</span> <span class="pre">second,</span> <span class="pre">microsecond,</span> <span class="pre">nanosecond,</span> <span class="pre">dayofweek,</span> <span class="pre">dayofyear,</span> <span class="pre">weekofyear,</span> <span class="pre">daysinmonth,</span> <span class="pre">quarter</span></code> ，其中 <code class="docutils literal notranslate"><span class="pre">daysinmonth,</span> <span class="pre">quarter</span></code> 分别表示月中的第几天和季度。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [32]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2020-1-1&#39;</span><span class="p">,</span><span class="s1">&#39;2020-1-3&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">))</span>
+
+<span class="gp">In [33]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span>
+<span class="gh">Out[33]: </span><span class="go"></span>
+<span class="go">0    2020-01-01</span>
+<span class="go">1    2020-01-02</span>
+<span class="go">2    2020-01-03</span>
+<span class="go">dtype: object</span>
+
+<span class="gp">In [34]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">time</span>
+<span class="gh">Out[34]: </span><span class="go"></span>
+<span class="go">0    00:00:00</span>
+<span class="go">1    00:00:00</span>
+<span class="go">2    00:00:00</span>
+<span class="go">dtype: object</span>
+
+<span class="gp">In [35]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">day</span>
+<span class="gh">Out[35]: </span><span class="go"></span>
+<span class="go">0    1</span>
+<span class="go">1    2</span>
+<span class="go">2    3</span>
+<span class="go">dtype: int64</span>
+
+<span class="gp">In [36]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">daysinmonth</span>
+<span class="gh">Out[36]: </span><span class="go"></span>
+<span class="go">0    31</span>
+<span class="go">1    31</span>
+<span class="go">2    31</span>
+<span class="go">dtype: int64</span>
+</pre></div>
+</div>
+<p>在这些属性中，经常使用的是 <code class="docutils literal notranslate"><span class="pre">dayofweek</span></code> ，它返回了周中的星期情况，周一为0、周二为1，以此类推：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [37]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofweek</span>
+<span class="gh">Out[37]: </span><span class="go"></span>
+<span class="go">0    2</span>
+<span class="go">1    3</span>
+<span class="go">2    4</span>
+<span class="go">dtype: int64</span>
+</pre></div>
+</div>
+<p>此外，可以通过 <code class="docutils literal notranslate"><span class="pre">month_name,</span> <span class="pre">day_name</span></code> 返回英文的月名和星期名，注意它们是方法而不是属性：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [38]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month_name</span><span class="p">()</span>
+<span class="gh">Out[38]: </span><span class="go"></span>
+<span class="go">0    January</span>
+<span class="go">1    January</span>
+<span class="go">2    January</span>
+<span class="go">dtype: object</span>
+
+<span class="gp">In [39]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">day_name</span><span class="p">()</span>
+<span class="gh">Out[39]: </span><span class="go"></span>
+<span class="go">0    Wednesday</span>
+<span class="go">1     Thursday</span>
+<span class="go">2       Friday</span>
+<span class="go">dtype: object</span>
+</pre></div>
+</div>
+<p>第二类判断操作主要用于测试是否为月/季/年的第一天或者最后一天：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [40]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">is_year_start</span> <span class="c1"># 还可选 is_quarter/month_start</span>
+<span class="gh">Out[40]: </span><span class="go"></span>
+<span class="go">0     True</span>
+<span class="go">1    False</span>
+<span class="go">2    False</span>
+<span class="go">dtype: bool</span>
+
+<span class="gp">In [41]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">is_year_end</span> <span class="c1"># 还可选 is_quarter/month_end</span>
+<span class="gh">Out[41]: </span><span class="go"></span>
+<span class="go">0    False</span>
+<span class="go">1    False</span>
+<span class="go">2    False</span>
+<span class="go">dtype: bool</span>
+</pre></div>
+</div>
+<p>第三类的取整操作包含 <code class="docutils literal notranslate"><span class="pre">round,</span> <span class="pre">ceil,</span> <span class="pre">floor</span></code> ，它们的公共参数为 <code class="docutils literal notranslate"><span class="pre">freq</span></code> ，常用的包括 <code class="docutils literal notranslate"><span class="pre">H,</span> <span class="pre">min,</span> <span class="pre">S</span></code> （小时、分钟、秒），所有可选的 <code class="docutils literal notranslate"><span class="pre">freq</span></code> 可参考 <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/timeseries.html#offset-aliases">此处</a> 。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [42]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2020-1-1 20:35:00&#39;</span><span class="p">,</span>
+<span class="gp">   ....: </span>                            <span class="s1">&#39;2020-1-1 22:35:00&#39;</span><span class="p">,</span>
+<span class="gp">   ....: </span>                            <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;45min&#39;</span><span class="p">))</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [43]: </span><span class="n">s</span>
+<span class="gh">Out[43]: </span><span class="go"></span>
+<span class="go">0   2020-01-01 20:35:00</span>
+<span class="go">1   2020-01-01 21:20:00</span>
+<span class="go">2   2020-01-01 22:05:00</span>
+<span class="go">dtype: datetime64[ns]</span>
+
+<span class="gp">In [44]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="s1">&#39;1H&#39;</span><span class="p">)</span>
+<span class="gh">Out[44]: </span><span class="go"></span>
+<span class="go">0   2020-01-01 21:00:00</span>
+<span class="go">1   2020-01-01 21:00:00</span>
+<span class="go">2   2020-01-01 22:00:00</span>
+<span class="go">dtype: datetime64[ns]</span>
+
+<span class="gp">In [45]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="s1">&#39;1H&#39;</span><span class="p">)</span>
+<span class="gh">Out[45]: </span><span class="go"></span>
+<span class="go">0   2020-01-01 21:00:00</span>
+<span class="go">1   2020-01-01 22:00:00</span>
+<span class="go">2   2020-01-01 23:00:00</span>
+<span class="go">dtype: datetime64[ns]</span>
+
+<span class="gp">In [46]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="s1">&#39;1H&#39;</span><span class="p">)</span>
+<span class="gh">Out[46]: </span><span class="go"></span>
+<span class="go">0   2020-01-01 20:00:00</span>
+<span class="go">1   2020-01-01 21:00:00</span>
+<span class="go">2   2020-01-01 22:00:00</span>
+<span class="go">dtype: datetime64[ns]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>4. 时间戳的切片与索引<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>一般而言，时间戳序列作为索引使用。如果想要选出某个子时间戳序列，第一类方法是利用 <code class="docutils literal notranslate"><span class="pre">dt</span></code> 对象和布尔条件联合使用，另一种方式是利用切片，后者常用于连续时间戳。下面，举一些例子说明：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [47]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">366</span><span class="p">),</span>
+<span class="gp">   ....: </span>              <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span>
+<span class="gp">   ....: </span>                      <span class="s1">&#39;2020-01-01&#39;</span><span class="p">,</span><span class="s1">&#39;2020-12-31&#39;</span><span class="p">))</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [48]: </span><span class="n">idx</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span>
+
+<span class="gp">In [49]: </span><span class="n">s</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[49]: </span><span class="go"></span>
+<span class="go">2020-01-01    1</span>
+<span class="go">2020-01-02    1</span>
+<span class="go">2020-01-03    0</span>
+<span class="go">2020-01-04    1</span>
+<span class="go">2020-01-05    0</span>
+<span class="go">Freq: D, dtype: int32</span>
+</pre></div>
+</div>
+<p>Example1：每月的第一天或者最后一天</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [50]: </span><span class="n">s</span><span class="p">[(</span><span class="n">idx</span><span class="o">.</span><span class="n">is_month_start</span><span class="o">|</span><span class="n">idx</span><span class="o">.</span><span class="n">is_month_end</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[50]: </span><span class="go"></span>
+<span class="go">2020-01-01    1</span>
+<span class="go">2020-01-31    0</span>
+<span class="go">2020-02-01    1</span>
+<span class="go">2020-02-29    1</span>
+<span class="go">2020-03-01    0</span>
+<span class="go">dtype: int32</span>
+</pre></div>
+</div>
+<p>Example2：双休日</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [51]: </span><span class="n">s</span><span class="p">[</span><span class="n">idx</span><span class="o">.</span><span class="n">dayofweek</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span><span class="o">.</span><span class="n">values</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[51]: </span><span class="go"></span>
+<span class="go">2020-01-04    1</span>
+<span class="go">2020-01-05    0</span>
+<span class="go">2020-01-11    0</span>
+<span class="go">2020-01-12    1</span>
+<span class="go">2020-01-18    1</span>
+<span class="go">dtype: int32</span>
+</pre></div>
+</div>
+<p>Example3：取出单日值</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [52]: </span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;2020-01-01&#39;</span><span class="p">]</span>
+<span class="gh">Out[52]: </span><span class="go">1</span>
+
+<span class="gp">In [53]: </span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;20200101&#39;</span><span class="p">]</span> <span class="c1"># 自动转换标准格式</span>
+<span class="gh">Out[53]: </span><span class="go">1</span>
+</pre></div>
+</div>
+<p>Example4：取出七月</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [54]: </span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;2020-07&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[54]: </span><span class="go"></span>
+<span class="go">2020-07-01    0</span>
+<span class="go">2020-07-02    1</span>
+<span class="go">2020-07-03    0</span>
+<span class="go">2020-07-04    0</span>
+<span class="go">2020-07-05    0</span>
+<span class="go">Freq: D, dtype: int32</span>
+</pre></div>
+</div>
+<p>Example5：取出5月初至7月15日</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [55]: </span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;2020-05&#39;</span><span class="p">:</span><span class="s1">&#39;2020-7-15&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[55]: </span><span class="go"></span>
+<span class="go">2020-05-01    0</span>
+<span class="go">2020-05-02    1</span>
+<span class="go">2020-05-03    0</span>
+<span class="go">2020-05-04    1</span>
+<span class="go">2020-05-05    1</span>
+<span class="go">Freq: D, dtype: int32</span>
+
+<span class="gp">In [56]: </span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;2020-05&#39;</span><span class="p">:</span><span class="s1">&#39;2020-7-15&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+<span class="gh">Out[56]: </span><span class="go"></span>
+<span class="go">2020-07-11    0</span>
+<span class="go">2020-07-12    0</span>
+<span class="go">2020-07-13    1</span>
+<span class="go">2020-07-14    0</span>
+<span class="go">2020-07-15    1</span>
+<span class="go">Freq: D, dtype: int32</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>三、时间差<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="timedelta">
+<h3>1. Timedelta的生成<a class="headerlink" href="#timedelta" title="Permalink to this headline">¶</a></h3>
+<p>正如在第一节中所说，时间差可以理解为两个时间戳的差，这里也可以通过 <code class="docutils literal notranslate"><span class="pre">pd.Timedelta</span></code> 来构造：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [57]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;20200102 08:00:00&#39;</span><span class="p">)</span><span class="o">-</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;20200101 07:35:00&#39;</span><span class="p">)</span>
+<span class="gh">Out[57]: </span><span class="go">Timedelta(&#39;1 days 00:25:00&#39;)</span>
+
+<span class="gp">In [58]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">minutes</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span> <span class="c1"># 需要注意加s</span>
+<span class="gh">Out[58]: </span><span class="go">Timedelta(&#39;1 days 00:25:00&#39;)</span>
+
+<span class="gp">In [59]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="s1">&#39;1 days 25 minutes&#39;</span><span class="p">)</span> <span class="c1"># 字符串生成</span>
+<span class="gh">Out[59]: </span><span class="go">Timedelta(&#39;1 days 00:25:00&#39;)</span>
+</pre></div>
+</div>
+<p>生成时间差序列的主要方式是 <code class="docutils literal notranslate"><span class="pre">pd.to_timedelta</span></code> ，其类型为 <code class="docutils literal notranslate"><span class="pre">timedelta64[ns]</span></code> ：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [60]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_timedelta</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Time_Record</span><span class="p">)</span>
+
+<span class="gp">In [61]: </span><span class="n">s</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[61]: </span><span class="go"></span>
+<span class="go">0   0 days 00:04:34</span>
+<span class="go">1   0 days 00:04:20</span>
+<span class="go">2   0 days 00:05:22</span>
+<span class="go">3   0 days 00:04:08</span>
+<span class="go">4   0 days 00:05:22</span>
+<span class="go">Name: Time_Record, dtype: timedelta64[ns]</span>
+</pre></div>
+</div>
+<p>与 <code class="docutils literal notranslate"><span class="pre">date_range</span></code> 一样，时间差序列也可以用 <code class="docutils literal notranslate"><span class="pre">timedelta_range</span></code> 来生成，它们两者具有一致的参数：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [62]: </span><span class="n">pd</span><span class="o">.</span><span class="n">timedelta_range</span><span class="p">(</span><span class="s1">&#39;0s&#39;</span><span class="p">,</span> <span class="s1">&#39;1000s&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;6min&#39;</span><span class="p">)</span>
+<span class="gh">Out[62]: </span><span class="go">TimedeltaIndex([&#39;0 days 00:00:00&#39;, &#39;0 days 00:06:00&#39;, &#39;0 days 00:12:00&#39;], dtype=&#39;timedelta64[ns]&#39;, freq=&#39;6T&#39;)</span>
+
+<span class="gp">In [63]: </span><span class="n">pd</span><span class="o">.</span><span class="n">timedelta_range</span><span class="p">(</span><span class="s1">&#39;0s&#39;</span><span class="p">,</span> <span class="s1">&#39;1000s&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gh">Out[63]: </span><span class="go">TimedeltaIndex([&#39;0 days 00:00:00&#39;, &#39;0 days 00:08:20&#39;, &#39;0 days 00:16:40&#39;], dtype=&#39;timedelta64[ns]&#39;, freq=None)</span>
+</pre></div>
+</div>
+<p>对于 <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code> 序列，同样也定义了 <code class="docutils literal notranslate"><span class="pre">dt</span></code> 对象，上面主要定义了的属性包括 <code class="docutils literal notranslate"><span class="pre">days,</span> <span class="pre">seconds,</span> <span class="pre">mircroseconds,</span> <span class="pre">nanoseconds</span></code> ，它们分别返回了对应的时间差特征。需要注意的是，这里的 <code class="docutils literal notranslate"><span class="pre">seconds</span></code> 不是指单纯的秒，而是对天数取余后剩余的秒数：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [64]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">seconds</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[64]: </span><span class="go"></span>
+<span class="go">0    274</span>
+<span class="go">1    260</span>
+<span class="go">2    322</span>
+<span class="go">3    248</span>
+<span class="go">4    322</span>
+<span class="go">Name: Time_Record, dtype: int64</span>
+</pre></div>
+</div>
+<p>如果不想对天数取余而直接对应秒数，可以使用 <code class="docutils literal notranslate"><span class="pre">total_seconds</span></code></p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [65]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[65]: </span><span class="go"></span>
+<span class="go">0    274.0</span>
+<span class="go">1    260.0</span>
+<span class="go">2    322.0</span>
+<span class="go">3    248.0</span>
+<span class="go">4    322.0</span>
+<span class="go">Name: Time_Record, dtype: float64</span>
+</pre></div>
+</div>
+<p>与时间戳序列类似，取整函数也是可以在 <code class="docutils literal notranslate"><span class="pre">dt</span></code> 对象上使用的：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [66]: </span><span class="n">pd</span><span class="o">.</span><span class="n">to_timedelta</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Time_Record</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="s1">&#39;min&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[66]: </span><span class="go"></span>
+<span class="go">0   0 days 00:05:00</span>
+<span class="go">1   0 days 00:04:00</span>
+<span class="go">2   0 days 00:05:00</span>
+<span class="go">3   0 days 00:04:00</span>
+<span class="go">4   0 days 00:05:00</span>
+<span class="go">Name: Time_Record, dtype: timedelta64[ns]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>2. Timedelta的运算<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>时间差支持的常用运算有三类：与标量的乘法运算、与时间戳的加减法运算、与时间差的加减法与除法运算：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [67]: </span><span class="n">td1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="gp">In [68]: </span><span class="n">td2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="gp">In [69]: </span><span class="n">ts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;20200101&#39;</span><span class="p">)</span>
+
+<span class="gp">In [70]: </span><span class="n">td1</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="gh">Out[70]: </span><span class="go">Timedelta(&#39;2 days 00:00:00&#39;)</span>
+
+<span class="gp">In [71]: </span><span class="n">td2</span> <span class="o">-</span> <span class="n">td1</span>
+<span class="gh">Out[71]: </span><span class="go">Timedelta(&#39;2 days 00:00:00&#39;)</span>
+
+<span class="gp">In [72]: </span><span class="n">ts</span> <span class="o">+</span> <span class="n">td1</span>
+<span class="gh">Out[72]: </span><span class="go">Timestamp(&#39;2020-01-02 00:00:00&#39;)</span>
+
+<span class="gp">In [73]: </span><span class="n">ts</span> <span class="o">-</span> <span class="n">td1</span>
+<span class="gh">Out[73]: </span><span class="go">Timestamp(&#39;2019-12-31 00:00:00&#39;)</span>
+</pre></div>
+</div>
+<p>这些运算都可以移植到时间差的序列上：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [74]: </span><span class="n">td1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">timedelta_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s1">&#39;1 days&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="gp">In [75]: </span><span class="n">td2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">timedelta_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s1">&#39;12 hours&#39;</span><span class="p">,</span>
+<span class="gp">   ....: </span>                         <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;2H&#39;</span><span class="p">,</span>
+<span class="gp">   ....: </span>                         <span class="n">periods</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [76]: </span><span class="n">ts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;20200101&#39;</span><span class="p">,</span> <span class="s1">&#39;20200105&#39;</span><span class="p">)</span>
+
+<span class="gp">In [77]: </span><span class="n">td1</span> <span class="o">*</span> <span class="mi">5</span>
+<span class="gh">Out[77]: </span><span class="go">TimedeltaIndex([&#39;5 days&#39;, &#39;10 days&#39;, &#39;15 days&#39;, &#39;20 days&#39;, &#39;25 days&#39;], dtype=&#39;timedelta64[ns]&#39;, freq=&#39;5D&#39;)</span>
+
+<span class="gp">In [78]: </span><span class="n">td1</span> <span class="o">*</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span> <span class="c1"># 逐个相乘</span>
+<span class="gh">Out[78]: </span><span class="go"></span>
+<span class="go">0    0 days</span>
+<span class="go">1    2 days</span>
+<span class="go">2    6 days</span>
+<span class="go">3   12 days</span>
+<span class="go">4   20 days</span>
+<span class="go">dtype: timedelta64[ns]</span>
+
+<span class="gp">In [79]: </span><span class="n">td1</span> <span class="o">-</span> <span class="n">td2</span>
+<span class="gh">Out[79]: </span><span class="go"></span>
+<span class="go">TimedeltaIndex([&#39;0 days 12:00:00&#39;, &#39;1 days 10:00:00&#39;, &#39;2 days 08:00:00&#39;,</span>
+<span class="go">                &#39;3 days 06:00:00&#39;, &#39;4 days 04:00:00&#39;],</span>
+<span class="go">               dtype=&#39;timedelta64[ns]&#39;, freq=None)</span>
+
+<span class="gp">In [80]: </span><span class="n">td1</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;20200101&#39;</span><span class="p">)</span>
+<span class="gh">Out[80]: </span><span class="go"></span>
+<span class="go">DatetimeIndex([&#39;2020-01-02&#39;, &#39;2020-01-03&#39;, &#39;2020-01-04&#39;, &#39;2020-01-05&#39;,</span>
+<span class="go">               &#39;2020-01-06&#39;],</span>
+<span class="go">              dtype=&#39;datetime64[ns]&#39;, freq=&#39;D&#39;)</span>
+
+<span class="gp">In [81]: </span><span class="n">td1</span> <span class="o">+</span> <span class="n">ts</span> <span class="c1"># 逐个相加</span>
+<span class="gh">Out[81]: </span><span class="go"></span>
+<span class="go">DatetimeIndex([&#39;2020-01-02&#39;, &#39;2020-01-04&#39;, &#39;2020-01-06&#39;, &#39;2020-01-08&#39;,</span>
+<span class="go">               &#39;2020-01-10&#39;],</span>
+<span class="go">              dtype=&#39;datetime64[ns]&#39;, freq=None)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>四、日期偏置<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="offset">
+<h3>1. Offset对象<a class="headerlink" href="#offset" title="Permalink to this headline">¶</a></h3>
+<p>日期偏置是一种和日历相关的特殊时间差，例如回到第一节中的两个问题：如何求2020年9月第一个周一的日期，以及如何求2020年9月7日后的第30个工作日是哪一天。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [82]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;20200831&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">offsets</span><span class="o">.</span><span class="n">WeekOfMonth</span><span class="p">(</span><span class="n">week</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">weekday</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gh">Out[82]: </span><span class="go">Timestamp(&#39;2020-09-07 00:00:00&#39;)</span>
+
+<span class="gp">In [83]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;20200907&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">offsets</span><span class="o">.</span><span class="n">BDay</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="gh">Out[83]: </span><span class="go">Timestamp(&#39;2020-10-19 00:00:00&#39;)</span>
+</pre></div>
+</div>
+<p>从上面的例子中可以看到， <code class="docutils literal notranslate"><span class="pre">Offset</span></code> 对象在 <code class="docutils literal notranslate"><span class="pre">pd.offsets</span></code> 中被定义。当使用 <code class="docutils literal notranslate"><span class="pre">+</span></code> 时获取离其最近的下一个日期，当使用 <code class="docutils literal notranslate"><span class="pre">-</span></code> 时获取离其最近的上一个日期：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [84]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;20200831&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">pd</span><span class="o">.</span><span class="n">offsets</span><span class="o">.</span><span class="n">WeekOfMonth</span><span class="p">(</span><span class="n">week</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">weekday</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gh">Out[84]: </span><span class="go">Timestamp(&#39;2020-08-03 00:00:00&#39;)</span>
+
+<span class="gp">In [85]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;20200907&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">pd</span><span class="o">.</span><span class="n">offsets</span><span class="o">.</span><span class="n">BDay</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="gh">Out[85]: </span><span class="go">Timestamp(&#39;2020-07-27 00:00:00&#39;)</span>
+
+<span class="gp">In [86]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;20200907&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">offsets</span><span class="o">.</span><span class="n">MonthEnd</span><span class="p">()</span>
+<span class="gh">Out[86]: </span><span class="go">Timestamp(&#39;2020-09-30 00:00:00&#39;)</span>
+</pre></div>
+</div>
+<p>常用的日期偏置如下可以查阅这里的 <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/timeseries.html#dateoffset-objects">文档</a> 描述。在文档罗列的 <code class="docutils literal notranslate"><span class="pre">Offset</span></code> 中，需要介绍一个特殊的 <code class="docutils literal notranslate"><span class="pre">Offset</span></code> 对象 <code class="docutils literal notranslate"><span class="pre">CDay</span></code> ，其中的 <code class="docutils literal notranslate"><span class="pre">holidays,</span> <span class="pre">weekmask</span></code> 参数能够分别对自定义的日期和星期进行过滤，前者传入了需要过滤的日期列表，后者传入的是三个字母的星期缩写构成的星期字符串，其作用是只保留字符串中出现的星期：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [87]: </span><span class="n">my_filter</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">offsets</span><span class="o">.</span><span class="n">CDay</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">weekmask</span><span class="o">=</span><span class="s1">&#39;Wed Fri&#39;</span><span class="p">,</span><span class="n">holidays</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;20200109&#39;</span><span class="p">])</span>
+
+<span class="gp">In [88]: </span><span class="n">dr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;20200108&#39;</span><span class="p">,</span> <span class="s1">&#39;20200111&#39;</span><span class="p">)</span>
+
+<span class="gp">In [89]: </span><span class="n">dr</span><span class="o">.</span><span class="n">to_series</span><span class="p">()</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofweek</span>
+<span class="gh">Out[89]: </span><span class="go"></span>
+<span class="go">2020-01-08    2</span>
+<span class="go">2020-01-09    3</span>
+<span class="go">2020-01-10    4</span>
+<span class="go">2020-01-11    5</span>
+<span class="go">Freq: D, dtype: int64</span>
+
+<span class="gp">In [90]: </span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">my_filter</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">dr</span><span class="p">]</span>
+<span class="gh">Out[90]: </span><span class="go"></span>
+<span class="go">[Timestamp(&#39;2020-01-10 00:00:00&#39;),</span>
+<span class="go"> Timestamp(&#39;2020-01-10 00:00:00&#39;),</span>
+<span class="go"> Timestamp(&#39;2020-01-15 00:00:00&#39;),</span>
+<span class="go"> Timestamp(&#39;2020-01-15 00:00:00&#39;)]</span>
+</pre></div>
+</div>
+<p>上面的例子中， <code class="docutils literal notranslate"><span class="pre">n</span></code> 表示增加一天 <code class="docutils literal notranslate"><span class="pre">CDay</span></code> ， <code class="docutils literal notranslate"><span class="pre">dr</span></code> 中的第一天为 <code class="docutils literal notranslate"><span class="pre">20200108</span></code> ，但由于下一天 <code class="docutils literal notranslate"><span class="pre">20200109</span></code> 被排除了，并且 <code class="docutils literal notranslate"><span class="pre">20200110</span></code> 是合法的周五，因此转为 <code class="docutils literal notranslate"><span class="pre">20200110</span></code> ，其他后面的日期处理类似。</p>
+<div class="caution admonition">
+<p class="admonition-title">不要使用部分 <code class="docutils literal notranslate"><span class="pre">Offset</span></code></p>
+<blockquote>
+<div><p>在当前版本下由于一些 <code class="docutils literal notranslate"><span class="pre">bug</span></code> ，不要使用 <code class="docutils literal notranslate"><span class="pre">Day</span></code> 级别以下的 <code class="docutils literal notranslate"><span class="pre">Offset</span></code> 对象，比如 <code class="docutils literal notranslate"><span class="pre">Hour,</span> <span class="pre">Second</span></code> 等，请使用对应的 <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code> 对象来代替。</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>2. 偏置字符串<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>前面提到了关于 <code class="docutils literal notranslate"><span class="pre">date_range</span></code> 的 <code class="docutils literal notranslate"><span class="pre">freq</span></code> 取值可用 <code class="docutils literal notranslate"><span class="pre">Offset</span></code> 对象，同时在 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 中几乎每一个 <code class="docutils literal notranslate"><span class="pre">Offset</span></code> 对象绑定了日期偏置字符串（ <code class="docutils literal notranslate"><span class="pre">frequencies</span> <span class="pre">strings/offset</span> <span class="pre">aliases</span></code> ），可以指定 <code class="docutils literal notranslate"><span class="pre">Offset</span></code> 对应的字符串来替代使用。下面举一些常见的例子。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [91]: </span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;20200101&#39;</span><span class="p">,</span><span class="s1">&#39;20200331&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;MS&#39;</span><span class="p">)</span> <span class="c1"># 月初</span>
+<span class="gh">Out[91]: </span><span class="go">DatetimeIndex([&#39;2020-01-01&#39;, &#39;2020-02-01&#39;, &#39;2020-03-01&#39;], dtype=&#39;datetime64[ns]&#39;, freq=&#39;MS&#39;)</span>
+
+<span class="gp">In [92]: </span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;20200101&#39;</span><span class="p">,</span><span class="s1">&#39;20200331&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">)</span> <span class="c1"># 月末</span>
+<span class="gh">Out[92]: </span><span class="go">DatetimeIndex([&#39;2020-01-31&#39;, &#39;2020-02-29&#39;, &#39;2020-03-31&#39;], dtype=&#39;datetime64[ns]&#39;, freq=&#39;M&#39;)</span>
+
+<span class="gp">In [93]: </span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;20200101&#39;</span><span class="p">,</span><span class="s1">&#39;20200110&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">)</span> <span class="c1"># 工作日</span>
+<span class="gh">Out[93]: </span><span class="go"></span>
+<span class="go">DatetimeIndex([&#39;2020-01-01&#39;, &#39;2020-01-02&#39;, &#39;2020-01-03&#39;, &#39;2020-01-06&#39;,</span>
+<span class="go">               &#39;2020-01-07&#39;, &#39;2020-01-08&#39;, &#39;2020-01-09&#39;, &#39;2020-01-10&#39;],</span>
+<span class="go">              dtype=&#39;datetime64[ns]&#39;, freq=&#39;B&#39;)</span>
+
+<span class="gp">In [94]: </span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;20200101&#39;</span><span class="p">,</span><span class="s1">&#39;20200201&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;W-MON&#39;</span><span class="p">)</span> <span class="c1"># 周一</span>
+<span class="gh">Out[94]: </span><span class="go">DatetimeIndex([&#39;2020-01-06&#39;, &#39;2020-01-13&#39;, &#39;2020-01-20&#39;, &#39;2020-01-27&#39;], dtype=&#39;datetime64[ns]&#39;, freq=&#39;W-MON&#39;)</span>
+
+<span class="gp">In [95]: </span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;20200101&#39;</span><span class="p">,</span><span class="s1">&#39;20200201&#39;</span><span class="p">,</span>
+<span class="gp">   ....: </span>              <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;WOM-1MON&#39;</span><span class="p">)</span> <span class="c1"># 每月第一个周一</span>
+<span class="gp">   ....: </span>
+<span class="gh">Out[95]: </span><span class="go">DatetimeIndex([&#39;2020-01-06&#39;], dtype=&#39;datetime64[ns]&#39;, freq=&#39;WOM-1MON&#39;)</span>
+</pre></div>
+</div>
+<p>上面的这些字符串，等价于使用如下的 <code class="docutils literal notranslate"><span class="pre">Offset</span></code> 对象：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [96]: </span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;20200101&#39;</span><span class="p">,</span><span class="s1">&#39;20200331&#39;</span><span class="p">,</span>
+<span class="gp">   ....: </span>              <span class="n">freq</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">offsets</span><span class="o">.</span><span class="n">MonthBegin</span><span class="p">())</span>
+<span class="gp">   ....: </span>
+<span class="gh">Out[96]: </span><span class="go">DatetimeIndex([&#39;2020-01-01&#39;, &#39;2020-02-01&#39;, &#39;2020-03-01&#39;], dtype=&#39;datetime64[ns]&#39;, freq=&#39;MS&#39;)</span>
+
+<span class="gp">In [97]: </span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;20200101&#39;</span><span class="p">,</span><span class="s1">&#39;20200331&#39;</span><span class="p">,</span>
+<span class="gp">   ....: </span>              <span class="n">freq</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">offsets</span><span class="o">.</span><span class="n">MonthEnd</span><span class="p">())</span>
+<span class="gp">   ....: </span>
+<span class="gh">Out[97]: </span><span class="go">DatetimeIndex([&#39;2020-01-31&#39;, &#39;2020-02-29&#39;, &#39;2020-03-31&#39;], dtype=&#39;datetime64[ns]&#39;, freq=&#39;M&#39;)</span>
+
+<span class="gp">In [98]: </span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;20200101&#39;</span><span class="p">,</span><span class="s1">&#39;20200110&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">offsets</span><span class="o">.</span><span class="n">BDay</span><span class="p">())</span>
+<span class="gh">Out[98]: </span><span class="go"></span>
+<span class="go">DatetimeIndex([&#39;2020-01-01&#39;, &#39;2020-01-02&#39;, &#39;2020-01-03&#39;, &#39;2020-01-06&#39;,</span>
+<span class="go">               &#39;2020-01-07&#39;, &#39;2020-01-08&#39;, &#39;2020-01-09&#39;, &#39;2020-01-10&#39;],</span>
+<span class="go">              dtype=&#39;datetime64[ns]&#39;, freq=&#39;B&#39;)</span>
+
+<span class="gp">In [99]: </span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;20200101&#39;</span><span class="p">,</span><span class="s1">&#39;20200201&#39;</span><span class="p">,</span>
+<span class="gp">   ....: </span>              <span class="n">freq</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">offsets</span><span class="o">.</span><span class="n">CDay</span><span class="p">(</span><span class="n">weekmask</span><span class="o">=</span><span class="s1">&#39;Mon&#39;</span><span class="p">))</span>
+<span class="gp">   ....: </span>
+<span class="gh">Out[99]: </span><span class="go">DatetimeIndex([&#39;2020-01-06&#39;, &#39;2020-01-13&#39;, &#39;2020-01-20&#39;, &#39;2020-01-27&#39;], dtype=&#39;datetime64[ns]&#39;, freq=&#39;C&#39;)</span>
+
+<span class="gp">In [100]: </span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;20200101&#39;</span><span class="p">,</span><span class="s1">&#39;20200201&#39;</span><span class="p">,</span>
+<span class="gp">   .....: </span>              <span class="n">freq</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">offsets</span><span class="o">.</span><span class="n">WeekOfMonth</span><span class="p">(</span><span class="n">week</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">weekday</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="gp">   .....: </span>
+<span class="gh">Out[100]: </span><span class="go">DatetimeIndex([&#39;2020-01-06&#39;], dtype=&#39;datetime64[ns]&#39;, freq=&#39;WOM-1MON&#39;)</span>
+</pre></div>
+</div>
+<div class="caution admonition">
+<p class="admonition-title">关于时区问题的说明</p>
+<blockquote>
+<div><p>各类时间对象的开发，除了使用 <code class="docutils literal notranslate"><span class="pre">python</span></code> 内置的 <code class="docutils literal notranslate"><span class="pre">datetime</span></code> 模块， <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 还利用了 <code class="docutils literal notranslate"><span class="pre">dateutil</span></code> 模块，很大一部分是为了处理时区问题。总所周知，我国是没有夏令时调整时间一说的，但有些国家会有这种做法，导致了相对而言一天里可能会有23/24/25个小时，也就是 <code class="docutils literal notranslate"><span class="pre">relativedelta</span></code> ，这使得 <code class="docutils literal notranslate"><span class="pre">Offset</span></code> 对象和 <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code> 对象有了对同一问题处理产生不同结果的现象，其中的规则也较为复杂，官方文档的写法存在部分描述错误，并且难以对描述做出统一修正，因为牵涉到了 <code class="docutils literal notranslate"><span class="pre">Offset</span></code> 相关的很多组件。因此，本教程完全不考虑时区处理，如果对时区处理的时间偏置有兴趣了解讨论，可以联系我或者参见 <a class="reference external" href="https://github.com/pandas-dev/pandas/pull/36516">这里</a> 的讨论。</p>
+</div></blockquote>
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>五、时序中的滑窗与分组<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id10">
+<h3>1. 滑动窗口<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>所谓时序的滑窗函数，即把滑动窗口用 <code class="docutils literal notranslate"><span class="pre">freq</span></code> 关键词代替，下面给出一个具体的应用案例：在股票市场中有一个指标为 <code class="docutils literal notranslate"><span class="pre">BOLL</span></code> 指标，它由中轨线、上轨线、下轨线这三根线构成，具体的计算方法分别是 <code class="docutils literal notranslate"><span class="pre">N</span></code> 日均值线、 <code class="docutils literal notranslate"><span class="pre">N</span></code> 日均值加两倍 <code class="docutils literal notranslate"><span class="pre">N</span></code> 日标准差线、 <code class="docutils literal notranslate"><span class="pre">N</span></code> 日均值减两倍 <code class="docutils literal notranslate"><span class="pre">N</span></code> 日标准差线。利用 <code class="docutils literal notranslate"><span class="pre">rolling</span></code> 对象计算 <code class="docutils literal notranslate"><span class="pre">N=30</span></code> 的 <code class="docutils literal notranslate"><span class="pre">BOLL</span></code> 指标可以如下写出：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [101]: </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="gp">In [102]: </span><span class="n">idx</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;20200101&#39;</span><span class="p">,</span> <span class="s1">&#39;20201231&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">)</span>
+
+<span class="gp">In [103]: </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">2020</span><span class="p">)</span>
+
+<span class="gp">In [104]: </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">idx</span><span class="p">))</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span> <span class="c1"># 随机游动构造模拟序列</span>
+
+<span class="gp">In [105]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="n">idx</span><span class="p">)</span>
+
+<span class="gp">In [106]: </span><span class="n">s</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[106]: </span><span class="go"></span>
+<span class="go">2020-01-01   -1</span>
+<span class="go">2020-01-02   -2</span>
+<span class="go">2020-01-03   -1</span>
+<span class="go">2020-01-06   -1</span>
+<span class="go">2020-01-07   -2</span>
+<span class="go">Freq: B, dtype: int32</span>
+
+<span class="gp">In [107]: </span><span class="n">r</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="s1">&#39;30D&#39;</span><span class="p">)</span>
+
+<span class="gp">In [108]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="gh">Out[108]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x1daaf67d088&gt;]</span>
+
+<span class="gp">In [109]: </span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;BOLL LINES&#39;</span><span class="p">)</span>
+<span class="gh">Out[109]: </span><span class="go">Text(0.5, 1.0, &#39;BOLL LINES&#39;)</span>
+
+<span class="gp">In [110]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="gh">Out[110]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x1daaf64f148&gt;]</span>
+
+<span class="gp">In [111]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">+</span><span class="n">r</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+<span class="gh">Out[111]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x1daaf62e848&gt;]</span>
+
+<span class="gp">In [112]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">-</span><span class="n">r</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+<span class="gh">Out[112]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x1daaf5fd9c8&gt;]</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/ch10.png"><img alt="../_images/ch10.png" src="../_images/ch10.png" style="width: 400px;" /></a>
+<p>对于 <code class="docutils literal notranslate"><span class="pre">shift</span></code> 函数而言，作用在 <code class="docutils literal notranslate"><span class="pre">datetime64</span></code> 为索引的序列上时，可以指定 <code class="docutils literal notranslate"><span class="pre">freq</span></code> 单位进行滑动：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [113]: </span><span class="n">s</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;50D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[113]: </span><span class="go"></span>
+<span class="go">2020-02-20   -1</span>
+<span class="go">2020-02-21   -2</span>
+<span class="go">2020-02-22   -1</span>
+<span class="go">2020-02-25   -1</span>
+<span class="go">2020-02-26   -2</span>
+<span class="go">dtype: int32</span>
+</pre></div>
+</div>
+<p>另外， <code class="docutils literal notranslate"><span class="pre">datetime64[ns]</span></code> 的序列进行 <code class="docutils literal notranslate"><span class="pre">diff</span></code> 后就能够得到 <code class="docutils literal notranslate"><span class="pre">timedelta64[ns]</span></code> 的序列，这能够使用户方便地观察有序时间序列的间隔：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [114]: </span><span class="n">my_series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="gp">In [115]: </span><span class="n">my_series</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[115]: </span><span class="go"></span>
+<span class="go">0   2020-01-01</span>
+<span class="go">1   2020-01-02</span>
+<span class="go">2   2020-01-03</span>
+<span class="go">3   2020-01-06</span>
+<span class="go">4   2020-01-07</span>
+<span class="go">dtype: datetime64[ns]</span>
+
+<span class="gp">In [116]: </span><span class="n">my_series</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[116]: </span><span class="go"></span>
+<span class="go">0      NaT</span>
+<span class="go">1   1 days</span>
+<span class="go">2   1 days</span>
+<span class="go">3   3 days</span>
+<span class="go">4   1 days</span>
+<span class="go">dtype: timedelta64[ns]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>2. 重采样<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>重采样对象 <code class="docutils literal notranslate"><span class="pre">resample</span></code> 和第四章中分组对象 <code class="docutils literal notranslate"><span class="pre">groupby</span></code> 的用法类似，前者是针对时间序列的分组计算而设计的分组对象。</p>
+<p>例如，对上面的序列计算每10天的均值：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [117]: </span><span class="n">s</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;10D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[117]: </span><span class="go"></span>
+<span class="go">2020-01-01   -2.000000</span>
+<span class="go">2020-01-11   -3.166667</span>
+<span class="go">2020-01-21   -3.625000</span>
+<span class="go">2020-01-31   -4.000000</span>
+<span class="go">2020-02-10   -0.375000</span>
+<span class="go">Freq: 10D, dtype: float64</span>
+</pre></div>
+</div>
+<p>同时，如果没有内置定义的处理函数，可以通过 <code class="docutils literal notranslate"><span class="pre">apply</span></code> 方法自定义：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [118]: </span><span class="n">s</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;10D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># 极差</span>
+<span class="gh">Out[118]: </span><span class="go"></span>
+<span class="go">2020-01-01    3</span>
+<span class="go">2020-01-11    4</span>
+<span class="go">2020-01-21    4</span>
+<span class="go">2020-01-31    2</span>
+<span class="go">2020-02-10    4</span>
+<span class="go">Freq: 10D, dtype: int32</span>
+</pre></div>
+</div>
+<p>在 <code class="docutils literal notranslate"><span class="pre">resample</span></code> 中要特别注意组边界值的处理情况，默认情况下起始值的计算方法是从最小值时间戳对应日期的午夜 <code class="docutils literal notranslate"><span class="pre">00:00:00</span></code> 开始增加 <code class="docutils literal notranslate"><span class="pre">freq</span></code> ，直到不超过该最小时间戳的最大时间戳，由此对应的时间戳为起始值，然后每次累加 <code class="docutils literal notranslate"><span class="pre">freq</span></code> 参数作为分割结点进行分组，区间情况为左闭右开。下面构造一个不均匀的例子：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [119]: </span><span class="n">idx</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;20200101 8:26:35&#39;</span><span class="p">,</span> <span class="s1">&#39;20200101 9:31:58&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;77s&#39;</span><span class="p">)</span>
+
+<span class="gp">In [120]: </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">idx</span><span class="p">))</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+
+<span class="gp">In [121]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="n">idx</span><span class="p">)</span>
+
+<span class="gp">In [122]: </span><span class="n">s</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[122]: </span><span class="go"></span>
+<span class="go">2020-01-01 08:26:35   -1</span>
+<span class="go">2020-01-01 08:27:52   -1</span>
+<span class="go">2020-01-01 08:29:09   -2</span>
+<span class="go">2020-01-01 08:30:26   -3</span>
+<span class="go">2020-01-01 08:31:43   -4</span>
+<span class="go">Freq: 77S, dtype: int32</span>
+</pre></div>
+</div>
+<p>下面对应的第一个组起始值为 <code class="docutils literal notranslate"><span class="pre">08:24:00</span></code> ，其是从当天0点增加72个 <code class="docutils literal notranslate"><span class="pre">freq=7</span> <span class="pre">min</span></code> 得到的，如果再增加一个 <code class="docutils literal notranslate"><span class="pre">freq</span></code> 则超出了序列的最小时间戳 <code class="docutils literal notranslate"><span class="pre">08:26:35</span></code> ：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [123]: </span><span class="n">s</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;7min&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[123]: </span><span class="go"></span>
+<span class="go">2020-01-01 08:24:00   -1.750000</span>
+<span class="go">2020-01-01 08:31:00   -2.600000</span>
+<span class="go">2020-01-01 08:38:00   -2.166667</span>
+<span class="go">2020-01-01 08:45:00    0.200000</span>
+<span class="go">2020-01-01 08:52:00    2.833333</span>
+<span class="go">Freq: 7T, dtype: float64</span>
+</pre></div>
+</div>
+<p>有时候，用户希望从序列的最小时间戳开始依次增加 <code class="docutils literal notranslate"><span class="pre">freq</span></code> 进行分组，此时可以指定 <code class="docutils literal notranslate"><span class="pre">origin</span></code> 参数为 <code class="docutils literal notranslate"><span class="pre">start</span></code> ：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [124]: </span><span class="n">s</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;7min&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;start&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[124]: </span><span class="go"></span>
+<span class="go">2020-01-01 08:26:35   -2.333333</span>
+<span class="go">2020-01-01 08:33:35   -2.400000</span>
+<span class="go">2020-01-01 08:40:35   -1.333333</span>
+<span class="go">2020-01-01 08:47:35    1.200000</span>
+<span class="go">2020-01-01 08:54:35    3.166667</span>
+<span class="go">Freq: 7T, dtype: float64</span>
+</pre></div>
+</div>
+<p>在返回值中，要注意索引一般是取组的第一个时间戳，但 <code class="docutils literal notranslate"><span class="pre">M,</span> <span class="pre">A,</span> <span class="pre">Q,</span> <span class="pre">BM,</span> <span class="pre">BA,</span> <span class="pre">BQ,</span> <span class="pre">W</span></code> 这七个是取对应区间的最后一个时间戳：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [125]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">366</span><span class="p">),</span>
+<span class="gp">   .....: </span>              <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2020-01-01&#39;</span><span class="p">,</span>
+<span class="gp">   .....: </span>                                  <span class="s1">&#39;2020-12-31&#39;</span><span class="p">))</span>
+<span class="gp">   .....: </span>
+
+<span class="gp">In [126]: </span><span class="n">s</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[126]: </span><span class="go"></span>
+<span class="go">2020-01-31    0.451613</span>
+<span class="go">2020-02-29    0.448276</span>
+<span class="go">2020-03-31    0.516129</span>
+<span class="go">2020-04-30    0.566667</span>
+<span class="go">2020-05-31    0.451613</span>
+<span class="go">Freq: M, dtype: float64</span>
+
+<span class="gp">In [127]: </span><span class="n">s</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;MS&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># 结果一样，但索引不同</span>
+<span class="gh">Out[127]: </span><span class="go"></span>
+<span class="go">2020-01-01    0.451613</span>
+<span class="go">2020-02-01    0.448276</span>
+<span class="go">2020-03-01    0.516129</span>
+<span class="go">2020-04-01    0.566667</span>
+<span class="go">2020-05-01    0.451613</span>
+<span class="go">Freq: MS, dtype: float64</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id12">
+<h2>六、练习<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ex1">
+<h3>Ex1：太阳辐射数据集<a class="headerlink" href="#ex1" title="Permalink to this headline">¶</a></h3>
+<p>现有一份关于太阳辐射的数据集：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [128]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/solar.csv&#39;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Data&#39;</span><span class="p">,</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span>
+<span class="gp">   .....: </span>                 <span class="s1">&#39;Radiation&#39;</span><span class="p">,</span><span class="s1">&#39;Temperature&#39;</span><span class="p">])</span>
+<span class="gp">   .....: </span>
+
+<span class="gp">In [129]: </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gh">Out[129]: </span><span class="go"></span>
+<span class="go">                    Data      Time  Radiation  Temperature</span>
+<span class="go">0  9/29/2016 12:00:00 AM  23:55:26       1.21           48</span>
+<span class="go">1  9/29/2016 12:00:00 AM  23:50:23       1.21           48</span>
+<span class="go">2  9/29/2016 12:00:00 AM  23:45:26       1.23           48</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>将 <code class="docutils literal notranslate"><span class="pre">Datetime,</span> <span class="pre">Time</span></code> 合并为一个时间列 <code class="docutils literal notranslate"><span class="pre">Datetime</span></code> ，同时把它作为索引后排序。</p></li>
+<li><p>每条记录时间的间隔显然并不一致，请解决如下问题：</p></li>
+</ol>
+<ol class="loweralpha simple">
+<li><p>找出间隔时间的前三个最大值所对应的三组时间戳。</p></li>
+<li><p>是否存在一个大致的范围，使得绝大多数的间隔时间都落在这个区间中？如果存在，请对此范围内的样本间隔秒数画出柱状图，设置 <code class="docutils literal notranslate"><span class="pre">bins=50</span></code> 。</p></li>
+</ol>
+<ol class="arabic simple" start="3">
+<li><p>求如下指标对应的 <code class="docutils literal notranslate"><span class="pre">Series</span></code> ：</p></li>
+</ol>
+<ol class="loweralpha simple">
+<li><p>温度与辐射量的6小时滑动相关系数</p></li>
+<li><p>以三点、九点、十五点、二十一点为分割，该观测所在时间区间的温度均值序列</p></li>
+<li><p>每个观测6小时前的辐射量（一般而言不会恰好取到，此时取最近时间戳对应的辐射量）</p></li>
+</ol>
+</div>
+<div class="section" id="ex2">
+<h3>Ex2：水果销量数据集<a class="headerlink" href="#ex2" title="Permalink to this headline">¶</a></h3>
+<p>现有一份2019年每日水果销量记录表：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [130]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/fruit.csv&#39;</span><span class="p">)</span>
+
+<span class="gp">In [131]: </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gh">Out[131]: </span><span class="go"></span>
+<span class="go">         Date  Fruit  Sale</span>
+<span class="go">0  2019-04-18  Peach    15</span>
+<span class="go">1  2019-12-29  Peach    15</span>
+<span class="go">2  2019-06-05  Peach    19</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>统计如下指标：</p></li>
+</ol>
+<ol class="loweralpha simple">
+<li><p>每月上半月（15号及之前）与下半月葡萄销量的比值</p></li>
+<li><p>每月最后一天的生梨销量总和</p></li>
+<li><p>每月最后一天工作日的生梨销量总和</p></li>
+<li><p>每月最后五天的苹果销量均值</p></li>
+</ol>
+<ol class="arabic simple" start="2">
+<li><p>按月计算周一至周日各品种水果的平均记录条数，行索引外层为水果名称，内层为月份，列索引为星期。</p></li>
+<li><p>按天计算向前10个工作日窗口的苹果销量均值序列，非工作日的值用上一个工作日的结果填充。</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.30270b6e4c972e43c488.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020, Datawhale, 耿远昊.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,739 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第六章 连接 &#8212; Joyful Pandas 1.0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/s4defs-roles.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.30270b6e4c972e43c488.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="第七章 缺失数据" href="ch7.html" />
+    <link rel="prev" title="第五章 变形" href="ch5.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/finallogo1.svg" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../%E4%B8%BB%E9%A1%B5.html">Joyful Pandas</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">目录</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../%E5%85%B3%E4%BA%8E%E4%BD%9C%E8%80%85.html">关于作者</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../Datawhale.html">Datawhale</a>
+        </li>
+        
+        
+        <li class="nav-item">
+            <a class="nav-link nav-external" href="https://pandas.pydata.org/docs/index.html">Pandas官网<i class="fas fa-external-link-alt"></i></a>
+        </li>
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/datawhalechina/joyful-pandas" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+        
+          
+              <li class="">
+                  <a href="%E5%89%8D%E8%A8%80.html">前言</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch1.html">第一章 预备知识</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch2.html">第二章 pandas基础</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch3.html">第三章 索引</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch4.html">第四章 分组</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch5.html">第五章 变形</a>
+              </li>
+          
+        
+          
+              <li class="active">
+                  <a href="">第六章 连接</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch7.html">第七章 缺失数据</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch8.html">第八章 文本数据</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch9.html">第九章 分类数据</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch10.html">第十章 时序数据</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88.html">参考答案</a>
+              </li>
+          
+        
+      
+      
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id2" class="nav-link">一、关系型连接</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id3" class="nav-link">1. 连接的基本概念</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id4" class="nav-link">2. 值连接</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id5" class="nav-link">3. 索引连接</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id6" class="nav-link">二、方向连接</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#concat" class="nav-link">1. concat</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id7" class="nav-link">2. 序列与表的合并</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id8" class="nav-link">三、类连接操作</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id9" class="nav-link">1. 比较</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id10" class="nav-link">2. 组合</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id11" class="nav-link">四、练习</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#ex1" class="nav-link">Ex1：美国疫情数据集</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#ex2-join" class="nav-link">Ex2：实现join函数</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="id1">
+<h1>第六章 连接<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+<div class="section" id="id2">
+<h2>一、关系型连接<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>1. 连接的基本概念<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>把两张相关的表按照某一个或某一组键连接起来是一种常见操作，例如学生期末考试各个科目的成绩表按照 <span class="red">姓名</span> 和 <span class="red">班级</span> 连接成总的成绩表，又例如对企业员工的各类信息表按照 <span class="red">员工ID号</span> 进行连接汇总。由此可以看出，在关系型连接中， <span class="red">键</span> 是十分重要的，往往用 <code class="docutils literal notranslate"><span class="pre">on</span></code> 参数表示。</p>
+<p>另一个重要的要素是连接的形式。在 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 中的关系型连接函数 <code class="docutils literal notranslate"><span class="pre">merge</span></code> 和 <code class="docutils literal notranslate"><span class="pre">join</span></code> 中提供了 <code class="docutils literal notranslate"><span class="pre">how</span></code> 参数来代表连接形式，分为左连接 <code class="docutils literal notranslate"><span class="pre">left</span></code> 、右连接 <code class="docutils literal notranslate"><span class="pre">right</span></code> 、内连接 <code class="docutils literal notranslate"><span class="pre">inner</span></code> 、外连接 <code class="docutils literal notranslate"><span class="pre">outer</span></code> ，它们的区别可以用如下示意图表示：</p>
+<a class="reference internal image-reference" href="../_images/ch6_1.png"><img alt="../_images/ch6_1.png" class="align-center" src="../_images/ch6_1.png" style="width: 700.0px; height: 400.0px;" /></a>
+<p>从图中可以看到，所谓左连接即以左边的键为准，如果右边表中的键于左边存在，那么就添加到左边，否则则处理为缺失值，右连接类似处理。内连接只负责合并两边同时出现的键，而外连接则会在内连接的基础上包含只在左边出现以及只在右边出现的值，因此外连接又叫全连接。</p>
+<p>上面这个简单的例子中，同一个表中的键没有出现重复的情况，那么如果出现重复的键应该如何处理？只需把握一个原则，即只要两边同时出现的值，就以笛卡尔积的方式加入，如果单边出现则根据连接形式进行处理。其中，关于笛卡尔积可用如下例子说明：设左表中键 <code class="docutils literal notranslate"><span class="pre">张三</span></code> 出现两次，右表中的 <code class="docutils literal notranslate"><span class="pre">张三</span></code> 也出现两次，那么逐个进行匹配，最后产生的表必然包含 <code class="docutils literal notranslate"><span class="pre">2*2</span></code> 个姓名为 <code class="docutils literal notranslate"><span class="pre">张三</span></code> 的行。下面是一个对应例子的示意图：</p>
+<a class="reference internal image-reference" href="../_images/ch6_2.png"><img alt="../_images/ch6_2.png" class="align-center" src="../_images/ch6_2.png" style="width: 700.0px; height: 400.0px;" /></a>
+<p>显然在不同的场合应该使用不同的连接形式。其中左连接和右连接是等价的，由于它们的结果中的键是被一侧的表确定的，因此常常用于有方向性地添加到目标表。内外连接两侧的表，经常是地位类似的，想取出键的交集或者并集，具体的操作还需要业务的需求来判断。</p>
+</div>
+<div class="section" id="id4">
+<h3>2. 值连接<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>在上面示意图中的例子中，两张表根据某一列的值来连接，事实上还可以通过几列值的组合进行连接，这种基于值的连接在 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 中可以由 <code class="docutils literal notranslate"><span class="pre">merge</span></code> 函数实现，例如第一张图的左连接：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Name&#39;</span><span class="p">:[</span><span class="s1">&#39;San Zhang&#39;</span><span class="p">,</span><span class="s1">&#39;Si Li&#39;</span><span class="p">],</span>
+<span class="gp">   ...: </span>                    <span class="s1">&#39;Age&#39;</span><span class="p">:[</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]})</span>
+<span class="gp">   ...: </span>
+
+<span class="gp">In [4]: </span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Name&#39;</span><span class="p">:[</span><span class="s1">&#39;Si Li&#39;</span><span class="p">,</span><span class="s1">&#39;Wu Wang&#39;</span><span class="p">],</span>
+<span class="gp">   ...: </span>                    <span class="s1">&#39;Gender&#39;</span><span class="p">:[</span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="s1">&#39;M&#39;</span><span class="p">]})</span>
+<span class="gp">   ...: </span>
+
+<span class="gp">In [5]: </span><span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="gh">Out[5]: </span><span class="go"></span>
+<span class="go">        Name  Age Gender</span>
+<span class="go">0  San Zhang   20    NaN</span>
+<span class="go">1      Si Li   30      F</span>
+</pre></div>
+</div>
+<p>如果两个表中想要连接的列不具备相同的列名，可以通过 <code class="docutils literal notranslate"><span class="pre">left_on</span></code> 和 <code class="docutils literal notranslate"><span class="pre">right_on</span></code> 指定：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;df1_name&#39;</span><span class="p">:[</span><span class="s1">&#39;San Zhang&#39;</span><span class="p">,</span><span class="s1">&#39;Si Li&#39;</span><span class="p">],</span>
+<span class="gp">   ...: </span>                    <span class="s1">&#39;Age&#39;</span><span class="p">:[</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]})</span>
+<span class="gp">   ...: </span>
+
+<span class="gp">In [7]: </span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;df2_name&#39;</span><span class="p">:[</span><span class="s1">&#39;Si Li&#39;</span><span class="p">,</span><span class="s1">&#39;Wu Wang&#39;</span><span class="p">],</span>
+<span class="gp">   ...: </span>                    <span class="s1">&#39;Gender&#39;</span><span class="p">:[</span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="s1">&#39;M&#39;</span><span class="p">]})</span>
+<span class="gp">   ...: </span>
+
+<span class="gp">In [8]: </span><span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;df1_name&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;df2_name&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="gh">Out[8]: </span><span class="go"></span>
+<span class="go">    df1_name  Age df2_name Gender</span>
+<span class="go">0  San Zhang   20      NaN    NaN</span>
+<span class="go">1      Si Li   30    Si Li      F</span>
+</pre></div>
+</div>
+<p>如果两个表中的列出现了重复的列名，那么可以通过 <code class="docutils literal notranslate"><span class="pre">suffixes</span></code> 参数指定。例如合并考试成绩的时候，第一个表记录了语文成绩，第二个是数学成绩：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Name&#39;</span><span class="p">:[</span><span class="s1">&#39;San Zhang&#39;</span><span class="p">],</span><span class="s1">&#39;Grade&#39;</span><span class="p">:[</span><span class="mi">70</span><span class="p">]})</span>
+
+<span class="gp">In [10]: </span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Name&#39;</span><span class="p">:[</span><span class="s1">&#39;San Zhang&#39;</span><span class="p">],</span><span class="s1">&#39;Grade&#39;</span><span class="p">:[</span><span class="mi">80</span><span class="p">]})</span>
+
+<span class="gp">In [11]: </span><span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">suffixes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;_Chinese&#39;</span><span class="p">,</span><span class="s1">&#39;_Math&#39;</span><span class="p">])</span>
+<span class="gh">Out[11]: </span><span class="go"></span>
+<span class="go">        Name  Grade_Chinese  Grade_Math</span>
+<span class="go">0  San Zhang             70          80</span>
+</pre></div>
+</div>
+<p>在某些时候出现重复元素是麻烦的，例如两位同学来自不同的班级，但是姓名相同，这种时候就要指定 <code class="docutils literal notranslate"><span class="pre">on</span></code> 参数为多个列使得正确连接：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [12]: </span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Name&#39;</span><span class="p">:[</span><span class="s1">&#39;San Zhang&#39;</span><span class="p">,</span> <span class="s1">&#39;San Zhang&#39;</span><span class="p">],</span>
+<span class="gp">   ....: </span>                    <span class="s1">&#39;Age&#39;</span><span class="p">:[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">],</span>
+<span class="gp">   ....: </span>                    <span class="s1">&#39;Class&#39;</span><span class="p">:[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">]})</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [13]: </span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Name&#39;</span><span class="p">:[</span><span class="s1">&#39;San Zhang&#39;</span><span class="p">,</span> <span class="s1">&#39;San Zhang&#39;</span><span class="p">],</span>
+<span class="gp">   ....: </span>                    <span class="s1">&#39;Gender&#39;</span><span class="p">:[</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">],</span>
+<span class="gp">   ....: </span>                    <span class="s1">&#39;Class&#39;</span><span class="p">:[</span><span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">]})</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [14]: </span><span class="n">df1</span>
+<span class="gh">Out[14]: </span><span class="go"></span>
+<span class="go">        Name  Age Class</span>
+<span class="go">0  San Zhang   20   one</span>
+<span class="go">1  San Zhang   21   two</span>
+
+<span class="gp">In [15]: </span><span class="n">df2</span>
+<span class="gh">Out[15]: </span><span class="go"></span>
+<span class="go">        Name Gender Class</span>
+<span class="go">0  San Zhang      F   two</span>
+<span class="go">1  San Zhang      M   one</span>
+
+<span class="gp">In [16]: </span><span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span> <span class="c1"># 错误的结果</span>
+<span class="gh">Out[16]: </span><span class="go"></span>
+<span class="go">        Name  Age Class_x Gender Class_y</span>
+<span class="go">0  San Zhang   20     one      F     two</span>
+<span class="go">1  San Zhang   20     one      M     one</span>
+<span class="go">2  San Zhang   21     two      F     two</span>
+<span class="go">3  San Zhang   21     two      M     one</span>
+
+<span class="gp">In [17]: </span><span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Class&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span> <span class="c1"># 正确的结果</span>
+<span class="gh">Out[17]: </span><span class="go"></span>
+<span class="go">        Name  Age Class Gender</span>
+<span class="go">0  San Zhang   20   one      M</span>
+<span class="go">1  San Zhang   21   two      F</span>
+</pre></div>
+</div>
+<p>从上面的例子来看，在进行基于唯一性的连接下，如果键不是唯一的，那么结果就会产生问题。举例中的行数很少，但如果实际数据中有几十万到上百万行的进行合并时，如果想要保证唯一性，除了用 <code class="docutils literal notranslate"><span class="pre">duplicated</span></code> 检查是否重复外， <code class="docutils literal notranslate"><span class="pre">merge</span></code> 中也提供了 <code class="docutils literal notranslate"><span class="pre">validate</span></code> 参数来检查连接的唯一性模式。这里共有三种模式，即一对一连接 <code class="docutils literal notranslate"><span class="pre">1:1</span></code> ，一对多连接 <code class="docutils literal notranslate"><span class="pre">1:m</span></code> ，多对一连接 <code class="docutils literal notranslate"><span class="pre">m:1</span></code> 连接，第一个是指左右表的键都是唯一的，后面两个分别指左表键唯一和右表键唯一。</p>
+<div class="hint admonition">
+<p class="admonition-title">练一练</p>
+<blockquote>
+<div><p>上面以多列为键的例子中，错误写法显然是一种多对多连接，而正确写法是一对一连接，请修改原表，使得以多列为键的正确写法能够通过 <code class="docutils literal notranslate"><span class="pre">validate='1:m'</span></code> 的检验，但不能通过 <code class="docutils literal notranslate"><span class="pre">validate='m:1'</span></code> 的检验。</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>3. 索引连接<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>所谓索引连接，就是把索引当作键，因此这和值连接本质上没有区别， <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 中利用 <code class="docutils literal notranslate"><span class="pre">join</span></code> 函数来处理索引连接，它的参数选择要少于 <code class="docutils literal notranslate"><span class="pre">merge</span></code> ，除了必须的 <code class="docutils literal notranslate"><span class="pre">on</span></code> 和 <code class="docutils literal notranslate"><span class="pre">how</span></code> 之外，可以对重复的列指定左右后缀 <code class="docutils literal notranslate"><span class="pre">lsuffix</span></code> 和 <code class="docutils literal notranslate"><span class="pre">rsuffix</span></code> 。其中， <code class="docutils literal notranslate"><span class="pre">on</span></code> 参数指索引名，单层索引时省略参数表示按照当前索引连接。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Age&#39;</span><span class="p">:[</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]},</span>
+<span class="gp">   ....: </span>                    <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
+<span class="gp">   ....: </span>                    <span class="p">[</span><span class="s1">&#39;San Zhang&#39;</span><span class="p">,</span><span class="s1">&#39;Si Li&#39;</span><span class="p">],</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">))</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [19]: </span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Gender&#39;</span><span class="p">:[</span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="s1">&#39;M&#39;</span><span class="p">]},</span>
+<span class="gp">   ....: </span>                    <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
+<span class="gp">   ....: </span>                    <span class="p">[</span><span class="s1">&#39;Si Li&#39;</span><span class="p">,</span><span class="s1">&#39;Wu Wang&#39;</span><span class="p">],</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">))</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [20]: </span><span class="n">df1</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="gh">Out[20]: </span><span class="go"></span>
+<span class="go">           Age Gender</span>
+<span class="go">Name                 </span>
+<span class="go">San Zhang   20    NaN</span>
+<span class="go">Si Li       30      F</span>
+</pre></div>
+</div>
+<p>仿照第2小节的例子，写出语文和数学分数合并的 <code class="docutils literal notranslate"><span class="pre">join</span></code> 版本：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [21]: </span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Grade&#39;</span><span class="p">:[</span><span class="mi">70</span><span class="p">]},</span>
+<span class="gp">   ....: </span>                    <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;San Zhang&#39;</span><span class="p">],</span>
+<span class="gp">   ....: </span>                    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">))</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [22]: </span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Grade&#39;</span><span class="p">:[</span><span class="mi">80</span><span class="p">]},</span>
+<span class="gp">   ....: </span>                    <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;San Zhang&#39;</span><span class="p">],</span>
+<span class="gp">   ....: </span>                    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">))</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [23]: </span><span class="n">df1</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">lsuffix</span><span class="o">=</span><span class="s1">&#39;_Chinese&#39;</span><span class="p">,</span> <span class="n">rsuffix</span><span class="o">=</span><span class="s1">&#39;_Math&#39;</span><span class="p">)</span>
+<span class="gh">Out[23]: </span><span class="go"></span>
+<span class="go">           Grade_Chinese  Grade_Math</span>
+<span class="go">Name                                </span>
+<span class="go">San Zhang             70          80</span>
+</pre></div>
+</div>
+<p>如果想要进行类似于 <code class="docutils literal notranslate"><span class="pre">merge</span></code> 中以多列为键的操作的时候， <code class="docutils literal notranslate"><span class="pre">join</span></code> 需要使用多级索引，例如在 <code class="docutils literal notranslate"><span class="pre">merge</span></code> 中的最后一个例子可以如下写出：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [24]: </span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Age&#39;</span><span class="p">:[</span><span class="mi">20</span><span class="p">,</span><span class="mi">21</span><span class="p">]},</span>
+<span class="gp">   ....: </span>                    <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_arrays</span><span class="p">(</span>
+<span class="gp">   ....: </span>                    <span class="p">[[</span><span class="s1">&#39;San Zhang&#39;</span><span class="p">,</span> <span class="s1">&#39;San Zhang&#39;</span><span class="p">],[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">]],</span>
+<span class="gp">   ....: </span>                    <span class="n">names</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span><span class="s1">&#39;Class&#39;</span><span class="p">)))</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [25]: </span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Gender&#39;</span><span class="p">:[</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">]},</span>
+<span class="gp">   ....: </span>                    <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_arrays</span><span class="p">(</span>
+<span class="gp">   ....: </span>                    <span class="p">[[</span><span class="s1">&#39;San Zhang&#39;</span><span class="p">,</span> <span class="s1">&#39;San Zhang&#39;</span><span class="p">],[</span><span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">]],</span>
+<span class="gp">   ....: </span>                    <span class="n">names</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span><span class="s1">&#39;Class&#39;</span><span class="p">)))</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [26]: </span><span class="n">df1</span>
+<span class="gh">Out[26]: </span><span class="go"></span>
+<span class="go">                 Age</span>
+<span class="go">Name      Class     </span>
+<span class="go">San Zhang one     20</span>
+<span class="go">          two     21</span>
+
+<span class="gp">In [27]: </span><span class="n">df2</span>
+<span class="gh">Out[27]: </span><span class="go"></span>
+<span class="go">                Gender</span>
+<span class="go">Name      Class       </span>
+<span class="go">San Zhang two        F</span>
+<span class="go">          one        M</span>
+
+<span class="gp">In [28]: </span><span class="n">df1</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+<span class="gh">Out[28]: </span><span class="go"></span>
+<span class="go">                 Age Gender</span>
+<span class="go">Name      Class            </span>
+<span class="go">San Zhang one     20      M</span>
+<span class="go">          two     21      F</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>二、方向连接<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="concat">
+<h3>1. concat<a class="headerlink" href="#concat" title="Permalink to this headline">¶</a></h3>
+<p>前面介绍了关系型连接，其中最重要的参数是 <code class="docutils literal notranslate"><span class="pre">on</span></code> 和 <code class="docutils literal notranslate"><span class="pre">how</span></code> ，但有时候用户并不关心以哪一列为键来合并，只是希望把两个表或者多个表按照纵向或者横向拼接，为这种需求， <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 中提供了 <code class="docutils literal notranslate"><span class="pre">concat</span></code> 函数来实现。</p>
+<p>在 <code class="docutils literal notranslate"><span class="pre">concat</span></code> 中，最常用的有三个参数，它们是 <code class="docutils literal notranslate"><span class="pre">axis,</span> <span class="pre">join,</span> <span class="pre">keys</span></code> ，分别表示拼接方向，连接形式，以及在新表中指示来自于哪一张旧表的名字。这里需要特别注意， <code class="docutils literal notranslate"><span class="pre">join</span></code> 和 <code class="docutils literal notranslate"><span class="pre">keys</span></code> 与之前提到的 <code class="docutils literal notranslate"><span class="pre">join</span></code> 函数和键的概念没有任何关系。</p>
+<p>在默认状态下的 <code class="docutils literal notranslate"><span class="pre">axis=0</span></code> ，表示纵向拼接多个表，常常用于多个样本的拼接；而 <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> 表示横向拼接多个表，常用于多个字段或特征的拼接。</p>
+<p>例如，纵向合并各表中人的信息：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [29]: </span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Name&#39;</span><span class="p">:[</span><span class="s1">&#39;San Zhang&#39;</span><span class="p">,</span><span class="s1">&#39;Si Li&#39;</span><span class="p">],</span>
+<span class="gp">   ....: </span>                    <span class="s1">&#39;Age&#39;</span><span class="p">:[</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]})</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [30]: </span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Name&#39;</span><span class="p">:[</span><span class="s1">&#39;Wu Wang&#39;</span><span class="p">],</span> <span class="s1">&#39;Age&#39;</span><span class="p">:[</span><span class="mi">40</span><span class="p">]})</span>
+
+<span class="gp">In [31]: </span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">])</span>
+<span class="gh">Out[31]: </span><span class="go"></span>
+<span class="go">        Name  Age</span>
+<span class="go">0  San Zhang   20</span>
+<span class="go">1      Si Li   30</span>
+<span class="go">0    Wu Wang   40</span>
+</pre></div>
+</div>
+<p>横向合并各表中的字段：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [32]: </span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Grade&#39;</span><span class="p">:[</span><span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]})</span>
+
+<span class="gp">In [33]: </span><span class="n">df3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Gender&#39;</span><span class="p">:[</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">]})</span>
+
+<span class="gp">In [34]: </span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">df3</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gh">Out[34]: </span><span class="go"></span>
+<span class="go">        Name  Age  Grade Gender</span>
+<span class="go">0  San Zhang   20     80      M</span>
+<span class="go">1      Si Li   30     90      F</span>
+</pre></div>
+</div>
+<p>虽然说 <code class="docutils literal notranslate"><span class="pre">concat</span></code> 不是处理关系型合并的函数，但是它仍然是关于索引进行连接的。纵向拼接会根据列索引对其，默认状态下 <code class="docutils literal notranslate"><span class="pre">join=outer</span></code> ，表示保留所有的列，并将不存在的值设为缺失； <code class="docutils literal notranslate"><span class="pre">join=inner</span></code> ，表示保留两个表都出现过的列。横向拼接则根据行索引对齐， <code class="docutils literal notranslate"><span class="pre">join</span></code> 参数可以类似设置。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [35]: </span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Name&#39;</span><span class="p">:[</span><span class="s1">&#39;Wu Wang&#39;</span><span class="p">],</span> <span class="s1">&#39;Gender&#39;</span><span class="p">:[</span><span class="s1">&#39;M&#39;</span><span class="p">]})</span>
+
+<span class="gp">In [36]: </span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">])</span>
+<span class="gh">Out[36]: </span><span class="go"></span>
+<span class="go">        Name   Age Gender</span>
+<span class="go">0  San Zhang  20.0    NaN</span>
+<span class="go">1      Si Li  30.0    NaN</span>
+<span class="go">0    Wu Wang   NaN      M</span>
+
+<span class="gp">In [37]: </span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Grade&#39;</span><span class="p">:[</span><span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+<span class="gp">In [38]: </span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gh">Out[38]: </span><span class="go"></span>
+<span class="go">        Name   Age  Grade</span>
+<span class="go">0  San Zhang  20.0    NaN</span>
+<span class="go">1      Si Li  30.0   80.0</span>
+<span class="go">2        NaN   NaN   90.0</span>
+
+<span class="gp">In [39]: </span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+<span class="gh">Out[39]: </span><span class="go"></span>
+<span class="go">    Name  Age  Grade</span>
+<span class="go">1  Si Li   30     80</span>
+</pre></div>
+</div>
+<p>因此，当确认要使用多表直接的方向合并时，尤其是横向的合并，可以先用 <code class="docutils literal notranslate"><span class="pre">reset_index</span></code> 方法恢复默认整数索引再进行合并，防止出现由索引的误对齐和重复索引的笛卡尔积带来的错误结果。</p>
+<p>最后， <code class="docutils literal notranslate"><span class="pre">keys</span></code> 参数的使用场景在于多个表合并后，用户仍然想要知道新表中的数据来自于哪个原表，这时可以通过 <code class="docutils literal notranslate"><span class="pre">keys</span></code> 参数产生多级索引进行标记。例如，第一个表中都是一班的同学，而第二个表中都是二班的同学，可以使用如下方式合并：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [40]: </span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Name&#39;</span><span class="p">:[</span><span class="s1">&#39;San Zhang&#39;</span><span class="p">,</span><span class="s1">&#39;Si Li&#39;</span><span class="p">],</span>
+<span class="gp">   ....: </span>                    <span class="s1">&#39;Age&#39;</span><span class="p">:[</span><span class="mi">20</span><span class="p">,</span><span class="mi">21</span><span class="p">]})</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [41]: </span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Name&#39;</span><span class="p">:[</span><span class="s1">&#39;Wu Wang&#39;</span><span class="p">],</span><span class="s1">&#39;Age&#39;</span><span class="p">:[</span><span class="mi">21</span><span class="p">]})</span>
+
+<span class="gp">In [42]: </span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">],</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">])</span>
+<span class="gh">Out[42]: </span><span class="go"></span>
+<span class="go">            Name  Age</span>
+<span class="go">one 0  San Zhang   20</span>
+<span class="go">    1      Si Li   21</span>
+<span class="go">two 0    Wu Wang   21</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>2. 序列与表的合并<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>利用 <code class="docutils literal notranslate"><span class="pre">concat</span></code> 可以实现多个表之间的方向拼接，如果想要把一个序列追加到表的行末或者列末，则可以分别使用 <code class="docutils literal notranslate"><span class="pre">append</span></code> 和 <code class="docutils literal notranslate"><span class="pre">assign</span></code> 方法。</p>
+<p>在 <code class="docutils literal notranslate"><span class="pre">append</span></code> 中，如果原表是默认整数序列的索引，那么可以使用 <code class="docutils literal notranslate"><span class="pre">ignore_index=True</span></code> 对新序列对应索引的自动标号，否则必须对 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 指定 <code class="docutils literal notranslate"><span class="pre">name</span></code> 属性。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [43]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;Wu Wang&#39;</span><span class="p">,</span> <span class="mi">21</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+<span class="gp">In [44]: </span><span class="n">df1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gh">Out[44]: </span><span class="go"></span>
+<span class="go">        Name  Age</span>
+<span class="go">0  San Zhang   20</span>
+<span class="go">1      Si Li   21</span>
+<span class="go">2    Wu Wang   21</span>
+</pre></div>
+</div>
+<p>对于 <code class="docutils literal notranslate"><span class="pre">assign</span></code> 而言，虽然可以利用其添加新的列，但一般通过 <code class="docutils literal notranslate"><span class="pre">df['new_col']</span> <span class="pre">=</span> <span class="pre">...</span></code> 的形式就可以等价地添加新列。同时，使用 <code class="docutils literal notranslate"><span class="pre">[]</span></code> 修改的缺点是它会直接在原表上进行改动，而 <code class="docutils literal notranslate"><span class="pre">assign</span></code> 返回的是一个临时副本：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [45]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">])</span>
+
+<span class="gp">In [46]: </span><span class="n">df1</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">Grade</span><span class="o">=</span><span class="n">s</span><span class="p">)</span>
+<span class="gh">Out[46]: </span><span class="go"></span>
+<span class="go">        Name  Age  Grade</span>
+<span class="go">0  San Zhang   20     80</span>
+<span class="go">1      Si Li   21     90</span>
+
+<span class="gp">In [47]: </span><span class="n">df1</span><span class="p">[</span><span class="s1">&#39;Grade&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span>
+
+<span class="gp">In [48]: </span><span class="n">df1</span>
+<span class="gh">Out[48]: </span><span class="go"></span>
+<span class="go">        Name  Age  Grade</span>
+<span class="go">0  San Zhang   20     80</span>
+<span class="go">1      Si Li   21     90</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>三、类连接操作<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>除了上述介绍的若干连接函数之外， <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 中还设计了一些函数能够对两个表进行某些操作，这里把它们统称为类连接操作。</p>
+<div class="section" id="id9">
+<h3>1. 比较<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">compare</span></code> 是在 <code class="docutils literal notranslate"><span class="pre">1.1.0</span></code> 后引入的新函数，它能够比较两个表或者序列的不同处并将其汇总展示：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [49]: </span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Name&#39;</span><span class="p">:[</span><span class="s1">&#39;San Zhang&#39;</span><span class="p">,</span> <span class="s1">&#39;Si Li&#39;</span><span class="p">,</span> <span class="s1">&#39;Wu Wang&#39;</span><span class="p">],</span>
+<span class="gp">   ....: </span>                        <span class="s1">&#39;Age&#39;</span><span class="p">:[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">21</span> <span class="p">,</span><span class="mi">21</span><span class="p">],</span>
+<span class="gp">   ....: </span>                        <span class="s1">&#39;Class&#39;</span><span class="p">:[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">]})</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [50]: </span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Name&#39;</span><span class="p">:[</span><span class="s1">&#39;San Zhang&#39;</span><span class="p">,</span> <span class="s1">&#39;Li Si&#39;</span><span class="p">,</span> <span class="s1">&#39;Wu Wang&#39;</span><span class="p">],</span>
+<span class="gp">   ....: </span>                        <span class="s1">&#39;Age&#39;</span><span class="p">:[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">21</span> <span class="p">,</span><span class="mi">21</span><span class="p">],</span>
+<span class="gp">   ....: </span>                        <span class="s1">&#39;Class&#39;</span><span class="p">:[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;Three&#39;</span><span class="p">]})</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [51]: </span><span class="n">df1</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+<span class="gh">Out[51]: </span><span class="go"></span>
+<span class="go">    Name         Class       </span>
+<span class="go">    self  other   self  other</span>
+<span class="go">1  Si Li  Li Si    NaN    NaN</span>
+<span class="go">2    NaN    NaN  three  Three</span>
+</pre></div>
+</div>
+<p>结果中返回了不同值所在的行列，如果相同则会被填充为缺失值 <code class="docutils literal notranslate"><span class="pre">NaN</span></code> ，其中 <code class="docutils literal notranslate"><span class="pre">other</span></code> 和 <code class="docutils literal notranslate"><span class="pre">self</span></code> 分别指代传入的参数表和被调用的表自身。</p>
+<p>如果想要完整显示表中所有元素的比较情况，可以设置 <code class="docutils literal notranslate"><span class="pre">keep_shape=True</span></code> ：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [52]: </span><span class="n">df1</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">keep_shape</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gh">Out[52]: </span><span class="go"></span>
+<span class="go">    Name         Age        Class       </span>
+<span class="go">    self  other self other   self  other</span>
+<span class="go">0    NaN    NaN  NaN   NaN    NaN    NaN</span>
+<span class="go">1  Si Li  Li Si  NaN   NaN    NaN    NaN</span>
+<span class="go">2    NaN    NaN  NaN   NaN  three  Three</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>2. 组合<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">combine</span></code> 函数能够让两张表按照一定的规则进行组合，在进行规则比较时会自动进行列索引的对齐。对于传入的函数而言，每一次操作中输入的参数是来自两个表的同名 <code class="docutils literal notranslate"><span class="pre">Series</span></code> ，依次传入的列是两个表列名的并集，例如下面这个例子会依次传入 <code class="docutils literal notranslate"><span class="pre">A,B,C,D</span></code> 四组序列，每组为左右表的两个序列。同时，进行 <code class="docutils literal notranslate"><span class="pre">A</span></code> 列比较的时候， <code class="docutils literal notranslate"><span class="pre">s1</span></code> 指代的就是一个全空的序列，因为它在被调用的表中并不存在，并且来自第一个表的序列索引会被 <code class="docutils literal notranslate"><span class="pre">reindex</span></code> 成两个索引的并集。具体的过程可以通过在传入的函数中插入适当的 <code class="docutils literal notranslate"><span class="pre">print</span></code> 方法查看。</p>
+<p>下面的例子表示选出对应索引位置较小的元素：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [53]: </span><span class="k">def</span> <span class="nf">choose_min</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
+<span class="gp">   ....: </span>    <span class="n">s2</span> <span class="o">=</span> <span class="n">s2</span><span class="o">.</span><span class="n">reindex_like</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span>
+<span class="gp">   ....: </span>    <span class="n">res</span> <span class="o">=</span> <span class="n">s1</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">s1</span><span class="o">&lt;</span><span class="n">s2</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span>
+<span class="gp">   ....: </span>    <span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="n">s1</span><span class="o">.</span><span class="n">isna</span><span class="p">())</span> <span class="c1"># isna表示是否为缺失值，返回布尔序列</span>
+<span class="gp">   ....: </span>    <span class="k">return</span> <span class="n">res</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [54]: </span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;B&#39;</span><span class="p">:[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;C&#39;</span><span class="p">:[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]})</span>
+
+<span class="gp">In [55]: </span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;B&#39;</span><span class="p">:[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="s1">&#39;C&#39;</span><span class="p">:[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span> <span class="s1">&#39;D&#39;</span><span class="p">:[</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="gp">In [56]: </span><span class="n">df1</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">choose_min</span><span class="p">)</span>
+<span class="gh">Out[56]: </span><span class="go"></span>
+<span class="go">    A    B    C   D</span>
+<span class="go">0 NaN  NaN  NaN NaN</span>
+<span class="go">1 NaN  4.0  6.0 NaN</span>
+<span class="go">2 NaN  NaN  NaN NaN</span>
+</pre></div>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">练一练</p>
+<blockquote>
+<div><p>请在上述代码的基础上修改，保留 <code class="docutils literal notranslate"><span class="pre">df2</span></code> 中4个未被 <code class="docutils literal notranslate"><span class="pre">df1</span></code> 替换的相应位置原始值。</p>
+</div></blockquote>
+</div>
+<p>此外，设置 <code class="docutils literal notranslate"><span class="pre">overtwrite</span></code> 参数为 <code class="docutils literal notranslate"><span class="pre">False</span></code> 可以保留 <span class="red">被调用表</span> 中未出现在传入的参数表中的列，而不会设置未缺失值：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [57]: </span><span class="n">df1</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">choose_min</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="gh">Out[57]: </span><span class="go"></span>
+<span class="go">     A    B    C   D</span>
+<span class="go">0  1.0  NaN  NaN NaN</span>
+<span class="go">1  2.0  4.0  6.0 NaN</span>
+<span class="go">2  NaN  NaN  NaN NaN</span>
+</pre></div>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">练一练</p>
+<blockquote>
+<div><p>除了 <code class="docutils literal notranslate"><span class="pre">combine</span></code> 之外， <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 中还有一个 <code class="docutils literal notranslate"><span class="pre">combine_first</span></code> 方法，其功能是在对两张表组合时，若第二张表中的值在第一张表中对应索引位置的值不是缺失状态，那么就使用第一张表的值填充。下面给出一个例子，请用 <code class="docutils literal notranslate"><span class="pre">combine</span></code> 函数完成相同的功能。</p>
+</div></blockquote>
+</div>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [58]: </span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;B&#39;</span><span class="p">:[</span><span class="mi">3</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]})</span>
+
+<span class="gp">In [59]: </span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="s1">&#39;B&#39;</span><span class="p">:[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="gp">In [60]: </span><span class="n">df1</span><span class="o">.</span><span class="n">combine_first</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+<span class="gh">Out[60]: </span><span class="go"></span>
+<span class="go">     A    B</span>
+<span class="go">0  1.0  3.0</span>
+<span class="go">1  2.0  7.0</span>
+<span class="go">2  6.0  8.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id11">
+<h2>四、练习<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ex1">
+<h3>Ex1：美国疫情数据集<a class="headerlink" href="#ex1" title="Permalink to this headline">¶</a></h3>
+<p>现有美国4月12日至11月16日的疫情报表，请将 <code class="docutils literal notranslate"><span class="pre">New</span> <span class="pre">York</span></code> 的 <code class="docutils literal notranslate"><span class="pre">Confirmed,</span> <span class="pre">Deaths,</span> <span class="pre">Recovered,</span> <span class="pre">Active</span></code> 合并为一张表，索引为按如下方法生成的日期字符串序列：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [61]: </span><span class="n">date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;20200412&#39;</span><span class="p">,</span> <span class="s1">&#39;20201116&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_series</span><span class="p">()</span>
+
+<span class="gp">In [62]: </span><span class="n">date</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">2</span>
+<span class="gp">   ....: </span>       <span class="p">)</span> <span class="o">+</span><span class="s1">&#39;-&#39;</span><span class="o">+</span> <span class="n">date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">day</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span>
+<span class="gp">   ....: </span>       <span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span><span class="s1">&#39;-&#39;</span><span class="o">+</span> <span class="s1">&#39;2020&#39;</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [63]: </span><span class="n">date</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="gp">In [64]: </span><span class="n">date</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+<span class="gh">Out[64]: </span><span class="go">[&#39;04-12-2020&#39;, &#39;04-13-2020&#39;, &#39;04-14-2020&#39;, &#39;04-15-2020&#39;, &#39;04-16-2020&#39;]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ex2-join">
+<h3>Ex2：实现join函数<a class="headerlink" href="#ex2-join" title="Permalink to this headline">¶</a></h3>
+<p>请实现带有 <code class="docutils literal notranslate"><span class="pre">how</span></code> 参数的 <code class="docutils literal notranslate"><span class="pre">join</span></code> 函数</p>
+<ul class="simple">
+<li><p>假设连接的两表无公共列</p></li>
+<li><p>调用方式为 <code class="docutils literal notranslate"><span class="pre">join(df1,</span> <span class="pre">df2,</span> <span class="pre">how=&quot;left&quot;)</span></code></p></li>
+<li><p>给出测试样例</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.30270b6e4c972e43c488.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020, Datawhale, 耿远昊.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

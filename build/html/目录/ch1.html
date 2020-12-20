@@ -1,0 +1,1132 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第一章 预备知识 &#8212; Joyful Pandas 1.0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/s4defs-roles.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.30270b6e4c972e43c488.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="第二章 pandas基础" href="ch2.html" />
+    <link rel="prev" title="前言" href="%E5%89%8D%E8%A8%80.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/finallogo1.svg" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../%E4%B8%BB%E9%A1%B5.html">Joyful Pandas</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">目录</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../%E5%85%B3%E4%BA%8E%E4%BD%9C%E8%80%85.html">关于作者</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../Datawhale.html">Datawhale</a>
+        </li>
+        
+        
+        <li class="nav-item">
+            <a class="nav-link nav-external" href="https://pandas.pydata.org/docs/index.html">Pandas官网<i class="fas fa-external-link-alt"></i></a>
+        </li>
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/datawhalechina/joyful-pandas" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+        
+          
+              <li class="">
+                  <a href="%E5%89%8D%E8%A8%80.html">前言</a>
+              </li>
+          
+        
+          
+              <li class="active">
+                  <a href="">第一章 预备知识</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch2.html">第二章 pandas基础</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch3.html">第三章 索引</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch4.html">第四章 分组</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch5.html">第五章 变形</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch6.html">第六章 连接</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch7.html">第七章 缺失数据</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch8.html">第八章 文本数据</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch9.html">第九章 分类数据</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch10.html">第十章 时序数据</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88.html">参考答案</a>
+              </li>
+          
+        
+      
+      
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#python" class="nav-link">一、Python基础</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id2" class="nav-link">1. 列表推导式与条件赋值</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#map" class="nav-link">2. 匿名函数与map方法</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#zipenumerate" class="nav-link">3. zip对象与enumerate方法</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#numpy" class="nav-link">二、Numpy基础</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#np" class="nav-link">1. np数组的构造</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id3" class="nav-link">2. np数组的变形与合并</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id4" class="nav-link">3. np数组的切片与索引</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id5" class="nav-link">4. 常用函数</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id6" class="nav-link">5. 广播机制</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id7" class="nav-link">6. 向量与矩阵的计算</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id8" class="nav-link">三、练习</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#ex1" class="nav-link">Ex1：利用列表推导式写矩阵乘法</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#ex2" class="nav-link">Ex2：更新矩阵</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#ex3" class="nav-link">Ex3：卡方统计量</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#ex4" class="nav-link">Ex4：改进矩阵计算的性能</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#ex5" class="nav-link">Ex5：连续整数的最大长度</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="id1">
+<h1>第一章 预备知识<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="python">
+<h2>一、Python基础<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>1. 列表推导式与条件赋值<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>在生成一个数字序列的时候，在 <code class="docutils literal notranslate"><span class="pre">Python</span></code> 中可以如下写出：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">L</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="gp">In [2]: </span><span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">   ...: </span>    <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span>
+<span class="gp">   ...: </span>
+
+<span class="gp">In [3]: </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<span class="gp">   ...: </span>    <span class="n">L</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">my_func</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="gp">   ...: </span>
+
+<span class="gp">In [4]: </span><span class="n">L</span>
+<span class="gh">Out[4]: </span><span class="go">[0, 2, 4, 6, 8]</span>
+</pre></div>
+</div>
+<p>事实上可以利用列表推导式进行写法上的简化： <code class="docutils literal notranslate"><span class="pre">[*</span> <span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">*]</span></code> 。其中，第一个 <code class="docutils literal notranslate"><span class="pre">*</span></code> 为映射函数，其输入为后面 <code class="docutils literal notranslate"><span class="pre">i</span></code> 指代的内容，第二个 <code class="docutils literal notranslate"><span class="pre">*</span></code> 表示迭代的对象。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="p">[</span><span class="n">my_func</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+<span class="gh">Out[5]: </span><span class="go">[0, 2, 4, 6, 8]</span>
+</pre></div>
+</div>
+<p>列表表达式还支持多层嵌套，如下面的例子中第一个 <code class="docutils literal notranslate"><span class="pre">for</span></code> 为外层循环，第二个为内层循环：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="p">[</span><span class="n">m</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="n">n</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]]</span>
+<span class="gh">Out[6]: </span><span class="go">[&#39;a_c&#39;, &#39;a_d&#39;, &#39;b_c&#39;, &#39;b_d&#39;]</span>
+</pre></div>
+</div>
+<p>除了列表推导式，另一个实用的语法糖是带有 <code class="docutils literal notranslate"><span class="pre">if</span></code> 选择的条件赋值，其形式为 <code class="docutils literal notranslate"><span class="pre">value</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">if</span> <span class="pre">condition</span> <span class="pre">else</span> <span class="pre">b</span></code> ：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;cat&#39;</span> <span class="k">if</span> <span class="mi">2</span><span class="o">&gt;</span><span class="mi">1</span> <span class="k">else</span> <span class="s1">&#39;dog&#39;</span>
+
+<span class="gp">In [8]: </span><span class="n">value</span>
+<span class="gh">Out[8]: </span><span class="go">&#39;cat&#39;</span>
+</pre></div>
+</div>
+<p>等价于如下的写法：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span>
+<span class="n">condition</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="c1"># 此时为True</span>
+<span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">a</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">b</span>
+</pre></div>
+</div>
+<p>下面举一个例子，截断列表中超过5的元素，即超过5的用5代替，小于5的保留原来的值：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+
+<span class="gp">In [10]: </span><span class="p">[</span><span class="n">i</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">5</span> <span class="k">else</span> <span class="mi">5</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">L</span><span class="p">]</span>
+<span class="gh">Out[10]: </span><span class="go">[1, 2, 3, 4, 5, 5, 5]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="map">
+<h3>2. 匿名函数与map方法<a class="headerlink" href="#map" title="Permalink to this headline">¶</a></h3>
+<p>有一些函数的定义具有清晰简单的映射关系，例如上面的 <code class="docutils literal notranslate"><span class="pre">my_func</span></code> 函数，这时候可以用匿名函数的方法简洁地表示：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="n">my_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span>
+
+<span class="gp">In [12]: </span><span class="n">my_func</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gh">Out[12]: </span><span class="go">6</span>
+
+<span class="gp">In [13]: </span><span class="n">multi_para_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="gp">In [14]: </span><span class="n">multi_para_func</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gh">Out[14]: </span><span class="go">3</span>
+</pre></div>
+</div>
+<p>但上面的用法其实违背了“匿名”的含义，事实上它往往在无需多处调用的场合进行使用，例如上面列表推导式中的例子，用户不关心函数的名字，只关心这种映射的关系：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="p">[(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+<span class="gh">Out[15]: </span><span class="go">[0, 2, 4, 6, 8]</span>
+</pre></div>
+</div>
+<p>对于上述的这种列表推导式的匿名函数映射， <code class="docutils literal notranslate"><span class="pre">Python</span></code> 中提供了 <code class="docutils literal notranslate"><span class="pre">map</span></code> 函数来完成，它返回的是一个 <code class="docutils literal notranslate"><span class="pre">map</span></code> 对象，需要通过 <code class="docutils literal notranslate"><span class="pre">list</span></code> 转为列表：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
+<span class="gh">Out[16]: </span><span class="go">[0, 2, 4, 6, 8]</span>
+</pre></div>
+</div>
+<p>对于多个输入值的函数映射，可以通过追加迭代对象实现：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [17]: </span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="n">y</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abcde&#39;</span><span class="p">)))</span>
+<span class="gh">Out[17]: </span><span class="go">[&#39;0_a&#39;, &#39;1_b&#39;, &#39;2_c&#39;, &#39;3_d&#39;, &#39;4_e&#39;]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="zipenumerate">
+<h3>3. zip对象与enumerate方法<a class="headerlink" href="#zipenumerate" title="Permalink to this headline">¶</a></h3>
+<p>zip函数能够把多个可迭代对象打包成一个元组构成的可迭代对象，它返回了一个 <code class="docutils literal notranslate"><span class="pre">zip</span></code> 对象，通过 <code class="docutils literal notranslate"><span class="pre">tuple,</span> <span class="pre">list</span></code> 可以得到相应的打包结果：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">,</span> <span class="n">L3</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">),</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;def&#39;</span><span class="p">),</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;hij&#39;</span><span class="p">)</span>
+
+<span class="gp">In [19]: </span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">,</span> <span class="n">L3</span><span class="p">))</span>
+<span class="gh">Out[19]: </span><span class="go">[(&#39;a&#39;, &#39;d&#39;, &#39;h&#39;), (&#39;b&#39;, &#39;e&#39;, &#39;i&#39;), (&#39;c&#39;, &#39;f&#39;, &#39;j&#39;)]</span>
+
+<span class="gp">In [20]: </span><span class="nb">tuple</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">,</span> <span class="n">L3</span><span class="p">))</span>
+<span class="gh">Out[20]: </span><span class="go">((&#39;a&#39;, &#39;d&#39;, &#39;h&#39;), (&#39;b&#39;, &#39;e&#39;, &#39;i&#39;), (&#39;c&#39;, &#39;f&#39;, &#39;j&#39;))</span>
+</pre></div>
+</div>
+<p>往往会在循环迭代的时候使用到 <code class="docutils literal notranslate"><span class="pre">zip</span></code> 函数：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [21]: </span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">,</span> <span class="n">L3</span><span class="p">):</span>
+<span class="gp">   ....: </span>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<span class="gp">   ....: </span>
+<span class="go">a d h</span>
+<span class="go">b e i</span>
+<span class="go">c f j</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">enumerate</span></code> 是一种特殊的打包，它可以在迭代时绑定迭代元素的遍历序号：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [22]: </span><span class="n">L</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abcd&#39;</span><span class="p">)</span>
+
+<span class="gp">In [23]: </span><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+<span class="gp">   ....: </span>    <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="gp">   ....: </span>
+<span class="go">0 a</span>
+<span class="go">1 b</span>
+<span class="go">2 c</span>
+<span class="go">3 d</span>
+</pre></div>
+</div>
+<p>用 <code class="docutils literal notranslate"><span class="pre">zip</span></code> 对象也能够简单地实现这个功能：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [24]: </span><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)),</span> <span class="n">L</span><span class="p">):</span>
+<span class="gp">   ....: </span>    <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="gp">   ....: </span>
+<span class="go">0 a</span>
+<span class="go">1 b</span>
+<span class="go">2 c</span>
+<span class="go">3 d</span>
+</pre></div>
+</div>
+<p>当需要对两个列表建立字典映射时，可以利用 <code class="docutils literal notranslate"><span class="pre">zip</span></code> 对象：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [25]: </span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">))</span>
+<span class="gh">Out[25]: </span><span class="go">{&#39;a&#39;: &#39;d&#39;, &#39;b&#39;: &#39;e&#39;, &#39;c&#39;: &#39;f&#39;}</span>
+</pre></div>
+</div>
+<p>既然有了压缩函数，那么 <code class="docutils literal notranslate"><span class="pre">Python</span></code> 也提供了 <code class="docutils literal notranslate"><span class="pre">*</span></code> 操作符和 <code class="docutils literal notranslate"><span class="pre">zip</span></code> 联合使用来进行解压操作：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [26]: </span><span class="n">zipped</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">,</span> <span class="n">L3</span><span class="p">))</span>
+
+<span class="gp">In [27]: </span><span class="n">zipped</span>
+<span class="gh">Out[27]: </span><span class="go">[(&#39;a&#39;, &#39;d&#39;, &#39;h&#39;), (&#39;b&#39;, &#39;e&#39;, &#39;i&#39;), (&#39;c&#39;, &#39;f&#39;, &#39;j&#39;)]</span>
+
+<span class="gp">In [28]: </span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">zipped</span><span class="p">))</span> <span class="c1"># 三个元组分别对应原来的列表</span>
+<span class="gh">Out[28]: </span><span class="go">[(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;), (&#39;d&#39;, &#39;e&#39;, &#39;f&#39;), (&#39;h&#39;, &#39;i&#39;, &#39;j&#39;)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="numpy">
+<h2>二、Numpy基础<a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="np">
+<h3>1. np数组的构造<a class="headerlink" href="#np" title="Permalink to this headline">¶</a></h3>
+<p>最一般的方法是通过 <code class="docutils literal notranslate"><span class="pre">array</span></code> 来构造：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [29]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="gp">In [30]: </span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="gh">Out[30]: </span><span class="go">array([1, 2, 3])</span>
+</pre></div>
+</div>
+<p>下面讨论一些特殊数组的生成方式：</p>
+<p>【a】等差序列： <code class="docutils literal notranslate"><span class="pre">np.linspace,</span> <span class="pre">np.arange</span></code></p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [31]: </span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span> <span class="c1"># 起始、终止（包含）、样本个数</span>
+<span class="gh">Out[31]: </span><span class="go">array([1. , 1.4, 1.8, 2.2, 2.6, 3. , 3.4, 3.8, 4.2, 4.6, 5. ])</span>
+
+<span class="gp">In [32]: </span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># 起始、终止（不包含）、步长</span>
+<span class="gh">Out[32]: </span><span class="go">array([1, 3])</span>
+</pre></div>
+</div>
+<p>【b】特殊矩阵： <code class="docutils literal notranslate"><span class="pre">zeros,</span> <span class="pre">eye,</span> <span class="pre">full</span></code></p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [33]: </span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># 传入元组表示各维度大小</span>
+<span class="gh">Out[33]: </span><span class="go"></span>
+<span class="go">array([[0., 0., 0.],</span>
+<span class="go">       [0., 0., 0.]])</span>
+
+<span class="gp">In [34]: </span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># 3*3的单位矩阵</span>
+<span class="gh">Out[34]: </span><span class="go"></span>
+<span class="go">array([[1., 0., 0.],</span>
+<span class="go">       [0., 1., 0.],</span>
+<span class="go">       [0., 0., 1.]])</span>
+
+<span class="gp">In [35]: </span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 偏移主对角线1个单位的伪单位矩阵</span>
+<span class="gh">Out[35]: </span><span class="go"></span>
+<span class="go">array([[0., 1., 0.],</span>
+<span class="go">       [0., 0., 1.],</span>
+<span class="go">       [0., 0., 0.]])</span>
+
+<span class="gp">In [36]: </span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span> <span class="c1"># 元组传入大小，10表示填充数值</span>
+<span class="gh">Out[36]: </span><span class="go"></span>
+<span class="go">array([[10, 10, 10],</span>
+<span class="go">       [10, 10, 10]])</span>
+
+<span class="gp">In [37]: </span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span> <span class="c1"># 每行填入相同的列表</span>
+<span class="gh">Out[37]: </span><span class="go"></span>
+<span class="go">array([[1, 2, 3],</span>
+<span class="go">       [1, 2, 3]])</span>
+</pre></div>
+</div>
+<p>【c】随机矩阵： <code class="docutils literal notranslate"><span class="pre">np.random</span></code></p>
+<p>最常用的随机生成函数为 <code class="docutils literal notranslate"><span class="pre">rand,</span> <span class="pre">randn,</span> <span class="pre">randint,</span> <span class="pre">choice</span></code> ，它们分别表示0-1均匀分布的随机数组、标准正态的随机数组、随机整数组和随机列表抽样：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [38]: </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># 生成服从0-1均匀分布的三个随机数</span>
+<span class="gh">Out[38]: </span><span class="go">array([0.04459277, 0.70822814, 0.72825652])</span>
+
+<span class="gp">In [39]: </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># 注意这里传入的不是元组，每个维度大小分开输入</span>
+<span class="gh">Out[39]: </span><span class="go"></span>
+<span class="go">array([[0.7086854 , 0.55065805, 0.24684969],</span>
+<span class="go">       [0.01502467, 0.12753788, 0.67763982],</span>
+<span class="go">       [0.61491281, 0.72367285, 0.35903761]])</span>
+</pre></div>
+</div>
+<p>对于服从区间 <span class="math notranslate nohighlight">\(a\)</span> 到 <span class="math notranslate nohighlight">\(b\)</span> 上的均匀分布可以如下生成：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [40]: </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">15</span>
+
+<span class="gp">In [41]: </span><span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">a</span>
+<span class="gh">Out[41]: </span><span class="go">array([10.85277559,  5.42718874,  6.6127651 ])</span>
+</pre></div>
+</div>
+<p>一般的，可以选择已有的库函数：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [42]: </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gh">Out[42]: </span><span class="go">array([9.24865468, 9.50059861, 5.08912649])</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">randn</span></code> 生成了 <span class="math notranslate nohighlight">\(N\rm{(\mathbf{0}, \mathbf{I})}\)</span> 的标准正态分布：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [43]: </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gh">Out[43]: </span><span class="go">array([-0.55853584, -0.13854145, -0.70530864])</span>
+
+<span class="gp">In [44]: </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gh">Out[44]: </span><span class="go"></span>
+<span class="go">array([[ 1.30718089,  1.19663584],</span>
+<span class="go">       [ 0.47448249, -1.10435937]])</span>
+</pre></div>
+</div>
+<p>对于服从方差为 <span class="math notranslate nohighlight">\(\sigma^2\)</span> 均值为 <span class="math notranslate nohighlight">\(\mu\)</span> 的一元正态分布可以如下生成：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [45]: </span><span class="n">sigma</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">3</span>
+
+<span class="gp">In [46]: </span><span class="n">mu</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigma</span>
+<span class="gh">Out[46]: </span><span class="go">array([ 4.00657339,  4.56976171, -0.29177403])</span>
+</pre></div>
+</div>
+<p>同样的，也可选择从已有函数生成：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [47]: </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gh">Out[47]: </span><span class="go">array([4.15032959, 5.37686641, 5.8810344 ])</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">randint</span></code> 可以指定生成随机整数的最小值最大值（不包含）和维度大小：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [48]: </span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># 生成5到14的随机整数</span>
+
+<span class="gp">In [49]: </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+<span class="gh">Out[49]: </span><span class="go"></span>
+<span class="go">array([[10,  9],</span>
+<span class="go">       [13,  5]])</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">choice</span></code> 可以从给定的列表中，以一定概率和方式抽取结果，当不指定概率时为均匀采样，默认抽取方式为有放回抽样：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [50]: </span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]</span>
+
+<span class="gp">In [51]: </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">my_list</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.1</span> <span class="p">,</span><span class="mf">0.1</span><span class="p">])</span>
+<span class="gh">Out[51]: </span><span class="go">array([&#39;b&#39;, &#39;d&#39;], dtype=&#39;&lt;U1&#39;)</span>
+
+<span class="gp">In [52]: </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">my_list</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="gh">Out[52]: </span><span class="go"></span>
+<span class="go">array([[&#39;a&#39;, &#39;d&#39;, &#39;b&#39;],</span>
+<span class="go">       [&#39;a&#39;, &#39;c&#39;, &#39;a&#39;],</span>
+<span class="go">       [&#39;b&#39;, &#39;d&#39;, &#39;d&#39;]], dtype=&#39;&lt;U1&#39;)</span>
+</pre></div>
+</div>
+<p>当返回的元素个数与原列表相同时，不放回抽样等价于使用 <code class="docutils literal notranslate"><span class="pre">permutation</span></code> 函数，即打散原列表：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [53]: </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+<span class="gh">Out[53]: </span><span class="go">array([&#39;b&#39;, &#39;a&#39;, &#39;d&#39;, &#39;c&#39;], dtype=&#39;&lt;U1&#39;)</span>
+</pre></div>
+</div>
+<p>最后，需要提到的是随机种子，它能够固定随机数的输出结果：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [54]: </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="gp">In [55]: </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span>
+<span class="gh">Out[55]: </span><span class="go">0.5488135039273248</span>
+
+<span class="gp">In [56]: </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="gp">In [57]: </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span>
+<span class="gh">Out[57]: </span><span class="go">0.5488135039273248</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>2. np数组的变形与合并<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>【a】转置： <code class="docutils literal notranslate"><span class="pre">T</span></code></p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [58]: </span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
+<span class="gh">Out[58]: </span><span class="go"></span>
+<span class="go">array([[0., 0.],</span>
+<span class="go">       [0., 0.],</span>
+<span class="go">       [0., 0.]])</span>
+</pre></div>
+</div>
+<p>【b】合并操作： <code class="docutils literal notranslate"><span class="pre">r_,</span> <span class="pre">c_</span></code></p>
+<p>对于二维数组而言， <code class="docutils literal notranslate"><span class="pre">r_</span></code> 和 <code class="docutils literal notranslate"><span class="pre">c_</span></code> 分别表示上下合并和左右合并：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [59]: </span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)),</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))]</span>
+<span class="gh">Out[59]: </span><span class="go"></span>
+<span class="go">array([[0., 0., 0.],</span>
+<span class="go">       [0., 0., 0.],</span>
+<span class="go">       [0., 0., 0.],</span>
+<span class="go">       [0., 0., 0.]])</span>
+
+<span class="gp">In [60]: </span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)),</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))]</span>
+<span class="gh">Out[60]: </span><span class="go"></span>
+<span class="go">array([[0., 0., 0., 0., 0., 0.],</span>
+<span class="go">       [0., 0., 0., 0., 0., 0.]])</span>
+</pre></div>
+</div>
+<p>一维数组和二维数组进行合并时，应当把其视作列向量，在长度匹配的情况下只能够使用左右合并的 <code class="docutils literal notranslate"><span class="pre">c_</span></code> 操作：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [61]: </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">   ....: </span>    <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))]</span>
+<span class="gp">   ....: </span><span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="gp">   ....: </span>    <span class="n">Err_Msg</span> <span class="o">=</span> <span class="n">e</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [62]: </span><span class="n">Err_Msg</span>
+<span class="gh">Out[62]: </span><span class="go">ValueError(&#39;all the input arrays must have same number of dimensions, but the array at index 0 has 1 dimension(s) and the array at index 1 has 2 dimension(s)&#39;)</span>
+
+<span class="gp">In [63]: </span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
+<span class="gh">Out[63]: </span><span class="go">array([0., 0., 0., 0.])</span>
+
+<span class="gp">In [64]: </span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))]</span>
+<span class="gh">Out[64]: </span><span class="go"></span>
+<span class="go">array([[0., 0., 0., 0.],</span>
+<span class="go">       [0., 0., 0., 0.]])</span>
+</pre></div>
+</div>
+<p>【c】维度变换： <code class="docutils literal notranslate"><span class="pre">reshape</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">reshape</span></code> 能够帮助用户把原数组按照新的维度重新排列。在使用时有两种模式，分别为 <code class="docutils literal notranslate"><span class="pre">C</span></code> 模式和 <code class="docutils literal notranslate"><span class="pre">F</span></code> 模式，分别以逐行和逐列的顺序进行填充读取。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [65]: </span><span class="n">target</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="gp">In [66]: </span><span class="n">target</span>
+<span class="gh">Out[66]: </span><span class="go"></span>
+<span class="go">array([[0, 1, 2, 3],</span>
+<span class="go">       [4, 5, 6, 7]])</span>
+
+<span class="gp">In [67]: </span><span class="n">target</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;C&#39;</span><span class="p">)</span> <span class="c1"># 按照行读取和填充</span>
+<span class="gh">Out[67]: </span><span class="go"></span>
+<span class="go">array([[0, 1],</span>
+<span class="go">       [2, 3],</span>
+<span class="go">       [4, 5],</span>
+<span class="go">       [6, 7]])</span>
+
+<span class="gp">In [68]: </span><span class="n">target</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">)</span> <span class="c1"># 按照列读取和填充</span>
+<span class="gh">Out[68]: </span><span class="go"></span>
+<span class="go">array([[0, 2],</span>
+<span class="go">       [4, 6],</span>
+<span class="go">       [1, 3],</span>
+<span class="go">       [5, 7]])</span>
+</pre></div>
+</div>
+<p>特别地，由于被调用数组的大小是确定的， <span class="incremental">reshape</span> 允许有一个维度存在空缺，此时只需填充-1即可：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [69]: </span><span class="n">target</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="gh">Out[69]: </span><span class="go"></span>
+<span class="go">array([[0, 1],</span>
+<span class="go">       [2, 3],</span>
+<span class="go">       [4, 5],</span>
+<span class="go">       [6, 7]])</span>
+</pre></div>
+</div>
+<p>下面将 <code class="docutils literal notranslate"><span class="pre">n*1</span></code> 大小的数组转为1维数组的操作是经常使用的：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [70]: </span><span class="n">target</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="gp">In [71]: </span><span class="n">target</span>
+<span class="gh">Out[71]: </span><span class="go"></span>
+<span class="go">array([[1.],</span>
+<span class="go">       [1.],</span>
+<span class="go">       [1.]])</span>
+
+<span class="gp">In [72]: </span><span class="n">target</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="gh">Out[72]: </span><span class="go">array([1., 1., 1.])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>3. np数组的切片与索引<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>数组的切片模式支持使用 <code class="docutils literal notranslate"><span class="pre">slice</span></code> 类型的 <code class="docutils literal notranslate"><span class="pre">start:end:step</span></code> 切片，还可以直接传入列表指定某个维度的索引进行切片：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [73]: </span><span class="n">target</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="gp">In [74]: </span><span class="n">target</span>
+<span class="gh">Out[74]: </span><span class="go"></span>
+<span class="go">array([[0, 1, 2],</span>
+<span class="go">       [3, 4, 5],</span>
+<span class="go">       [6, 7, 8]])</span>
+
+<span class="gp">In [75]: </span><span class="n">target</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span>
+<span class="gh">Out[75]: </span><span class="go"></span>
+<span class="go">array([[0, 2],</span>
+<span class="go">       [3, 5]])</span>
+</pre></div>
+</div>
+<p>此外，还可以利用 <code class="docutils literal notranslate"><span class="pre">np.ix_</span></code> 在对应的维度上使用布尔索引，但此时不能使用 <code class="docutils literal notranslate"><span class="pre">slice</span></code> 切片：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [76]: </span><span class="n">target</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ix_</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">])]</span>
+<span class="gh">Out[76]: </span><span class="go"></span>
+<span class="go">array([[0, 2],</span>
+<span class="go">       [6, 8]])</span>
+
+<span class="gp">In [77]: </span><span class="n">target</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ix_</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">])]</span>
+<span class="gh">Out[77]: </span><span class="go"></span>
+<span class="go">array([[3, 5],</span>
+<span class="go">       [6, 8]])</span>
+</pre></div>
+</div>
+<p>当数组维度为1维时，可以直接进行布尔索引，而无需 <code class="docutils literal notranslate"><span class="pre">np.ix_</span></code> ：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [78]: </span><span class="n">new</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="gp">In [79]: </span><span class="n">new</span><span class="p">[</span><span class="n">new</span><span class="o">%</span><span class="k">2</span>==0]
+<span class="gh">Out[79]: </span><span class="go">array([0, 2, 4, 6, 8])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>4. 常用函数<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>为了简单起见，这里假设下述函数输入的数组都是一维的。</p>
+<p>【a】 <code class="docutils literal notranslate"><span class="pre">where</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">where</span></code> 是一种条件函数，可以指定满足条件与不满足条件位置对应的填充值：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [80]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="gp">In [81]: </span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">a</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="c1"># 对应位置为True时填充a对应元素，否则填充5</span>
+<span class="gh">Out[81]: </span><span class="go">array([5, 1, 5, 5])</span>
+</pre></div>
+</div>
+<p>【b】 <code class="docutils literal notranslate"><span class="pre">nonzero,</span> <span class="pre">argmax,</span> <span class="pre">argmin</span></code></p>
+<p>这三个函数返回的都是索引， <code class="docutils literal notranslate"><span class="pre">nonzero</span></code> 返回非零数的索引， <code class="docutils literal notranslate"><span class="pre">argmax,</span> <span class="pre">argmin</span></code> 分别返回最大和最小数的索引：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [82]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="gp">In [83]: </span><span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gh">Out[83]: </span><span class="go">(array([0, 1, 3, 4, 5], dtype=int64),)</span>
+
+<span class="gp">In [84]: </span><span class="n">a</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span>
+<span class="gh">Out[84]: </span><span class="go">4</span>
+
+<span class="gp">In [85]: </span><span class="n">a</span><span class="o">.</span><span class="n">argmin</span><span class="p">()</span>
+<span class="gh">Out[85]: </span><span class="go">1</span>
+</pre></div>
+</div>
+<p>【c】 <code class="docutils literal notranslate"><span class="pre">any,</span> <span class="pre">all</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">any</span></code> 指当序列至少 <span class="red">存在一个</span>  <code class="docutils literal notranslate"><span class="pre">True</span></code> 或非零元素时返回 <code class="docutils literal notranslate"><span class="pre">True</span></code> ，否则返回 <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">all</span></code> 指当序列元素 <span class="red">全为</span>  <code class="docutils literal notranslate"><span class="pre">True</span></code> 或非零元素时返回 <code class="docutils literal notranslate"><span class="pre">True</span></code> ，否则返回 <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [86]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="gp">In [87]: </span><span class="n">a</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
+<span class="gh">Out[87]: </span><span class="go">True</span>
+
+<span class="gp">In [88]: </span><span class="n">a</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="gh">Out[88]: </span><span class="go">False</span>
+</pre></div>
+</div>
+<p>【d】 <code class="docutils literal notranslate"><span class="pre">cumprod,</span> <span class="pre">cumsum,</span> <span class="pre">diff</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">cumprod,</span> <span class="pre">cumsum</span></code> 分别表示累乘和累加函数，返回同长度的数组， <code class="docutils literal notranslate"><span class="pre">diff</span></code> 表示和前一个元素做差，由于第一个元素为缺失值，因此在默认参数情况下，返回长度是原数组减1</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [89]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="gp">In [90]: </span><span class="n">a</span><span class="o">.</span><span class="n">cumprod</span><span class="p">()</span>
+<span class="gh">Out[90]: </span><span class="go">array([1, 2, 6], dtype=int32)</span>
+
+<span class="gp">In [91]: </span><span class="n">a</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+<span class="gh">Out[91]: </span><span class="go">array([1, 3, 6], dtype=int32)</span>
+
+<span class="gp">In [92]: </span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gh">Out[92]: </span><span class="go">array([1, 1])</span>
+</pre></div>
+</div>
+<p>【e】 统计函数</p>
+<p>常用的统计函数包括 <code class="docutils literal notranslate"><span class="pre">max,</span> <span class="pre">min,</span> <span class="pre">mean,</span> <span class="pre">median,</span> <span class="pre">std,</span> <span class="pre">var,</span> <span class="pre">sum,</span> <span class="pre">quantile</span></code> ，其中分位数计算是全局方法，因此不能通过 <code class="docutils literal notranslate"><span class="pre">array.quantile</span></code> 的方法调用：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [93]: </span><span class="n">target</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="gp">In [94]: </span><span class="n">target</span>
+<span class="gh">Out[94]: </span><span class="go">array([0, 1, 2, 3, 4])</span>
+
+<span class="gp">In [95]: </span><span class="n">target</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="gh">Out[95]: </span><span class="go">4</span>
+
+<span class="gp">In [96]: </span><span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span> <span class="c1"># 0.5分位数</span>
+<span class="gh">Out[96]: </span><span class="go">2.0</span>
+</pre></div>
+</div>
+<p>但是对于含有缺失值的数组，它们返回的结果也是缺失值，如果需要略过缺失值，必须使用 <code class="docutils literal notranslate"><span class="pre">nan*</span></code> 类型的函数，上述的几个统计函数都有对应的 <code class="docutils literal notranslate"><span class="pre">nan*</span></code> 函数。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [97]: </span><span class="n">target</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span>
+
+<span class="gp">In [98]: </span><span class="n">target</span>
+<span class="gh">Out[98]: </span><span class="go">array([ 1.,  2., nan])</span>
+
+<span class="gp">In [99]: </span><span class="n">target</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="gh">Out[99]: </span><span class="go">nan</span>
+
+<span class="gp">In [100]: </span><span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+<span class="gh">Out[100]: </span><span class="go">2.0</span>
+
+<span class="gp">In [101]: </span><span class="n">np</span><span class="o">.</span><span class="n">nanquantile</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="gh">Out[101]: </span><span class="go">1.5</span>
+</pre></div>
+</div>
+<p>对于协方差和相关系数分别可以利用 <code class="docutils literal notranslate"><span class="pre">cov,</span> <span class="pre">corrcoef</span></code> 如下计算：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [102]: </span><span class="n">target1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">])</span>
+
+<span class="gp">In [103]: </span><span class="n">target2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">9</span><span class="p">])</span>
+
+<span class="gp">In [104]: </span><span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">target1</span><span class="p">,</span> <span class="n">target2</span><span class="p">)</span>
+<span class="gh">Out[104]: </span><span class="go"></span>
+<span class="go">array([[ 11.66666667, -16.66666667],</span>
+<span class="go">       [-16.66666667,  38.66666667]])</span>
+
+<span class="gp">In [105]: </span><span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">target1</span><span class="p">,</span> <span class="n">target2</span><span class="p">)</span>
+<span class="gh">Out[105]: </span><span class="go"></span>
+<span class="go">array([[ 1.        , -0.78470603],</span>
+<span class="go">       [-0.78470603,  1.        ]])</span>
+</pre></div>
+</div>
+<p>最后，需要说明二维 <code class="docutils literal notranslate"><span class="pre">Numpy</span></code> 数组中统计函数的 <code class="docutils literal notranslate"><span class="pre">axis</span></code> 参数，它能够进行某一个维度下的统计特征计算，当 <code class="docutils literal notranslate"><span class="pre">axis=0</span></code> 时结果为列的统计指标，当 <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> 时结果为行的统计指标：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [106]: </span><span class="n">target</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="gp">In [107]: </span><span class="n">target</span>
+<span class="gh">Out[107]: </span><span class="go"></span>
+<span class="go">array([[1, 2, 3],</span>
+<span class="go">       [4, 5, 6],</span>
+<span class="go">       [7, 8, 9]])</span>
+
+<span class="gp">In [108]: </span><span class="n">target</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="gh">Out[108]: </span><span class="go">array([12, 15, 18])</span>
+
+<span class="gp">In [109]: </span><span class="n">target</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gh">Out[109]: </span><span class="go">array([ 6, 15, 24])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>5. 广播机制<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>广播机制用于处理两个不同维度数组之间的操作，这里只讨论不超过两维的数组广播机制。</p>
+<p>【a】标量和数组的操作</p>
+<p>当一个标量和数组进行运算时，标量会自动把大小扩充为数组大小，之后进行逐元素操作：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [110]: </span><span class="n">res</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="gp">In [111]: </span><span class="n">res</span>
+<span class="gh">Out[111]: </span><span class="go"></span>
+<span class="go">array([[4., 4.],</span>
+<span class="go">       [4., 4.]])</span>
+
+<span class="gp">In [112]: </span><span class="n">res</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">res</span>
+
+<span class="gp">In [113]: </span><span class="n">res</span>
+<span class="gh">Out[113]: </span><span class="go"></span>
+<span class="go">array([[0.25, 0.25],</span>
+<span class="go">       [0.25, 0.25]])</span>
+</pre></div>
+</div>
+<p>【b】二维数组之间的操作</p>
+<p>当两个数组维度完全一致时，使用对应元素的操作，否则会报错，除非其中的某个数组的维度是 <span class="math notranslate nohighlight">\(m\times 1\)</span> 或者 <span class="math notranslate nohighlight">\(1\times n\)</span> ，那么会扩充其具有 <span class="math notranslate nohighlight">\(1\)</span> 的维度为另一个数组对应维度的大小。例如， <span class="math notranslate nohighlight">\(1\times 2\)</span> 数组和 <span class="math notranslate nohighlight">\(3\times 2\)</span> 数组做逐元素运算时会把第一个数组扩充为 <span class="math notranslate nohighlight">\(3\times 2\)</span> ，扩充时的对应数值进行赋值。但是，需要注意的是，如果第一个数组的维度是 <span class="math notranslate nohighlight">\(1\times 3\)</span> ，那么由于在第二维上的大小不匹配且不为 <span class="math notranslate nohighlight">\(1\)</span> ，此时报错。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [114]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="gp">In [115]: </span><span class="n">res</span>
+<span class="gh">Out[115]: </span><span class="go"></span>
+<span class="go">array([[1., 1.],</span>
+<span class="go">       [1., 1.],</span>
+<span class="go">       [1., 1.]])</span>
+
+<span class="gp">In [116]: </span><span class="n">res</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span> <span class="c1"># 第二个数组扩充第一维度为3</span>
+<span class="gh">Out[116]: </span><span class="go"></span>
+<span class="go">array([[2., 3.],</span>
+<span class="go">       [2., 3.],</span>
+<span class="go">       [2., 3.]])</span>
+
+<span class="gp">In [117]: </span><span class="n">res</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">]])</span> <span class="c1"># 第二个数组扩充第二维度为2</span>
+<span class="gh">Out[117]: </span><span class="go"></span>
+<span class="go">array([[2., 2.],</span>
+<span class="go">       [3., 3.],</span>
+<span class="go">       [4., 4.]])</span>
+
+<span class="gp">In [118]: </span><span class="n">res</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">]])</span> <span class="c1"># 等价于两次扩充，第二个数组两个维度分别扩充为3和2</span>
+<span class="gh">Out[118]: </span><span class="go"></span>
+<span class="go">array([[2., 2.],</span>
+<span class="go">       [2., 2.],</span>
+<span class="go">       [2., 2.]])</span>
+</pre></div>
+</div>
+<p>【c】一维数组与二维数组的操作</p>
+<p>当一维数组 <span class="math notranslate nohighlight">\(A_k\)</span> 与二维数组 <span class="math notranslate nohighlight">\(B_{m,n}\)</span> 操作时，等价于把一维数组视作 <span class="math notranslate nohighlight">\(A_{1,k}\)</span> 的二维数组，使用的广播法则与【b】中一致，当 <span class="math notranslate nohighlight">\(k!=n\)</span> 且 <span class="math notranslate nohighlight">\(k, n\)</span> 都不是 <span class="math notranslate nohighlight">\(1\)</span> 时报错。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [119]: </span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="gh">Out[119]: </span><span class="go"></span>
+<span class="go">array([[2., 2., 2.],</span>
+<span class="go">       [2., 2., 2.]])</span>
+
+<span class="gp">In [120]: </span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="gh">Out[120]: </span><span class="go"></span>
+<span class="go">array([[2., 2., 2.],</span>
+<span class="go">       [2., 2., 2.]])</span>
+
+<span class="gp">In [121]: </span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="gh">Out[121]: </span><span class="go"></span>
+<span class="go">array([[2., 2., 2.],</span>
+<span class="go">       [2., 2., 2.]])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>6. 向量与矩阵的计算<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>【a】向量内积： <code class="docutils literal notranslate"><span class="pre">dot</span></code></p>
+<div class="math notranslate nohighlight">
+\[\rm \mathbf{a}\cdot\mathbf{b} = \sum_ia_ib_i\]</div>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [122]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="gp">In [123]: </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+
+<span class="gp">In [124]: </span><span class="n">a</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="gh">Out[124]: </span><span class="go">22</span>
+</pre></div>
+</div>
+<p>【b】向量范数和矩阵范数： <code class="docutils literal notranslate"><span class="pre">np.linalg.norm</span></code></p>
+<p>在矩阵范数的计算中，最重要的是 <code class="docutils literal notranslate"><span class="pre">ord</span></code> 参数，可选值如下：</p>
+<table class="table">
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 47%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ord</p></th>
+<th class="head"><p>norm for matrices</p></th>
+<th class="head"><p>norm for vectors</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>None</p></td>
+<td><p>Frobenius norm</p></td>
+<td><p>2-norm</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘fro’</p></td>
+<td><p>Frobenius norm</p></td>
+<td><p>–</p></td>
+</tr>
+<tr class="row-even"><td><p>‘nuc’</p></td>
+<td><p>nuclear norm</p></td>
+<td><p>–</p></td>
+</tr>
+<tr class="row-odd"><td><p>inf</p></td>
+<td><p>max(sum(abs(x), axis=1))</p></td>
+<td><p>max(abs(x))</p></td>
+</tr>
+<tr class="row-even"><td><p>-inf</p></td>
+<td><p>min(sum(abs(x), axis=1))</p></td>
+<td><p>min(abs(x))</p></td>
+</tr>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>–</p></td>
+<td><p>sum(x != 0)</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>max(sum(abs(x), axis=0))</p></td>
+<td><p>as below</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>min(sum(abs(x), axis=0))</p></td>
+<td><p>as below</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>2-norm (largest sing. value)</p></td>
+<td><p>as below</p></td>
+</tr>
+<tr class="row-odd"><td><p>-2</p></td>
+<td><p>smallest singular value</p></td>
+<td><p>as below</p></td>
+</tr>
+<tr class="row-even"><td><p>other</p></td>
+<td><p>–</p></td>
+<td><p>sum(abs(x)**ord)**(1./ord)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [125]: </span><span class="n">matrix_target</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="gp">In [126]: </span><span class="n">matrix_target</span>
+<span class="gh">Out[126]: </span><span class="go"></span>
+<span class="go">array([[0, 1],</span>
+<span class="go">       [2, 3]])</span>
+
+<span class="gp">In [127]: </span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">matrix_target</span><span class="p">,</span> <span class="s1">&#39;fro&#39;</span><span class="p">)</span>
+<span class="gh">Out[127]: </span><span class="go">3.7416573867739413</span>
+
+<span class="gp">In [128]: </span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">matrix_target</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+<span class="gh">Out[128]: </span><span class="go">5.0</span>
+
+<span class="gp">In [129]: </span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">matrix_target</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gh">Out[129]: </span><span class="go">3.702459173643833</span>
+</pre></div>
+</div>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [130]: </span><span class="n">vector_target</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="gp">In [131]: </span><span class="n">vector_target</span>
+<span class="gh">Out[131]: </span><span class="go">array([0, 1, 2, 3])</span>
+
+<span class="gp">In [132]: </span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">vector_target</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+<span class="gh">Out[132]: </span><span class="go">3.0</span>
+
+<span class="gp">In [133]: </span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">vector_target</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gh">Out[133]: </span><span class="go">3.7416573867739413</span>
+
+<span class="gp">In [134]: </span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">vector_target</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gh">Out[134]: </span><span class="go">3.3019272488946263</span>
+</pre></div>
+</div>
+<p>【c】矩阵乘法： <code class="docutils literal notranslate"><span class="pre">&#64;</span></code></p>
+<div class="math notranslate nohighlight">
+\[\rm [\mathbf{A}_{m\times p}\mathbf{B}_{p\times n}]_{ij} = \sum_{k=1}^p\mathbf{A}_{ik}\mathbf{B}_{kj}\]</div>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [135]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="gp">In [136]: </span><span class="n">a</span>
+<span class="gh">Out[136]: </span><span class="go"></span>
+<span class="go">array([[0, 1],</span>
+<span class="go">       [2, 3]])</span>
+
+<span class="gp">In [137]: </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="gp">In [138]: </span><span class="n">b</span>
+<span class="gh">Out[138]: </span><span class="go"></span>
+<span class="go">array([[-4, -3],</span>
+<span class="go">       [-2, -1]])</span>
+
+<span class="gp">In [139]: </span><span class="n">a</span><span class="nd">@b</span>
+<span class="gh">Out[139]: </span><span class="go"></span>
+<span class="go">array([[ -2,  -1],</span>
+<span class="go">       [-14,  -9]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>三、练习<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ex1">
+<h3>Ex1：利用列表推导式写矩阵乘法<a class="headerlink" href="#ex1" title="Permalink to this headline">¶</a></h3>
+<p>一般的矩阵乘法根据公式，可以由三重循环写出：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [140]: </span><span class="n">M1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="gp">In [141]: </span><span class="n">M2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="gp">In [142]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">M1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">M2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+<span class="gp">In [143]: </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+<span class="gp">   .....: </span>    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+<span class="gp">   .....: </span>        <span class="n">item</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">   .....: </span>        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+<span class="gp">   .....: </span>            <span class="n">item</span> <span class="o">+=</span> <span class="n">M1</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">M2</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+<span class="gp">   .....: </span>        <span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span>
+<span class="gp">   .....: </span>
+
+<span class="gp">In [144]: </span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">M1</span><span class="nd">@M2</span> <span class="o">-</span> <span class="n">res</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-15</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">()</span> <span class="c1"># 排除数值误差</span>
+<span class="gh">Out[144]: </span><span class="go">True</span>
+</pre></div>
+</div>
+<p>请将其改写为列表推导式的形式。</p>
+</div>
+<div class="section" id="ex2">
+<h3>Ex2：更新矩阵<a class="headerlink" href="#ex2" title="Permalink to this headline">¶</a></h3>
+<p>设矩阵 <span class="math notranslate nohighlight">\(A_{m\times n}\)</span> ，现在对 <span class="math notranslate nohighlight">\(A\)</span> 中的每一个元素进行更新生成矩阵 <span class="math notranslate nohighlight">\(B\)</span> ，更新方法是 <span class="math notranslate nohighlight">\(\displaystyle B_{ij}=A_{ij}\sum_{k=1}^n\frac{1}{A_{ik}}\)</span> ，例如下面的矩阵为 <span class="math notranslate nohighlight">\(A\)</span> ，则 <span class="math notranslate nohighlight">\(B_{2,2}=5\times(\frac{1}{4}+\frac{1}{5}+\frac{1}{6})=\frac{37}{12}\)</span> ，请利用 <code class="docutils literal notranslate"><span class="pre">Numpy</span></code> 高效实现。</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}A=\left[ \begin{matrix} 1 &amp; 2 &amp;3\\4&amp;5&amp;6\\7&amp;8&amp;9 \end{matrix} \right]\end{split}\]</div>
+</div>
+<div class="section" id="ex3">
+<h3>Ex3：卡方统计量<a class="headerlink" href="#ex3" title="Permalink to this headline">¶</a></h3>
+<p>设矩阵 <span class="math notranslate nohighlight">\(A_{m\times n}\)</span> ，记 <span class="math notranslate nohighlight">\(B_{ij} = \frac{(\sum_{i=1}^mA_{ij})\times (\sum_{j=1}^nA_{ij})}{\sum_{i=1}^m\sum_{j=1}^nA_{ij}}\)</span> ，定义卡方值如下：</p>
+<div class="math notranslate nohighlight">
+\[\chi^2 = \sum_{i=1}^m\sum_{j=1}^n\frac{(A_{ij}-B_{ij})^2}{B_{ij}}\]</div>
+<p>请利用 <code class="docutils literal notranslate"><span class="pre">Numpy</span></code> 对给定的矩阵 <span class="math notranslate nohighlight">\(A\)</span> 计算 <span class="math notranslate nohighlight">\(\chi^2\)</span> 。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [145]: </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="gp">In [146]: </span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ex4">
+<h3>Ex4：改进矩阵计算的性能<a class="headerlink" href="#ex4" title="Permalink to this headline">¶</a></h3>
+<p>设 <span class="math notranslate nohighlight">\(Z\)</span> 为 <span class="math notranslate nohighlight">\(m\times n\)</span> 的矩阵， <span class="math notranslate nohighlight">\(B\)</span> 和 <span class="math notranslate nohighlight">\(U\)</span> 分别是 <span class="math notranslate nohighlight">\(m\times p\)</span> 和 <span class="math notranslate nohighlight">\(p\times n\)</span> 的矩阵， <span class="math notranslate nohighlight">\(B_i\)</span> 为 <span class="math notranslate nohighlight">\(B\)</span> 的第 <span class="math notranslate nohighlight">\(i\)</span> 行， <span class="math notranslate nohighlight">\(U_j\)</span> 为 <span class="math notranslate nohighlight">\(U\)</span> 的第 <span class="math notranslate nohighlight">\(j\)</span> 列，下面定义 <span class="math notranslate nohighlight">\(\displaystyle R=\sum_{i=1}^m\sum_{j=1}^n\|B_i-U_j\|_2^2Z_{ij}\)</span> ，其中 <span class="math notranslate nohighlight">\(\|\mathbf{a}\|_2^2\)</span> 表示向量 <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> 的分量平方和 <span class="math notranslate nohighlight">\(\sum_i a_i^2\)</span> 。</p>
+<p>现有某人根据如下给定的样例数据计算 <span class="math notranslate nohighlight">\(R\)</span> 的值，请充分利用 <code class="docutils literal notranslate"><span class="pre">Numpy</span></code> 中的函数，基于此问题改进这段代码的性能。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [147]: </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="gp">In [148]: </span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">50</span>
+
+<span class="gp">In [149]: </span><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+
+<span class="gp">In [150]: </span><span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+
+<span class="gp">In [151]: </span><span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [152]: </span><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">B</span><span class="o">=</span><span class="n">B</span><span class="p">,</span> <span class="n">U</span><span class="o">=</span><span class="n">U</span><span class="p">,</span> <span class="n">Z</span><span class="o">=</span><span class="n">Z</span><span class="p">):</span>
+<span class="gp">   .....: </span>    <span class="n">L_res</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">   .....: </span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+<span class="gp">   .....: </span>        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="gp">   .....: </span>            <span class="n">norm_value</span> <span class="o">=</span> <span class="p">((</span><span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">U</span><span class="p">[:,</span><span class="n">j</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="gp">   .....: </span>            <span class="n">L_res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">norm_value</span><span class="o">*</span><span class="n">Z</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
+<span class="gp">   .....: </span>    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">L_res</span><span class="p">)</span>
+<span class="gp">   .....: </span>
+
+<span class="gp">In [153]: </span><span class="n">solution</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">Z</span><span class="p">)</span>
+<span class="gh">Out[153]: </span><span class="go">100566</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ex5">
+<h3>Ex5：连续整数的最大长度<a class="headerlink" href="#ex5" title="Permalink to this headline">¶</a></h3>
+<p>输入一个整数的 <code class="docutils literal notranslate"><span class="pre">Numpy</span></code> 数组，返回其中严格递增连续整数子数组的最大长度。例如，输入 [1,2,5,6,7]，[5,6,7]为具有最大长度的递增连续整数子数组，因此输出3；输入[3,2,1,2,3,4,6]，[1,2,3,4]为具有最大长度的递增连续整数子数组，因此输出4。请充分利用 <code class="docutils literal notranslate"><span class="pre">Numpy</span></code> 的内置函数完成。（提示：考虑使用 <code class="docutils literal notranslate"><span class="pre">nonzero,</span> <span class="pre">diff</span></code> 函数）</p>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.30270b6e4c972e43c488.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020, Datawhale, 耿远昊.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

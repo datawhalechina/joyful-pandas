@@ -1,0 +1,820 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第九章 分类数据 &#8212; Joyful Pandas 1.0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/s4defs-roles.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.30270b6e4c972e43c488.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="第十章 时序数据" href="ch10.html" />
+    <link rel="prev" title="第八章 文本数据" href="ch8.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/finallogo1.svg" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../%E4%B8%BB%E9%A1%B5.html">Joyful Pandas</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">目录</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../%E5%85%B3%E4%BA%8E%E4%BD%9C%E8%80%85.html">关于作者</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../Datawhale.html">Datawhale</a>
+        </li>
+        
+        
+        <li class="nav-item">
+            <a class="nav-link nav-external" href="https://pandas.pydata.org/docs/index.html">Pandas官网<i class="fas fa-external-link-alt"></i></a>
+        </li>
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/datawhalechina/joyful-pandas" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+        
+          
+              <li class="">
+                  <a href="%E5%89%8D%E8%A8%80.html">前言</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch1.html">第一章 预备知识</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch2.html">第二章 pandas基础</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch3.html">第三章 索引</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch4.html">第四章 分组</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch5.html">第五章 变形</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch6.html">第六章 连接</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch7.html">第七章 缺失数据</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch8.html">第八章 文本数据</a>
+              </li>
+          
+        
+          
+              <li class="active">
+                  <a href="">第九章 分类数据</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch10.html">第十章 时序数据</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88.html">参考答案</a>
+              </li>
+          
+        
+      
+      
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#cat" class="nav-link">一、cat对象</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id2" class="nav-link">1. cat对象的属性</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id3" class="nav-link">2. 类别的增加、删除和修改</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id4" class="nav-link">二、有序分类</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id5" class="nav-link">1. 序的建立</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id6" class="nav-link">2. 排序和比较</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id7" class="nav-link">三、区间类别</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#cutqcut" class="nav-link">1. 利用cut和qcut进行区间构造</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id8" class="nav-link">2. 一般区间的构造</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id9" class="nav-link">3. 区间的属性与方法</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id10" class="nav-link">四、练习</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#ex1" class="nav-link">Ex1：统计未出现的类别</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#ex2" class="nav-link">Ex2：钻石数据集</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="id1">
+<h1>第九章 分类数据<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+<div class="section" id="cat">
+<h2>一、cat对象<a class="headerlink" href="#cat" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>1. cat对象的属性<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>在 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 中提供了 <code class="docutils literal notranslate"><span class="pre">category</span></code> 类型，使用户能够处理分类类型的变量，将一个普通序列转换成分类变量可以使用 <code class="docutils literal notranslate"><span class="pre">astype</span></code> 方法。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/learn_pandas.csv&#39;</span><span class="p">,</span>
+<span class="gp">   ...: </span>     <span class="n">usecols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Grade&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Gender&#39;</span><span class="p">,</span> <span class="s1">&#39;Height&#39;</span><span class="p">,</span> <span class="s1">&#39;Weight&#39;</span><span class="p">])</span>
+<span class="gp">   ...: </span>
+
+<span class="gp">In [4]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Grade</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+
+<span class="gp">In [5]: </span><span class="n">s</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[5]: </span><span class="go"></span>
+<span class="go">0     Freshman</span>
+<span class="go">1     Freshman</span>
+<span class="go">2       Senior</span>
+<span class="go">3    Sophomore</span>
+<span class="go">4    Sophomore</span>
+<span class="go">Name: Grade, dtype: category</span>
+<span class="go">Categories (4, object): [&#39;Freshman&#39;, &#39;Junior&#39;, &#39;Senior&#39;, &#39;Sophomore&#39;]</span>
+</pre></div>
+</div>
+<p>在一个分类类型的 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 中定义了 <code class="docutils literal notranslate"><span class="pre">cat</span></code> 对象，它和上一章中介绍的 <code class="docutils literal notranslate"><span class="pre">str</span></code> 对象类似，定义了一些属性和方法来进行分类类别的操作。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="n">s</span><span class="o">.</span><span class="n">cat</span>
+<span class="gh">Out[6]: </span><span class="go">&lt;pandas.core.arrays.categorical.CategoricalAccessor object at 0x000001DAB4B4D288&gt;</span>
+</pre></div>
+</div>
+<p>对于一个具体的分类，有两个组成部分，其一为类别的本身，它以 <code class="docutils literal notranslate"><span class="pre">Index</span></code> 类型存储，其二为是否有序，它们都可以通过 <code class="docutils literal notranslate"><span class="pre">cat</span></code> 的属性被访问：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">s</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">categories</span>
+<span class="gh">Out[7]: </span><span class="go">Index([&#39;Freshman&#39;, &#39;Junior&#39;, &#39;Senior&#39;, &#39;Sophomore&#39;], dtype=&#39;object&#39;)</span>
+
+<span class="gp">In [8]: </span><span class="n">s</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">ordered</span>
+<span class="gh">Out[8]: </span><span class="go">False</span>
+</pre></div>
+</div>
+<p>另外，每一个序列的类别会被赋予唯一的整数编号，它们的编号取决于 <code class="docutils literal notranslate"><span class="pre">cat.categories</span></code> 中的顺序，该属性可以通过 <code class="docutils literal notranslate"><span class="pre">codes</span></code> 访问：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">s</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[9]: </span><span class="go"></span>
+<span class="go">0    0</span>
+<span class="go">1    0</span>
+<span class="go">2    2</span>
+<span class="go">3    3</span>
+<span class="go">4    3</span>
+<span class="go">dtype: int8</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>2. 类别的增加、删除和修改<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>通过 <code class="docutils literal notranslate"><span class="pre">cat</span></code> 对象的 <code class="docutils literal notranslate"><span class="pre">categories</span></code> 属性能够完成对类别的查询，那么应该如何进行“增改查删”的其他三个操作呢？</p>
+<div class="note admonition">
+<p class="admonition-title">类别不得直接修改</p>
+<blockquote>
+<div><p>在第三章中曾提到，索引 <code class="docutils literal notranslate"><span class="pre">Index</span></code> 类型是无法用 <code class="docutils literal notranslate"><span class="pre">index_obj[0]</span> <span class="pre">=</span> <span class="pre">item</span></code> 来修改的，而 <code class="docutils literal notranslate"><span class="pre">categories</span></code> 被存储在 <code class="docutils literal notranslate"><span class="pre">Index</span></code> 中，因此 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 在 <code class="docutils literal notranslate"><span class="pre">cat</span></code> 属性上定义了若干方法来达到相同的目的。</p>
+</div></blockquote>
+</div>
+<p>首先，对于类别的增加可以使用 <code class="docutils literal notranslate"><span class="pre">add_categories</span></code> ：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">add_categories</span><span class="p">(</span><span class="s1">&#39;Graduate&#39;</span><span class="p">)</span> <span class="c1"># 增加一个毕业生类别</span>
+
+<span class="gp">In [11]: </span><span class="n">s</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">categories</span>
+<span class="gh">Out[11]: </span><span class="go">Index([&#39;Freshman&#39;, &#39;Junior&#39;, &#39;Senior&#39;, &#39;Sophomore&#39;, &#39;Graduate&#39;], dtype=&#39;object&#39;)</span>
+</pre></div>
+</div>
+<p>若要删除某一个类别可以使用 <code class="docutils literal notranslate"><span class="pre">remove_categories</span></code> ，同时所有原来序列中的该类会被设置为缺失。例如，删除大一的类别：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [12]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">remove_categories</span><span class="p">(</span><span class="s1">&#39;Freshman&#39;</span><span class="p">)</span>
+
+<span class="gp">In [13]: </span><span class="n">s</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">categories</span>
+<span class="gh">Out[13]: </span><span class="go">Index([&#39;Junior&#39;, &#39;Senior&#39;, &#39;Sophomore&#39;, &#39;Graduate&#39;], dtype=&#39;object&#39;)</span>
+
+<span class="gp">In [14]: </span><span class="n">s</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[14]: </span><span class="go"></span>
+<span class="go">0          NaN</span>
+<span class="go">1          NaN</span>
+<span class="go">2       Senior</span>
+<span class="go">3    Sophomore</span>
+<span class="go">4    Sophomore</span>
+<span class="go">Name: Grade, dtype: category</span>
+<span class="go">Categories (4, object): [&#39;Junior&#39;, &#39;Senior&#39;, &#39;Sophomore&#39;, &#39;Graduate&#39;]</span>
+</pre></div>
+</div>
+<p>此外可以使用 <code class="docutils literal notranslate"><span class="pre">set_categories</span></code> 直接设置序列的新类别，原来的类别中如果存在元素不属于新类别，那么会被设置为缺失。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">set_categories</span><span class="p">([</span><span class="s1">&#39;Sophomore&#39;</span><span class="p">,</span><span class="s1">&#39;PhD&#39;</span><span class="p">])</span> <span class="c1"># 新类别为大二学生和博士</span>
+
+<span class="gp">In [16]: </span><span class="n">s</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">categories</span>
+<span class="gh">Out[16]: </span><span class="go">Index([&#39;Sophomore&#39;, &#39;PhD&#39;], dtype=&#39;object&#39;)</span>
+
+<span class="gp">In [17]: </span><span class="n">s</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[17]: </span><span class="go"></span>
+<span class="go">0          NaN</span>
+<span class="go">1          NaN</span>
+<span class="go">2          NaN</span>
+<span class="go">3    Sophomore</span>
+<span class="go">4    Sophomore</span>
+<span class="go">Name: Grade, dtype: category</span>
+<span class="go">Categories (2, object): [&#39;Sophomore&#39;, &#39;PhD&#39;]</span>
+</pre></div>
+</div>
+<p>如果想要删除未出现在序列中的类别，可以使用 <code class="docutils literal notranslate"><span class="pre">remove_unused_categories</span></code> 来实现：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">remove_unused_categories</span><span class="p">()</span> <span class="c1"># 移除了未出现的博士生类别</span>
+
+<span class="gp">In [19]: </span><span class="n">s</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">categories</span>
+<span class="gh">Out[19]: </span><span class="go">Index([&#39;Sophomore&#39;], dtype=&#39;object&#39;)</span>
+</pre></div>
+</div>
+<p>最后，“增改查删”中还剩下修改的操作，这可以通过 <code class="docutils literal notranslate"><span class="pre">rename_categories</span></code> 方法完成，同时需要注意的是，这个方法会对原序列的对应值也进行相应修改。例如，现在把 <code class="docutils literal notranslate"><span class="pre">Sophomore</span></code> 改成中文的 <code class="docutils literal notranslate"><span class="pre">本科二年级学生</span></code> ：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [20]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">rename_categories</span><span class="p">({</span><span class="s1">&#39;Sophomore&#39;</span><span class="p">:</span><span class="s1">&#39;本科二年级学生&#39;</span><span class="p">})</span>
+
+<span class="gp">In [21]: </span><span class="n">s</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[21]: </span><span class="go"></span>
+<span class="go">0        NaN</span>
+<span class="go">1        NaN</span>
+<span class="go">2        NaN</span>
+<span class="go">3    本科二年级学生</span>
+<span class="go">4    本科二年级学生</span>
+<span class="go">Name: Grade, dtype: category</span>
+<span class="go">Categories (1, object): [&#39;本科二年级学生&#39;]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>二、有序分类<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h3>1. 序的建立<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>有序类别和无序类别可以通过 <code class="docutils literal notranslate"><span class="pre">as_unordered</span></code> 和 <code class="docutils literal notranslate"><span class="pre">reorder_categories</span></code> 互相转化，需要注意的是后者传入的参数必须是由当前序列的无需类别构成的列表，不能够增加新的类别，也不能缺少原来的类别，并且必须指定参数 <code class="docutils literal notranslate"><span class="pre">ordered=True</span></code> ，否则方法无效。例如，对年级高低进行相对大小的类别划分，然后再恢复无序状态：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [22]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Grade</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+
+<span class="gp">In [23]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">reorder_categories</span><span class="p">([</span><span class="s1">&#39;Freshman&#39;</span><span class="p">,</span> <span class="s1">&#39;Sophomore&#39;</span><span class="p">,</span>
+<span class="gp">   ....: </span>                              <span class="s1">&#39;Junior&#39;</span><span class="p">,</span> <span class="s1">&#39;Senior&#39;</span><span class="p">],</span><span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [24]: </span><span class="n">s</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[24]: </span><span class="go"></span>
+<span class="go">0     Freshman</span>
+<span class="go">1     Freshman</span>
+<span class="go">2       Senior</span>
+<span class="go">3    Sophomore</span>
+<span class="go">4    Sophomore</span>
+<span class="go">Name: Grade, dtype: category</span>
+<span class="go">Categories (4, object): [&#39;Freshman&#39; &lt; &#39;Sophomore&#39; &lt; &#39;Junior&#39; &lt; &#39;Senior&#39;]</span>
+
+<span class="gp">In [25]: </span><span class="n">s</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">as_unordered</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[25]: </span><span class="go"></span>
+<span class="go">0     Freshman</span>
+<span class="go">1     Freshman</span>
+<span class="go">2       Senior</span>
+<span class="go">3    Sophomore</span>
+<span class="go">4    Sophomore</span>
+<span class="go">Name: Grade, dtype: category</span>
+<span class="go">Categories (4, object): [&#39;Freshman&#39;, &#39;Sophomore&#39;, &#39;Junior&#39;, &#39;Senior&#39;]</span>
+</pre></div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">类别不得直接修改</p>
+<blockquote>
+<div><p>如果不想指定 <code class="docutils literal notranslate"><span class="pre">ordered=True</span></code> 参数，那么可以先用 <code class="docutils literal notranslate"><span class="pre">s.cat.as_ordered()</span></code> 转化为有序类别，再利用 <code class="docutils literal notranslate"><span class="pre">reorder_categories</span></code> 进行具体的相对大小调整。</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>2. 排序和比较<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>在第二章中，曾提到了字符串和数值类型序列的排序，此时就要说明分类变量的排序：只需把列的类型修改为 <code class="docutils literal notranslate"><span class="pre">category</span></code> 后，再赋予相应的大小关系，就能正常地使用 <code class="docutils literal notranslate"><span class="pre">sort_index</span></code> 和 <code class="docutils literal notranslate"><span class="pre">sort_values</span></code> 。例如，对年级进行排序：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [26]: </span><span class="n">df</span><span class="o">.</span><span class="n">Grade</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Grade</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+
+<span class="gp">In [27]: </span><span class="n">df</span><span class="o">.</span><span class="n">Grade</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Grade</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">reorder_categories</span><span class="p">([</span><span class="s1">&#39;Freshman&#39;</span><span class="p">,</span>
+<span class="gp">   ....: </span>                                            <span class="s1">&#39;Sophomore&#39;</span><span class="p">,</span>
+<span class="gp">   ....: </span>                                            <span class="s1">&#39;Junior&#39;</span><span class="p">,</span>
+<span class="gp">   ....: </span>                                            <span class="s1">&#39;Senior&#39;</span><span class="p">],</span><span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [28]: </span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Grade&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># 值排序</span>
+<span class="gh">Out[28]: </span><span class="go"></span>
+<span class="go">        Grade           Name  Gender  Height  Weight</span>
+<span class="go">0    Freshman   Gaopeng Yang  Female   158.9    46.0</span>
+<span class="go">105  Freshman      Qiang Shi  Female   164.5    52.0</span>
+<span class="go">96   Freshman  Changmei Feng  Female   163.8    56.0</span>
+<span class="go">88   Freshman   Xiaopeng Han  Female   164.1    53.0</span>
+<span class="go">81   Freshman    Yanli Zhang  Female   165.1    52.0</span>
+
+<span class="gp">In [29]: </span><span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Grade&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># 索引排序</span>
+<span class="gh">Out[29]: </span><span class="go"></span>
+<span class="go">                   Name  Gender  Height  Weight</span>
+<span class="go">Grade                                          </span>
+<span class="go">Freshman   Gaopeng Yang  Female   158.9    46.0</span>
+<span class="go">Freshman      Qiang Shi  Female   164.5    52.0</span>
+<span class="go">Freshman  Changmei Feng  Female   163.8    56.0</span>
+<span class="go">Freshman   Xiaopeng Han  Female   164.1    53.0</span>
+<span class="go">Freshman    Yanli Zhang  Female   165.1    52.0</span>
+</pre></div>
+</div>
+<p>由于序的建立，因此就可以进行比较操作。分类变量的比较操作分为两类，第一种是 <code class="docutils literal notranslate"><span class="pre">==</span></code> 或 <code class="docutils literal notranslate"><span class="pre">!=</span></code> 关系的比较，比较的对象可以是标量或者同长度的 <code class="docutils literal notranslate"><span class="pre">Series</span></code> （或 <code class="docutils literal notranslate"><span class="pre">list</span></code> ），第二种是 <code class="docutils literal notranslate"><span class="pre">&gt;,&gt;=,&lt;,&lt;=</span></code> 四类大小关系的比较，比较的对象和第一种类似，但是所有参与比较的元素必须属于原序列的 <code class="docutils literal notranslate"><span class="pre">categories</span></code> ，同时要和原序列具有相同的索引。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [30]: </span><span class="n">res1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Grade</span> <span class="o">==</span> <span class="s1">&#39;Sophomore&#39;</span>
+
+<span class="gp">In [31]: </span><span class="n">res1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[31]: </span><span class="go"></span>
+<span class="go">0    False</span>
+<span class="go">1    False</span>
+<span class="go">2    False</span>
+<span class="go">3     True</span>
+<span class="go">4     True</span>
+<span class="go">Name: Grade, dtype: bool</span>
+
+<span class="gp">In [32]: </span><span class="n">res2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Grade</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;PhD&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="gp">In [33]: </span><span class="n">res2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[33]: </span><span class="go"></span>
+<span class="go">0    False</span>
+<span class="go">1    False</span>
+<span class="go">2    False</span>
+<span class="go">3    False</span>
+<span class="go">4    False</span>
+<span class="go">Name: Grade, dtype: bool</span>
+
+<span class="gp">In [34]: </span><span class="n">res3</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Grade</span> <span class="o">&lt;=</span> <span class="s1">&#39;Sophomore&#39;</span>
+
+<span class="gp">In [35]: </span><span class="n">res3</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[35]: </span><span class="go"></span>
+<span class="go">0     True</span>
+<span class="go">1     True</span>
+<span class="go">2    False</span>
+<span class="go">3     True</span>
+<span class="go">4     True</span>
+<span class="go">Name: Grade, dtype: bool</span>
+
+<span class="gp">In [36]: </span><span class="n">res4</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Grade</span> <span class="o">&lt;=</span> <span class="n">df</span><span class="o">.</span><span class="n">Grade</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span>
+<span class="gp">   ....: </span>                            <span class="n">frac</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span>
+<span class="gp">   ....: </span>                                      <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># 打乱后比较</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [37]: </span><span class="n">res4</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[37]: </span><span class="go"></span>
+<span class="go">0     True</span>
+<span class="go">1     True</span>
+<span class="go">2    False</span>
+<span class="go">3     True</span>
+<span class="go">4     True</span>
+<span class="go">Name: Grade, dtype: bool</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>三、区间类别<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cutqcut">
+<h3>1. 利用cut和qcut进行区间构造<a class="headerlink" href="#cutqcut" title="Permalink to this headline">¶</a></h3>
+<p>区间是一种特殊的类别，在实际数据分析中，区间序列往往是通过 <code class="docutils literal notranslate"><span class="pre">cut</span></code> 和 <code class="docutils literal notranslate"><span class="pre">qcut</span></code> 方法进行构造的，这两个函数能够把原序列的数值特征进行装箱，即用区间位置来代替原来的具体数值。</p>
+<p>首先介绍 <code class="docutils literal notranslate"><span class="pre">cut</span></code> 的常见用法：</p>
+<p>其中，最重要的参数是 <code class="docutils literal notranslate"><span class="pre">bin</span></code> ，如果传入整数 <code class="docutils literal notranslate"><span class="pre">n</span></code> ，则代表把整个传入数组的按照最大和最小值等间距地分为 <code class="docutils literal notranslate"><span class="pre">n</span></code> 段。由于区间默认是左开右闭，需要进行调整把最小值包含进去，在 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 中的解决方案是在值最小的区间左端点再减去 <code class="docutils literal notranslate"><span class="pre">0.001*(max-min)</span></code> ，因此如果对序列 <code class="docutils literal notranslate"><span class="pre">[1,2]</span></code> 划分为2个箱子时，第一个箱子的范围 <code class="docutils literal notranslate"><span class="pre">(0.999,1.5]</span></code> ，第二个箱子的范围是 <code class="docutils literal notranslate"><span class="pre">(1.5,2]</span></code> 。如果需要指定左闭右开时，需要把 <code class="docutils literal notranslate"><span class="pre">right</span></code> 参数设置为 <code class="docutils literal notranslate"><span class="pre">False</span></code> ，相应的区间调整方法是在值最大的区间右端点再加上 <code class="docutils literal notranslate"><span class="pre">0.001*(max-min)</span></code> 。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [38]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="gp">In [39]: </span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="gh">Out[39]: </span><span class="go"></span>
+<span class="go">0    (0.999, 1.5]</span>
+<span class="go">1      (1.5, 2.0]</span>
+<span class="go">dtype: category</span>
+<span class="go">Categories (2, interval[float64]): [(0.999, 1.5] &lt; (1.5, 2.0]]</span>
+
+<span class="gp">In [40]: </span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="gh">Out[40]: </span><span class="go"></span>
+<span class="go">0      [1.0, 1.5)</span>
+<span class="go">1    [1.5, 2.001)</span>
+<span class="go">dtype: category</span>
+<span class="go">Categories (2, interval[float64]): [[1.0, 1.5) &lt; [1.5, 2.001)]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">bins</span></code> 的另一个常见用法是指定区间分割点的列表（使用 <code class="docutils literal notranslate"><span class="pre">np.infty</span></code> 可以表示无穷大）：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [41]: </span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">infty</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">infty</span><span class="p">])</span>
+<span class="gh">Out[41]: </span><span class="go"></span>
+<span class="go">0    (-inf, 1.2]</span>
+<span class="go">1     (1.8, 2.2]</span>
+<span class="go">dtype: category</span>
+<span class="go">Categories (4, interval[float64]): [(-inf, 1.2] &lt; (1.2, 1.8] &lt; (1.8, 2.2] &lt; (2.2, inf]]</span>
+</pre></div>
+</div>
+<p>另外两个常用参数为 <code class="docutils literal notranslate"><span class="pre">labels</span></code> 和 <code class="docutils literal notranslate"><span class="pre">retbins</span></code> ，分别代表了区间的名字和是否返回分割点（默认不返回）：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [42]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="gp">In [43]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;small&#39;</span><span class="p">,</span> <span class="s1">&#39;big&#39;</span><span class="p">],</span> <span class="n">retbins</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="gp">In [44]: </span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gh">Out[44]: </span><span class="go"></span>
+<span class="go">0    small</span>
+<span class="go">1      big</span>
+<span class="go">dtype: category</span>
+<span class="go">Categories (2, object): [&#39;small&#39; &lt; &#39;big&#39;]</span>
+
+<span class="gp">In [45]: </span><span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># 该元素为返回的分割点</span>
+<span class="gh">Out[45]: </span><span class="go">array([0.999, 1.5  , 2.   ])</span>
+</pre></div>
+</div>
+<p>从用法上来说， <code class="docutils literal notranslate"><span class="pre">qcut</span></code> 和 <code class="docutils literal notranslate"><span class="pre">cut</span></code> 几乎没有差别，只是把 <code class="docutils literal notranslate"><span class="pre">bins</span></code> 参数变成的 <code class="docutils literal notranslate"><span class="pre">q</span></code> 参数， <code class="docutils literal notranslate"><span class="pre">qcut</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">q</span></code> 是指 <code class="docutils literal notranslate"><span class="pre">quantile</span></code> 。这里的 <code class="docutils literal notranslate"><span class="pre">q</span></code> 为整数 <code class="docutils literal notranslate"><span class="pre">n</span></code> 时，指按照 <code class="docutils literal notranslate"><span class="pre">n</span></code> 等分位数把数据分箱，还可以传入浮点列表指代相应的分位数分割点。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [46]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Weight</span>
+
+<span class="gp">In [47]: </span><span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[47]: </span><span class="go"></span>
+<span class="go">0    (33.999, 48.0]</span>
+<span class="go">1      (55.0, 89.0]</span>
+<span class="go">2      (55.0, 89.0]</span>
+<span class="go">3    (33.999, 48.0]</span>
+<span class="go">4      (55.0, 89.0]</span>
+<span class="go">Name: Weight, dtype: category</span>
+<span class="go">Categories (3, interval[float64]): [(33.999, 48.0] &lt; (48.0, 55.0] &lt; (55.0, 89.0]]</span>
+
+<span class="gp">In [48]: </span><span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[48]: </span><span class="go"></span>
+<span class="go">0      (44.0, 69.4]</span>
+<span class="go">1      (69.4, 89.0]</span>
+<span class="go">2      (69.4, 89.0]</span>
+<span class="go">3    (33.999, 44.0]</span>
+<span class="go">4      (69.4, 89.0]</span>
+<span class="go">Name: Weight, dtype: category</span>
+<span class="go">Categories (3, interval[float64]): [(33.999, 44.0] &lt; (44.0, 69.4] &lt; (69.4, 89.0]]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>2. 一般区间的构造<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>对于某一个具体的区间而言，其具备三个要素，即左端点、右端点和端点的开闭状态，其中开闭状态可以指定 <code class="docutils literal notranslate"><span class="pre">right,</span> <span class="pre">left,</span> <span class="pre">both,</span> <span class="pre">neither</span></code> 中的一类：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [49]: </span><span class="n">my_interval</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Interval</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">)</span>
+
+<span class="gp">In [50]: </span><span class="n">my_interval</span>
+<span class="gh">Out[50]: </span><span class="go">Interval(0, 1, closed=&#39;right&#39;)</span>
+</pre></div>
+</div>
+<p>其属性包含了 <code class="docutils literal notranslate"><span class="pre">mid,</span> <span class="pre">length,</span> <span class="pre">right,</span> <span class="pre">left,</span> <span class="pre">closed</span></code> ，分别表示中点、长度、右端点、左端点和开闭状态。</p>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">in</span></code> 可以判断元素是否属于区间：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [51]: </span><span class="mf">0.5</span> <span class="ow">in</span> <span class="n">my_interval</span>
+<span class="gh">Out[51]: </span><span class="go">True</span>
+</pre></div>
+</div>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">overlaps</span></code> 可以判断两个区间是否有交集：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [52]: </span><span class="n">my_interval_2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Interval</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">)</span>
+
+<span class="gp">In [53]: </span><span class="n">my_interval</span><span class="o">.</span><span class="n">overlaps</span><span class="p">(</span><span class="n">my_interval_2</span><span class="p">)</span>
+<span class="gh">Out[53]: </span><span class="go">True</span>
+</pre></div>
+</div>
+<p>一般而言， <code class="docutils literal notranslate"><span class="pre">pd.IntervalIndex</span></code> 对象有四类方法生成，分别是 <code class="docutils literal notranslate"><span class="pre">from_breaks,</span> <span class="pre">from_arrays,</span> <span class="pre">from_tuples,</span> <span class="pre">interval_range</span></code> ，它们分别应用于不同的情况：</p>
+<p><code class="docutils literal notranslate"><span class="pre">from_breaks</span></code> 的功能类似于 <code class="docutils literal notranslate"><span class="pre">cut</span></code> 或 <code class="docutils literal notranslate"><span class="pre">qcut</span></code> 函数，只不过后两个是通过计算得到的风格点，而前者是直接传入自定义的分割点：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [54]: </span><span class="n">pd</span><span class="o">.</span><span class="n">IntervalIndex</span><span class="o">.</span><span class="n">from_breaks</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="gh">Out[54]: </span><span class="go"></span>
+<span class="go">IntervalIndex([[1, 3], [3, 6], [6, 10]],</span>
+<span class="go">              closed=&#39;both&#39;,</span>
+<span class="go">              dtype=&#39;interval[int64]&#39;)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">from_arrays</span></code> 是分别传入左端点和右端点的列表，适用于有交集并且知道起点和终点的情况：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [55]: </span><span class="n">pd</span><span class="o">.</span><span class="n">IntervalIndex</span><span class="o">.</span><span class="n">from_arrays</span><span class="p">(</span><span class="n">left</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span>
+<span class="gp">   ....: </span>                             <span class="n">right</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">],</span>
+<span class="gp">   ....: </span>                             <span class="n">closed</span> <span class="o">=</span> <span class="s1">&#39;neither&#39;</span><span class="p">)</span>
+<span class="gp">   ....: </span>
+<span class="gh">Out[55]: </span><span class="go"></span>
+<span class="go">IntervalIndex([(1, 5), (3, 4), (6, 9), (10, 11)],</span>
+<span class="go">              closed=&#39;neither&#39;,</span>
+<span class="go">              dtype=&#39;interval[int64]&#39;)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">from_tuples</span></code> 传入的是起点和终点元组构成的列表：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [56]: </span><span class="n">pd</span><span class="o">.</span><span class="n">IntervalIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),(</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">),(</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">)],</span>
+<span class="gp">   ....: </span>                              <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;neither&#39;</span><span class="p">)</span>
+<span class="gp">   ....: </span>
+<span class="gh">Out[56]: </span><span class="go"></span>
+<span class="go">IntervalIndex([(1, 5), (3, 4), (6, 9), (10, 11)],</span>
+<span class="go">              closed=&#39;neither&#39;,</span>
+<span class="go">              dtype=&#39;interval[int64]&#39;)</span>
+</pre></div>
+</div>
+<p>一个等差的区间序列由起点、终点、区间个数和区间长度决定，其中三个量确定的情况下，剩下一个量就确定了， <code class="docutils literal notranslate"><span class="pre">interval_range</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">start,</span> <span class="pre">end,</span> <span class="pre">periods,</span> <span class="pre">freq</span></code> 参数就对应了这四个量，从而就能构造出相应的区间：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [57]: </span><span class="n">pd</span><span class="o">.</span><span class="n">interval_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">periods</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="gh">Out[57]: </span><span class="go"></span>
+<span class="go">IntervalIndex([(1.0, 1.5], (1.5, 2.0], (2.0, 2.5], (2.5, 3.0], (3.0, 3.5], (3.5, 4.0], (4.0, 4.5], (4.5, 5.0]],</span>
+<span class="go">              closed=&#39;right&#39;,</span>
+<span class="go">              dtype=&#39;interval[float64]&#39;)</span>
+
+<span class="gp">In [58]: </span><span class="n">pd</span><span class="o">.</span><span class="n">interval_range</span><span class="p">(</span><span class="n">end</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">periods</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">freq</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="gh">Out[58]: </span><span class="go"></span>
+<span class="go">IntervalIndex([(1.0, 1.5], (1.5, 2.0], (2.0, 2.5], (2.5, 3.0], (3.0, 3.5], (3.5, 4.0], (4.0, 4.5], (4.5, 5.0]],</span>
+<span class="go">              closed=&#39;right&#39;,</span>
+<span class="go">              dtype=&#39;interval[float64]&#39;)</span>
+</pre></div>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">练一练</p>
+<blockquote>
+<div><p>无论是 <code class="docutils literal notranslate"><span class="pre">interval_range</span></code> 还是下一章时间序列中的 <code class="docutils literal notranslate"><span class="pre">date_range</span></code> 都是给定了等差序列中四要素中的三个，从而确定整个序列。请回顾等差数列中的首项、末项、项数和公差的联系，写出 <code class="docutils literal notranslate"><span class="pre">interval_range</span></code> 中四个参数之间的恒等关系。</p>
+</div></blockquote>
+</div>
+<p>除此之外，如果直接使用 <code class="docutils literal notranslate"><span class="pre">pd.IntervalIndex([...],</span> <span class="pre">closed=...)</span></code> ，把 <code class="docutils literal notranslate"><span class="pre">Interval</span></code> 类型的列表组成传入其中转为区间索引，那么所有的区间会被强制转为指定的 <code class="docutils literal notranslate"><span class="pre">closed</span></code> 类型，因为 <code class="docutils literal notranslate"><span class="pre">pd.IntervalIndex</span></code> 只允许存放同一种开闭区间的 <code class="docutils literal notranslate"><span class="pre">Interval</span></code> 对象。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [59]: </span><span class="n">pd</span><span class="o">.</span><span class="n">IntervalIndex</span><span class="p">([</span><span class="n">my_interval</span><span class="p">,</span> <span class="n">my_interval_2</span><span class="p">],</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="gh">Out[59]: </span><span class="go"></span>
+<span class="go">IntervalIndex([[0.0, 1.0), [0.5, 1.5)],</span>
+<span class="go">              closed=&#39;left&#39;,</span>
+<span class="go">              dtype=&#39;interval[float64]&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>3. 区间的属性与方法<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">IntervalIndex</span></code> 上也定义了一些有用的属性和方法。同时，如果想要具体利用 <code class="docutils literal notranslate"><span class="pre">cut</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">qcut</span></code> 的结果进行分析，那么需要先将其转为该种索引类型：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [60]: </span><span class="n">id_interval</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">IntervalIndex</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>与单个 <code class="docutils literal notranslate"><span class="pre">Interval</span></code> 类型相似， <code class="docutils literal notranslate"><span class="pre">IntervalIndex</span></code> 有若干常用属性： <code class="docutils literal notranslate"><span class="pre">left,</span> <span class="pre">right,</span> <span class="pre">mid,</span> <span class="pre">length</span></code> ，分别表示左右端点、两端点均值和区间长度。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [61]: </span><span class="n">id_demo</span> <span class="o">=</span> <span class="n">id_interval</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span> <span class="c1"># 选出前5个展示</span>
+
+<span class="gp">In [62]: </span><span class="n">id_demo</span>
+<span class="gh">Out[62]: </span><span class="go"></span>
+<span class="go">IntervalIndex([(33.945, 52.333], (52.333, 70.667], (70.667, 89.0], (33.945, 52.333], (70.667, 89.0]],</span>
+<span class="go">              closed=&#39;right&#39;,</span>
+<span class="go">              name=&#39;Weight&#39;,</span>
+<span class="go">              dtype=&#39;interval[float64]&#39;)</span>
+
+<span class="gp">In [63]: </span><span class="n">id_demo</span><span class="o">.</span><span class="n">left</span>
+<span class="gh">Out[63]: </span><span class="go">Float64Index([33.945, 52.333, 70.667, 33.945, 70.667], dtype=&#39;float64&#39;)</span>
+
+<span class="gp">In [64]: </span><span class="n">id_demo</span><span class="o">.</span><span class="n">right</span>
+<span class="gh">Out[64]: </span><span class="go">Float64Index([52.333, 70.667, 89.0, 52.333, 89.0], dtype=&#39;float64&#39;)</span>
+
+<span class="gp">In [65]: </span><span class="n">id_demo</span><span class="o">.</span><span class="n">mid</span>
+<span class="gh">Out[65]: </span><span class="go">Float64Index([43.138999999999996, 61.5, 79.8335, 43.138999999999996, 79.8335], dtype=&#39;float64&#39;)</span>
+
+<span class="gp">In [66]: </span><span class="n">id_demo</span><span class="o">.</span><span class="n">length</span>
+<span class="gh">Out[66]: </span><span class="go"></span>
+<span class="go">Float64Index([18.387999999999998, 18.334000000000003, 18.333,</span>
+<span class="go">              18.387999999999998, 18.333],</span>
+<span class="go">             dtype=&#39;float64&#39;)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">IntervalIndex</span></code> 还有两个常用方法，包括 <code class="docutils literal notranslate"><span class="pre">contains</span></code> 和 <code class="docutils literal notranslate"><span class="pre">overlaps</span></code> ，分别指逐个判断每个区间是否包含某元素，以及是否和一个 <code class="docutils literal notranslate"><span class="pre">pd.Interval</span></code> 对象有交集。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [67]: </span><span class="n">id_demo</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gh">Out[67]: </span><span class="go">array([False, False, False, False, False])</span>
+
+<span class="gp">In [68]: </span><span class="n">id_demo</span><span class="o">.</span><span class="n">overlaps</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Interval</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="mi">60</span><span class="p">))</span>
+<span class="gh">Out[68]: </span><span class="go">array([ True,  True, False,  True, False])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>四、练习<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ex1">
+<h3>Ex1：统计未出现的类别<a class="headerlink" href="#ex1" title="Permalink to this headline">¶</a></h3>
+<p>在第五章中介绍了 <code class="docutils literal notranslate"><span class="pre">crosstab</span></code> 函数，在默认参数下它能够对两个列的组合出现的频数进行统计汇总：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [69]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">],</span>
+<span class="gp">   ....: </span>                   <span class="s1">&#39;B&#39;</span><span class="p">:[</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span><span class="s1">&#39;dog&#39;</span><span class="p">,</span><span class="s1">&#39;cat&#39;</span><span class="p">]})</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [70]: </span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">B</span><span class="p">)</span>
+<span class="gh">Out[70]: </span><span class="go"></span>
+<span class="go">B  cat  dog</span>
+<span class="go">A          </span>
+<span class="go">a    2    0</span>
+<span class="go">b    1    0</span>
+<span class="go">c    0    1</span>
+</pre></div>
+</div>
+<p>但事实上有些列存储的是分类变量，列中并不一定包含所有的类别，此时如果想要对这些未出现的类别在 <code class="docutils literal notranslate"><span class="pre">crosstab</span></code> 结果中也进行汇总，则可以指定 <code class="docutils literal notranslate"><span class="pre">dropna</span></code> 参数为 <code class="docutils literal notranslate"><span class="pre">False</span></code> ：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [71]: </span><span class="n">df</span><span class="o">.</span><span class="n">B</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">B</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">add_categories</span><span class="p">(</span><span class="s1">&#39;sheep&#39;</span><span class="p">)</span>
+
+<span class="gp">In [72]: </span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="gh">Out[72]: </span><span class="go"></span>
+<span class="go">B  cat  dog  sheep</span>
+<span class="go">A                 </span>
+<span class="go">a    2    0      0</span>
+<span class="go">b    1    0      0</span>
+<span class="go">c    0    1      0</span>
+</pre></div>
+</div>
+<p>请实现一个带有 <code class="docutils literal notranslate"><span class="pre">dropna</span></code> 参数的 <code class="docutils literal notranslate"><span class="pre">my_crosstab</span></code> 函数来完成上面的功能。</p>
+</div>
+<div class="section" id="ex2">
+<h3>Ex2：钻石数据集<a class="headerlink" href="#ex2" title="Permalink to this headline">¶</a></h3>
+<p>现有一份关于钻石的数据集，其中 <code class="docutils literal notranslate"><span class="pre">carat,</span> <span class="pre">cut,</span> <span class="pre">clarity,</span> <span class="pre">price</span></code> 分别表示克拉重量、切割质量、纯净度和价格，样例如下：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [73]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/diamonds.csv&#39;</span><span class="p">)</span>
+
+<span class="gp">In [74]: </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gh">Out[74]: </span><span class="go"></span>
+<span class="go">   carat      cut clarity  price</span>
+<span class="go">0   0.23    Ideal     SI2    326</span>
+<span class="go">1   0.21  Premium     SI1    326</span>
+<span class="go">2   0.23     Good     VS1    327</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>分别对 <code class="docutils literal notranslate"><span class="pre">df.cut</span></code> 在 <code class="docutils literal notranslate"><span class="pre">object</span></code> 类型和 <code class="docutils literal notranslate"><span class="pre">category</span></code> 类型下使用 <code class="docutils literal notranslate"><span class="pre">nunique</span></code> 函数，并比较它们的性能。</p></li>
+<li><p>钻石的切割质量可以分为五个等级，由次到好分别是 <code class="docutils literal notranslate"><span class="pre">Fair,</span> <span class="pre">Good,</span> <span class="pre">Very</span> <span class="pre">Good,</span> <span class="pre">Premium,</span> <span class="pre">Ideal</span></code> ，纯净度有八个等级，由次到好分别是 <code class="docutils literal notranslate"><span class="pre">I1,</span> <span class="pre">SI2,</span> <span class="pre">SI1,</span> <span class="pre">VS2,</span> <span class="pre">VS1,</span> <span class="pre">VVS2,</span> <span class="pre">VVS1,</span> <span class="pre">IF</span></code> ，请对切割质量按照 <strong>由好到次</strong> 的顺序排序，相同切割质量的钻石，按照纯净度进行 <strong>由次到好</strong> 的排序。</p></li>
+<li><p>分别采用两种不同的方法，把 <code class="docutils literal notranslate"><span class="pre">cut,</span> <span class="pre">clarity</span></code> 这两列按照 <strong>由好到次</strong> 的顺序，映射到从0到n-1的整数，其中n表示类别的个数。</p></li>
+<li><p>对每克拉的价格按照分别按照分位数（q=[0.2, 0.4, 0.6, 0.8]）与[1000, 3500, 5500, 18000]割点进行分箱得到五个类别 <code class="docutils literal notranslate"><span class="pre">Very</span> <span class="pre">Low,</span> <span class="pre">Low,</span> <span class="pre">Mid,</span> <span class="pre">High,</span> <span class="pre">Very</span> <span class="pre">High</span></code> ，并把按这两种分箱方法得到的 <code class="docutils literal notranslate"><span class="pre">category</span></code> 序列依次添加到原表中。</p></li>
+<li><p>第4问中按照整数分箱得到的序列中，是否出现了所有的类别？如果存在没有出现的类别请把该类别删除。</p></li>
+<li><p>对第4问中按照分位数分箱得到的序列，求每个样本对应所在区间的左右端点值和长度。</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.30270b6e4c972e43c488.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020, Datawhale, 耿远昊.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

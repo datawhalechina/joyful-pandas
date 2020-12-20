@@ -1,0 +1,1172 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第八章 文本数据 &#8212; Joyful Pandas 1.0 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/s4defs-roles.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.30270b6e4c972e43c488.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="第九章 分类数据" href="ch9.html" />
+    <link rel="prev" title="第七章 缺失数据" href="ch7.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/finallogo1.svg" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../%E4%B8%BB%E9%A1%B5.html">Joyful Pandas</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">目录</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../%E5%85%B3%E4%BA%8E%E4%BD%9C%E8%80%85.html">关于作者</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../Datawhale.html">Datawhale</a>
+        </li>
+        
+        
+        <li class="nav-item">
+            <a class="nav-link nav-external" href="https://pandas.pydata.org/docs/index.html">Pandas官网<i class="fas fa-external-link-alt"></i></a>
+        </li>
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/datawhalechina/joyful-pandas" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+        
+          
+              <li class="">
+                  <a href="%E5%89%8D%E8%A8%80.html">前言</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch1.html">第一章 预备知识</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch2.html">第二章 pandas基础</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch3.html">第三章 索引</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch4.html">第四章 分组</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch5.html">第五章 变形</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch6.html">第六章 连接</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch7.html">第七章 缺失数据</a>
+              </li>
+          
+        
+          
+              <li class="active">
+                  <a href="">第八章 文本数据</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch9.html">第九章 分类数据</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="ch10.html">第十章 时序数据</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88.html">参考答案</a>
+              </li>
+          
+        
+      
+      
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#str" class="nav-link">一、str对象</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id2" class="nav-link">1. str对象的设计意图</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id3" class="nav-link">2. []索引器</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#string" class="nav-link">3. string类型</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id4" class="nav-link">二、正则表达式基础</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id5" class="nav-link">1. 一般字符的匹配</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id6" class="nav-link">2. 元字符基础</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id7" class="nav-link">3. 简写字符集</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id8" class="nav-link">三、文本处理的五类操作</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id9" class="nav-link">1. 拆分</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id10" class="nav-link">2. 合并</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id11" class="nav-link">3. 匹配</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id12" class="nav-link">4. 替换</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id13" class="nav-link">5. 提取</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id14" class="nav-link">四、常用字符串函数</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id15" class="nav-link">1. 字母型函数</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id16" class="nav-link">2. 数值型函数</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id17" class="nav-link">3. 统计型函数</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id18" class="nav-link">4. 格式型函数</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id19" class="nav-link">五、练习</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#ex1" class="nav-link">Ex1：房屋信息数据集</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#ex2" class="nav-link">Ex2：《权力的游戏》剧本数据集</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="id1">
+<h1>第八章 文本数据<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+<div class="section" id="str">
+<h2>一、str对象<a class="headerlink" href="#str" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>1. str对象的设计意图<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">str</span></code> 对象是定义在 <code class="docutils literal notranslate"><span class="pre">Index</span></code> 或 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 上的属性，专门用于逐元素处理文本内容，其内部定义了大量方法，因此对一个序列进行文本处理，首先需要获取其 <code class="docutils literal notranslate"><span class="pre">str</span></code> 对象。在Python标准库中也有 <code class="docutils literal notranslate"><span class="pre">str</span></code> 模块，为了使用上的便利，有许多函数的用法 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 照搬了它的设计，例如字母转为大写的操作：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">var</span> <span class="o">=</span> <span class="s1">&#39;abcd&#39;</span>
+
+<span class="gp">In [4]: </span><span class="nb">str</span><span class="o">.</span><span class="n">upper</span><span class="p">(</span><span class="n">var</span><span class="p">)</span> <span class="c1"># Python内置str模块</span>
+<span class="gh">Out[4]: </span><span class="go">&#39;ABCD&#39;</span>
+
+<span class="gp">In [5]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;abcd&#39;</span><span class="p">,</span> <span class="s1">&#39;efg&#39;</span><span class="p">,</span> <span class="s1">&#39;hi&#39;</span><span class="p">])</span>
+
+<span class="gp">In [6]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span>
+<span class="gh">Out[6]: </span><span class="go">&lt;pandas.core.strings.StringMethods at 0x1dab2d24888&gt;</span>
+
+<span class="gp">In [7]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="c1"># pandas中str对象上的upper方法</span>
+<span class="gh">Out[7]: </span><span class="go"></span>
+<span class="go">0    ABCD</span>
+<span class="go">1     EFG</span>
+<span class="go">2      HI</span>
+<span class="go">dtype: object</span>
+</pre></div>
+</div>
+<p>根据文档 <code class="docutils literal notranslate"><span class="pre">API</span></code> 材料，在 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 的50个 <code class="docutils literal notranslate"><span class="pre">str</span></code> 对象方法中，有31个是和标准库中的 <code class="docutils literal notranslate"><span class="pre">str</span></code> 模块方法同名且功能一致，这为批量处理序列提供了有力的工具。</p>
+</div>
+<div class="section" id="id3">
+<h3>2. []索引器<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>对于 <code class="docutils literal notranslate"><span class="pre">str</span></code> 对象而言，可理解为其对字符串进行了序列化的操作，例如在一般的字符串中，通过 <code class="docutils literal notranslate"><span class="pre">[]</span></code> 可以取出某个位置的元素：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gh">Out[8]: </span><span class="go">&#39;a&#39;</span>
+</pre></div>
+</div>
+<p>同时也能通过切片得到子串：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">var</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">0</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="gh">Out[9]: </span><span class="go">&#39;db&#39;</span>
+</pre></div>
+</div>
+<p>通过对 <code class="docutils literal notranslate"><span class="pre">str</span></code> 对象使用 <code class="docutils literal notranslate"><span class="pre">[]</span></code> 索引器，可以完成完全一致的功能，并且如果超出范围则返回缺失值：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gh">Out[10]: </span><span class="go"></span>
+<span class="go">0    a</span>
+<span class="go">1    e</span>
+<span class="go">2    h</span>
+<span class="go">dtype: object</span>
+
+<span class="gp">In [11]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">0</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="gh">Out[11]: </span><span class="go"></span>
+<span class="go">0    db</span>
+<span class="go">1     g</span>
+<span class="go">2     i</span>
+<span class="go">dtype: object</span>
+
+<span class="gp">In [12]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="gh">Out[12]: </span><span class="go"></span>
+<span class="go">0      c</span>
+<span class="go">1      g</span>
+<span class="go">2    NaN</span>
+<span class="go">dtype: object</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="string">
+<h3>3. string类型<a class="headerlink" href="#string" title="Permalink to this headline">¶</a></h3>
+<p>在上一章提到，从 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 的 <code class="docutils literal notranslate"><span class="pre">1.0.0</span></code> 版本开始，引入了 <code class="docutils literal notranslate"><span class="pre">string</span></code> 类型，其引入的动机在于：原来所有的字符串类型都会以 <code class="docutils literal notranslate"><span class="pre">object</span></code> 类型的 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 进行存储，但 <code class="docutils literal notranslate"><span class="pre">object</span></code> 类型只应当存储混合类型，例如同时存储浮点、字符串、字典、列表、自定义类型等，因此字符串有必要同数值型或 <code class="docutils literal notranslate"><span class="pre">category</span></code> 一样，具有自己的数据存放类型，从而引入了 <code class="docutils literal notranslate"><span class="pre">string</span></code> 类型。</p>
+<p>总体上说，绝大多数对于 <code class="docutils literal notranslate"><span class="pre">object</span></code> 和 <code class="docutils literal notranslate"><span class="pre">string</span></code> 类型的序列使用 <code class="docutils literal notranslate"><span class="pre">str</span></code> 对象方法产生的结果是一致，但是在下面提到的两点上有较大差异：</p>
+<p>首先，应当尽量保证每一个序列中的值都是字符串的情况下才使用 <code class="docutils literal notranslate"><span class="pre">str</span></code> 属性，但这并不是必须的，其必要条件是序列中至少有一个可迭代（Iterable）对象，包括但不限于字符串、字典、列表。对于一个可迭代对象， <code class="docutils literal notranslate"><span class="pre">string</span></code> 类型的 <code class="docutils literal notranslate"><span class="pre">str</span></code> 对象和 <code class="docutils literal notranslate"><span class="pre">object</span></code> 类型的 <code class="docutils literal notranslate"><span class="pre">str</span></code> 对象返回结果可能是不同的。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;temp_1&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;temp_2&#39;</span><span class="p">},</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;my_string&#39;</span><span class="p">])</span>
+
+<span class="gp">In [14]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="gh">Out[14]: </span><span class="go"></span>
+<span class="go">0    temp_1</span>
+<span class="go">1         b</span>
+<span class="go">2       NaN</span>
+<span class="go">3         y</span>
+<span class="go">dtype: object</span>
+
+<span class="gp">In [15]: </span><span class="n">s</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="gh">Out[15]: </span><span class="go"></span>
+<span class="go">0    1</span>
+<span class="go">1    &#39;</span>
+<span class="go">2    .</span>
+<span class="go">3    y</span>
+<span class="go">dtype: string</span>
+</pre></div>
+</div>
+<p>除了最后一个字符串元素，前三个元素返回的值都不同，其原因在于当序列类型为 <code class="docutils literal notranslate"><span class="pre">object</span></code> 时，是对于每一个元素进行 <code class="docutils literal notranslate"><span class="pre">[]</span></code> 索引，因此对于字典而言，返回temp_1字符串，对于列表则返回第二个值，而第三个为不可迭代对象，返回缺失值，第四个是对字符串进行 <code class="docutils literal notranslate"><span class="pre">[]</span></code> 索引。而 <code class="docutils literal notranslate"><span class="pre">string</span></code> 类型的 <code class="docutils literal notranslate"><span class="pre">str</span></code> 对象先把整个元素转为字面意义的字符串，例如对于列表而言，第一个元素即 “{“，而对于最后一个字符串元素而言，恰好转化前后的表示方法一致，因此结果和 <code class="docutils literal notranslate"><span class="pre">object</span></code> 类型一致。</p>
+<p>除了对于某些对象的 <code class="docutils literal notranslate"><span class="pre">str</span></code> 序列化方法不同之外，两者另外的一个差别在于， <code class="docutils literal notranslate"><span class="pre">string</span></code> 类型是 <code class="docutils literal notranslate"><span class="pre">Nullable</span></code> 类型，但 <code class="docutils literal notranslate"><span class="pre">object</span></code> 不是。这意味着 <code class="docutils literal notranslate"><span class="pre">string</span></code> 类型的序列，如果调用的 <code class="docutils literal notranslate"><span class="pre">str</span></code> 方法返回值为整数 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 和布尔 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 时，其分别对应的 <code class="docutils literal notranslate"><span class="pre">dtype</span></code> 是 <code class="docutils literal notranslate"><span class="pre">Int</span></code> 和 <code class="docutils literal notranslate"><span class="pre">boolean</span></code> 的 <code class="docutils literal notranslate"><span class="pre">Nullable</span></code> 类型，而 <code class="docutils literal notranslate"><span class="pre">object</span></code> 类型则会分别返回 <code class="docutils literal notranslate"><span class="pre">int/float</span></code> 和 <code class="docutils literal notranslate"><span class="pre">bool/object</span></code> ，取决于缺失值的存在与否。同时，字符串的比较操作，也具有相似的特性， <code class="docutils literal notranslate"><span class="pre">string</span></code> 返回 <code class="docutils literal notranslate"><span class="pre">Nullable</span></code> 类型，但 <code class="docutils literal notranslate"><span class="pre">object</span></code> 不会。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">])</span>
+
+<span class="gp">In [17]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
+<span class="gh">Out[17]: </span><span class="go"></span>
+<span class="go">0    1</span>
+<span class="go">dtype: int64</span>
+
+<span class="gp">In [18]: </span><span class="n">s</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
+<span class="gh">Out[18]: </span><span class="go"></span>
+<span class="go">0    1</span>
+<span class="go">dtype: Int64</span>
+
+<span class="gp">In [19]: </span><span class="n">s</span> <span class="o">==</span> <span class="s1">&#39;a&#39;</span>
+<span class="gh">Out[19]: </span><span class="go"></span>
+<span class="go">0    True</span>
+<span class="go">dtype: bool</span>
+
+<span class="gp">In [20]: </span><span class="n">s</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;a&#39;</span>
+<span class="gh">Out[20]: </span><span class="go"></span>
+<span class="go">0    True</span>
+<span class="go">dtype: boolean</span>
+
+<span class="gp">In [21]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span> <span class="c1"># 带有缺失值</span>
+
+<span class="gp">In [22]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
+<span class="gh">Out[22]: </span><span class="go"></span>
+<span class="go">0    1.0</span>
+<span class="go">1    NaN</span>
+<span class="go">dtype: float64</span>
+
+<span class="gp">In [23]: </span><span class="n">s</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
+<span class="gh">Out[23]: </span><span class="go"></span>
+<span class="go">0       1</span>
+<span class="go">1    &lt;NA&gt;</span>
+<span class="go">dtype: Int64</span>
+
+<span class="gp">In [24]: </span><span class="n">s</span> <span class="o">==</span> <span class="s1">&#39;a&#39;</span>
+<span class="gh">Out[24]: </span><span class="go"></span>
+<span class="go">0     True</span>
+<span class="go">1    False</span>
+<span class="go">dtype: bool</span>
+
+<span class="gp">In [25]: </span><span class="n">s</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;a&#39;</span>
+<span class="gh">Out[25]: </span><span class="go"></span>
+<span class="go">0    True</span>
+<span class="go">1    &lt;NA&gt;</span>
+<span class="go">dtype: boolean</span>
+</pre></div>
+</div>
+<p>最后需要注意的是，对于全体元素为数值类型的序列，即使其类型为 <code class="docutils literal notranslate"><span class="pre">object</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">category</span></code> 也不允许直接使用 <code class="docutils literal notranslate"><span class="pre">str</span></code> 属性。如果需要把数字当成 <code class="docutils literal notranslate"><span class="pre">string</span></code> 类型处理，可以使用 <code class="docutils literal notranslate"><span class="pre">astype</span></code> 强制转换为 <code class="docutils literal notranslate"><span class="pre">string</span></code> 类型的 <code class="docutils literal notranslate"><span class="pre">Series</span></code> ：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [26]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">12</span><span class="p">,</span> <span class="mi">345</span><span class="p">,</span> <span class="mi">6789</span><span class="p">])</span>
+
+<span class="gp">In [27]: </span><span class="n">s</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="gh">Out[27]: </span><span class="go"></span>
+<span class="go">0    2</span>
+<span class="go">1    4</span>
+<span class="go">2    7</span>
+<span class="go">dtype: string</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>二、正则表达式基础<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>这一节的两个表格来自于 <a class="reference external" href="https://github.com/cdoco/learn-regex-zh">learn-regex-zh</a> 这个关于正则表达式项目，其使用 <code class="docutils literal notranslate"><span class="pre">MIT</span></code> 开源许可协议。这里只是介绍正则表达式的基本用法，需要系统学习的读者可参考 <a class="reference external" href="https://book.douban.com/subject/26285406/">正则表达式必知必会</a> 一书。</p>
+<div class="section" id="id5">
+<h3>1. 一般字符的匹配<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>正则表达式是一种按照某种正则模式，从左到右匹配字符串中内容的一种工具。对于一般的字符而言，它可以找到其所在的位置，这里为了演示便利，使用了 <code class="docutils literal notranslate"><span class="pre">python</span></code> 中 <code class="docutils literal notranslate"><span class="pre">re</span></code> 模块的 <code class="docutils literal notranslate"><span class="pre">findall</span></code> 函数来匹配所有出现过但不重叠的模式，第一个参数是正则表达式，第二个参数是待匹配的字符串。例如，在下面的字符串中找出 <code class="docutils literal notranslate"><span class="pre">apple</span></code> ：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [28]: </span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="gp">In [29]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;Apple&#39;</span><span class="p">,</span> <span class="s1">&#39;Apple! This Is an Apple!&#39;</span><span class="p">)</span>
+<span class="gh">Out[29]: </span><span class="go">[&#39;Apple&#39;, &#39;Apple&#39;]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>2. 元字符基础<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<table class="table">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>元字符</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>.</p></td>
+<td><p>匹配除换行符以外的任意字符</p></td>
+</tr>
+<tr class="row-odd"><td><p>[ ]</p></td>
+<td><p>字符类，匹配方括号中包含的任意字符。</p></td>
+</tr>
+<tr class="row-even"><td><p>[^ ]</p></td>
+<td><p>否定字符类，匹配方括号中不包含的任意字符</p></td>
+</tr>
+<tr class="row-odd"><td><p>*</p></td>
+<td><p>匹配前面的子表达式零次或多次</p></td>
+</tr>
+<tr class="row-even"><td><p>+</p></td>
+<td><p>匹配前面的子表达式一次或多次</p></td>
+</tr>
+<tr class="row-odd"><td><p>?</p></td>
+<td><p>匹配前面的子表达式零次或一次</p></td>
+</tr>
+<tr class="row-even"><td><p>{n,m}</p></td>
+<td><p>花括号，匹配前面字符至少 n 次，但是不超过 m 次</p></td>
+</tr>
+<tr class="row-odd"><td><p>(xyz)</p></td>
+<td><p>字符组，按照确切的顺序匹配字符xyz。</p></td>
+</tr>
+<tr class="row-even"><td><p>|</p></td>
+<td><p>分支结构，匹配符号之前的字符或后面的字符</p></td>
+</tr>
+<tr class="row-odd"><td><p>\</p></td>
+<td><p>转义符，它可以还原元字符原来的含义</p></td>
+</tr>
+<tr class="row-even"><td><p>^</p></td>
+<td><p>匹配行的开始</p></td>
+</tr>
+<tr class="row-odd"><td><p>$</p></td>
+<td><p>匹配行的结束</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [30]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;abc&#39;</span><span class="p">)</span>
+<span class="gh">Out[30]: </span><span class="go">[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</span>
+
+<span class="gp">In [31]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[ac]&#39;</span><span class="p">,</span> <span class="s1">&#39;abc&#39;</span><span class="p">)</span>
+<span class="gh">Out[31]: </span><span class="go">[&#39;a&#39;, &#39;c&#39;]</span>
+
+<span class="gp">In [32]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[^ac]&#39;</span><span class="p">,</span> <span class="s1">&#39;abc&#39;</span><span class="p">)</span>
+<span class="gh">Out[32]: </span><span class="go">[&#39;b&#39;]</span>
+
+<span class="gp">In [33]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[ab]</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;aaaabbbb&#39;</span><span class="p">)</span> <span class="c1"># {n}指匹配n次</span>
+<span class="gh">Out[33]: </span><span class="go">[&#39;aa&#39;, &#39;aa&#39;, &#39;bb&#39;, &#39;bb&#39;]</span>
+
+<span class="gp">In [34]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;aaa|bbb&#39;</span><span class="p">,</span> <span class="s1">&#39;aaaabbbb&#39;</span><span class="p">)</span>
+<span class="gh">Out[34]: </span><span class="go">[&#39;aaa&#39;, &#39;bbb&#39;]</span>
+
+<span class="gp">In [35]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;a</span><span class="se">\\</span><span class="s1">?|a\*&#39;</span><span class="p">,</span> <span class="s1">&#39;aa?a*a&#39;</span><span class="p">)</span>
+<span class="gh">Out[35]: </span><span class="go">[&#39;a?&#39;, &#39;a*&#39;]</span>
+
+<span class="gp">In [36]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;a?.&#39;</span><span class="p">,</span> <span class="s1">&#39;abaacadaae&#39;</span><span class="p">)</span>
+<span class="gh">Out[36]: </span><span class="go">[&#39;ab&#39;, &#39;aa&#39;, &#39;c&#39;, &#39;ad&#39;, &#39;aa&#39;, &#39;e&#39;]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>3. 简写字符集<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>此外，正则表达式中还有一类简写字符集，其等价于一组字符的集合：</p>
+<table class="table">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 89%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>简写</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>\w</p></td>
+<td><p>匹配所有字母、数字、下划线: [a-zA-Z0-9_]</p></td>
+</tr>
+<tr class="row-odd"><td><p>\W</p></td>
+<td><p>匹配非字母和数字的字符: [^\w]</p></td>
+</tr>
+<tr class="row-even"><td><p>\d</p></td>
+<td><p>匹配数字: [0-9]</p></td>
+</tr>
+<tr class="row-odd"><td><p>\D</p></td>
+<td><p>匹配非数字: [^\d]</p></td>
+</tr>
+<tr class="row-even"><td><p>\s</p></td>
+<td><p>匹配空格符: [\t\n\f\r\p{Z}]</p></td>
+</tr>
+<tr class="row-odd"><td><p>\S</p></td>
+<td><p>匹配非空格符: [^\s]</p></td>
+</tr>
+<tr class="row-even"><td><p>\B</p></td>
+<td><p>匹配一组非空字符开头或结尾的位置，不代表具体字符</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [37]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;.s&#39;</span><span class="p">,</span> <span class="s1">&#39;Apple! This Is an Apple!&#39;</span><span class="p">)</span>
+<span class="gh">Out[37]: </span><span class="go">[&#39;is&#39;, &#39;Is&#39;]</span>
+
+<span class="gp">In [38]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\w</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;09 8? 7w c_ 9q p@&#39;</span><span class="p">)</span>
+<span class="gh">Out[38]: </span><span class="go">[&#39;09&#39;, &#39;7w&#39;, &#39;c_&#39;, &#39;9q&#39;]</span>
+
+<span class="gp">In [39]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\w\W\B&#39;</span><span class="p">,</span> <span class="s1">&#39;09 8? 7w c_ 9q p@&#39;</span><span class="p">)</span>
+<span class="gh">Out[39]: </span><span class="go">[&#39;8?&#39;, &#39;p@&#39;]</span>
+
+<span class="gp">In [40]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;.\s.&#39;</span><span class="p">,</span> <span class="s1">&#39;Constant dropping wears the stone.&#39;</span><span class="p">)</span>
+<span class="gh">Out[40]: </span><span class="go">[&#39;t d&#39;, &#39;g w&#39;, &#39;s t&#39;, &#39;e s&#39;]</span>
+
+<span class="gp">In [41]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;上海市(.{2,3}区)(.{2,3}路)(\d+号)&#39;</span><span class="p">,</span>
+<span class="gp">   ....: </span>           <span class="s1">&#39;上海市黄浦区方浜中路249号 上海市宝山区密山路5号&#39;</span><span class="p">)</span>
+<span class="gp">   ....: </span>
+<span class="gh">Out[41]: </span><span class="go">[(&#39;黄浦区&#39;, &#39;方浜中路&#39;, &#39;249号&#39;), (&#39;宝山区&#39;, &#39;密山路&#39;, &#39;5号&#39;)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>三、文本处理的五类操作<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id9">
+<h3>1. 拆分<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">str.split</span></code> 能够把字符串的列进行拆分，其中第一个参数为正则表达式，可选参数包括从左到右的最大拆分次数 <code class="docutils literal notranslate"><span class="pre">n</span></code> ，是否展开为多个列 <code class="docutils literal notranslate"><span class="pre">expand</span></code> 。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [42]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;上海市黄浦区方浜中路249号&#39;</span><span class="p">,</span>
+<span class="gp">   ....: </span>            <span class="s1">&#39;上海市宝山区密山路5号&#39;</span><span class="p">])</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [43]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;[市区路]&#39;</span><span class="p">)</span>
+<span class="gh">Out[43]: </span><span class="go"></span>
+<span class="go">0    [上海, 黄浦, 方浜中, 249号]</span>
+<span class="go">1       [上海, 宝山, 密山, 5号]</span>
+<span class="go">dtype: object</span>
+
+<span class="gp">In [44]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;[市区路]&#39;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gh">Out[44]: </span><span class="go"></span>
+<span class="go">    0   1         2</span>
+<span class="go">0  上海  黄浦  方浜中路249号</span>
+<span class="go">1  上海  宝山     密山路5号</span>
+</pre></div>
+</div>
+<p>与其类似的函数是 <code class="docutils literal notranslate"><span class="pre">str.rsplit</span></code> ，其区别在于使用 <code class="docutils literal notranslate"><span class="pre">n</span></code> 参数的时候是从右到左限制最大拆分次数。但是当前版本下 <code class="docutils literal notranslate"><span class="pre">rsplit</span></code> 因为 <code class="docutils literal notranslate"><span class="pre">bug</span></code> 而无法使用正则表达式进行分割：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [45]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;[市区路]&#39;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gh">Out[45]: </span><span class="go"></span>
+<span class="go">                0</span>
+<span class="go">0  上海市黄浦区方浜中路249号</span>
+<span class="go">1     上海市宝山区密山路5号</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>2. 合并<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>关于合并一共有两个函数，分别是 <code class="docutils literal notranslate"><span class="pre">str.join</span></code> 和 <code class="docutils literal notranslate"><span class="pre">str.cat</span></code> 。 <code class="docutils literal notranslate"><span class="pre">str.join</span></code> 表示用某个连接符把 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 中的字符串列表连接起来，如果列表中出现了字符串元素则返回缺失值：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [46]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">],</span> <span class="p">[[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="s1">&#39;c&#39;</span><span class="p">]])</span>
+
+<span class="gp">In [47]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="gh">Out[47]: </span><span class="go"></span>
+<span class="go">0    a-b</span>
+<span class="go">1    NaN</span>
+<span class="go">2    NaN</span>
+<span class="go">dtype: object</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">str.cat</span></code> 用于合并两个序列，主要参数为连接符 <code class="docutils literal notranslate"><span class="pre">sep</span></code> 、连接形式 <code class="docutils literal notranslate"><span class="pre">join</span></code> 以及缺失值替代符号 <code class="docutils literal notranslate"><span class="pre">na_rep</span></code> ，其中连接形式默认为以索引为键的左连接。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [48]: </span><span class="n">s1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">])</span>
+
+<span class="gp">In [49]: </span><span class="n">s2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span><span class="s1">&#39;dog&#39;</span><span class="p">])</span>
+
+<span class="gp">In [50]: </span><span class="n">s1</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">s2</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="gh">Out[50]: </span><span class="go"></span>
+<span class="go">0    a-cat</span>
+<span class="go">1    b-dog</span>
+<span class="go">dtype: object</span>
+
+<span class="gp">In [51]: </span><span class="n">s2</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="gp">In [52]: </span><span class="n">s1</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">s2</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">na_rep</span><span class="o">=</span><span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
+<span class="gh">Out[52]: </span><span class="go"></span>
+<span class="go">0      a-?</span>
+<span class="go">1    b-cat</span>
+<span class="go">2    ?-dog</span>
+<span class="go">dtype: object</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>3. 匹配<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">str.contains</span></code> 返回了每个字符串是否包含正则模式的布尔序列：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [53]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;my cat&#39;</span><span class="p">,</span> <span class="s1">&#39;he is fat&#39;</span><span class="p">,</span> <span class="s1">&#39;railway station&#39;</span><span class="p">])</span>
+
+<span class="gp">In [54]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;\s\wat&#39;</span><span class="p">)</span>
+<span class="gh">Out[54]: </span><span class="go"></span>
+<span class="go">0     True</span>
+<span class="go">1     True</span>
+<span class="go">2    False</span>
+<span class="go">dtype: bool</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">str.startswith</span></code> 和 <code class="docutils literal notranslate"><span class="pre">str.endswith</span></code> 返回了每个字符串以给定模式为开始和结束的布尔序列，它们都不支持正则表达式：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [55]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;my&#39;</span><span class="p">)</span>
+<span class="gh">Out[55]: </span><span class="go"></span>
+<span class="go">0     True</span>
+<span class="go">1    False</span>
+<span class="go">2    False</span>
+<span class="go">dtype: bool</span>
+
+<span class="gp">In [56]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="gh">Out[56]: </span><span class="go"></span>
+<span class="go">0     True</span>
+<span class="go">1     True</span>
+<span class="go">2    False</span>
+<span class="go">dtype: bool</span>
+</pre></div>
+</div>
+<p>如果需要用正则表达式来检测开始或结束字符串的模式，可以使用 <code class="docutils literal notranslate"><span class="pre">str.match</span></code> ，其返回了每个字符串起始处是否符合给定正则模式的布尔序列：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [57]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;m|h&#39;</span><span class="p">)</span>
+<span class="gh">Out[57]: </span><span class="go"></span>
+<span class="go">0     True</span>
+<span class="go">1     True</span>
+<span class="go">2    False</span>
+<span class="go">dtype: bool</span>
+
+<span class="gp">In [58]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;ta[f|g]|n&#39;</span><span class="p">)</span> <span class="c1"># 反转后匹配</span>
+<span class="gh">Out[58]: </span><span class="go"></span>
+<span class="go">0    False</span>
+<span class="go">1     True</span>
+<span class="go">2     True</span>
+<span class="go">dtype: bool</span>
+</pre></div>
+</div>
+<p>当然，这些也能通过在 <code class="docutils literal notranslate"><span class="pre">str.contains</span></code> 的正则中使用 <code class="docutils literal notranslate"><span class="pre">^</span></code> 和 <code class="docutils literal notranslate"><span class="pre">$</span></code> 来实现：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [59]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;^[m|h]&#39;</span><span class="p">)</span>
+<span class="gh">Out[59]: </span><span class="go"></span>
+<span class="go">0     True</span>
+<span class="go">1     True</span>
+<span class="go">2    False</span>
+<span class="go">dtype: bool</span>
+
+<span class="gp">In [60]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;[f|g]at|n$&#39;</span><span class="p">)</span>
+<span class="gh">Out[60]: </span><span class="go"></span>
+<span class="go">0    False</span>
+<span class="go">1     True</span>
+<span class="go">2     True</span>
+<span class="go">dtype: bool</span>
+</pre></div>
+</div>
+<p>除了上述返回值为布尔的匹配之外，还有一种返回索引的匹配函数，即 <code class="docutils literal notranslate"><span class="pre">str.find</span></code> 与 <code class="docutils literal notranslate"><span class="pre">str.rfind</span></code> ，其分别返回从左到右和从右到左第一次匹配的位置的索引，未找到则返回-1。需要注意的是这两个函数不支持正则匹配，只能用于字符子串的匹配：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [61]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;This is an apple. That is not an apple.&#39;</span><span class="p">])</span>
+
+<span class="gp">In [62]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;apple&#39;</span><span class="p">)</span>
+<span class="gh">Out[62]: </span><span class="go"></span>
+<span class="go">0    11</span>
+<span class="go">dtype: int64</span>
+
+<span class="gp">In [63]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s1">&#39;apple&#39;</span><span class="p">)</span>
+<span class="gh">Out[63]: </span><span class="go"></span>
+<span class="go">0    33</span>
+<span class="go">dtype: int64</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id12">
+<h3>4. 替换<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">str.replace</span></code> 和 <code class="docutils literal notranslate"><span class="pre">replace</span></code> 并不是一个函数，在使用字符串替换时应当使用前者。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [64]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;a_1_b&#39;</span><span class="p">,</span><span class="s1">&#39;c_?&#39;</span><span class="p">])</span>
+
+<span class="gp">In [65]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;\d|\?&#39;</span><span class="p">,</span> <span class="s1">&#39;new&#39;</span><span class="p">)</span>
+<span class="gh">Out[65]: </span><span class="go"></span>
+<span class="go">0    a_new_b</span>
+<span class="go">1      c_new</span>
+<span class="go">dtype: object</span>
+</pre></div>
+</div>
+<p>当需要对不同部分进行有差别的替换时，可以利用 <code class="docutils literal notranslate"><span class="pre">子组</span></code> 的方法，并且此时可以通过传入自定义的替换函数来分别进行处理，注意 <code class="docutils literal notranslate"><span class="pre">group(k)</span></code> 代表匹配到的第 <code class="docutils literal notranslate"><span class="pre">k</span></code> 个子组（圆括号之间的内容）：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [66]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;上海市黄浦区方浜中路249号&#39;</span><span class="p">,</span>
+<span class="gp">   ....: </span>               <span class="s1">&#39;上海市宝山区密山路5号&#39;</span><span class="p">,</span>
+<span class="gp">   ....: </span>               <span class="s1">&#39;北京市昌平区北农路2号&#39;</span><span class="p">])</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [67]: </span><span class="n">pat</span> <span class="o">=</span> <span class="s1">&#39;(\w+市)(\w+区)(\w+路)(\d+号)&#39;</span>
+
+<span class="gp">In [68]: </span><span class="n">city</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;上海市&#39;</span><span class="p">:</span> <span class="s1">&#39;Shanghai&#39;</span><span class="p">,</span> <span class="s1">&#39;北京市&#39;</span><span class="p">:</span> <span class="s1">&#39;Beijing&#39;</span><span class="p">}</span>
+
+<span class="gp">In [69]: </span><span class="n">district</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;昌平区&#39;</span><span class="p">:</span> <span class="s1">&#39;CP District&#39;</span><span class="p">,</span>
+<span class="gp">   ....: </span>            <span class="s1">&#39;黄浦区&#39;</span><span class="p">:</span> <span class="s1">&#39;HP District&#39;</span><span class="p">,</span>
+<span class="gp">   ....: </span>            <span class="s1">&#39;宝山区&#39;</span><span class="p">:</span> <span class="s1">&#39;BS District&#39;</span><span class="p">}</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [70]: </span><span class="n">road</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;方浜中路&#39;</span><span class="p">:</span> <span class="s1">&#39;Mid Fangbin Road&#39;</span><span class="p">,</span>
+<span class="gp">   ....: </span>        <span class="s1">&#39;密山路&#39;</span><span class="p">:</span> <span class="s1">&#39;Mishan Road&#39;</span><span class="p">,</span>
+<span class="gp">   ....: </span>        <span class="s1">&#39;北农路&#39;</span><span class="p">:</span> <span class="s1">&#39;Beinong Road&#39;</span><span class="p">}</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [71]: </span><span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+<span class="gp">   ....: </span>    <span class="n">str_city</span> <span class="o">=</span> <span class="n">city</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span>
+<span class="gp">   ....: </span>    <span class="n">str_district</span> <span class="o">=</span> <span class="n">district</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
+<span class="gp">   ....: </span>    <span class="n">str_road</span> <span class="o">=</span> <span class="n">road</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+<span class="gp">   ....: </span>    <span class="n">str_no</span> <span class="o">=</span> <span class="s1">&#39;No. &#39;</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">4</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="gp">   ....: </span>    <span class="k">return</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">str_city</span><span class="p">,</span>
+<span class="gp">   ....: </span>                    <span class="n">str_district</span><span class="p">,</span>
+<span class="gp">   ....: </span>                    <span class="n">str_road</span><span class="p">,</span>
+<span class="gp">   ....: </span>                    <span class="n">str_no</span><span class="p">])</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [72]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">pat</span><span class="p">,</span> <span class="n">my_func</span><span class="p">)</span>
+<span class="gh">Out[72]: </span><span class="go"></span>
+<span class="go">0    Shanghai HP District Mid Fangbin Road No. 249</span>
+<span class="go">1           Shanghai BS District Mishan Road No. 5</span>
+<span class="go">2           Beijing CP District Beinong Road No. 2</span>
+<span class="go">dtype: object</span>
+</pre></div>
+</div>
+<p>这里的数字标识并不直观，可以使用 <code class="docutils literal notranslate"><span class="pre">命名子组</span></code> 更加清晰地写出子组代表的含义：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [73]: </span><span class="n">pat</span> <span class="o">=</span> <span class="s1">&#39;(?P&lt;市名&gt;\w+市)(?P&lt;区名&gt;\w+区)(?P&lt;路名&gt;\w+路)(?P&lt;编号&gt;\d+号)&#39;</span>
+
+<span class="gp">In [74]: </span><span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+<span class="gp">   ....: </span>    <span class="n">str_city</span> <span class="o">=</span> <span class="n">city</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;市名&#39;</span><span class="p">)]</span>
+<span class="gp">   ....: </span>    <span class="n">str_district</span> <span class="o">=</span> <span class="n">district</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;区名&#39;</span><span class="p">)]</span>
+<span class="gp">   ....: </span>    <span class="n">str_road</span> <span class="o">=</span> <span class="n">road</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;路名&#39;</span><span class="p">)]</span>
+<span class="gp">   ....: </span>    <span class="n">str_no</span> <span class="o">=</span> <span class="s1">&#39;No. &#39;</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;编号&#39;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="gp">   ....: </span>    <span class="k">return</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">str_city</span><span class="p">,</span>
+<span class="gp">   ....: </span>                    <span class="n">str_district</span><span class="p">,</span>
+<span class="gp">   ....: </span>                    <span class="n">str_road</span><span class="p">,</span>
+<span class="gp">   ....: </span>                    <span class="n">str_no</span><span class="p">])</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [75]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">pat</span><span class="p">,</span> <span class="n">my_func</span><span class="p">)</span>
+<span class="gh">Out[75]: </span><span class="go"></span>
+<span class="go">0    Shanghai HP District Mid Fangbin Road No. 249</span>
+<span class="go">1           Shanghai BS District Mishan Road No. 5</span>
+<span class="go">2           Beijing CP District Beinong Road No. 2</span>
+<span class="go">dtype: object</span>
+</pre></div>
+</div>
+<p>这里虽然看起来有些繁杂，但是实际数据处理中对应的替换，一般都会通过代码来获取数据从而构造字典映射，在具体写法上会简洁的多。</p>
+</div>
+<div class="section" id="id13">
+<h3>5. 提取<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>提取既可以认为是一种返回具体元素（而不是布尔值或元素对应的索引位置）的匹配操作，也可以认为是一种特殊的拆分操作。前面提到的 <code class="docutils literal notranslate"><span class="pre">str.split</span></code> 例子中会把分隔符去除，这并不是用户想要的效果，这时候就可以用 <code class="docutils literal notranslate"><span class="pre">str.extract</span></code> 进行提取：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [76]: </span><span class="n">pat</span> <span class="o">=</span> <span class="s1">&#39;(\w+市)(\w+区)(\w+路)(\d+号)&#39;</span>
+
+<span class="gp">In [77]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">pat</span><span class="p">)</span>
+<span class="gh">Out[77]: </span><span class="go"></span>
+<span class="go">     0    1     2     3</span>
+<span class="go">0  上海市  黄浦区  方浜中路  249号</span>
+<span class="go">1  上海市  宝山区   密山路    5号</span>
+<span class="go">2  北京市  昌平区   北农路    2号</span>
+</pre></div>
+</div>
+<p>通过子组的命名，可以直接对新生成 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> 的列命名：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [78]: </span><span class="n">pat</span> <span class="o">=</span> <span class="s1">&#39;(?P&lt;市名&gt;\w+市)(?P&lt;区名&gt;\w+区)(?P&lt;路名&gt;\w+路)(?P&lt;编号&gt;\d+号)&#39;</span>
+
+<span class="gp">In [79]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">pat</span><span class="p">)</span>
+<span class="gh">Out[79]: </span><span class="go"></span>
+<span class="go">    市名   区名    路名    编号</span>
+<span class="go">0  上海市  黄浦区  方浜中路  249号</span>
+<span class="go">1  上海市  宝山区   密山路    5号</span>
+<span class="go">2  北京市  昌平区   北农路    2号</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">str.extractall</span></code> 不同于 <code class="docutils literal notranslate"><span class="pre">str.extract</span></code> 只匹配一次，它会把所有符合条件的模式全部匹配出来，如果存在多个结果，则以多级索引的方式存储：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [80]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;A135T15,A26S5&#39;</span><span class="p">,</span><span class="s1">&#39;B674S2,B25T6&#39;</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;my_A&#39;</span><span class="p">,</span><span class="s1">&#39;my_B&#39;</span><span class="p">])</span>
+
+<span class="gp">In [81]: </span><span class="n">pat</span> <span class="o">=</span> <span class="s1">&#39;[A|B](\d+)[T|S](\d+)&#39;</span>
+
+<span class="gp">In [82]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">pat</span><span class="p">)</span>
+<span class="gh">Out[82]: </span><span class="go"></span>
+<span class="go">              0   1</span>
+<span class="go">     match         </span>
+<span class="go">my_A 0      135  15</span>
+<span class="go">     1       26   5</span>
+<span class="go">my_B 0      674   2</span>
+<span class="go">     1       25   6</span>
+
+<span class="gp">In [83]: </span><span class="n">pat_with_name</span> <span class="o">=</span> <span class="s1">&#39;[A|B](?P&lt;name1&gt;\d+)[T|S](?P&lt;name2&gt;\d+)&#39;</span>
+
+<span class="gp">In [84]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">pat_with_name</span><span class="p">)</span>
+<span class="gh">Out[84]: </span><span class="go"></span>
+<span class="go">           name1 name2</span>
+<span class="go">     match            </span>
+<span class="go">my_A 0       135    15</span>
+<span class="go">     1        26     5</span>
+<span class="go">my_B 0       674     2</span>
+<span class="go">     1        25     6</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">str.findall</span></code> 的功能类似于 <code class="docutils literal notranslate"><span class="pre">str.extractall</span></code> ，区别在于前者把结果存入列表中，而后者处理为多级索引，每个行只对应一组匹配，而不是把所有匹配组合构成列表。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [85]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pat</span><span class="p">)</span>
+<span class="gh">Out[85]: </span><span class="go"></span>
+<span class="go">my_A    [(135, 15), (26, 5)]</span>
+<span class="go">my_B     [(674, 2), (25, 6)]</span>
+<span class="go">dtype: object</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id14">
+<h2>四、常用字符串函数<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<p>除了上述介绍的五类字符串操作有关的函数之外， <code class="docutils literal notranslate"><span class="pre">str</span></code> 对象上还定义了一些实用的其他方法，在此进行介绍：</p>
+<div class="section" id="id15">
+<h3>1. 字母型函数<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">upper,</span> <span class="pre">lower,</span> <span class="pre">title,</span> <span class="pre">capitalize,</span> <span class="pre">swapcase</span></code> 这五个函数主要用于字母的大小写转化，从下面的例子中就容易领会其功能：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [86]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="s1">&#39;CAPITALS&#39;</span><span class="p">,</span> <span class="s1">&#39;this is a sentence&#39;</span><span class="p">,</span> <span class="s1">&#39;SwApCaSe&#39;</span><span class="p">])</span>
+
+<span class="gp">In [87]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="gh">Out[87]: </span><span class="go"></span>
+<span class="go">0                 LOWER</span>
+<span class="go">1              CAPITALS</span>
+<span class="go">2    THIS IS A SENTENCE</span>
+<span class="go">3              SWAPCASE</span>
+<span class="go">dtype: object</span>
+
+<span class="gp">In [88]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="gh">Out[88]: </span><span class="go"></span>
+<span class="go">0                 lower</span>
+<span class="go">1              capitals</span>
+<span class="go">2    this is a sentence</span>
+<span class="go">3              swapcase</span>
+<span class="go">dtype: object</span>
+
+<span class="gp">In [89]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+<span class="gh">Out[89]: </span><span class="go"></span>
+<span class="go">0                 Lower</span>
+<span class="go">1              Capitals</span>
+<span class="go">2    This Is A Sentence</span>
+<span class="go">3              Swapcase</span>
+<span class="go">dtype: object</span>
+
+<span class="gp">In [90]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+<span class="gh">Out[90]: </span><span class="go"></span>
+<span class="go">0                 Lower</span>
+<span class="go">1              Capitals</span>
+<span class="go">2    This is a sentence</span>
+<span class="go">3              Swapcase</span>
+<span class="go">dtype: object</span>
+
+<span class="gp">In [91]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">swapcase</span><span class="p">()</span>
+<span class="gh">Out[91]: </span><span class="go"></span>
+<span class="go">0                 LOWER</span>
+<span class="go">1              capitals</span>
+<span class="go">2    THIS IS A SENTENCE</span>
+<span class="go">3              sWaPcAsE</span>
+<span class="go">dtype: object</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id16">
+<h3>2. 数值型函数<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<p>这里着重需要介绍的是 <code class="docutils literal notranslate"><span class="pre">pd.to_numeric</span></code> 方法，它虽然不是 <code class="docutils literal notranslate"><span class="pre">str</span></code> 对象上的方法，但是能够对字符格式的数值进行快速转换和筛选。其主要参数包括 <code class="docutils literal notranslate"><span class="pre">errors</span></code> 和 <code class="docutils literal notranslate"><span class="pre">downcast</span></code> 分别代表了非数值的处理模式和转换类型。其中，对于不能转换为数值的有三种 <code class="docutils literal notranslate"><span class="pre">errors</span></code> 选项， <code class="docutils literal notranslate"><span class="pre">raise,</span> <span class="pre">coerce,</span> <span class="pre">ignore</span></code> 分别表示直接报错、设为缺失以及保持原来的字符串。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [92]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2.2&#39;</span><span class="p">,</span> <span class="s1">&#39;2e&#39;</span><span class="p">,</span> <span class="s1">&#39;??&#39;</span><span class="p">,</span> <span class="s1">&#39;-2.1&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">])</span>
+
+<span class="gp">In [93]: </span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="gh">Out[93]: </span><span class="go"></span>
+<span class="go">0       1</span>
+<span class="go">1     2.2</span>
+<span class="go">2      2e</span>
+<span class="go">3      ??</span>
+<span class="go">4    -2.1</span>
+<span class="go">5       0</span>
+<span class="go">dtype: object</span>
+
+<span class="gp">In [94]: </span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="gh">Out[94]: </span><span class="go"></span>
+<span class="go">0    1.0</span>
+<span class="go">1    2.2</span>
+<span class="go">2    NaN</span>
+<span class="go">3    NaN</span>
+<span class="go">4   -2.1</span>
+<span class="go">5    0.0</span>
+<span class="go">dtype: float64</span>
+</pre></div>
+</div>
+<p>在数据清洗时，可以利用 <code class="docutils literal notranslate"><span class="pre">coerce</span></code> 的设定，快速查看非数值型的行：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [95]: </span><span class="n">s</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
+<span class="gh">Out[95]: </span><span class="go"></span>
+<span class="go">2    2e</span>
+<span class="go">3    ??</span>
+<span class="go">dtype: object</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id17">
+<h3>3. 统计型函数<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">count</span></code> 和 <code class="docutils literal notranslate"><span class="pre">len</span></code> 的作用分别是返回出现正则模式的次数和字符串的长度：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [96]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;cat rat fat at&#39;</span><span class="p">,</span> <span class="s1">&#39;get feed sheet heat&#39;</span><span class="p">])</span>
+
+<span class="gp">In [97]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;[r|f]at|ee&#39;</span><span class="p">)</span>
+<span class="gh">Out[97]: </span><span class="go"></span>
+<span class="go">0    2</span>
+<span class="go">1    2</span>
+<span class="go">dtype: int64</span>
+
+<span class="gp">In [98]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
+<span class="gh">Out[98]: </span><span class="go"></span>
+<span class="go">0    14</span>
+<span class="go">1    19</span>
+<span class="go">dtype: int64</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id18">
+<h3>4. 格式型函数<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<p>格式型函数主要分为两类，第一种是除空型，第二种时填充型。其中，第一类函数一共有三种，它们分别是 <code class="docutils literal notranslate"><span class="pre">strip,</span> <span class="pre">rstrip,</span> <span class="pre">lstrip</span></code> ，分别代表去除两侧空格、右侧空格和左侧空格。这些函数在数据清洗时是有用的，特别是列名含有非法空格的时候。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [99]: </span><span class="n">my_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([</span><span class="s1">&#39; col1&#39;</span><span class="p">,</span> <span class="s1">&#39;col2 &#39;</span><span class="p">,</span> <span class="s1">&#39; col3 &#39;</span><span class="p">])</span>
+
+<span class="gp">In [100]: </span><span class="n">my_index</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
+<span class="gh">Out[100]: </span><span class="go">Int64Index([4, 4, 4], dtype=&#39;int64&#39;)</span>
+
+<span class="gp">In [101]: </span><span class="n">my_index</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
+<span class="gh">Out[101]: </span><span class="go">Int64Index([5, 4, 5], dtype=&#39;int64&#39;)</span>
+
+<span class="gp">In [102]: </span><span class="n">my_index</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
+<span class="gh">Out[102]: </span><span class="go">Int64Index([4, 5, 5], dtype=&#39;int64&#39;)</span>
+</pre></div>
+</div>
+<p>对于填充型函数而言， <code class="docutils literal notranslate"><span class="pre">pad</span></code> 是最灵活的，它可以选定字符串长度、填充的方向和填充内容：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [103]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">])</span>
+
+<span class="gp">In [104]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;left&#39;</span><span class="p">,</span><span class="s1">&#39;*&#39;</span><span class="p">)</span>
+<span class="gh">Out[104]: </span><span class="go"></span>
+<span class="go">0    ****a</span>
+<span class="go">1    ****b</span>
+<span class="go">2    ****c</span>
+<span class="go">dtype: object</span>
+
+<span class="gp">In [105]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;right&#39;</span><span class="p">,</span><span class="s1">&#39;*&#39;</span><span class="p">)</span>
+<span class="gh">Out[105]: </span><span class="go"></span>
+<span class="go">0    a****</span>
+<span class="go">1    b****</span>
+<span class="go">2    c****</span>
+<span class="go">dtype: object</span>
+
+<span class="gp">In [106]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;both&#39;</span><span class="p">,</span><span class="s1">&#39;*&#39;</span><span class="p">)</span>
+<span class="gh">Out[106]: </span><span class="go"></span>
+<span class="go">0    **a**</span>
+<span class="go">1    **b**</span>
+<span class="go">2    **c**</span>
+<span class="go">dtype: object</span>
+</pre></div>
+</div>
+<p>上述的三种情况可以分别用 <code class="docutils literal notranslate"><span class="pre">rjust,</span> <span class="pre">ljust,</span> <span class="pre">center</span></code> 来等效完成，需要注意 <code class="docutils literal notranslate"><span class="pre">ljust</span></code> 是指右侧填充而不是左侧填充：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [107]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">)</span>
+<span class="gh">Out[107]: </span><span class="go"></span>
+<span class="go">0    ****a</span>
+<span class="go">1    ****b</span>
+<span class="go">2    ****c</span>
+<span class="go">dtype: object</span>
+
+<span class="gp">In [108]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">)</span>
+<span class="gh">Out[108]: </span><span class="go"></span>
+<span class="go">0    a****</span>
+<span class="go">1    b****</span>
+<span class="go">2    c****</span>
+<span class="go">dtype: object</span>
+
+<span class="gp">In [109]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">)</span>
+<span class="gh">Out[109]: </span><span class="go"></span>
+<span class="go">0    **a**</span>
+<span class="go">1    **b**</span>
+<span class="go">2    **c**</span>
+<span class="go">dtype: object</span>
+</pre></div>
+</div>
+<p>在读取 <code class="docutils literal notranslate"><span class="pre">excel</span></code> 文件时，经常会出现数字前补0的需求，例如证券代码读入的时候会把”000007”作为数值7来处理， <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 中除了可以使用上面的左侧填充函数进行操作之外，还可用 <code class="docutils literal notranslate"><span class="pre">zfill</span></code> 来实现。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [110]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span> <span class="mi">155</span><span class="p">,</span> <span class="mi">303000</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span>
+
+<span class="gp">In [111]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;left&#39;</span><span class="p">,</span><span class="s1">&#39;0&#39;</span><span class="p">)</span>
+<span class="gh">Out[111]: </span><span class="go"></span>
+<span class="go">0    000007</span>
+<span class="go">1    000155</span>
+<span class="go">2    303000</span>
+<span class="go">dtype: string</span>
+
+<span class="gp">In [112]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;0&#39;</span><span class="p">)</span>
+<span class="gh">Out[112]: </span><span class="go"></span>
+<span class="go">0    000007</span>
+<span class="go">1    000155</span>
+<span class="go">2    303000</span>
+<span class="go">dtype: string</span>
+
+<span class="gp">In [113]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="gh">Out[113]: </span><span class="go"></span>
+<span class="go">0    000007</span>
+<span class="go">1    000155</span>
+<span class="go">2    303000</span>
+<span class="go">dtype: string</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id19">
+<h2>五、练习<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ex1">
+<h3>Ex1：房屋信息数据集<a class="headerlink" href="#ex1" title="Permalink to this headline">¶</a></h3>
+<p>现有一份房屋信息数据集如下：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [114]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;data/house_info.xls&#39;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span>
+<span class="gp">   .....: </span>                <span class="s1">&#39;floor&#39;</span><span class="p">,</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="s1">&#39;area&#39;</span><span class="p">,</span><span class="s1">&#39;price&#39;</span><span class="p">])</span>
+<span class="gp">   .....: </span>
+
+<span class="gp">In [115]: </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gh">Out[115]: </span><span class="go"></span>
+<span class="go">      floor    year    area price</span>
+<span class="go">0   高层（共6层）  1986年建  58.23㎡  155万</span>
+<span class="go">1  中层（共20层）  2020年建     88㎡  155万</span>
+<span class="go">2  低层（共28层）  2010年建  89.33㎡  365万</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>将 <code class="docutils literal notranslate"><span class="pre">year</span></code> 列改为整数年份存储。</p></li>
+<li><p>将 <code class="docutils literal notranslate"><span class="pre">floor</span></code> 列替换为 <code class="docutils literal notranslate"><span class="pre">Level,</span> <span class="pre">Highest</span></code> 两列，其中的元素分别为 <code class="docutils literal notranslate"><span class="pre">string</span></code> 类型的层类别（高层、中层、低层）与整数类型的最高层数。</p></li>
+<li><p>计算房屋每平米的均价 <code class="docutils literal notranslate"><span class="pre">avg_price</span></code> ，以 <code class="docutils literal notranslate"><span class="pre">***元/平米</span></code> 的格式存储到表中，其中 <code class="docutils literal notranslate"><span class="pre">***</span></code> 为整数。</p></li>
+</ol>
+</div>
+<div class="section" id="ex2">
+<h3>Ex2：《权力的游戏》剧本数据集<a class="headerlink" href="#ex2" title="Permalink to this headline">¶</a></h3>
+<p>现有一份权力的游戏剧本数据集如下：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [116]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/script.csv&#39;</span><span class="p">)</span>
+
+<span class="gp">In [117]: </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gh">Out[117]: </span><span class="go"></span>
+<span class="go">  Release Date    Season   Episode      Episode Title          Name                                           Sentence</span>
+<span class="go">0   2011-04-17  Season 1  Episode 1  Winter is Coming  waymar royce  What do you expect? They&#39;re savages. One lot s...</span>
+<span class="go">1   2011-04-17  Season 1  Episode 1  Winter is Coming          will  I&#39;ve never seen wildlings do a thing like this...</span>
+<span class="go">2   2011-04-17  Season 1  Episode 1  Winter is Coming  waymar royce                             How close did you get?</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>计算每一个 <code class="docutils literal notranslate"><span class="pre">Episode</span></code> 的台词条数。</p></li>
+<li><p>以空格为单词的分割符号，请求出单句台词平均单词量最多的前五个人。</p></li>
+<li><p>若某人的台词中含有问号，那么下一个说台词的人即为回答者。若上一人台词中含有 <span class="math notranslate nohighlight">\(n\)</span> 个问号，则认为回答者回答了 <span class="math notranslate nohighlight">\(n\)</span> 个问题，请求出回答最多问题的前五个人。</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.30270b6e4c972e43c488.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020, Datawhale, 耿远昊.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

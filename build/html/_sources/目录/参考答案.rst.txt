@@ -1,0 +1,916 @@
+****************************
+参考答案
+****************************
+
+.. ipython:: python
+    
+    import numpy as np
+    import pandas as pd
+    import matplotlib.pyplot as plt
+
+第一章 预备知识
+======================
+
+Ex1：利用列表推导式写矩阵乘法
+------------------------------------
+
+.. ipython:: python
+
+    M1 = np.random.rand(2,3)
+    M2 = np.random.rand(3,4)
+    res = [[sum([M1[i][k] * M2[k][j] for k in range(M1.shape[1])]) for j in range(M2.shape[1])] for i in range(M1.shape[0])]
+    (np.abs((M1@M2 - res) < 1e-15)).all()
+
+Ex2：更新矩阵
+------------------
+
+.. ipython:: python
+
+    A = np.arange(1,10).reshape(3,-1)
+    B = A*(1/A).sum(1).reshape(-1,1)
+    B
+
+Ex3：卡方统计量
+--------------------------
+
+.. ipython:: python
+
+    np.random.seed(0)
+    A = np.random.randint(10, 20, (8, 5))
+    B = A.sum(0)*A.sum(1).reshape(-1, 1)/A.sum()
+    res = ((A-B)**2/B).sum()
+    res
+
+Ex4：改进矩阵计算的性能
+------------------------------
+
+原方法：
+
+.. ipython:: python
+    
+    np.random.seed(0)
+    m, n, p = 100, 80, 50
+    B = np.random.randint(0, 2, (m, p))
+    U = np.random.randint(0, 2, (p, n))
+    Z = np.random.randint(0, 2, (m, n))
+
+.. ipython:: python
+
+    def solution(B=B, U=U, Z=Z):
+        L_res = []
+        for i in range(m):
+            for j in range(n):
+                norm_value = ((B[i]-U[:,j])**2).sum()
+                L_res.append(norm_value*Z[i][j])
+        return sum(L_res)
+
+    solution(B, U, Z)
+
+改进方法：
+
+令 :math:`Y_{ij} = \|B_i-U_j\|_2^2` ，则 :math:`\displaystyle R=\sum_{i=1}^m\sum_{j=1}^n Y_{ij}Z_{ij}` ，这在 ``Numpy`` 中可以用逐元素的乘法后求和实现，因此问题转化为了如何构造 :math:`Y` 矩阵。
+
+.. math::
+
+    Y_{ij} &= \|B_i-U_j\|_2^2\\
+    &=\sum_{k=1}^p(B_{ik}-U_{kj})^2\\
+    &=\sum_{k=1}^p B_{ik}^2+\sum_{k=1}^p U_{kj}^2-2\sum_{k=1}^p B_{ik}U_{kj}\\
+
+从上式可以看出，第一第二项分别为 :math:`B` 的行平方和与 :math:`U` 的列平方和，第三项是两倍的内积。因此， :math:`Y` 矩阵可以写为三个部分，第一个部分是 :math:`m\times n` 的全 :math:`1` 矩阵每行乘以 :math:`B` 对应行的行平方和，第二个部分是相同大小的全 :math:`1` 矩阵每列乘以 :math:`U` 对应列的列平方和，第三个部分恰为 :math:`B` 矩阵与 :math:`U` 矩阵乘积的两倍。从而结果如下：
+
+.. ipython:: python
+
+    (((B**2).sum(1).reshape(-1,1) + (U**2).sum(0) - 2*B@U)*Z).sum()
+
+对比它们的性能：
+
+.. ipython:: python
+
+    %timeit -n 30 solution(B, U, Z)
+
+.. ipython:: python
+
+    %timeit -n 30 ((np.ones((m,n))*(B**2).sum(1).reshape(-1,1) +\
+                      np.ones((m,n))*(U**2).sum(0) - 2*B@U)*Z).sum()
+
+Ex5：连续整数的最大长度
+------------------------------
+
+.. ipython:: python
+
+    f = lambda x:np.diff(np.nonzero(np.r_[1,np.diff(x)!=1,1])).max()
+    f([1,2,5,6,7])
+    f([3,2,1,2,3,4,6])
+
+第二章 pandas基础
+======================
+
+Ex1：口袋妖怪数据集
+--------------------------
+
+1.
+
+.. ipython:: python
+
+    df = pd.read_csv('data/pokemon.csv')
+    (df[['HP', 'Attack', 'Defense', 'Sp. Atk', 'Sp. Def', 'Speed'
+       ]].sum(1)!=df['Total']).mean()
+
+2.
+
+(a)
+
+.. ipython:: python
+
+    dp_dup = df.drop_duplicates('#', keep='first')
+    dp_dup['Type 1'].nunique()
+    dp_dup['Type 1'].value_counts().index[:3]
+
+(b)
+
+.. ipython:: python
+
+    attr_dup = dp_dup.drop_duplicates(['Type 1', 'Type 2'])
+    attr_dup.shape[0]
+
+(c)
+
+.. ipython:: python
+
+    L_full = [i+' '+j if i!=j else i for i in df['Type 1'
+             ].unique() for j in df['Type 1'].unique()]
+    L_part = [i+' '+j if not isinstance(j, float) else i for i, j in zip(
+              df['Type 1'], df['Type 2'])]
+    res = set(L_full).difference(set(L_part))
+    len(res) # 太多，不打印了
+
+3.
+
+(a)
+
+.. ipython:: python
+
+    df['Attack'].mask(df['Attack']>120, 'high'
+                     ).mask(df['Attack']<50, 'low').mask((50<=df['Attack']
+                     )&(df['Attack']<=120), 'mid').head()
+
+(b)
+
+.. ipython:: python
+
+    df['Type 1'].replace({i:str.upper(i) for i in df['Type 1'
+                ].unique()}).head()
+    df['Type 1'].apply(lambda x:str.upper(x)).head()
+
+(c)
+
+.. ipython:: python
+
+    df['Deviation'] = df[['HP', 'Attack', 'Defense', 'Sp. Atk',
+                         'Sp. Def', 'Speed']].apply(lambda x:np.max(
+                         (x-x.median()).abs()), 1)
+    df.sort_values('Deviation', ascending=False).head()
+
+Ex2：指数加权窗口
+--------------------------
+
+1.
+
+.. ipython:: python
+
+    np.random.seed(0)
+    s = pd.Series(np.random.randint(-1,2,30).cumsum())
+    s.ewm(alpha=0.2).mean().head()
+
+    def ewm_func(x, alpha=0.2):
+        win = (1-alpha)**np.arange(x.shape[0])[::-1]
+        res = (win*x).sum()/win.sum()
+        return res
+
+    s.expanding().apply(ewm_func).head()
+
+2.
+
+新的权重为 :math:`w_i = (1 - \alpha)^i, i\in \{0,1,...,n-1\}` ，:math:`y_t` 更新如下：
+
+.. math::
+
+    y_t &=\frac{\sum_{i=0}^{n-1} w_i x_{t-i}}{\sum_{i=0}^{n-1} w_i} \\
+    &=\frac{x_t + (1 - \alpha)x_{t-1} + (1 - \alpha)^2 x_{t-2} + ...
+    + (1 - \alpha)^{n-1} x_{t-(n-1)}}{1 + (1 - \alpha) + (1 - \alpha)^2 + ...
+    + (1 - \alpha)^{n-1}}\\
+
+.. ipython:: python
+
+    s.rolling(window=4).apply(ewm_func).head() # 无需对原函数改动
+
+第三章 索引
+======================
+
+Ex1：公司员工数据集
+--------------------------------
+
+1.
+
+.. ipython:: python
+
+    df = pd.read_csv('data/company.csv')
+    dpt = ['Dairy', 'Bakery']
+    df.query("(age <= 40)&(department == @dpt)&(gender=='M')").head(3)
+    df.loc[(df.age<=40)&df.department.isin(dpt)&(df.gender=='M')].head(3)
+
+2.
+
+.. ipython:: python
+
+    df.iloc[(df.EmployeeID%2==1).values,[0,2,-2]].head()
+
+3.
+
+.. ipython:: python
+
+    df_op = df.copy()
+    df_op = df_op.set_index(df_op.columns[-3:].tolist()).swaplevel(0,2,axis=0)
+    df_op = df_op.reset_index(level=1)
+    df_op = df_op.rename_axis(index={'gender':'Gender'})
+    df_op.index = df_op.index.map(lambda x:'_'.join(x))
+    df_op.index = df_op.index.map(lambda x:tuple(x.split('_')))
+    df_op = df_op.rename_axis(index=['gender', 'department'])
+    df_op = df_op.reset_index().reindex(df.columns, axis=1)
+    df_op.equals(df)
+
+Ex2：巧克力数据集
+--------------------------
+
+1.
+
+.. ipython:: python
+    
+    df = pd.read_csv('data/chocolate.csv')
+    df.columns = [' '.join(i.split('\n')) for i in df.columns]
+    df.head(3)
+
+2.
+
+.. ipython:: python
+
+    df['Cocoa Percent'] = df['Cocoa Percent'].apply(lambda x:float(x[:-1])/100)
+    df.query('(Rating<3)&(`Cocoa Percent`>`Cocoa Percent`.median())').head(3)
+
+3.
+
+.. ipython:: python
+
+    idx = pd.IndexSlice
+    exclude = ['France', 'Canada', 'Amsterdam', 'Belgium']
+    res = df.set_index(['Review Date', 'Company Location']).sort_index(level=0)
+    res.loc[idx[2012:,~res.index.get_level_values(1).isin(exclude)],:].head(3)
+
+第四章 分组
+======================
+
+Ex1：汽车数据集
+--------------------
+
+现有一份关于汽车的数据集，其中 ``Brand, Disp., HP`` 分别代表汽车品牌、发动机蓄量、发动机输出。
+
+.. ipython:: python
+
+    df = pd.read_csv('data/car.csv')
+    df.head(3)
+
+1.
+
+.. ipython:: python
+
+    df.groupby('Country').filter(lambda x:x.shape[0]>2).groupby(
+               'Country')['Price'].agg([(
+               'CoV', lambda x: x.std()/x.mean()), 'mean', 'count'])
+
+2.
+
+.. ipython:: python
+
+    df.shape[0]
+    condition = ['Head']*20+['Mid']*20+['Tail']*20
+    df.groupby(condition)['Price'].mean()
+
+3. 
+
+.. ipython:: python
+
+    res = df.groupby('Type').agg({'Price': ['max'], 'HP': ['min']})
+    res.columns = res.columns.map(lambda x:'_'.join(x))
+    res
+
+4.
+
+.. ipython:: python
+
+    def normalize(s):
+        s_min, s_max = s.min(), s.max()
+        res = (s - s_min)/(s_max - s_min)
+        return res
+
+    df.groupby('Type')['HP'].transform(normalize).head()
+
+5.
+
+.. ipython:: python
+
+    df.groupby('Type')[['HP', 'Disp.']].apply(
+       lambda x:np.corrcoef(x['HP'].values, x['Disp.'].values)[0,1])
+
+Ex2：实现transform函数
+-------------------------------------------
+
+.. ipython:: python
+
+    class my_groupby:
+        def __init__(self, my_df, group_cols):
+            self.my_df = my_df.copy()
+            self.groups = my_df[group_cols].drop_duplicates()
+            if isinstance(self.groups, pd.Series):
+                self.groups = self.groups.to_frame()
+            self.group_cols = self.groups.columns.tolist()
+            self.groups = {i: self.groups[i].values.tolist(
+                           ) for i in self.groups.columns}
+            self.transform_col = None
+        def __getitem__(self, col):
+            self.pr_col = [col] if isinstance(col, str) else list(col)
+            return self
+        def transform(self, my_func):
+            self.num = len(self.groups[self.group_cols[0]])
+            L_order, L_value = np.array([]), np.array([])
+            for i in range(self.num):
+                group_df = self.my_df.reset_index().copy()
+                for col in self.group_cols:
+                    group_df = group_df[group_df[col]==self.groups[col][i]]
+                group_df = group_df[self.pr_col]
+                if group_df.shape[1] == 1:
+                    group_df = group_df.iloc[:, 0]
+                group_res = my_func(group_df)
+                if not isinstance(group_res, pd.Series):
+                    group_res = pd.Series(group_res,
+                                          index=group_df.index,
+                                          name=group_df.name)
+                L_order = np.r_[L_order, group_res.index]
+                L_value = np.r_[L_value, group_res.values]
+            self.res = pd.Series(pd.Series(L_value, index=L_order).sort_index(
+                       ).values,index=self.my_df.reset_index(
+                       ).index, name=my_func.__name__)
+            return self.res
+
+    my_groupby(df, 'Type')
+
+单列分组：
+
+.. ipython:: python
+
+    def f(s):
+        res = (s-s.min())/(s.max()-s.min())
+        return res
+
+    my_groupby(df, 'Type')['Price'].transform(f).head()
+    df.groupby('Type')['Price'].transform(f).head()
+
+多列分组：
+
+.. ipython:: python
+
+    my_groupby(df, ['Type','Country'])['Price'].transform(f).head()
+    df.groupby(['Type','Country'])['Price'].transform(f).head()
+
+标量广播：
+
+.. ipython:: python
+
+    my_groupby(df, 'Type')['Price'].transform(lambda x:x.mean()).head()
+    df.groupby('Type')['Price'].transform(lambda x:x.mean()).head()
+
+跨列计算：
+
+.. ipython:: python
+
+    my_groupby(df, 'Type')['Disp.', 'HP'].transform(
+                   lambda x: x['Disp.']/x.HP).head()
+
+第五章 变形
+======================
+
+Ex1：美国非法药物数据集
+---------------------------------
+
+1.
+
+.. ipython:: python
+
+   df = pd.read_csv('data/drugs.csv').sort_values([
+        'State','COUNTY','SubstanceName'],ignore_index=True)
+   res = df.pivot(index=['State','COUNTY','SubstanceName'
+                 ], columns='YYYY', values='DrugReports'
+                 ).reset_index().rename_axis(columns={'YYYY':''})
+   res.head(5)
+
+2.
+
+.. ipython:: python
+
+   res_melted = res.melt(id_vars = ['State','COUNTY','SubstanceName'],
+                        value_vars = res.columns[-8:],
+                        var_name = 'YYYY',
+                        value_name = 'DrugReports').dropna(
+                        subset=['DrugReports'])
+    res_melted = res_melted[df.columns].sort_values([
+                 'State','COUNTY','SubstanceName'],ignore_index=True
+                 ).astype({'YYYY':'int64', 'DrugReports':'int64'})
+   res_melted.equals(df)
+
+3.
+
+策略一：
+
+.. ipython:: python
+
+   res = df.pivot_table(index='YYYY', columns='State',
+                        values='DrugReports', aggfunc='sum')
+   res.head(3)
+
+策略二：
+
+.. ipython:: python
+
+   res = df.groupby(['State', 'YYYY'])['DrugReports'].sum(
+                   ).to_frame().unstack(0).droplevel(0,axis=1)
+   res.head(3)
+
+Ex2：特殊的wide_to_long方法
+-------------------------------------
+
+.. ipython:: python
+
+   df = pd.DataFrame({'Class':[1,2],
+                     'Name':['San Zhang', 'Si Li'],
+                     'Chinese':[80, 90],
+                     'Math':[80, 75]})
+   df
+
+.. ipython:: python
+
+    df = df.rename(columns={'Chinese':'pre_Chinese', 'Math':'pre_Math'})
+    pd.wide_to_long(df,
+                    stubnames=['pre'],
+                    i = ['Class', 'Name'],
+                    j='Subject',
+                    sep='_',
+                    suffix='.+').reset_index().rename(columns={'pre':'Grade'})
+
+第六章 连接
+======================
+
+Ex1：美国疫情数据集
+------------------------------
+
+.. ipython:: python
+
+    date = pd.date_range('20200412', '20201116').to_series()
+    date = date.dt.month.astype('string').str.zfill(2
+           ) +'-'+ date.dt.day.astype('string'
+           ).str.zfill(2) +'-'+ '2020'
+    date = date.tolist()
+
+.. ipython:: python
+
+    L = []
+    for d in date:
+        df = pd.read_csv('data/us_report/' + d + '.csv', index_col='Province_State')
+        data = df.loc['New York', ['Confirmed','Deaths',
+                      'Recovered','Active']]
+        L.append(data.to_frame().T)
+    res = pd.concat(L)
+    res.index = date
+    res.head()
+
+Ex2：实现join函数
+------------------------------
+
+.. ipython:: python
+
+    def join(df1, df2, how='left'):
+        res_col = df1.columns.tolist() +  df2.columns.tolist()
+        dup = df1.index.unique().intersection(df2.index.unique())
+        res_df = pd.DataFrame(columns = res_col)
+        for label in dup:
+            cartesian = [list(i)+list(j) for i in df1.loc[label
+                        ].values for j in df2.loc[label].values]
+            dup_df = pd.DataFrame(cartesian, index = [label]*len(
+                     cartesian), columns = res_col)
+            res_df = pd.concat([res_df,dup_df])
+        if how in ['left', 'outer']:
+            for label in df1.index.unique().difference(dup):
+                if isinstance(df1.loc[label], pd.DataFrame):
+                    cat = [list(i)+[np.nan]*df2.shape[1
+                          ] for i in df1.loc[label].values]
+                else: cat = [list(i)+[np.nan]*df2.shape[1
+                          ] for i in df1.loc[label].to_frame().values]
+                dup_df = pd.DataFrame(cat, index = [label
+                          ]*len(cat), columns = res_col)
+                res_df = pd.concat([res_df,dup_df])
+        if how in ['right', 'outer']:
+            for label in df2.index.unique().difference(dup):
+                if isinstance(df2.loc[label], pd.DataFrame):
+                    cat = [[np.nan]+list(i)*df1.shape[1
+                          ] for i in df2.loc[label].values]
+                else: cat = [[np.nan]+list(i)*df1.shape[1
+                          ] for i in df2.loc[label].to_frame().values]
+                dup_df = pd.DataFrame(cat, index = [label
+                          ]*len(cat), columns = res_col)
+                res_df = pd.concat([res_df,dup_df])
+        return res_df
+
+    df1 = pd.DataFrame({'col1':list('01234')}, index=list('AABCD'))
+    df1
+    df2 = pd.DataFrame({'col2':list('opqrst')}, index=list('ABBCEE'))
+    df2
+    join(df1, df2, how='outer')
+
+第七章 缺失数据
+======================
+
+Ex1：缺失值与类别的相关性检验
+---------------------------------
+
+.. ipython:: python
+
+    df = pd.read_csv('data/missing_chi.csv')
+    cat_1 = df.X_1.fillna('NaN').mask(df.X_1.notna()).fillna("NotNaN")
+    cat_2 = df.X_2.fillna('NaN').mask(df.X_2.notna()).fillna("NotNaN")
+    df_1 = pd.crosstab(cat_1, df.y, margins=True)
+    df_2 = pd.crosstab(cat_2, df.y, margins=True)
+    def compute_S(my_df):
+        S = []
+        for i in range(2):
+            for j in range(2):
+                E = my_df.iat[i, j]
+                F = my_df.iat[i, 2]*my_df.iat[2, j]/my_df.iat[2,2]
+                S.append((E-F)**2/F)
+        return sum(S)
+
+    res1 = compute_S(df_1)
+    res2 = compute_S(df_2)
+    from scipy.stats import chi2
+    chi2.sf(res1, 1) # X_1检验的p值 # 不能认为相关，剔除
+    chi2.sf(res2, 1) # X_2检验的p值 # 认为相关，保留
+
+结果与 ``scipy.stats.chi2_contingency`` 在不使用 :math:`Yates` 修正的情况下完全一致：
+
+.. ipython:: python
+
+    from scipy.stats import chi2_contingency
+    chi2_contingency(pd.crosstab(cat_1, df.y), correction=False)[1]
+    chi2_contingency(pd.crosstab(cat_2, df.y), correction=False)[1]
+
+Ex2：用回归模型解决分类问题
+---------------------------------------------
+
+1.
+
+.. ipython:: python
+
+    from sklearn.neighbors import KNeighborsRegressor
+    df = pd.read_excel('data/color.xlsx')
+    df_dummies = pd.get_dummies(df.Color)
+    stack_list = []
+    for col in df_dummies.columns:
+        clf = KNeighborsRegressor(n_neighbors=6)
+        clf.fit(df.iloc[:,:2], df_dummies[col])
+        res = clf.predict([[0.8, -0.2]]).reshape(-1,1)
+        stack_list.append(res)
+    code_res = pd.Series(np.hstack(stack_list).argmax(1))
+    df_dummies.columns[code_res[0]]
+
+2.
+
+.. ipython:: python
+
+    from sklearn.neighbors import KNeighborsRegressor
+    df = pd.read_csv('data/audit.csv')
+    res_df = df.copy()
+    df = pd.concat([pd.get_dummies(df[['Marital', 'Gender']]),
+        df[['Age','Income','Hours']].apply(
+            lambda x:(x-x.min())/(x.max()-x.min())), df.Employment],1)
+    X_train = df.query('Employment.notna()')
+    X_test = df.query('Employment.isna()')
+    df_dummies = pd.get_dummies(X_train.Employment)
+    stack_list = []
+    for col in df_dummies.columns:
+        clf = KNeighborsRegressor(n_neighbors=6)
+        clf.fit(X_train.iloc[:,:-1], df_dummies[col])
+        res = clf.predict(X_test.iloc[:,:-1]).reshape(-1,1)
+        stack_list.append(res)
+    code_res = pd.Series(np.hstack(stack_list).argmax(1))
+    cat_res = code_res.replace(dict(zip(list(
+                range(df_dummies.shape[0])),df_dummies.columns)))
+    res_df.loc[res_df.Employment.isna(), 'Employment'] = cat_res.values
+    res_df.isna().sum()
+
+第八章 文本数据
+======================
+
+Ex1：房屋信息数据集
+---------------------------
+
+1.
+
+.. ipython:: python
+
+    df = pd.read_excel('data/house_info.xls', usecols=[
+                    'floor','year','area','price'])
+    df.year = pd.to_numeric(df.year.str[:-2]).astype('Int64')
+    df.head(3)
+
+2.
+
+.. ipython:: python
+
+    pat = '(\w层)（共(\d+)层）'
+    new_cols = df.floor.str.extract(pat).rename(
+                        columns={0:'Level', 1:'Highest'})
+    df = pd.concat([df.drop(columns=['floor']), new_cols], 1)
+    df.head(3)
+
+3.
+
+.. ipython:: python
+
+    s_area = pd.to_numeric(df.area.str[:-1])
+    s_price = pd.to_numeric(df.price.str[:-1])
+    df['avg_price'] = ((s_price/s_area)*10000).astype(
+                        'int').astype('string') + '元/平米'
+    df.head(3)
+
+Ex2：《权力的游戏》剧本数据集
+-------------------------------------
+
+1.
+
+.. ipython:: python
+
+    df = pd.read_csv('data/script.csv')
+    df.columns = df.columns.str.strip()
+    df.groupby(['Season', 'Episode'])['Sentence'].count().head()
+
+2.
+
+.. ipython:: python
+
+    df.set_index('Name').Sentence.str.split().str.len(
+     ).groupby('Name').mean().sort_values(ascending=False).head()
+
+3.
+
+.. ipython:: python
+
+    s = pd.Series(df.Sentence.values, index=df.Name.shift(-1))
+    s.str.count('\?').groupby('Name').sum().sort_values(ascending=False).head()
+
+第九章 分类数据
+======================
+
+Ex1：统计未出现的类别
+--------------------------------
+
+.. ipython:: python
+
+    def my_crosstab(s1, s2, dropna=True):
+        idx1 = (s1.cat.categories if s1.dtype.name == 'category' and
+                                 not dropna else s1.unique())
+        idx2 = (s2.cat.categories if s2.dtype.name == 'category' and
+                                 not dropna else s2.unique())
+        res = pd.DataFrame(np.zeros((idx1.shape[0], idx2.shape[0])),
+                        index=idx1, columns=idx2)
+        for i, j in zip(s1, s2):
+            res.at[i, j] += 1
+        res = res.rename_axis(index=s1.name, columns=s2.name).astype('int')
+        return res
+
+    df = pd.DataFrame({'A':['a','b','c','a'],
+                       'B':['cat','cat','dog','cat']})
+    df.B = df.B.astype('category').cat.add_categories('sheep')
+    my_crosstab(df.A, df.B)
+    my_crosstab(df.A, df.B, dropna=False)
+
+Ex2：钻石数据集
+----------------------
+
+1.
+
+.. ipython:: python
+
+    df = pd.read_csv('data/diamonds.csv')
+    s_obj, s_cat = df.cut, df.cut.astype('category')
+
+.. ipython:: python
+
+    %timeit -n 30 s_obj.nunique()
+
+.. ipython:: python
+
+    %timeit -n 30 s_cat.nunique()
+
+2.
+
+.. ipython:: python
+
+    df.cut = df.cut.astype('category').cat.reorder_categories([
+            'Fair', 'Good', 'Very Good', 'Premium', 'Ideal'],ordered=True)
+    df.clarity = df.clarity.astype('category').cat.reorder_categories([
+            'I1', 'SI2', 'SI1', 'VS2', 'VS1', 'VVS2', 'VVS1', 'IF'],ordered=True)
+    res = df.sort_values(['cut', 'clarity'], ascending=[False, True])
+    res.head(3)
+    res.tail(3)
+
+3.
+
+.. ipython:: python
+
+    df.cut = df.cut.cat.reorder_categories(
+            df.cut.cat.categories[::-1])
+    df.clarity = df.clarity.cat.reorder_categories(
+                df.clarity.cat.categories[::-1])
+    df.cut = df.cut.cat.codes # 方法一：利用cat.codes
+    clarity_cat = df.clarity.cat.categories
+    df.clarity = df.clarity.replace(dict(zip(
+                clarity_cat, np.arange(
+                    len(clarity_cat))))) # 方法二：使用replace映射
+    df.head(3)
+
+4.
+
+.. ipython:: python
+
+    q = [0, 0.2, 0.4, 0.6, 0.8, 1]
+    point = [-np.infty, 1000, 3500, 5500, 18000, np.infty]
+    avg = df.price / df.carat
+    df['avg_cut'] = pd.cut(avg, bins=point, labels=[
+                    'Very Low', 'Low', 'Mid', 'High', 'Very High'])
+    df['avg_qcut'] = pd.qcut(avg, q=q, labels=[
+                    'Very Low', 'Low', 'Mid', 'High', 'Very High'])
+    df.head()
+
+5.
+
+.. ipython:: python
+
+    df.avg_cut.unique()
+    df.avg_cut.cat.categories
+    df.avg_cut = df.avg_cut.cat.remove_categories([
+                'Very Low', 'Very High'])
+    df.avg_cut.head(3)
+
+6.
+
+.. ipython:: python
+
+    interval_avg = pd.IntervalIndex(pd.qcut(avg, q=q))
+    interval_avg.right.to_series().reset_index(drop=True).head(3)
+    interval_avg.left.to_series().reset_index(drop=True).head(3)
+    interval_avg.length.to_series().reset_index(drop=True).head(3)
+
+第十章 时序数据
+======================
+
+Ex1：太阳辐射数据集
+--------------------------------
+
+1.
+
+.. ipython:: python
+
+    df = pd.read_csv('data/solar.csv', usecols=['Data','Time',
+                     'Radiation','Temperature'])
+    solar_date = df.Data.str.extract('([/|\w]+\s).+')[0]
+    df['Data'] = pd.to_datetime(solar_date + df.Time)
+    df = df.drop(columns='Time').rename(columns={'Data':'Datetime'}
+                ).set_index('Datetime').sort_index()
+    df.head(3)
+
+2.
+
+(a)
+
+.. ipython:: python
+
+    s = df.index.to_series().reset_index(drop=True).diff().dt.total_seconds()
+    max_3 = s.nlargest(3).index
+    df.index[max_3.union(max_3-1)]
+
+(b)
+
+.. ipython:: python
+
+    res = s.mask((s>s.quantile(0.99))|(s<s.quantile(0.01)))
+
+    @savefig ch10_ex1.png width=400
+    _ = plt.hist(res, bins=50)
+
+3.
+
+(a)
+
+.. ipython:: python
+
+    res = df.Radiation.rolling('6H').corr(df.Temperature)
+    res.tail(3)
+
+(b)
+
+.. ipython:: python
+
+    res = df.Temperature.resample('6H', origin='03:00:00').mean()
+    res.head(3)
+
+(c)
+
+.. ipython:: python
+
+    my_dt = df.index.shift(freq='-6H')
+    int_loc = [df.index.get_loc(i, method='nearest') for i in my_dt]
+    res = df.Radiation.iloc[int_loc]
+    res.tail(3)
+
+Ex2：水果销量数据集
+-------------------------------
+
+1.
+
+(a)
+
+.. ipython:: python
+
+    df = pd.read_csv('data/fruit.csv')
+    df.Date = pd.to_datetime(df.Date)
+    df_grape = df.query("Fruit == 'Grape'")
+    res = df_grape.groupby([np.where(df_grape.Date.dt.day<=15,
+                            'First', 'Second'),df_grape.Date.dt.month]
+                            )['Sale'].mean().to_frame().unstack(0
+                            ).droplevel(0,axis=1)
+    res = (res.First/res.Second).rename_axis('Month')
+    res.head()
+
+(b)
+
+.. ipython:: python
+
+    df[df.Date.dt.is_month_end].query("Fruit == 'Pear'"
+                              ).groupby('Date').Sale.sum().head()
+
+(c)
+
+.. ipython:: python
+
+    df[df.Date.isin(pd.date_range('20190101', '20191231',
+                    freq='BM'))].query("Fruit == 'Pear'"
+                    ).groupby('Date').Sale.mean().head()
+
+(d)
+
+.. ipython:: python
+
+    target_dt = df.drop_duplicates().groupby(df.Date.drop_duplicates(
+                ).dt.month)['Date'].nlargest(5).reset_index(drop=True)
+    res = df.set_index('Date').loc[target_dt].reset_index(
+                ).query("Fruit == 'Apple'")
+    res = res.groupby(res.Date.dt.month)['Sale'].mean(
+                ).rename_axis('Month')
+    res.head()
+
+2.
+
+.. ipython:: python
+
+    month_order = ['January','February','March','April',
+                    'May','June','July','August','September',
+                    'October','November','December']
+    week_order = ['Mon','Tue','Wed','Thu','Fri','Sat','Sum']
+    group1 = df.Date.dt.month_name().astype('category').cat.reorder_categories(
+            month_order, ordered=True)
+    group2 = df.Fruit
+    group3 = df.Date.dt.dayofweek.replace(dict(zip(range(7),week_order))
+             ).astype('category').cat.reorder_categories(
+             week_order, ordered=True)
+    res = df.groupby([group1, group2,group3])['Sale'].count().to_frame(
+             ).unstack(0).droplevel(0,axis=1)
+    res.head()
+
+3.
+
+.. ipython:: python
+
+    df_apple = df[(df.Fruit=='Apple')&(
+                  ~df.Date.dt.dayofweek.isin([5,6]))]
+    s = pd.Series(df_apple.Sale.values,
+                  index=df_apple.Date).groupby('Date').sum()
+    res = s.rolling('10D').mean().reindex(
+                  pd.date_range('20190101','20191231')).fillna(method='ffill')
+    res.head()
