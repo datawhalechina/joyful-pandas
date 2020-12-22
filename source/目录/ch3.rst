@@ -394,7 +394,6 @@
 
 .. ipython:: python
 
-    import warnings
     with warnings.catch_warnings():
         warnings.filterwarnings('error')
         try:
