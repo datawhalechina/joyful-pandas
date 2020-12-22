@@ -60,6 +60,17 @@
     
     s['c': 'b': -2]
 
+如果前后端点的值存在重复，即非唯一值，那么需要经过排序才能使用切片：
+
+.. ipython:: python
+
+    try:
+        s['a': 'b']
+    except Exception as e:
+        Err_Msg = e
+    Err_Msg
+    s.sort_index()['a': 'b']
+
 【b】以整数为索引的 ``Series``
 
 在使用数据的读入函数时，如果不特别指定所对应的列作为索引，那么会生成从0开始的整数索引作为默认索引。当然，任意一组符合长度要求的整数都可以作为索引。
@@ -377,21 +388,47 @@
     df_multi = df.set_index(['School', 'Grade'])
     df_multi.head()
 
-由于多级索引中的单个元素以元组为单位，因此之前在第一节介绍的 ``loc`` 和 ``iloc`` 方法完全可以照搬，只需把标量的位置替换成对应的元组，不过在索引前最好对 ``MultiIndex`` 进行排序以避免性能警告：
+由于多级索引中的单个元素以元组为单位，因此之前在第一节介绍的 ``loc`` 和 ``iloc`` 方法完全可以照搬，只需把标量的位置替换成对应的元组。
+
+当传入元组列表或单个元组或返回前二者的函数时，需要先进行索引排序以避免性能警告：
 
 .. ipython:: python
 
-    df_multi = df_multi.sort_index()
-    df_multi.loc[('Fudan University', 'Junior')].head()
-    df_multi.loc[[('Fudan University', 'Senior'),
+    import warnings
+    with warnings.catch_warnings():
+        warnings.filterwarnings('error')
+        try:
+            df_multi.loc[('Fudan University', 'Junior')].head()
+        except Warning as w:
+            Warning_Msg = w
+    Warning_Msg
+    df_sorted = df_multi.sort_index()
+    df_sorted.loc[('Fudan University', 'Junior')].head()
+    df_sorted.loc[[('Fudan University', 'Senior'),
                   ('Shanghai Jiao Tong University', 'Freshman')]].head()
-    df_multi.loc[df_multi.Weight > 70].head() # 布尔列表也是可用的
-    df_multi.loc[lambda x:('Fudan University','Junior')].head()
+    df_sorted.loc[df_sorted.Weight > 70].head() # 布尔列表也是可用的
+    df_sorted.loc[lambda x:('Fudan University','Junior')].head()
 
-.. admonition:: 练一练
-   :class: hint
+当使用切片时需要注意，在单级别索引中只要切片端点元素是唯一的，那么就可以进行切片，但在多级索引中，无论元组在索引中是否重复出现，都必须经过排序才能使用切片，否则报错：
 
-    与单层索引类似，若存在重复元素，则不能使用切片，请去除重复索引后给出一个元素切片的例子。
+.. ipython:: python
+
+    try:
+        df_multi.loc[('Fudan University', 'Senior'):].head()
+    except Exception as e:
+        Err_Msg = e
+    Err_Msg
+    df_sorted.loc[('Fudan University', 'Senior'):].head()
+    df_unique = df.drop_duplicates(subset=['School','Grade']
+                                  ).set_index(['School', 'Grade'])
+    df_unique.head()
+
+    try:
+        df_unique.loc[('Fudan University', 'Senior'):].head()
+    except Exception as e:
+        Err_Msg = e
+    Err_Msg
+    df_unique.sort_index().loc[('Fudan University', 'Senior'):].head()
 
 此外，在多级索引中的元组有一种特殊的用法，可以对多层的元素进行交叉组合后索引，但同时需要指定 ``loc`` 的列，全选则用 ``:`` 表示。其中，每一层需要选中的元素用列表存放，传入 ``loc`` 的形式为 ``[(level_0_list, level_1_list), cols]`` 。例如，想要得到所有北大和复旦的大二大三学生，可以如下写出：
 
