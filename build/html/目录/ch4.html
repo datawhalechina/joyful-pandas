@@ -349,7 +349,7 @@
 </div>
 <div class="section" id="id4">
 <h3>2. 分组依据的本质<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p>前面提到的若干例子都是以单一维度进行分组的，比如根据性别，如果现在需要根据多个维度进行分组，该如何做？事实上，只需在 <code class="docutils literal notranslate"><span class="pre">groupby</span></code> 中传入相应列名构成的列表即可。例如，现想根据学校和性别进行分组，统计身高的均值就可以如下写出：</p>
+<p>前面提到的若干例子都是以单一维度进行分组的，比如根据性别，如果现在需要根据多个维度进行分组，该如何做？事实上，只需在 <code class="docutils literal notranslate"><span class="pre">groupby</span></code> 中传入相应列名构成的列表即可。例如，现希望根据学校和性别进行分组，统计身高的均值就可以如下写出：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;School&#39;</span><span class="p">,</span> <span class="s1">&#39;Gender&#39;</span><span class="p">])[</span><span class="s1">&#39;Height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="gh">Out[5]: </span><span class="go"></span>
 <span class="go">School                         Gender</span>
@@ -364,7 +364,7 @@
 <span class="go">Name: Height, dtype: float64</span>
 </pre></div>
 </div>
-<p>目前为止， <code class="docutils literal notranslate"><span class="pre">groupby</span></code> 的分组依据都是直接可以从列中按照名字获取的，那如果想要通过一定的复杂逻辑来分组，例如根据学生体重是否超过总体均值来分组，同样还是计算身高的均值。</p>
+<p>目前为止， <code class="docutils literal notranslate"><span class="pre">groupby</span></code> 的分组依据都是直接可以从列中按照名字获取的，那如果希望通过一定的复杂逻辑来分组，例如根据学生体重是否超过总体均值来分组，同样还是计算身高的均值。</p>
 <p>首先应该先写出分组条件：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="n">condition</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Weight</span> <span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">Weight</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
@@ -442,10 +442,10 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">gb</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;School&#39;</span><span class="p">,</span> <span class="s1">&#39;Grade&#39;</span><span class="p">])</span>
 
 <span class="gp">In [14]: </span><span class="n">gb</span>
-<span class="gh">Out[14]: </span><span class="go">&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x00000263B9E494C8&gt;</span>
+<span class="gh">Out[14]: </span><span class="go">&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x0000024372714408&gt;</span>
 </pre></div>
 </div>
-<p>通过 <code class="docutils literal notranslate"><span class="pre">ngroups</span></code> 属性，可以访问分为了多少组：</p>
+<p>通过 <code class="docutils literal notranslate"><span class="pre">ngroups</span></code> 属性，可以得到分组个数：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="n">gb</span><span class="o">.</span><span class="n">ngroups</span>
 <span class="gh">Out[15]: </span><span class="go">16</span>
 </pre></div>
@@ -499,7 +499,7 @@
 </div>
 <div class="section" id="id5">
 <h3>4. 分组的三大操作<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<p>熟悉了一些分组的基本知识后，重新回到开头举的三个例子，可能会发现一些端倪，即这三种类型的分组返回数据的结果型态并不一样：</p>
+<p>熟悉了一些分组的基本知识后，重新回到开头举的三个例子，可能会发现一些端倪，即这三种类型分组返回的数据型态并不一样：</p>
 <ul class="simple">
 <li><p>第一个例子中，每一个组返回一个标量值，可以是平均值、中位数、组容量 <code class="docutils literal notranslate"><span class="pre">size</span></code> 等</p></li>
 <li><p>第二个例子中，做了原序列的标准化处理，也就是说每组返回的是一个 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 类型</p></li>
@@ -559,7 +559,7 @@
 </ul>
 <p>下面说明如何通过 <code class="docutils literal notranslate"><span class="pre">agg</span></code> 函数解决这四类问题：</p>
 <p>【a】使用多个函数</p>
-<p>当使用多个聚合函数时，需要用列表的形式把内置聚合函数的对应的字符串传入，先前提到的所有字符串都是合法的。</p>
+<p>当使用多个聚合函数时，需要用列表的形式把内置聚合函数对应的字符串传入，先前提到的所有字符串都是合法的。</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [25]: </span><span class="n">gb</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;idxmax&#39;</span><span class="p">,</span> <span class="s1">&#39;skew&#39;</span><span class="p">])</span>
 <span class="gh">Out[25]: </span><span class="go"></span>
 <span class="go">         Height                   Weight                 </span>
@@ -620,7 +620,7 @@
 </pre></div>
 </div>
 <p>【d】聚合结果重命名</p>
-<p>如果想要对结果进行重命名，只需要将上述函数的位置改写成元组，元组的第一个元素为新的名字，第二个位置为原来的函数，包括聚合字符串和自定义函数，现举若干例子说明：</p>
+<p>如果想要对聚合结果的列名进行重命名，只需要将上述函数的位置改写成元组，元组的第一个元素为新的名字，第二个位置为原来的函数，包括聚合字符串和自定义函数，现举若干例子说明：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [30]: </span><span class="n">gb</span><span class="o">.</span><span class="n">agg</span><span class="p">([(</span><span class="s1">&#39;range&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;my_sum&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">)])</span>
 <span class="gh">Out[30]: </span><span class="go"></span>
 <span class="go">       Height          Weight        </span>
@@ -718,7 +718,7 @@
 <div class="section" id="id9">
 <h3>2. 组索引与过滤<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <p>在上一章中介绍了索引的用法，那么索引和过滤有什么区别呢？</p>
-<p>过滤在分组中是对于组的过滤，而索引是对于行的过滤，在第二章中的返回值，无论是布尔列表还是元素列表或者位置列表，本质上都是对于行的筛选，即如果筛选条件的则选入结果的表，否则不选入。</p>
+<p>过滤在分组中是对于组的过滤，而索引是对于行的过滤，在第二章中的返回值，无论是布尔列表还是元素列表或者位置列表，本质上都是对于行的筛选，即如果符合筛选条件的则选入结果表，否则不选入。</p>
 <p>组过滤作为行过滤的推广，指的是如果对一个组的全体所在行进行统计的结果返回 <code class="docutils literal notranslate"><span class="pre">True</span></code> 则会被保留， <code class="docutils literal notranslate"><span class="pre">False</span></code> 则该组会被过滤，最后把所有未被过滤的组其对应的所在行拼接起来作为 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> 返回。</p>
 <p>在 <code class="docutils literal notranslate"><span class="pre">groupby</span></code> 对象中，定义了 <code class="docutils literal notranslate"><span class="pre">filter</span></code> 方法进行组的筛选，其中自定义函数的输入参数为数据源构成的 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> 本身，在之前例子中定义的 <code class="docutils literal notranslate"><span class="pre">groupby</span></code> 对象中，传入的就是 <code class="docutils literal notranslate"><span class="pre">df[['Height',</span> <span class="pre">'Weight']]</span></code> ，因此所有表方法和属性都可以在自定义函数中相应地使用，同时只需保证自定义函数的返回为布尔值即可。</p>
 <p>例如，在原表中通过过滤得到所有容量大于100的组：</p>
