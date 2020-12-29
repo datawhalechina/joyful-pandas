@@ -348,7 +348,7 @@
 <span class="go">3      2      Si Li     Math     85</span>
 </pre></div>
 </div>
-<p>对于一个基本的长变宽的操作而言，最重要的有三个要素，分别是变形后的行索引、需要转到列索引的列，以及这些列和行索引对应的数值，它们分别对应了 <code class="docutils literal notranslate"><span class="pre">pivot</span></code> 方法中的 <code class="docutils literal notranslate"><span class="pre">index,</span> <span class="pre">columns,</span> <span class="pre">values</span></code> 参数。新生成表的列索引是 <code class="docutils literal notranslate"><span class="pre">columns</span></code> 对应列的 <code class="docutils literal notranslate"><span class="pre">unique</span></code> 值，而新表的行索引是 <code class="docutils literal notranslate"><span class="pre">index</span></code> 对应列的 <code class="docutils literal notranslate"><span class="pre">unique</span></code> 值，而 <code class="docutils literal notranslate"><span class="pre">values</span></code> 对应了想要展示的数值列。</p>
+<p>对于一个基本的长变宽操作而言，最重要的有三个要素，分别是变形后的行索引、需要转到列索引的列，以及这些列和行索引对应的数值，它们分别对应了 <code class="docutils literal notranslate"><span class="pre">pivot</span></code> 方法中的 <code class="docutils literal notranslate"><span class="pre">index,</span> <span class="pre">columns,</span> <span class="pre">values</span></code> 参数。新生成表的列索引是 <code class="docutils literal notranslate"><span class="pre">columns</span></code> 对应列的 <code class="docutils literal notranslate"><span class="pre">unique</span></code> 值，而新表的行索引是 <code class="docutils literal notranslate"><span class="pre">index</span></code> 对应列的 <code class="docutils literal notranslate"><span class="pre">unique</span></code> 值，而 <code class="docutils literal notranslate"><span class="pre">values</span></code> 对应了想要展示的数值列。</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">df</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Subject&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;Grade&#39;</span><span class="p">)</span>
 <span class="gh">Out[7]: </span><span class="go"></span>
 <span class="go">Subject    Chinese  Math</span>
@@ -588,20 +588,34 @@
 <span class="gp">   ....: </span>                           <span class="n">suffix</span> <span class="o">=</span> <span class="s1">&#39;.+&#39;</span><span class="p">)</span>
 <span class="gp">   ....: </span>
 
-<span class="gp">In [35]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="gp">In [35]: </span><span class="n">res</span>
+<span class="gh">Out[35]: </span><span class="go"></span>
+<span class="go">                                     Grade  rank</span>
+<span class="go">Class Name      Subject_Examination             </span>
+<span class="go">1     San Zhang Chinese_Mid             80    10</span>
+<span class="go">                Chinese_Final           75    15</span>
+<span class="go">                Math_Mid                90    20</span>
+<span class="go">                Math_Final              85     7</span>
+<span class="go">2     Si Li     Chinese_Mid             85    21</span>
+<span class="go">                Chinese_Final           65    15</span>
+<span class="go">                Math_Mid                92     6</span>
+<span class="go">                Math_Final              88     2</span>
+</pre></div>
+</div>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [36]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 
-<span class="gp">In [36]: </span><span class="n">res</span><span class="p">[[</span><span class="s1">&#39;Subject&#39;</span><span class="p">,</span> <span class="s1">&#39;Examination&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span>
+<span class="gp">In [37]: </span><span class="n">res</span><span class="p">[[</span><span class="s1">&#39;Subject&#39;</span><span class="p">,</span> <span class="s1">&#39;Examination&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span>
 <span class="gp">   ....: </span>                <span class="s1">&#39;Subject_Examination&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">   ....: </span>
 
-<span class="gp">In [37]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="p">[[</span><span class="s1">&#39;Class&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Examination&#39;</span><span class="p">,</span>
+<span class="gp">In [38]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="p">[[</span><span class="s1">&#39;Class&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Examination&#39;</span><span class="p">,</span>
 <span class="gp">   ....: </span>           <span class="s1">&#39;Subject&#39;</span><span class="p">,</span> <span class="s1">&#39;Grade&#39;</span><span class="p">,</span> <span class="s1">&#39;rank&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Subject&#39;</span><span class="p">)</span>
 <span class="gp">   ....: </span>
 
-<span class="gp">In [38]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">In [39]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="gp">In [39]: </span><span class="n">res</span>
-<span class="gh">Out[39]: </span><span class="go"></span>
+<span class="gp">In [40]: </span><span class="n">res</span>
+<span class="gh">Out[40]: </span><span class="go"></span>
 <span class="go">   Class       Name Examination  Subject  Grade  rank</span>
 <span class="go">0      1  San Zhang         Mid  Chinese     80    10</span>
 <span class="go">1      1  San Zhang       Final  Chinese     75    15</span>
@@ -621,7 +635,7 @@
 <h3>1. stack与unstack<a class="headerlink" href="#stackunstack" title="Permalink to this headline">¶</a></h3>
 <p>在第二章中提到了利用 <code class="docutils literal notranslate"><span class="pre">swaplevel</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">reorder_levels</span></code> 进行索引内部的层交换，下面就要讨论 <span class="red">行列索引之间</span> 的交换，由于这种交换带来了 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> 维度上的变化，因此属于变形操作。在第一节中提到的4种变形函数与其不同之处在于，它们都属于某一列或几列 <span class="red">元素</span> 和 <span class="red">列索引</span> 之间的转换，而不是索引之间的转换。</p>
 <p><code class="docutils literal notranslate"><span class="pre">unstack</span></code> 函数的作用是把行索引转为列索引，例如下面这个简单的例子：</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [40]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">)),</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [41]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">)),</span>
 <span class="gp">   ....: </span>                  <span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;big&#39;</span><span class="p">),</span>
 <span class="gp">   ....: </span>                                    <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;small&#39;</span><span class="p">),</span>
 <span class="gp">   ....: </span>                                    <span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;big&#39;</span><span class="p">),</span>
@@ -629,16 +643,16 @@
 <span class="gp">   ....: </span>                  <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;col_1&#39;</span><span class="p">,</span> <span class="s1">&#39;col_2&#39;</span><span class="p">])</span>
 <span class="gp">   ....: </span>
 
-<span class="gp">In [41]: </span><span class="n">df</span>
-<span class="gh">Out[41]: </span><span class="go"></span>
+<span class="gp">In [42]: </span><span class="n">df</span>
+<span class="gh">Out[42]: </span><span class="go"></span>
 <span class="go">             col_1  col_2</span>
 <span class="go">A cat big      1.0    1.0</span>
 <span class="go">  dog small    1.0    1.0</span>
 <span class="go">B cat big      1.0    1.0</span>
 <span class="go">  dog small    1.0    1.0</span>
 
-<span class="gp">In [42]: </span><span class="n">df</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
-<span class="gh">Out[42]: </span><span class="go"></span>
+<span class="gp">In [43]: </span><span class="n">df</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+<span class="gh">Out[43]: </span><span class="go"></span>
 <span class="go">      col_1       col_2      </span>
 <span class="go">        big small   big small</span>
 <span class="go">A cat   1.0   NaN   1.0   NaN</span>
@@ -648,8 +662,8 @@
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">unstack</span></code> 的主要参数是移动的层号，默认转化最内层，移动到列索引的最内层，同时支持同时转化多个层：</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [43]: </span><span class="n">df</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="gh">Out[43]: </span><span class="go"></span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [44]: </span><span class="n">df</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gh">Out[44]: </span><span class="go"></span>
 <span class="go">      col_1       col_2      </span>
 <span class="go">        big small   big small</span>
 <span class="go">A cat   1.0   NaN   1.0   NaN</span>
@@ -657,8 +671,8 @@
 <span class="go">B cat   1.0   NaN   1.0   NaN</span>
 <span class="go">  dog   NaN   1.0   NaN   1.0</span>
 
-<span class="gp">In [44]: </span><span class="n">df</span><span class="o">.</span><span class="n">unstack</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
-<span class="gh">Out[44]: </span><span class="go"></span>
+<span class="gp">In [45]: </span><span class="n">df</span><span class="o">.</span><span class="n">unstack</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="gh">Out[45]: </span><span class="go"></span>
 <span class="go">    col_1                  col_2                 </span>
 <span class="go">        A          B           A          B      </span>
 <span class="go">      big small  big small   big small  big small</span>
@@ -667,32 +681,32 @@
 </pre></div>
 </div>
 <p>类似于 <code class="docutils literal notranslate"><span class="pre">pivot</span></code> 中的唯一性要求，在 <code class="docutils literal notranslate"><span class="pre">unstack</span></code> 中必须保证 <span class="red">被转为列索引的行索引层</span> 和 <span class="red">被保留的行索引层</span> 构成的组合是唯一的，例如把前两个列索引改成相同的破坏唯一性，那么就会报错：</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [45]: </span><span class="n">my_index</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [46]: </span><span class="n">my_index</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
 
-<span class="gp">In [46]: </span><span class="n">my_index</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">my_index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">In [47]: </span><span class="n">my_index</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">my_index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="gp">In [47]: </span><span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">my_index</span><span class="p">)</span>
+<span class="gp">In [48]: </span><span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">my_index</span><span class="p">)</span>
 
-<span class="gp">In [48]: </span><span class="n">df</span>
-<span class="gh">Out[48]: </span><span class="go"></span>
+<span class="gp">In [49]: </span><span class="n">df</span>
+<span class="gh">Out[49]: </span><span class="go"></span>
 <span class="go">             col_1  col_2</span>
 <span class="go">A cat big      1.0    1.0</span>
 <span class="go">      big      1.0    1.0</span>
 <span class="go">B cat big      1.0    1.0</span>
 <span class="go">  dog small    1.0    1.0</span>
 
-<span class="gp">In [49]: </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">In [50]: </span><span class="k">try</span><span class="p">:</span>
 <span class="gp">   ....: </span>   <span class="n">df</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
 <span class="gp">   ....: </span><span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 <span class="gp">   ....: </span>   <span class="n">Err_Msg</span> <span class="o">=</span> <span class="n">e</span>
 <span class="gp">   ....: </span>
 
-<span class="gp">In [50]: </span><span class="n">Err_Msg</span>
-<span class="gh">Out[50]: </span><span class="go">ValueError(&#39;Index contains duplicate entries, cannot reshape&#39;)</span>
+<span class="gp">In [51]: </span><span class="n">Err_Msg</span>
+<span class="gh">Out[51]: </span><span class="go">ValueError(&#39;Index contains duplicate entries, cannot reshape&#39;)</span>
 </pre></div>
 </div>
 <p>与 <code class="docutils literal notranslate"><span class="pre">unstack</span></code> 相反， <code class="docutils literal notranslate"><span class="pre">stack</span></code> 的作用就是把列索引的层压入行索引，其用法完全类似。</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [51]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">)),</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [52]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">)),</span>
 <span class="gp">   ....: </span>                  <span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;big&#39;</span><span class="p">),</span>
 <span class="gp">   ....: </span>                                    <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;small&#39;</span><span class="p">),</span>
 <span class="gp">   ....: </span>                                    <span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;big&#39;</span><span class="p">),</span>
@@ -700,16 +714,16 @@
 <span class="gp">   ....: </span>                  <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;index_1&#39;</span><span class="p">,</span> <span class="s1">&#39;index_2&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
 <span class="gp">   ....: </span>
 
-<span class="gp">In [52]: </span><span class="n">df</span>
-<span class="gh">Out[52]: </span><span class="go"></span>
+<span class="gp">In [53]: </span><span class="n">df</span>
+<span class="gh">Out[53]: </span><span class="go"></span>
 <span class="go">           A          B      </span>
 <span class="go">         cat   dog  cat   dog</span>
 <span class="go">         big small  big small</span>
 <span class="go">index_1  1.0   1.0  1.0   1.0</span>
 <span class="go">index_2  1.0   1.0  1.0   1.0</span>
 
-<span class="gp">In [53]: </span><span class="n">df</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
-<span class="gh">Out[53]: </span><span class="go"></span>
+<span class="gp">In [54]: </span><span class="n">df</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
+<span class="gh">Out[54]: </span><span class="go"></span>
 <span class="go">                 A         B     </span>
 <span class="go">               cat  dog  cat  dog</span>
 <span class="go">index_1 big    1.0  NaN  1.0  NaN</span>
@@ -717,8 +731,8 @@
 <span class="go">index_2 big    1.0  NaN  1.0  NaN</span>
 <span class="go">        small  NaN  1.0  NaN  1.0</span>
 
-<span class="gp">In [54]: </span><span class="n">df</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-<span class="gh">Out[54]: </span><span class="go"></span>
+<span class="gp">In [55]: </span><span class="n">df</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="gh">Out[55]: </span><span class="go"></span>
 <span class="go">                     A    B</span>
 <span class="go">index_1 cat big    1.0  1.0</span>
 <span class="go">        dog small  1.0  1.0</span>
@@ -736,11 +750,11 @@
 <h2>三、其他变形函数<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="crosstab">
 <h3>1. crosstab<a class="headerlink" href="#crosstab" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">crosstab</span></code> 并不是一个值得推荐使用的函数，因为它能实现的所有功能 <code class="docutils literal notranslate"><span class="pre">pivot_table</span></code> 都能完成，并且速度更快。在默认状态下， <code class="docutils literal notranslate"><span class="pre">crosstab</span></code> 可以统计元素组合出现的频数，即 <code class="docutils literal notranslate"><span class="pre">count</span></code> 操作。例如统计 <code class="docutils literal notranslate"><span class="pre">learn_pandas</span></code> 数据集中学校和转系情况对应的频数：</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [55]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/learn_pandas.csv&#39;</span><span class="p">)</span>
+<p><code class="docutils literal notranslate"><span class="pre">crosstab</span></code> 是一个地位尴尬的函数，因为它能实现的所有功能 <code class="docutils literal notranslate"><span class="pre">pivot_table</span></code> 都能完成。在默认状态下， <code class="docutils literal notranslate"><span class="pre">crosstab</span></code> 可以统计元素组合出现的频数，即 <code class="docutils literal notranslate"><span class="pre">count</span></code> 操作。例如统计 <code class="docutils literal notranslate"><span class="pre">learn_pandas</span></code> 数据集中学校和转系情况对应的频数：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [56]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/learn_pandas.csv&#39;</span><span class="p">)</span>
 
-<span class="gp">In [56]: </span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">School</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Transfer</span><span class="p">)</span>
-<span class="gh">Out[56]: </span><span class="go"></span>
+<span class="gp">In [57]: </span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">School</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Transfer</span><span class="p">)</span>
+<span class="gh">Out[57]: </span><span class="go"></span>
 <span class="go">Transfer                        N  Y</span>
 <span class="go">School                              </span>
 <span class="go">Fudan University               38  1</span>
@@ -750,23 +764,8 @@
 </pre></div>
 </div>
 <p>这等价于如下 <code class="docutils literal notranslate"><span class="pre">crosstab</span></code> 的如下写法，这里的 <code class="docutils literal notranslate"><span class="pre">aggfunc</span></code> 即聚合参数：</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [57]: </span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">School</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Transfer</span><span class="p">,</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [58]: </span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">School</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Transfer</span><span class="p">,</span>
 <span class="gp">   ....: </span>            <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">aggfunc</span> <span class="o">=</span> <span class="s1">&#39;count&#39;</span><span class="p">)</span>
-<span class="gp">   ....: </span>
-<span class="gh">Out[57]: </span><span class="go"></span>
-<span class="go">Transfer                          N    Y</span>
-<span class="go">School                                  </span>
-<span class="go">Fudan University               38.0  1.0</span>
-<span class="go">Peking University              28.0  2.0</span>
-<span class="go">Shanghai Jiao Tong University  53.0  NaN</span>
-<span class="go">Tsinghua University            62.0  4.0</span>
-</pre></div>
-</div>
-<p>同样，可以利用 <code class="docutils literal notranslate"><span class="pre">pivot_table</span></code> 进行等价操作，由于这里统计的是组合的频数，因此 <code class="docutils literal notranslate"><span class="pre">values</span></code> 参数无论传入哪一个列都不会影响最后的结果：</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [58]: </span><span class="n">df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;School&#39;</span><span class="p">,</span>
-<span class="gp">   ....: </span>               <span class="n">columns</span> <span class="o">=</span> <span class="s1">&#39;Transfer&#39;</span><span class="p">,</span>
-<span class="gp">   ....: </span>               <span class="n">values</span> <span class="o">=</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span>
-<span class="gp">   ....: </span>               <span class="n">aggfunc</span> <span class="o">=</span> <span class="s1">&#39;count&#39;</span><span class="p">)</span>
 <span class="gp">   ....: </span>
 <span class="gh">Out[58]: </span><span class="go"></span>
 <span class="go">Transfer                          N    Y</span>
@@ -777,12 +776,27 @@
 <span class="go">Tsinghua University            62.0  4.0</span>
 </pre></div>
 </div>
-<p>从上面可以看出这两个函数的区别在于， <code class="docutils literal notranslate"><span class="pre">crosstab</span></code> 的对应位置传入的是具体的序列，而 <code class="docutils literal notranslate"><span class="pre">pivot_table</span></code> 传入的是被调用表对应的名字，若传入序列对应的值则会报错。</p>
-<p>除了默认状态下的 <code class="docutils literal notranslate"><span class="pre">count</span></code> 统计，所有的聚合字符串和返回标量的自定义函数都是可用的，例如统计对应组合的身高均值：</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [59]: </span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">School</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Transfer</span><span class="p">,</span>
-<span class="gp">   ....: </span>            <span class="n">values</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Height</span><span class="p">,</span> <span class="n">aggfunc</span> <span class="o">=</span> <span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+<p>同样，可以利用 <code class="docutils literal notranslate"><span class="pre">pivot_table</span></code> 进行等价操作，由于这里统计的是组合的频数，因此 <code class="docutils literal notranslate"><span class="pre">values</span></code> 参数无论传入哪一个列都不会影响最后的结果：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [59]: </span><span class="n">df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;School&#39;</span><span class="p">,</span>
+<span class="gp">   ....: </span>               <span class="n">columns</span> <span class="o">=</span> <span class="s1">&#39;Transfer&#39;</span><span class="p">,</span>
+<span class="gp">   ....: </span>               <span class="n">values</span> <span class="o">=</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span>
+<span class="gp">   ....: </span>               <span class="n">aggfunc</span> <span class="o">=</span> <span class="s1">&#39;count&#39;</span><span class="p">)</span>
 <span class="gp">   ....: </span>
 <span class="gh">Out[59]: </span><span class="go"></span>
+<span class="go">Transfer                          N    Y</span>
+<span class="go">School                                  </span>
+<span class="go">Fudan University               38.0  1.0</span>
+<span class="go">Peking University              28.0  2.0</span>
+<span class="go">Shanghai Jiao Tong University  53.0  NaN</span>
+<span class="go">Tsinghua University            62.0  4.0</span>
+</pre></div>
+</div>
+<p>从上面可以看出这两个函数的区别在于， <code class="docutils literal notranslate"><span class="pre">crosstab</span></code> 的对应位置传入的是具体的序列，而 <code class="docutils literal notranslate"><span class="pre">pivot_table</span></code> 传入的是被调用表对应的名字，若传入序列对应的值则会报错。</p>
+<p>除了默认状态下的 <code class="docutils literal notranslate"><span class="pre">count</span></code> 统计，所有的聚合字符串和返回标量的自定义函数都是可用的，例如统计对应组合的身高均值：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [60]: </span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">School</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Transfer</span><span class="p">,</span>
+<span class="gp">   ....: </span>            <span class="n">values</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Height</span><span class="p">,</span> <span class="n">aggfunc</span> <span class="o">=</span> <span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+<span class="gp">   ....: </span>
+<span class="gh">Out[60]: </span><span class="go"></span>
 <span class="go">Transfer                                N       Y</span>
 <span class="go">School                                           </span>
 <span class="go">Fudan University               162.043750  177.20</span>
@@ -791,30 +805,25 @@
 <span class="go">Tsinghua University            163.253571  164.55</span>
 </pre></div>
 </div>
-<div class="hint admonition">
-<p class="admonition-title">练一练</p>
-<blockquote>
-<div><p>前面提到了 <code class="docutils literal notranslate"><span class="pre">crosstab</span></code> 的性能劣于 <code class="docutils literal notranslate"><span class="pre">pivot_table</span></code> ，请选用多个聚合方法进行验证。</p>
-</div></blockquote>
-</div>
 </div>
 <div class="section" id="explode">
 <h3>2. explode<a class="headerlink" href="#explode" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">explode</span></code> 参数能够对某一列的元素进行纵向的展开，被展开的单元格必须存储 <code class="docutils literal notranslate"><span class="pre">list,</span> <span class="pre">tuple,</span> <span class="pre">Series,</span> <span class="pre">np.ndarray</span></code> 中的一种类型。</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [60]: </span><span class="n">df_ex</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [61]: </span><span class="n">df_ex</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
 <span class="gp">   ....: </span>                         <span class="s1">&#39;my_str&#39;</span><span class="p">,</span>
 <span class="gp">   ....: </span>                         <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">},</span>
 <span class="gp">   ....: </span>                         <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])],</span>
 <span class="gp">   ....: </span>                      <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
 <span class="gp">   ....: </span>
 
-<span class="gp">In [61]: </span><span class="n">df_ex</span><span class="o">.</span><span class="n">explode</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
-<span class="gh">Out[61]: </span><span class="go"></span>
+<span class="gp">In [62]: </span><span class="n">df_ex</span><span class="o">.</span><span class="n">explode</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="gh">Out[62]: </span><span class="go"></span>
 <span class="go">        A  B</span>
 <span class="go">0       1  1</span>
 <span class="go">0       2  1</span>
 <span class="go">1  my_str  1</span>
-<span class="go">2  {1, 2}  1</span>
+<span class="go">2       1  1</span>
+<span class="go">2       2  1</span>
 <span class="go">3       3  1</span>
 <span class="go">3       4  1</span>
 </pre></div>
@@ -823,8 +832,8 @@
 <div class="section" id="get-dummies">
 <h3>3. get_dummies<a class="headerlink" href="#get-dummies" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">get_dummies</span></code> 是用于特征构建的重要函数之一，其作用是把类别特征转为指示变量。例如，对年级一列转为指示变量，属于某一个年级的对应列标记为1，否则为0：</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [62]: </span><span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Grade</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[62]: </span><span class="go"></span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [63]: </span><span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Grade</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[63]: </span><span class="go"></span>
 <span class="go">   Freshman  Junior  Senior  Sophomore</span>
 <span class="go">0         1       0       0          0</span>
 <span class="go">1         1       0       0          0</span>
@@ -840,12 +849,12 @@
 <div class="section" id="ex1">
 <h3>Ex1：美国非法药物数据集<a class="headerlink" href="#ex1" title="Permalink to this headline">¶</a></h3>
 <p>现有一份关于美国非法药物的数据集，其中 <code class="docutils literal notranslate"><span class="pre">SubstanceName,</span> <span class="pre">DrugReports</span></code> 分别指药物名称和报告数量：</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [63]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/drugs.csv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [64]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/drugs.csv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span>
 <span class="gp">   ....: </span>     <span class="s1">&#39;State&#39;</span><span class="p">,</span><span class="s1">&#39;COUNTY&#39;</span><span class="p">,</span><span class="s1">&#39;SubstanceName&#39;</span><span class="p">],</span><span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">   ....: </span>
 
-<span class="gp">In [64]: </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gh">Out[64]: </span><span class="go"></span>
+<span class="gp">In [65]: </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gh">Out[65]: </span><span class="go"></span>
 <span class="go">   YYYY State COUNTY  SubstanceName  DrugReports</span>
 <span class="go">0  2011    KY  ADAIR  Buprenorphine            3</span>
 <span class="go">1  2012    KY  ADAIR  Buprenorphine            5</span>
@@ -864,14 +873,14 @@
 <div class="section" id="ex2-wide-to-long">
 <h3>Ex2：特殊的wide_to_long方法<a class="headerlink" href="#ex2-wide-to-long" title="Permalink to this headline">¶</a></h3>
 <p>从功能上看， <code class="docutils literal notranslate"><span class="pre">melt</span></code> 方法应当属于 <code class="docutils literal notranslate"><span class="pre">wide_to_long</span></code> 的一种特殊情况，即 <code class="docutils literal notranslate"><span class="pre">stubnames</span></code> 只有一类。请使用 <code class="docutils literal notranslate"><span class="pre">wide_to_long</span></code> 生成 <code class="docutils literal notranslate"><span class="pre">melt</span></code> 一节中的 <code class="docutils literal notranslate"><span class="pre">df_melted</span></code> 。（提示：对列名增加适当的前缀）</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [65]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Class&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [66]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Class&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
 <span class="gp">   ....: </span>                  <span class="s1">&#39;Name&#39;</span><span class="p">:[</span><span class="s1">&#39;San Zhang&#39;</span><span class="p">,</span> <span class="s1">&#39;Si Li&#39;</span><span class="p">],</span>
 <span class="gp">   ....: </span>                  <span class="s1">&#39;Chinese&#39;</span><span class="p">:[</span><span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">],</span>
 <span class="gp">   ....: </span>                  <span class="s1">&#39;Math&#39;</span><span class="p">:[</span><span class="mi">80</span><span class="p">,</span> <span class="mi">75</span><span class="p">]})</span>
 <span class="gp">   ....: </span>
 
-<span class="gp">In [66]: </span><span class="n">df</span>
-<span class="gh">Out[66]: </span><span class="go"></span>
+<span class="gp">In [67]: </span><span class="n">df</span>
+<span class="gh">Out[67]: </span><span class="go"></span>
 <span class="go">   Class       Name  Chinese  Math</span>
 <span class="go">0      1  San Zhang       80    80</span>
 <span class="go">1      2      Si Li       90    75</span>

@@ -509,7 +509,7 @@
 <span class="go">School      Shanghai Jiao Tong University</span>
 <span class="go">Grade                              Junior</span>
 <span class="go">Gender                             Female</span>
-<span class="go">Weight                                 53</span>
+<span class="go">Weight                               53.0</span>
 <span class="go">Transfer                                N</span>
 <span class="go">Name: Quan Zhao, dtype: object</span>
 </pre></div>
@@ -1667,41 +1667,27 @@ S_A.symmetric\_difference(S_B) &amp;= \rm S_A\triangle S_B\Leftrightarrow \rm \{
 <span class="gh">Out[172]: </span><span class="go">Index([&#39;a&#39;, &#39;c&#39;], dtype=&#39;object&#39;)</span>
 </pre></div>
 </div>
-<p>上述的四类运算还可以用等价的符号表示代替如下：</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [173]: </span><span class="n">id1</span> <span class="o">&amp;</span> <span class="n">id2</span>
-<span class="gh">Out[173]: </span><span class="go">Index([&#39;b&#39;], dtype=&#39;object&#39;)</span>
-
-<span class="gp">In [174]: </span><span class="n">id1</span> <span class="o">|</span> <span class="n">id2</span>
-<span class="gh">Out[174]: </span><span class="go">Index([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], dtype=&#39;object&#39;)</span>
-
-<span class="gp">In [175]: </span><span class="p">(</span><span class="n">id1</span> <span class="o">^</span> <span class="n">id2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">id1</span>
-<span class="gh">Out[175]: </span><span class="go">Index([&#39;a&#39;], dtype=&#39;object&#39;)</span>
-
-<span class="gp">In [176]: </span><span class="n">id1</span> <span class="o">^</span> <span class="n">id2</span> <span class="c1"># ^符号即对称差</span>
-<span class="gh">Out[176]: </span><span class="go">Index([&#39;a&#39;, &#39;c&#39;], dtype=&#39;object&#39;)</span>
-</pre></div>
-</div>
 <p>若两张表需要做集合运算的列并没有被设置索引，一种办法是先转成索引，运算后再恢复，另一种方法是利用 <code class="docutils literal notranslate"><span class="pre">isin</span></code> 函数，例如在重置索引的第一张表中选出id列交集的所在行：</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [177]: </span><span class="n">df_set_in_col_1</span> <span class="o">=</span> <span class="n">df_set_1</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [173]: </span><span class="n">df_set_in_col_1</span> <span class="o">=</span> <span class="n">df_set_1</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 
-<span class="gp">In [178]: </span><span class="n">df_set_in_col_2</span> <span class="o">=</span> <span class="n">df_set_2</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="gp">In [174]: </span><span class="n">df_set_in_col_2</span> <span class="o">=</span> <span class="n">df_set_2</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 
-<span class="gp">In [179]: </span><span class="n">df_set_in_col_1</span>
-<span class="gh">Out[179]: </span><span class="go"></span>
+<span class="gp">In [175]: </span><span class="n">df_set_in_col_1</span>
+<span class="gh">Out[175]: </span><span class="go"></span>
 <span class="go">  id1  0  1</span>
 <span class="go">0   a  0  1</span>
 <span class="go">1   b  1  2</span>
 <span class="go">2   a  3  4</span>
 
-<span class="gp">In [180]: </span><span class="n">df_set_in_col_2</span>
-<span class="gh">Out[180]: </span><span class="go"></span>
+<span class="gp">In [176]: </span><span class="n">df_set_in_col_2</span>
+<span class="gh">Out[176]: </span><span class="go"></span>
 <span class="go">  id2  0  1</span>
 <span class="go">0   b  4  5</span>
 <span class="go">1   b  2  6</span>
 <span class="go">2   c  7  1</span>
 
-<span class="gp">In [181]: </span><span class="n">df_set_in_col_1</span><span class="p">[</span><span class="n">df_set_in_col_1</span><span class="o">.</span><span class="n">id1</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">df_set_in_col_2</span><span class="o">.</span><span class="n">id2</span><span class="p">)]</span>
-<span class="gh">Out[181]: </span><span class="go"></span>
+<span class="gp">In [177]: </span><span class="n">df_set_in_col_1</span><span class="p">[</span><span class="n">df_set_in_col_1</span><span class="o">.</span><span class="n">id1</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">df_set_in_col_2</span><span class="o">.</span><span class="n">id2</span><span class="p">)]</span>
+<span class="gh">Out[177]: </span><span class="go"></span>
 <span class="go">  id1  0  1</span>
 <span class="go">1   b  1  2</span>
 </pre></div>
@@ -1713,10 +1699,10 @@ S_A.symmetric\_difference(S_B) &amp;= \rm S_A\triangle S_B\Leftrightarrow \rm \{
 <div class="section" id="ex1">
 <h3>Ex1：公司员工数据集<a class="headerlink" href="#ex1" title="Permalink to this headline">¶</a></h3>
 <p>现有一份公司员工数据集：</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [182]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/company.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [178]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/company.csv&#39;</span><span class="p">)</span>
 
-<span class="gp">In [183]: </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gh">Out[183]: </span><span class="go"></span>
+<span class="gp">In [179]: </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gh">Out[179]: </span><span class="go"></span>
 <span class="go">   EmployeeID birthdate_key  age  city_name department      job_title gender</span>
 <span class="go">0        1318      1/3/1954   61  Vancouver  Executive            CEO      M</span>
 <span class="go">1        1319      1/3/1957   58  Vancouver  Executive      VP Stores      F</span>
@@ -1741,10 +1727,10 @@ S_A.symmetric\_difference(S_B) &amp;= \rm S_A\triangle S_B\Leftrightarrow \rm \{
 <div class="section" id="ex2">
 <h3>Ex2：巧克力数据集<a class="headerlink" href="#ex2" title="Permalink to this headline">¶</a></h3>
 <p>现有一份关于巧克力评价的数据集：</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [184]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/chocolate.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [180]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/chocolate.csv&#39;</span><span class="p">)</span>
 
-<span class="gp">In [185]: </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gh">Out[185]: </span><span class="go"></span>
+<span class="gp">In [181]: </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gh">Out[181]: </span><span class="go"></span>
 <span class="go">    Company  Review\nDate Cocoa\nPercent Company\nLocation  Rating</span>
 <span class="go">0  A. Morin          2016            63%            France    3.75</span>
 <span class="go">1  A. Morin          2015            70%            France    2.75</span>

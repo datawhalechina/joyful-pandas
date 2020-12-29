@@ -350,7 +350,7 @@
 <span class="gp">In [5]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;abcd&#39;</span><span class="p">,</span> <span class="s1">&#39;efg&#39;</span><span class="p">,</span> <span class="s1">&#39;hi&#39;</span><span class="p">])</span>
 
 <span class="gp">In [6]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span>
-<span class="gh">Out[6]: </span><span class="go">&lt;pandas.core.strings.StringMethods at 0x24376ef62c8&gt;</span>
+<span class="gh">Out[6]: </span><span class="go">&lt;pandas.core.strings.accessor.StringMethods at 0x28b0c981288&gt;</span>
 
 <span class="gp">In [7]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="c1"># pandas中str对象上的upper方法</span>
 <span class="gh">Out[7]: </span><span class="go"></span>
@@ -777,7 +777,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">str.replace</span></code> 和 <code class="docutils literal notranslate"><span class="pre">replace</span></code> 并不是一个函数，在使用字符串替换时应当使用前者。</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [64]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;a_1_b&#39;</span><span class="p">,</span><span class="s1">&#39;c_?&#39;</span><span class="p">])</span>
 
-<span class="gp">In [65]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;\d|\?&#39;</span><span class="p">,</span> <span class="s1">&#39;new&#39;</span><span class="p">)</span>
+<span class="gp">In [65]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;\d|\?&#39;</span><span class="p">,</span> <span class="s1">&#39;new&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gh">Out[65]: </span><span class="go"></span>
 <span class="go">0    a_new_b</span>
 <span class="go">1      c_new</span>
@@ -815,7 +815,7 @@
 <span class="gp">   ....: </span>                    <span class="n">str_no</span><span class="p">])</span>
 <span class="gp">   ....: </span>
 
-<span class="gp">In [72]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">pat</span><span class="p">,</span> <span class="n">my_func</span><span class="p">)</span>
+<span class="gp">In [72]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">pat</span><span class="p">,</span> <span class="n">my_func</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gh">Out[72]: </span><span class="go"></span>
 <span class="go">0    Shanghai HP District Mid Fangbin Road No. 249</span>
 <span class="go">1           Shanghai BS District Mishan Road No. 5</span>
@@ -837,7 +837,7 @@
 <span class="gp">   ....: </span>                    <span class="n">str_no</span><span class="p">])</span>
 <span class="gp">   ....: </span>
 
-<span class="gp">In [75]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">pat</span><span class="p">,</span> <span class="n">my_func</span><span class="p">)</span>
+<span class="gp">In [75]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">pat</span><span class="p">,</span> <span class="n">my_func</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gh">Out[75]: </span><span class="go"></span>
 <span class="go">0    Shanghai HP District Mid Fangbin Road No. 249</span>
 <span class="go">1           Shanghai BS District Mishan Road No. 5</span>

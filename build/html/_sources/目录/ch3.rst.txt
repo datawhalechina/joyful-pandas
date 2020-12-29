@@ -749,15 +749,6 @@
     id1.difference(id2)
     id1.symmetric_difference(id2)
 
-上述的四类运算还可以用等价的符号表示代替如下：
-
-.. ipython:: python
-
-    id1 & id2
-    id1 | id2
-    (id1 ^ id2) & id1
-    id1 ^ id2 # ^符号即对称差
-
 若两张表需要做集合运算的列并没有被设置索引，一种办法是先转成索引，运算后再恢复，另一种方法是利用 ``isin`` 函数，例如在重置索引的第一张表中选出id列交集的所在行：
 
 .. ipython:: python

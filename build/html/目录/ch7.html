@@ -702,9 +702,9 @@
 
 <span class="gp">In [65]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="s1">&#39;Int64&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="c1"># 只能是浮点</span>
 <span class="gh">Out[65]: </span><span class="go"></span>
-<span class="go">0    NaN</span>
-<span class="go">1    0.0</span>
-<span class="go">dtype: float64</span>
+<span class="go">0    &lt;NA&gt;</span>
+<span class="go">1     0.0</span>
+<span class="go">dtype: Float64</span>
 </pre></div>
 </div>
 <p>对于 <code class="docutils literal notranslate"><span class="pre">boolean</span></code> 类型的序列而言，其和 <code class="docutils literal notranslate"><span class="pre">bool</span></code> 序列的行为主要有两点区别：</p>
@@ -754,7 +754,7 @@
 <span class="go">Grade           string</span>
 <span class="go">Name            string</span>
 <span class="go">Gender          string</span>
-<span class="go">Height         float64</span>
+<span class="go">Height         Float64</span>
 <span class="go">Weight           Int64</span>
 <span class="go">Transfer        string</span>
 <span class="go">Test_Number      Int64</span>

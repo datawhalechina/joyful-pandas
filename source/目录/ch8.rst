@@ -247,7 +247,7 @@ $           匹配行的结束
 .. ipython:: python
 
     s = pd.Series(['a_1_b','c_?'])
-    s.str.replace('\d|\?', 'new')
+    s.str.replace('\d|\?', 'new', regex=True)
 
 当需要对不同部分进行有差别的替换时，可以利用 ``子组`` 的方法，并且此时可以通过传入自定义的替换函数来分别进行处理，注意 ``group(k)`` 代表匹配到的第 ``k`` 个子组（圆括号之间的内容）：
 
@@ -274,7 +274,7 @@ $           匹配行的结束
                         str_road,
                         str_no])
 
-    s.str.replace(pat, my_func)
+    s.str.replace(pat, my_func, regex=True)
 
 这里的数字标识并不直观，可以使用 ``命名子组`` 更加清晰地写出子组代表的含义：
 
@@ -291,7 +291,7 @@ $           匹配行的结束
                         str_road,
                         str_no])
 
-    s.str.replace(pat, my_func)
+    s.str.replace(pat, my_func, regex=True)
 
 这里虽然看起来有些繁杂，但是实际数据处理中对应的替换，一般都会通过代码来获取数据从而构造字典映射，在具体写法上会简洁的多。
 

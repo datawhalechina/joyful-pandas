@@ -34,7 +34,7 @@
                       'Grade':[80,75,90,85]})
    df
 
-对于一个基本的长变宽的操作而言，最重要的有三个要素，分别是变形后的行索引、需要转到列索引的列，以及这些列和行索引对应的数值，它们分别对应了 ``pivot`` 方法中的 ``index, columns, values`` 参数。新生成表的列索引是 ``columns`` 对应列的 ``unique`` 值，而新表的行索引是 ``index`` 对应列的 ``unique`` 值，而 ``values`` 对应了想要展示的数值列。
+对于一个基本的长变宽操作而言，最重要的有三个要素，分别是变形后的行索引、需要转到列索引的列，以及这些列和行索引对应的数值，它们分别对应了 ``pivot`` 方法中的 ``index, columns, values`` 参数。新生成表的列索引是 ``columns`` 对应列的 ``unique`` 值，而新表的行索引是 ``index`` 对应列的 ``unique`` 值，而 ``values`` 对应了想要展示的数值列。
 
 .. ipython:: python
 
@@ -216,6 +216,10 @@
                               j = 'Subject_Examination',
                               sep = '_',
                               suffix = '.+')
+   res
+
+.. ipython:: python
+
    res = res.reset_index()
    res[['Subject', 'Examination']] = res[
                    'Subject_Examination'].str.split('_', expand=True)
@@ -291,7 +295,7 @@
 1. crosstab
 -----------------
 
-``crosstab`` 并不是一个值得推荐使用的函数，因为它能实现的所有功能 ``pivot_table`` 都能完成，并且速度更快。在默认状态下， ``crosstab`` 可以统计元素组合出现的频数，即 ``count`` 操作。例如统计 ``learn_pandas`` 数据集中学校和转系情况对应的频数：
+``crosstab`` 是一个地位尴尬的函数，因为它能实现的所有功能 ``pivot_table`` 都能完成。在默认状态下， ``crosstab`` 可以统计元素组合出现的频数，即 ``count`` 操作。例如统计 ``learn_pandas`` 数据集中学校和转系情况对应的频数：
 
 .. ipython:: python
 
@@ -322,11 +326,6 @@
 
    pd.crosstab(index = df.School, columns = df.Transfer,
                values = df.Height, aggfunc = 'mean')
-
-.. admonition:: 练一练
-   :class: hint
-
-    前面提到了 ``crosstab`` 的性能劣于 ``pivot_table`` ，请选用多个聚合方法进行验证。
 
 2. explode
 ----------------
