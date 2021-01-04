@@ -502,7 +502,8 @@ Ex2：实现join函数
         res_df = pd.DataFrame(columns = res_col)
         for label in dup:
             cartesian = [list(i)+list(j) for i in df1.loc[label
-                        ].values for j in df2.loc[label].values]
+                        ].values.reshape(-1,1) for j in df2.loc[
+                          label].values.reshape(-1,1)]
             dup_df = pd.DataFrame(cartesian, index = [label]*len(
                      cartesian), columns = res_col)
             res_df = pd.concat([res_df,dup_df])
@@ -528,7 +529,7 @@ Ex2：实现join函数
                 res_df = pd.concat([res_df,dup_df])
         return res_df
 
-    df1 = pd.DataFrame({'col1':list('01234')}, index=list('AABCD'))
+    df1 = pd.DataFrame({'col1':[1,2,3,4,5]}, index=list('AABCD'))
     df1
     df2 = pd.DataFrame({'col2':list('opqrst')}, index=list('ABBCEE'))
     df2
