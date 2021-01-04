@@ -766,7 +766,7 @@
 </div>
 <div class="section" id="id9">
 <h3>3. 缺失数据的计算和分组<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
-<p>当调用函数 <code class="docutils literal notranslate"><span class="pre">sum,</span> <span class="pre">prob</span></code> 使用加法和乘法的时候，缺失数据等价于被分别视作0和1，即不改变原来的计算结果：</p>
+<p>当调用函数 <code class="docutils literal notranslate"><span class="pre">sum,</span> <span class="pre">prod</span></code> 使用加法和乘法的时候，缺失数据等价于被分别视作0和1，即不改变原来的计算结果：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [76]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
 
 <span class="gp">In [77]: </span><span class="n">s</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -915,7 +915,7 @@
 <div class="math notranslate nohighlight">
 \[S = \sum_{i\in \{0,1\}}\sum_{j\in \{0,1\}} \frac{(E_{ij}-F_{ij})^2}{F_{ij}}\]</div>
 <p>可以证明上面的统计量近似服从自由度为 <span class="math notranslate nohighlight">\(1\)</span> 的卡方分布，即 <span class="math notranslate nohighlight">\(S\overset{\cdot}{\sim} \chi^2(1)\)</span> 。因此，可通过计算 <span class="math notranslate nohighlight">\(P(\chi^2(1)&gt;S)\)</span> 的概率来进行相关性的判别，一般认为当此概率小于 <span class="math notranslate nohighlight">\(0.05\)</span> 时缺失情况与标签正负存在相关关系，即不相关条件下的理论值与实际值相差较大。</p>
-<p>上面所说的概率即为统计学上关于 <span class="math notranslate nohighlight">\(2\times2\)</span> 列联表检验问题的 <span class="math notranslate nohighlight">\(p\)</span> 值， 它可以通过 <code class="docutils literal notranslate"><span class="pre">scipy.stats.chi2(S,</span> <span class="pre">1)</span></code> 得到。请根据上面的材料，分别对 <code class="docutils literal notranslate"><span class="pre">X_1,</span> <span class="pre">X_2</span></code> 列进行检验。</p>
+<p>上面所说的概率即为统计学上关于 <span class="math notranslate nohighlight">\(2\times2\)</span> 列联表检验问题的 <span class="math notranslate nohighlight">\(p\)</span> 值， 它可以通过 <code class="docutils literal notranslate"><span class="pre">scipy.stats.chi2.sf(S,</span> <span class="pre">1)</span></code> 得到。请根据上面的材料，分别对 <code class="docutils literal notranslate"><span class="pre">X_1,</span> <span class="pre">X_2</span></code> 列进行检验。</p>
 </div>
 <div class="section" id="ex2">
 <h3>Ex2：用回归模型解决分类问题<a class="headerlink" href="#ex2" title="Permalink to this headline">¶</a></h3>

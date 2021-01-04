@@ -101,7 +101,7 @@
 .. ipython:: python
 
     import re
-    re.findall('Apple', 'Apple! This Is an Apple!')
+    re.findall(r'Apple', 'Apple! This Is an Apple!')
 
 2. 元字符基础
 ----------------
@@ -125,13 +125,13 @@ $           匹配行的结束
 
 .. ipython:: python
 
-    re.findall('.', 'abc')
-    re.findall('[ac]', 'abc')
-    re.findall('[^ac]', 'abc')
-    re.findall('[ab]{2}', 'aaaabbbb') # {n}指匹配n次
-    re.findall('aaa|bbb', 'aaaabbbb')
-    re.findall('a\\?|a\*', 'aa?a*a')
-    re.findall('a?.', 'abaacadaae')
+    re.findall(r'.', 'abc')
+    re.findall(r'[ac]', 'abc')
+    re.findall(r'[^ac]', 'abc')
+    re.findall(r'[ab]{2}', 'aaaabbbb') # {n}指匹配n次
+    re.findall(r'aaa|bbb', 'aaaabbbb')
+    re.findall(r'a\\?|a\*', 'aa?a*a')
+    re.findall(r'a?.', 'abaacadaae')
 
 3. 简写字符集
 ---------------
@@ -152,11 +152,11 @@ $           匹配行的结束
 
 .. ipython:: python
 
-    re.findall('.s', 'Apple! This Is an Apple!')
-    re.findall('\w{2}', '09 8? 7w c_ 9q p@')
-    re.findall('\w\W\B', '09 8? 7w c_ 9q p@')
-    re.findall('.\s.', 'Constant dropping wears the stone.')
-    re.findall('上海市(.{2,3}区)(.{2,3}路)(\d+号)',
+    re.findall(r'.s', 'Apple! This Is an Apple!')
+    re.findall(r'\w{2}', '09 8? 7w c_ 9q p@')
+    re.findall(r'\w\W\B', '09 8? 7w c_ 9q p@')
+    re.findall(r'.\s.', 'Constant dropping wears the stone.')
+    re.findall(r'上海市(.{2,3}区)(.{2,3}路)(\d+号)',
                '上海市黄浦区方浜中路249号 上海市宝山区密山路5号')
 
 三、文本处理的五类操作
@@ -183,7 +183,7 @@ $           匹配行的结束
 2. 合并
 -----------
 
-关于合并一共有两个函数，分别是 ``str.join`` 和 ``str.cat`` 。 ``str.join`` 表示用某个连接符把 ``Series`` 中的字符串列表连接起来，如果列表中出现了字符串元素则返回缺失值：
+关于合并一共有两个函数，分别是 ``str.join`` 和 ``str.cat`` 。 ``str.join`` 表示用某个连接符把 ``Series`` 中的字符串列表连接起来，如果列表中出现了非字符串元素则返回缺失值：
 
 .. ipython:: python
 

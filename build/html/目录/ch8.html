@@ -350,7 +350,7 @@
 <span class="gp">In [5]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;abcd&#39;</span><span class="p">,</span> <span class="s1">&#39;efg&#39;</span><span class="p">,</span> <span class="s1">&#39;hi&#39;</span><span class="p">])</span>
 
 <span class="gp">In [6]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span>
-<span class="gh">Out[6]: </span><span class="go">&lt;pandas.core.strings.accessor.StringMethods at 0x196b4a83288&gt;</span>
+<span class="gh">Out[6]: </span><span class="go">&lt;pandas.core.strings.accessor.StringMethods at 0x1ebfe3132c8&gt;</span>
 
 <span class="gp">In [7]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="c1"># pandas中str对象上的upper方法</span>
 <span class="gh">Out[7]: </span><span class="go"></span>
@@ -494,7 +494,7 @@
 <p>正则表达式是一种按照某种正则模式，从左到右匹配字符串中内容的一种工具。对于一般的字符而言，它可以找到其所在的位置，这里为了演示便利，使用了 <code class="docutils literal notranslate"><span class="pre">python</span></code> 中 <code class="docutils literal notranslate"><span class="pre">re</span></code> 模块的 <code class="docutils literal notranslate"><span class="pre">findall</span></code> 函数来匹配所有出现过但不重叠的模式，第一个参数是正则表达式，第二个参数是待匹配的字符串。例如，在下面的字符串中找出 <code class="docutils literal notranslate"><span class="pre">apple</span></code> ：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [28]: </span><span class="kn">import</span> <span class="nn">re</span>
 
-<span class="gp">In [29]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;Apple&#39;</span><span class="p">,</span> <span class="s1">&#39;Apple! This Is an Apple!&#39;</span><span class="p">)</span>
+<span class="gp">In [29]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Apple&#39;</span><span class="p">,</span> <span class="s1">&#39;Apple! This Is an Apple!&#39;</span><span class="p">)</span>
 <span class="gh">Out[29]: </span><span class="go">[&#39;Apple&#39;, &#39;Apple&#39;]</span>
 </pre></div>
 </div>
@@ -550,25 +550,25 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [30]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;abc&#39;</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [30]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;abc&#39;</span><span class="p">)</span>
 <span class="gh">Out[30]: </span><span class="go">[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</span>
 
-<span class="gp">In [31]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[ac]&#39;</span><span class="p">,</span> <span class="s1">&#39;abc&#39;</span><span class="p">)</span>
+<span class="gp">In [31]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[ac]&#39;</span><span class="p">,</span> <span class="s1">&#39;abc&#39;</span><span class="p">)</span>
 <span class="gh">Out[31]: </span><span class="go">[&#39;a&#39;, &#39;c&#39;]</span>
 
-<span class="gp">In [32]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[^ac]&#39;</span><span class="p">,</span> <span class="s1">&#39;abc&#39;</span><span class="p">)</span>
+<span class="gp">In [32]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^ac]&#39;</span><span class="p">,</span> <span class="s1">&#39;abc&#39;</span><span class="p">)</span>
 <span class="gh">Out[32]: </span><span class="go">[&#39;b&#39;]</span>
 
-<span class="gp">In [33]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[ab]</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;aaaabbbb&#39;</span><span class="p">)</span> <span class="c1"># {n}指匹配n次</span>
+<span class="gp">In [33]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[ab]</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;aaaabbbb&#39;</span><span class="p">)</span> <span class="c1"># {n}指匹配n次</span>
 <span class="gh">Out[33]: </span><span class="go">[&#39;aa&#39;, &#39;aa&#39;, &#39;bb&#39;, &#39;bb&#39;]</span>
 
-<span class="gp">In [34]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;aaa|bbb&#39;</span><span class="p">,</span> <span class="s1">&#39;aaaabbbb&#39;</span><span class="p">)</span>
+<span class="gp">In [34]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;aaa|bbb&#39;</span><span class="p">,</span> <span class="s1">&#39;aaaabbbb&#39;</span><span class="p">)</span>
 <span class="gh">Out[34]: </span><span class="go">[&#39;aaa&#39;, &#39;bbb&#39;]</span>
 
-<span class="gp">In [35]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;a</span><span class="se">\\</span><span class="s1">?|a\*&#39;</span><span class="p">,</span> <span class="s1">&#39;aa?a*a&#39;</span><span class="p">)</span>
-<span class="gh">Out[35]: </span><span class="go">[&#39;a?&#39;, &#39;a*&#39;]</span>
+<span class="gp">In [35]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;a</span><span class="se">\\</span><span class="s1">?|a\*&#39;</span><span class="p">,</span> <span class="s1">&#39;aa?a*a&#39;</span><span class="p">)</span>
+<span class="gh">Out[35]: </span><span class="go">[&#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;]</span>
 
-<span class="gp">In [36]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;a?.&#39;</span><span class="p">,</span> <span class="s1">&#39;abaacadaae&#39;</span><span class="p">)</span>
+<span class="gp">In [36]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;a?.&#39;</span><span class="p">,</span> <span class="s1">&#39;abaacadaae&#39;</span><span class="p">)</span>
 <span class="gh">Out[36]: </span><span class="go">[&#39;ab&#39;, &#39;aa&#39;, &#39;c&#39;, &#39;ad&#39;, &#39;aa&#39;, &#39;e&#39;]</span>
 </pre></div>
 </div>
@@ -610,19 +610,19 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [37]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;.s&#39;</span><span class="p">,</span> <span class="s1">&#39;Apple! This Is an Apple!&#39;</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [37]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.s&#39;</span><span class="p">,</span> <span class="s1">&#39;Apple! This Is an Apple!&#39;</span><span class="p">)</span>
 <span class="gh">Out[37]: </span><span class="go">[&#39;is&#39;, &#39;Is&#39;]</span>
 
-<span class="gp">In [38]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\w</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;09 8? 7w c_ 9q p@&#39;</span><span class="p">)</span>
+<span class="gp">In [38]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\w</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;09 8? 7w c_ 9q p@&#39;</span><span class="p">)</span>
 <span class="gh">Out[38]: </span><span class="go">[&#39;09&#39;, &#39;7w&#39;, &#39;c_&#39;, &#39;9q&#39;]</span>
 
-<span class="gp">In [39]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\w\W\B&#39;</span><span class="p">,</span> <span class="s1">&#39;09 8? 7w c_ 9q p@&#39;</span><span class="p">)</span>
+<span class="gp">In [39]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\w\W\B&#39;</span><span class="p">,</span> <span class="s1">&#39;09 8? 7w c_ 9q p@&#39;</span><span class="p">)</span>
 <span class="gh">Out[39]: </span><span class="go">[&#39;8?&#39;, &#39;p@&#39;]</span>
 
-<span class="gp">In [40]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;.\s.&#39;</span><span class="p">,</span> <span class="s1">&#39;Constant dropping wears the stone.&#39;</span><span class="p">)</span>
+<span class="gp">In [40]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.\s.&#39;</span><span class="p">,</span> <span class="s1">&#39;Constant dropping wears the stone.&#39;</span><span class="p">)</span>
 <span class="gh">Out[40]: </span><span class="go">[&#39;t d&#39;, &#39;g w&#39;, &#39;s t&#39;, &#39;e s&#39;]</span>
 
-<span class="gp">In [41]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;上海市(.{2,3}区)(.{2,3}路)(\d+号)&#39;</span><span class="p">,</span>
+<span class="gp">In [41]: </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;上海市(.{2,3}区)(.{2,3}路)(\d+号)&#39;</span><span class="p">,</span>
 <span class="gp">   ....: </span>           <span class="s1">&#39;上海市黄浦区方浜中路249号 上海市宝山区密山路5号&#39;</span><span class="p">)</span>
 <span class="gp">   ....: </span>
 <span class="gh">Out[41]: </span><span class="go">[(&#39;黄浦区&#39;, &#39;方浜中路&#39;, &#39;249号&#39;), (&#39;宝山区&#39;, &#39;密山路&#39;, &#39;5号&#39;)]</span>
@@ -663,7 +663,7 @@
 </div>
 <div class="section" id="id10">
 <h3>2. 合并<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
-<p>关于合并一共有两个函数，分别是 <code class="docutils literal notranslate"><span class="pre">str.join</span></code> 和 <code class="docutils literal notranslate"><span class="pre">str.cat</span></code> 。 <code class="docutils literal notranslate"><span class="pre">str.join</span></code> 表示用某个连接符把 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 中的字符串列表连接起来，如果列表中出现了字符串元素则返回缺失值：</p>
+<p>关于合并一共有两个函数，分别是 <code class="docutils literal notranslate"><span class="pre">str.join</span></code> 和 <code class="docutils literal notranslate"><span class="pre">str.cat</span></code> 。 <code class="docutils literal notranslate"><span class="pre">str.join</span></code> 表示用某个连接符把 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 中的字符串列表连接起来，如果列表中出现了非字符串元素则返回缺失值：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [46]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">],</span> <span class="p">[[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="s1">&#39;c&#39;</span><span class="p">]])</span>
 
 <span class="gp">In [47]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
