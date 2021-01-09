@@ -1,5 +1,5 @@
 *********
-关于作者
+Author
 *********
 
 Contributions to pandas project

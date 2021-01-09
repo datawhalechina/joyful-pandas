@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 
-Joyful Pandas 
+Home
 =============
 
 .. toctree::
@@ -14,7 +14,7 @@ Joyful Pandas
 
    Home
    Content/index
-   About Author
+   Author
    Datawhale
 
 简介待补充

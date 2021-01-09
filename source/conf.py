@@ -68,7 +68,7 @@ html_css_files = ['css/s4defs-roles.css']
 html_theme_options = {
   "github_url": "https://github.com/datawhalechina/joyful-pandas",
   "external_links": [
-      {"name": "Pandas Official DOC", "url": "https://pandas.pydata.org/docs/index.html"}
+      {"name": "Doc", "url": "https://pandas.pydata.org/docs/index.html"}
   ],
   "show_prev_next": False
 }
