@@ -4,7 +4,7 @@
 
 ### 网页版
 
-https://datawhalechina.github.io/joyful-pandas/build/html/%E7%9B%AE%E5%BD%95/index.html
+http://joyfulpandas.datawhale.club/
 
 ### 大纲
 
