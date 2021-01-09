@@ -12,9 +12,9 @@ Joyful Pandas
    :maxdepth: 2
    :hidden:
 
-   主页
-   目录/index
-   关于作者
+   Home
+   Content/index
+   About Author
    Datawhale
 
 简介待补充
