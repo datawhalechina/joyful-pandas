@@ -8,11 +8,15 @@ if "%SPHINXBUILD%" == "" (
 	set SPHINXBUILD=sphinx-build
 )
 set SOURCEDIR=source
-set BUILDDIR=build
+set BUILDDIR=docs
 
 if "%1" == "" goto help
 
 %SPHINXBUILD% >NUL 2>NUL
+
+echo >>docs\\.nojekyll
+echo inter.joyfulpandas.datawhale.club>>docs\\CNAME
+
 if errorlevel 9009 (
 	echo.
 	echo.The 'sphinx-build' command was not found. Make sure you have Sphinx
