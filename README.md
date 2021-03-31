@@ -1,6 +1,6 @@
 # Joyful-Pandas
 
- 请在使用教程前确认pandas版本不低于1.1.0
+ 请在使用教程前确认pandas版本不低于1.2.0
 
 ### 网页版
 
@@ -30,12 +30,10 @@ http://datawhale.club/c/team-learning/IntroductionToPandas/12
 
 ### 交流群
 
-<img src="source/_static/qun.jpg" width="25%"/>
-
-### 推广
+关注Datawhale公众号，回复关键词“熊猫”获得二维码
 
 <img src="source/_static/qrcode.jpeg" width="25%"/>
 
 ### LICENSE
 
-<img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。
+<img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可
