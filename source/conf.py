@@ -5,7 +5,8 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 # -- Path setup --------------------------------------------------------------
-
+#You create the .propertyies file and add the path into the file then you will justlink your file to code.
+#Config file for change and call the file/path without debugg the code.
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
