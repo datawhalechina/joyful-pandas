@@ -2,17 +2,22 @@
 
 ## 【好消息！】
 
-基于Joyful Pandas教程编写的纸质版书籍将于七月中旬在各大网络平台上线，欢迎选购（玩命了买！）。本书使用新版的1.4.0，对网页版教程（基于1.2.0）内容作了大量修订，包括内容增改以及习题更新，同时增加了数据可视化、特征工程和性能优化三个章节的内容。本书设计练一练共计121题，章后习题共计41题，各章节分布与目录见后文。有关本书籍和pandas的任何问题可以在本仓库提issue，或者加最后的二维码进讨论群提问。
+基于Joyful Pandas教程编写的纸质版书籍将于七月下旬在各大网络平台上线，欢迎选购。本书使用新版的1.4.0，对网页版教程（基于1.2.0）内容作了大量修订，包括内容增改以及习题更新，同时增加了数据可视化、特征工程和性能优化三个章节的内容。本书设计练一练共计121题，章后习题共计41题，各章节分布与目录见后文。有关本书籍和pandas的任何问题可以在本仓库提issue，或者加最后的二维码进讨论群提问。
 
-<img src="source/_static/pandas封面.jpg" width="48%"/>
+<img src="source/_static/pandas封面.jpg" width="38%"/>
 
-在写作期间，Joyful Pandas也被pandas官方增选为[社区推荐教程](https://pandas.pydata.org/docs/dev/getting_started/tutorials.html#joyful-pandas)，在此对pandas核心开发组多年来的长期维护和社区建设表示感谢！
+购买链接：
+
+* `当当 <http://product.dangdang.com/29434656.html>`__
+* `京东 <https://item.jd.com/13268767.html>`__
+
+在写作期间，本书作者积极参考pandas的开发工作和社区建设，点击[此处](https://github.com/pandas-dev/pandas/pulls?q=is%3Apr+author%3AGYHHAHA+is%3Aclosed)查看开源贡献。同时，Joyful Pandas也被pandas官方增选为[社区推荐教程](https://pandas.pydata.org/docs/dev/getting_started/tutorials.html#joyful-pandas)，在此对pandas核心开发组多年来的长期维护和社区建设表示感谢！
 
 <img src="source/_static/社区推荐.png" width="80%"/>
 
 ### 纸质版
 
-- 数据集：[下载](https://pan.baidu.com/s/1uE3PcuQ_q8N-ls3rrOqldg)（提取码：9e8r）
+- 数据集：[下载](https://pan.baidu.com/s/16fgy9qYXo0JOsz3GIXQeKA)（提取码：9e8r）
 - 参考答案：[链接](https://gyhhaha.github.io/pd-book/)
 - 练一练与习题
 

@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Joyful Pandas'
-copyright = '2020, Datawhale, 耿远昊'
+copyright = '2020-2022, Datawhale, 耿远昊'
 author = '耿远昊'
 
 # The full version, including alpha/beta/rc tags
