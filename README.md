@@ -11,7 +11,7 @@
 * [当当](http://product.dangdang.com/29434656.html)
 * [京东](https://item.jd.com/13268767.html)
 
-在写作期间，本书作者积极参考pandas的开发工作和社区建设，点击[此处](https://github.com/pandas-dev/pandas/pulls?q=is%3Apr+author%3AGYHHAHA+is%3Aclosed)查看开源贡献。同时，Joyful Pandas也被pandas官方增选为[社区推荐教程](https://pandas.pydata.org/docs/dev/getting_started/tutorials.html#joyful-pandas)，在此对pandas核心开发组多年来的长期维护和社区建设表示感谢！
+在写作期间，本书作者积极参与pandas的开发工作和社区建设，点击[此处](https://github.com/pandas-dev/pandas/pulls?q=is%3Apr+author%3AGYHHAHA+is%3Aclosed)查看开源贡献。同时，Joyful Pandas也被pandas官方增选为[社区推荐教程](https://pandas.pydata.org/docs/dev/getting_started/tutorials.html#joyful-pandas)，在此对pandas核心开发组多年来的长期维护和社区建设表示感谢！
 
 <img src="source/_static/社区推荐.png" width="70%"/>
 
