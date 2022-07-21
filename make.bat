@@ -37,3 +37,9 @@ goto end
 
 :end
 popd
+
+if exist docs\\html (
+	for /D %%a in (docs\\html\\*) do move "%%a" docs\\
+	move docs\\html\\*.* docs\\
+	rmdir docs\\html
+)
