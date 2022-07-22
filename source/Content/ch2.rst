@@ -7,7 +7,7 @@
     import numpy as np
     import pandas as pd
 
-在开始学习前，请保证 ``pandas`` 的版本号不低于如下所示的版本，否则请务必升级！请确认已经安装了 ``xlrd, xlwt, openpyxl`` 这三个包，其中xlrd版本不得高于 ``2.0.0`` 。
+在开始学习前，请保证 ``pandas`` 的版本号不低于如下所示的版本，否则请务必升级！请确认已经安装了 ``xlrd, xlwt, openpyxl`` 这三个包。其中，当pandas版本为1.2.x时，xlrd版本不得高于 ``2.0.0`` 。若pandas版本在1.3.x或以上时，xlrd正常安装即可。
 
 .. ipython:: python
 

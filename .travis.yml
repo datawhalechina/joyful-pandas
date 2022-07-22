@@ -20,8 +20,8 @@ install:
   # Replace dep1 dep2 ... with your dependencies
   - conda create -q -n test-environment python=3.7
   - conda activate test-environment
-  - conda install numpy pandas=1.2.0 matplotlib sphinx ipython xlrd=1.2.0 tabulate openpyxl scipy scikit-learn --channel conda-forge
-  - conda install pydata-sphinx-theme --channel conda-forge
+  - conda install numpy=1.21.6 pandas=1.2.0 matplotlib=3.5.2 sphinx=5.0.2 ipython=7.33.0 xlrd=1.2.0 tabulate=0.8.10 openpyxl=3.0.9 scipy=1.7.3 scikit-learn=1.0.2 --channel conda-forge
+  - conda install pydata-sphinx-theme=0.9.0 --channel conda-forge
 
 script:
   - make clean
