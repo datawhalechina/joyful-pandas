@@ -16,7 +16,7 @@ Home
    Content/index
    Author
    Datawhale
-   《pandas数据处理与分析》
+   pandas数据处理与分析
 
 本教程共有十章，可分为三大模块：基础知识、四类操作、四类数据，涵盖了pandas的所有核心操作与特性。
 
