@@ -18,7 +18,7 @@ install:
   - conda info -a
 
   # Replace dep1 dep2 ... with your dependencies
-  - conda create -q -n test-environment python=3.7
+  - conda create -q -n test-environment python=3.8
   - conda activate test-environment
   - pip install -r source/requirements.txt
 
