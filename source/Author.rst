@@ -2,6 +2,11 @@
 Author
 *********
 
+作者简介
+====================
+
+耿远昊，华东师范大学统计学本科，威斯康星大学麦迪逊分校统计学硕士在读，Datawhale成员，《pandas数据处理与分析》作者。pandas contributor，积极参与pandas开源社区生态建设，包括漏洞修复、功能实现与性能优化等，对pandas在数据处理与分析中的应用有丰富经验。
+
 Contributions to pandas project
 ======================================
 
@@ -20,7 +25,6 @@ Merged
 * `#38408 <https://github.com/pandas-dev/pandas/pull/38408>`__ ENH: add end and end_day ``origin`` for ``resample``
 * `#38492 <https://github.com/pandas-dev/pandas/pull/38492>`__ BUG: ``CategoricalIndex.reindex`` fails when ``Index`` passed with labels all in category
 * `#44827 <https://github.com/pandas-dev/pandas/pull/44827>`__ PERF: faster ``Dataframe`` construction from ``recarray``
-* `#46523 <https://github.com/pandas-dev/pandas/pull/46523>`__ Add a new material in Community tutorials page
 * `#46546 <https://github.com/pandas-dev/pandas/pull/46546>`__ BUG: ``pd.concat`` with identical key leads to multi-indexing error
 * `#46654 <https://github.com/pandas-dev/pandas/pull/46654>`__ TST: add validation checks on levels keyword from ``pd.concat``
 * `#46656 <https://github.com/pandas-dev/pandas/pull/46656>`__ BUG: ``df.nsmallest`` get wrong results when ``NaN`` in the sorting column
