@@ -20,7 +20,7 @@ install:
   # Replace dep1 dep2 ... with your dependencies
   - conda create -q -n test-environment python=3.7
   - conda activate test-environment
-  - pip install -r requirements.txt
+  - pip install -r source/requirements.txt
 
 script:
   - make clean
