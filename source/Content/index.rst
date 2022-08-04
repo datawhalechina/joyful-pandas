@@ -5,7 +5,6 @@ Content
 .. toctree::
    :maxdepth: 3
 
-   Preface
    ch1
    ch2
    ch3

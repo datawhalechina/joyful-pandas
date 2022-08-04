@@ -1,0 +1,53 @@
+****************
+补充习题
+****************
+
+.. ipython:: python
+    
+    import numpy as np
+    import pandas as pd
+    import matplotlib.pyplot as plt
+
+Ex1：NumPy的向量化运算
+=================================
+
+- 设计一个生成二维Numpy数组的函数get_res()，其输入为正整数n，返回的数组构造方式如下：第1行填入1个1，第2行在上一行填入位置的下一列连续填入2个2，第3行在第二行最后一个填入位置的下一列连续填入3个3，...，第n行在第n-1行最后一个填入位置的下一列连续填入n个n。
+
+.. code-block:: python
+
+    >>> n = 4
+    >>> get_res(n)
+
+.. code-block:: python
+
+    array([[1., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
+           [0., 2., 2., 0., 0., 0., 0., 0., 0., 0.],
+           [0., 0., 0., 3., 3., 3., 0., 0., 0., 0.],
+           [0., 0., 0., 0., 0., 0., 4., 4., 4., 4.]])
+
+- 在二维平面上有n个点，每个点具有k维特征，点的坐标数据记录在node_xy中，点的特征数据记录在node_fea中。现要计算所有点的相关矩阵 :math:`S` ，点A和点B的相关系数定义如下
+
+.. math::
+
+    S_{ab} = \frac{\sigma_{ab}}{2} + \frac{\lambda_{ab}}{2}
+
+其中，若记点a特征为 :math:`A` ，点b特征为 :math:`B` ，则有
+
+.. math::
+
+    \sigma_{ab} = \frac{\sum_{i=1}^kA_iB_i}{\sqrt{\sum_{i=1}^kA^2_i}\sqrt{\sum_{i=1}^kB^2_i}}
+
+对于点a而言，将所有点到点a的二维平面距离进行排序，从而得到每个点到点a的距离排名，距离最近（排名为1）的点是点a自身，记点b的排名为 :math:`r^{(a)}_b` ，则定义
+
+.. math::
+
+    \lambda_{ab} = 1 - \frac{2\times (r^{(a)}_b-1)}{n-1}
+
+请对于给定的node_xy和node_fea计算相关矩阵 :math:`S` 。（提示：使用np.argsort()）
+
+.. code-block:: python
+
+    >>> n, k = 1000, 10
+    >>> node_xy = np.random.rand(n, 2)
+    >>> node_fea = np.random.rand(n, k)
+    >>> get_S(node_xy, node_fea)

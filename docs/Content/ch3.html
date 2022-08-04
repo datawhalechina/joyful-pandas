@@ -114,6 +114,12 @@
  </a>
 </li>
 
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../%E8%A1%A5%E5%85%85%E4%B9%A0%E9%A2%98.html">
+  补充习题
+ </a>
+</li>
+
     
     <li class="nav-item">
         <a class="nav-link nav-external" href="https://pandas.pydata.org/docs/index.html">Doc<i class="fas fa-external-link-alt"></i></a>
@@ -161,11 +167,6 @@
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Preface.html">
-   Preface
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ch1.html">
    第一章 预备知识
@@ -277,7 +278,7 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id5">
-     1. 随机抽样
+     6. 随机抽样
     </a>
    </li>
   </ul>
@@ -907,7 +908,7 @@
 </div>
 </section>
 <section id="id5">
-<h3>1. 随机抽样<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<h3>6. 随机抽样<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
 <p>如果把 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> 的每一行看作一个样本，或把每一列看作一个特征，再把整个 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> 看作总体，想要对样本或特征进行随机抽样就可以用 <code class="docutils literal notranslate"><span class="pre">sample</span></code> 函数。有时在拿到大型数据集后，想要对统计特征进行计算来了解数据的大致分布，但是这很费时间。同时，由于许多统计特征在等概率不放回的简单随机抽样条件下，是总体统计特征的无偏估计，比如样本均值和总体均值，那么就可以先从整张表中抽出一部分来做近似估计。</p>
 <p><code class="docutils literal notranslate"><span class="pre">sample</span></code> 函数中的主要参数为 <code class="docutils literal notranslate"><span class="pre">n,</span> <span class="pre">axis,</span> <span class="pre">frac,</span> <span class="pre">replace,</span> <span class="pre">weights</span></code> ，前三个分别是指抽样数量、抽样的方向（0为行、1为列）和抽样比例（0.3则为从总体中抽出30%的样本）。</p>
 <p><code class="docutils literal notranslate"><span class="pre">replace</span></code> 和 <code class="docutils literal notranslate"><span class="pre">weights</span></code> 分别是指是否放回和每个样本的抽样相对概率，当 <code class="docutils literal notranslate"><span class="pre">replace</span> <span class="pre">=</span> <span class="pre">True</span></code> 则表示有放回抽样。例如，对下面构造的 <code class="docutils literal notranslate"><span class="pre">df_sample</span></code> 以 <code class="docutils literal notranslate"><span class="pre">value</span></code> 值的相对大小为抽样概率进行有放回抽样，抽样数量为3。</p>
