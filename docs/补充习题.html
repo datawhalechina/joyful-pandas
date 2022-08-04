@@ -224,6 +224,20 @@
 <section id="ex1-numpy">
 <h2>Ex1：NumPy的向量化运算<a class="headerlink" href="#ex1-numpy" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
+<li><p>给定一个正整数列表，请找出缺失的最小正整数。</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_miss</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_miss</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="go">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_miss</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="go">6</span>
+</pre></div>
+</div>
+<ul class="simple">
 <li><p>设计一个生成二维Numpy数组的函数get_res()，其输入为正整数n，返回的数组构造方式如下：第1行填入1个1，第2行在上一行填入位置的下一列连续填入2个2，第3行在第二行最后一个填入位置的下一列连续填入3个3，…，第n行在第n-1行最后一个填入位置的下一列连续填入n个n。</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="mi">4</span>

@@ -31,6 +31,8 @@ Merged
 * `#47717 <https://github.com/pandas-dev/pandas/pull/47717>`__ TST: add test for ``groupby`` with ``dropna=False`` on multi-index
 * `#47731 <https://github.com/pandas-dev/pandas/pull/47731>`__ BUG: ``groupby.corrwith`` fails with ``axis=1`` and ``other=df``
 * `#47757 <https://github.com/pandas-dev/pandas/pull/47757>`__ BUG: ``wide_to_long`` fails when ``stubnames`` miss and ``i`` contains ``string`` column
+* `#47779 <https://github.com/pandas-dev/pandas/pull/47779>`__ PERF: efficient ``argmax/argmin`` for ``SparseArray``
+* `#47810 <https://github.com/pandas-dev/pandas/pull/47810>`__ BUG: fix ``SparseArray.unique`` IndexError and ``_first_fill_value_loc`` algo
 
 Mail
 =================
