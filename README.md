@@ -17,7 +17,7 @@
 
 - 数据集：[下载](https://pan.baidu.com/s/16fgy9qYXo0JOsz3GIXQeKA)（提取码：9e8r）
 - 参考答案：[链接](https://gyhhaha.github.io/pd-book/)
-- 勘误修订: [链接](http://joyfulpandas.datawhale.club/pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E4%B8%8E%E5%88%86%E6%9E%90.html)
+- 勘误修订：[链接](http://joyfulpandas.datawhale.club/pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E4%B8%8E%E5%88%86%E6%9E%90.html#id3)
 - 练一练与习题
 
 |  章节   | 练一练（题数）  | 习题（\*为纸质版新增） |

@@ -27,6 +27,7 @@ Merged
 * `#46656 <https://github.com/pandas-dev/pandas/pull/46656>`__ BUG: ``df.nsmallest`` get wrong results when ``NaN`` in the sorting column
 * `#47605 <https://github.com/pandas-dev/pandas/pull/47605>`__ BUG: ``df.groupby().resample()[[cols]]`` without key columns raise ``KeyError``
 * `#47685 <https://github.com/pandas-dev/pandas/pull/47685>`__ TST: avoid sort when concat int-index ``Dataframes`` with ``sort=False``
+* `#47708 <https://github.com/pandas-dev/pandas/pull/47708>`__ BUG: ``json_normalize`` raises boardcasting error with list-like ``metadata``
 * `#47714 <https://github.com/pandas-dev/pandas/pull/47714>`__ BUG: ``df.fillna`` ignores axis when ``DataFrame`` is single block
 * `#47717 <https://github.com/pandas-dev/pandas/pull/47717>`__ TST: add test for ``groupby`` with ``dropna=False`` on multi-index
 * `#47731 <https://github.com/pandas-dev/pandas/pull/47731>`__ BUG: ``groupby.corrwith`` fails with ``axis=1`` and ``other=df``
