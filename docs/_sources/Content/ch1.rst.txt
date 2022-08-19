@@ -543,7 +543,7 @@ Ex2：更新矩阵
 Ex3：卡方统计量
 --------------------------
 
-设矩阵 :math:`A_{m\times n}` ，记 :math:`B_{ij} = \frac{(\sum_{i=1}^mA_{ij})\times (\sum_{j=1}^nA_{ij})}{\sum_{i=1}^m\sum_{j=1}^nA_{ij}}` ，定义卡方值如下：
+设矩阵 :math:`A_{m\times n}` ，记 :math:`B_{ij} = \frac{(\sum_{i=p}^mA_{pj})\times (\sum_{q=1}^nA_{iq})}{\sum_{p=1}^m\sum_{q=1}^nA_{pq}}` ，定义卡方值如下：
 
 .. math::
 

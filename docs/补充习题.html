@@ -195,7 +195,12 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ex2">
-   Ex2：统计某校高三第一学期的学生成绩情况
+   Ex2：统计学生的成绩情况
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ex3">
+   Ex3：统计商品的审核情况
   </a>
  </li>
 </ul>
@@ -260,7 +265,7 @@
 </ul>
 <div class="math notranslate nohighlight">
 \[\lim_{n\rightarrow+\infty}\frac{\mathbb{E}|S_n|}{\sqrt{n}}=\sqrt{\frac{2}{\pi}}\]</div>
-<p>现取n为5000进行1000次试验，且每次试验中用 <span class="math notranslate nohighlight">\(\frac{1}{100}\sum_{k=1}^{100}|S_n|\)</span> 来代替 <span class="math notranslate nohighlight">\(\mathbb{E}|S_n|\)</span> 。此时可以计算得到1000个 <span class="math notranslate nohighlight">\(\frac{\mathbb{E}|S_n|}{\sqrt{n}}-\sqrt{\frac{2}{\pi}}\)</span> 的估计值，请绘制直方图（plt.hist）来观察它们的分布。</p>
+<p>现取n为5000进行1000次试验，且每次试验中用 <span class="math notranslate nohighlight">\(\frac{1}{100}\sum_{k=1}^{100}|S_n|\)</span> 来代替 <span class="math notranslate nohighlight">\(\mathbb{E}|S_n|\)</span> 。此时可以计算得到1000个 <span class="math notranslate nohighlight">\(\lim_{n\rightarrow+\infty}\frac{\mathbb{E}|S_n|}{\sqrt{n}}-\sqrt{\frac{2}{\pi}}\)</span> 的估计值，请绘制直方图（plt.hist）来观察它们的分布。</p>
 <ul class="simple">
 <li><p>在二维平面上有n个点，每个点具有k维特征，点的坐标数据记录在node_xy中，点的特征数据记录在node_fea中。现要计算所有点的相关矩阵 <span class="math notranslate nohighlight">\(S\)</span> ，点a和点b的相关系数定义如下</p></li>
 </ul>
@@ -287,7 +292,7 @@
 </div>
 </section>
 <section id="ex2">
-<h2>Ex2：统计某校高三第一学期的学生成绩情况<a class="headerlink" href="#ex2" title="Permalink to this heading">#</a></h2>
+<h2>Ex2：统计学生的成绩情况<a class="headerlink" href="#ex2" title="Permalink to this heading">#</a></h2>
 <p>在data/supplement/ex2目录下存放了某校高三第一学期的学生成绩情况，包含16次周测成绩、期中考试成绩和期末考试成绩，科目一栏的成绩表示学生选课的成绩。请完成以下练习：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/supplement/ex2/第1次周测成绩.csv&#39;</span><span class="p">)</span>
 
@@ -309,17 +314,17 @@
 </ul>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
 <span class="gp">   ...: </span>    <span class="p">{</span>
-<span class="gp">   ...: </span>        <span class="s2">&quot;1班（文）&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;王大锤：物理（102）&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">]</span><span class="o">*</span> <span class="mi">4</span><span class="p">,</span>
+<span class="gp">   ...: </span>        <span class="s2">&quot;1班（文）&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;王大锤：历史（102）&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">]</span><span class="o">*</span> <span class="mi">4</span><span class="p">,</span>
 <span class="gp">   ...: </span>        <span class="s2">&quot;1班（理）&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">]</span><span class="o">*</span> <span class="mi">5</span><span class="p">,</span>
 <span class="gp">   ...: </span>        <span class="s2">&quot;2班（文）&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">]</span><span class="o">*</span> <span class="mi">5</span><span class="p">,</span>
 <span class="gp">   ...: </span>        <span class="s2">&quot;...&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">]</span><span class="o">*</span> <span class="mi">5</span><span class="p">,</span>
 <span class="gp">   ...: </span>        <span class="s2">&quot;8班（理）&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">]</span><span class="o">*</span> <span class="mi">5</span><span class="p">,</span>
 <span class="gp">   ...: </span>    <span class="p">}</span>
-<span class="gp">   ...: </span><span class="p">)</span>
+<span class="gp">   ...: </span><span class="p">)</span> <span class="c1"># 王大锤：历史（102）只是举个例子，表示结果字符串需要按照这个格式来写</span>
 <span class="gp">   ...: </span>
 <span class="gh">Out[6]: </span><span class="go"></span>
 <span class="go">         1班（文） 1班（理） 2班（文）  ... 8班（理）</span>
-<span class="go">0  王大锤：物理（102）   ...   ...  ...   ...</span>
+<span class="go">0  王大锤：历史（102）   ...   ...  ...   ...</span>
 <span class="go">1          ...   ...   ...  ...   ...</span>
 <span class="go">2          ...   ...   ...  ...   ...</span>
 <span class="go">3          ...   ...   ...  ...   ...</span>
@@ -348,6 +353,58 @@
 <span class="go">9班   0.976459  0.468651  0.976761  0.604846  0.739264  0.039188</span>
 <span class="go">10班  0.282807  0.120197  0.296140  0.118728  0.317983  0.414263</span>
 <span class="go">11班  0.064147  0.692472  0.566601  0.265389  0.523248  0.093941</span>
+</pre></div>
+</div>
+</section>
+<section id="ex3">
+<h2>Ex3：统计商品的审核情况<a class="headerlink" href="#ex3" title="Permalink to this heading">#</a></h2>
+<p>在data/supplement/ex3中存放了两个有关商品审核的信息表，“商品信息.csv”中记录了每个商品的ID号，唯一的识别码以及商品所属的类别，“申请与审核记录.csv”中记录了每个商品的审核信息。已知商品的审核流程如下：由申请人发起商品审核的申请，然后由审核人审核，审核的结果包括通过与不通过两种情况，若商品不通过审核则可以由另一位申请人再次发起申请，直到商品的审核通过。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">df_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/supplement/ex3/商品信息.csv&#39;</span><span class="p">)</span>
+
+<span class="gp">In [9]: </span><span class="n">df_info</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[9]: </span><span class="go"></span>
+<span class="go">         ID号      识别码  类别</span>
+<span class="go">0  ID 000001  CRtXJUK  T1</span>
+<span class="go">1  ID 000002  RGSxifC  Q1</span>
+<span class="go">2  ID 000003  AboduTp  S1</span>
+<span class="go">3  ID 000004  zlpUeMl  S2</span>
+<span class="go">4  ID 000005  IVQqhIK  S3</span>
+
+<span class="gp">In [10]: </span><span class="n">df_record</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/supplement/ex3/申请与审核记录.csv&#39;</span><span class="p">)</span>
+
+<span class="gp">In [11]: </span><span class="n">df_record</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[11]: </span><span class="go"></span>
+<span class="go">         ID号         申请人        申请时间         审核人        审核时间   结果</span>
+<span class="go">0  ID 000001  \#+3((52\{  2020-04-19  ~1=6\*183|  2020-05-03  未通过</span>
+<span class="go">1  ID 000001  8@75[1|2\*  2020-05-10  15![3\({59  2020-07-17  未通过</span>
+<span class="go">2  ID 000001  }!7)(#^0*7  2020-07-28  3`}04}%@75  2020-08-23   通过</span>
+<span class="go">3  ID 000002  |*{20#9|}5  2020-01-05  ={`8]03*4+  2020-03-09  未通过</span>
+<span class="go">4  ID 000002  4~6%)455`[  2020-03-14  =$-36[)|8]  2020-04-21  未通过</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>有多少商品最终通过审核？</p></li>
+<li><p>各类别商品的通过率分别为多少？</p></li>
+<li><p>对于类别为“T1”的商品，平均审核次数为多少？</p></li>
+<li><p>是否存在商品在上一次审核未完成时就提交了下一次审核申请？</p></li>
+<li><p>请对所有审核通过的商品统计第一位申请人和最后一位审核人的信息，返回格式如下：</p></li>
+</ul>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [12]: </span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+<span class="gp">   ....: </span>    <span class="p">{</span>
+<span class="gp">   ....: </span>        <span class="s2">&quot;ID号&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ID 000001&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span>
+<span class="gp">   ....: </span>        <span class="s2">&quot;类别&quot;</span><span class="p">:[</span><span class="s2">&quot;T1&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span>
+<span class="gp">   ....: </span>        <span class="s2">&quot;首位申请人&quot;</span><span class="p">:[</span><span class="s2">&quot;\#+3((52\{&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span>
+<span class="gp">   ....: </span>        <span class="s2">&quot;末位审核人&quot;</span><span class="p">:[</span><span class="s2">&quot;3`}04}%@75&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span>
+<span class="gp">   ....: </span>    <span class="p">},</span>
+<span class="gp">   ....: </span>    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;...&quot;</span><span class="p">]</span>
+<span class="gp">   ....: </span><span class="p">)</span>
+<span class="gp">   ....: </span>
+<span class="gh">Out[12]: </span><span class="go"></span>
+<span class="go">           ID号   类别       首位申请人       末位审核人</span>
+<span class="go">1    ID 000001   T1  \#+3((52\{  3`}04}%@75</span>
+<span class="go">2          ...  ...         ...         ...</span>
+<span class="go">3          ...  ...         ...         ...</span>
+<span class="go">...        ...  ...         ...         ...</span>
 </pre></div>
 </div>
 </section>
