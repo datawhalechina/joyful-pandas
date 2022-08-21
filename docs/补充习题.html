@@ -389,7 +389,7 @@
 <ul class="simple">
 <li><p>有多少商品最终通过审核？</p></li>
 <li><p>各类别商品的通过率分别为多少？</p></li>
-<li><p>对于类别为“T1”的商品，平均审核次数为多少？</p></li>
+<li><p>对于类别为“T1”且最终状态为通过的商品，平均审核次数为多少？</p></li>
 <li><p>是否存在商品在上一次审核未完成时就提交了下一次审核申请？</p></li>
 <li><p>请对所有审核通过的商品统计第一位申请人和最后一位审核人的信息，返回格式如下：</p></li>
 </ul>
@@ -397,14 +397,14 @@
 <span class="gp">   ....: </span>    <span class="p">{</span>
 <span class="gp">   ....: </span>        <span class="s2">&quot;ID号&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ID 000001&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span>
 <span class="gp">   ....: </span>        <span class="s2">&quot;类别&quot;</span><span class="p">:[</span><span class="s2">&quot;T1&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span>
-<span class="gp">   ....: </span>        <span class="s2">&quot;首位申请人&quot;</span><span class="p">:[</span><span class="s2">&quot;\#+3((52\{&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span>
-<span class="gp">   ....: </span>        <span class="s2">&quot;末位审核人&quot;</span><span class="p">:[</span><span class="s2">&quot;3`}04}%@75&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span>
+<span class="gp">   ....: </span>        <span class="s2">&quot;申请人&quot;</span><span class="p">:[</span><span class="s2">&quot;\#+3((52\{&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span>
+<span class="gp">   ....: </span>        <span class="s2">&quot;审核人&quot;</span><span class="p">:[</span><span class="s2">&quot;3`}04}%@75&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span>
 <span class="gp">   ....: </span>    <span class="p">},</span>
 <span class="gp">   ....: </span>    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;...&quot;</span><span class="p">]</span>
 <span class="gp">   ....: </span><span class="p">)</span>
 <span class="gp">   ....: </span>
 <span class="gh">Out[12]: </span><span class="go"></span>
-<span class="go">           ID号   类别       首位申请人       末位审核人</span>
+<span class="go">           ID号   类别         申请人         审核人</span>
 <span class="go">1    ID 000001   T1  \#+3((52\{  3`}04}%@75</span>
 <span class="go">2          ...  ...         ...         ...</span>
 <span class="go">3          ...  ...         ...         ...</span>
