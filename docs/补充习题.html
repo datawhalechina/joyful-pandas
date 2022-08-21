@@ -293,24 +293,24 @@
 </section>
 <section id="ex2">
 <h2>Ex2：统计学生的成绩情况<a class="headerlink" href="#ex2" title="Permalink to this heading">#</a></h2>
-<p>在data/supplement/ex2目录下存放了某校高三第一学期的学生成绩情况，包含16次周测成绩、期中考试成绩和期末考试成绩，科目一栏的成绩表示学生选课的成绩。请完成以下练习：</p>
+<p>在data/supplement/ex2目录下存放了某校高三第一学期的学生成绩情况，包含16次周测成绩、期中考试成绩和期末考试成绩，科目一栏的成绩表示学生选课的成绩。所有的表中，相同的行表示的是同一位同学。请完成以下练习：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/supplement/ex2/第1次周测成绩.csv&#39;</span><span class="p">)</span>
 
 <span class="gp">In [5]: </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gh">Out[5]: </span><span class="go"></span>
-<span class="go">   班级   姓名  选科   语文  数学   英语   科目</span>
-<span class="go">0   1  杜秀荣  化学   94  99  116   79</span>
-<span class="go">1   1   樊瑜  化学  100  87  121   92</span>
-<span class="go">2   1  曾春梅  地理  105  95  105  104</span>
-<span class="go">3   1   王健  化学  112  84  148   85</span>
-<span class="go">4   1   张柳  生物  100  83  120   85</span>
+<span class="go">   班级   姓名  选科   语文  数学   英语  科目</span>
+<span class="go">0   1   吴刚  地理   93  95   82  69</span>
+<span class="go">1   1   卢楠  物理  108  77   90  94</span>
+<span class="go">2   1  唐秀兰  历史   88  72   95  85</span>
+<span class="go">3   1   张刚  化学   85  88  102  76</span>
+<span class="go">4   1   姜洋  历史  104  99   84  86</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>该校高三年级中是否存在姓名相同的学生？</p></li>
-<li><p>每张表每行都对应同一位学生的信息，但某次测验有一位学生的信息由于系统原因没有录入，他/她的语数英和加选课成绩分别为102、106、101和86，请将其填充到正确的位置。</p></li>
+<li><p>在第一次周测中，请求出每个班级选修物理或化学同学的语数英总分的平均值。哪个班级最高？</p></li>
 <li><p>学生在该学期的总评计算方式是各次考试总分的加权平均值，其中周测成绩权重为50%（每次测验权重相等，即3.125%），期中权重为20%，期末权重为30%。请找出年级中总评前十的同学。</p></li>
-<li><p>请统计1班到8班文理科（物化生为理科，政史地为文科）期末考试总分前5的学生，结果格式如下：</p></li>
+<li><p>请统计1班到8班文理科（物化生为理科，政史地为文科）期末考试总分前5的学生，结果格式如下，括号内的为选科分数：</p></li>
 </ul>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
 <span class="gp">   ...: </span>    <span class="p">{</span>
@@ -332,27 +332,31 @@
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>学生成绩的稳定性可以用每次考试在全年级相同选科学生中的排名标准差来度量，请计算每个班级的各科学生成绩稳定性的均值，结果格式如下：</p></li>
+<li><p>学生成绩的稳定性可以用每次考试在全年级相同选科学生中的总分排名标准差来度量，请计算每个班级的各科学生成绩稳定性的均值，结果格式如下：</p></li>
 </ul>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
 <span class="gp">   ...: </span>    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
-<span class="gp">   ...: </span>    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">班&quot;</span><span class="o">%</span><span class="k">i</span> for i in range(1, 12)],
-<span class="gp">   ...: </span>    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;物理&quot;</span><span class="p">,</span> <span class="s2">&quot;化学&quot;</span><span class="p">,</span> <span class="s2">&quot;生物&quot;</span><span class="p">,</span> <span class="s2">&quot;历史&quot;</span><span class="p">,</span> <span class="s2">&quot;地理&quot;</span><span class="p">,</span> <span class="s2">&quot;政治&quot;</span><span class="p">],</span>
+<span class="gp">   ...: </span>    <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;班级&quot;</span><span class="p">),</span>
+<span class="gp">   ...: </span>    <span class="n">columns</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span>
+<span class="gp">   ...: </span>        <span class="p">[</span><span class="s2">&quot;物理&quot;</span><span class="p">,</span> <span class="s2">&quot;化学&quot;</span><span class="p">,</span> <span class="s2">&quot;生物&quot;</span><span class="p">,</span> <span class="s2">&quot;历史&quot;</span><span class="p">,</span> <span class="s2">&quot;地理&quot;</span><span class="p">,</span> <span class="s2">&quot;政治&quot;</span><span class="p">],</span>
+<span class="gp">   ...: </span>        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;选科&quot;</span><span class="p">,</span>
+<span class="gp">   ...: </span>    <span class="p">)</span>
 <span class="gp">   ...: </span><span class="p">)</span>
 <span class="gp">   ...: </span>
 <span class="gh">Out[7]: </span><span class="go"></span>
-<span class="go">           物理        化学        生物        历史        地理        政治</span>
-<span class="go">1班   0.461479  0.780529  0.118274  0.639921  0.143353  0.944669</span>
-<span class="go">2班   0.521848  0.414662  0.264556  0.774234  0.456150  0.568434</span>
-<span class="go">3班   0.018790  0.617635  0.612096  0.616934  0.943748  0.681820</span>
-<span class="go">4班   0.359508  0.437032  0.697631  0.060225  0.666767  0.670638</span>
-<span class="go">5班   0.210383  0.128926  0.315428  0.363711  0.570197  0.438602</span>
-<span class="go">6班   0.988374  0.102045  0.208877  0.161310  0.653108  0.253292</span>
-<span class="go">7班   0.466311  0.244426  0.158970  0.110375  0.656330  0.138183</span>
-<span class="go">8班   0.196582  0.368725  0.820993  0.097101  0.837945  0.096098</span>
-<span class="go">9班   0.976459  0.468651  0.976761  0.604846  0.739264  0.039188</span>
-<span class="go">10班  0.282807  0.120197  0.296140  0.118728  0.317983  0.414263</span>
-<span class="go">11班  0.064147  0.692472  0.566601  0.265389  0.523248  0.093941</span>
+<span class="go">选科        物理        化学        生物        历史        地理        政治</span>
+<span class="go">班级                                                            </span>
+<span class="go">1   0.461479  0.780529  0.118274  0.639921  0.143353  0.944669</span>
+<span class="go">2   0.521848  0.414662  0.264556  0.774234  0.456150  0.568434</span>
+<span class="go">3   0.018790  0.617635  0.612096  0.616934  0.943748  0.681820</span>
+<span class="go">4   0.359508  0.437032  0.697631  0.060225  0.666767  0.670638</span>
+<span class="go">5   0.210383  0.128926  0.315428  0.363711  0.570197  0.438602</span>
+<span class="go">6   0.988374  0.102045  0.208877  0.161310  0.653108  0.253292</span>
+<span class="go">7   0.466311  0.244426  0.158970  0.110375  0.656330  0.138183</span>
+<span class="go">8   0.196582  0.368725  0.820993  0.097101  0.837945  0.096098</span>
+<span class="go">9   0.976459  0.468651  0.976761  0.604846  0.739264  0.039188</span>
+<span class="go">10  0.282807  0.120197  0.296140  0.118728  0.317983  0.414263</span>
+<span class="go">11  0.064147  0.692472  0.566601  0.265389  0.523248  0.093941</span>
 </pre></div>
 </div>
 </section>
