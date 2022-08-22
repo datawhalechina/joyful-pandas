@@ -492,7 +492,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">gb</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;School&#39;</span><span class="p">,</span> <span class="s1">&#39;Grade&#39;</span><span class="p">])</span>
 
 <span class="gp">In [14]: </span><span class="n">gb</span>
-<span class="gh">Out[14]: </span><span class="go">&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x000001FE0683FC70&gt;</span>
+<span class="gh">Out[14]: </span><span class="go">&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x000001CC343A9B50&gt;</span>
 </pre></div>
 </div>
 <p>通过 <code class="docutils literal notranslate"><span class="pre">ngroups</span></code> 属性，可以得到分组个数：</p>
@@ -639,12 +639,12 @@
 </div>
 <p>【c】使用自定义函数</p>
 <p>在 <code class="docutils literal notranslate"><span class="pre">agg</span></code> 中可以使用具体的自定义函数， <span class="red">需要注意传入函数的参数是之前数据源中的列，逐列进行计算</span> 。下面分组计算身高和体重的极差：</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [27]: </span><span class="n">gb</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [27]: </span><span class="n">gb</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
 <span class="gh">Out[27]: </span><span class="go"></span>
-<span class="go">          Height     Weight</span>
-<span class="go">Gender                     </span>
-<span class="go">Female  13.79697  13.918519</span>
-<span class="go">Male    17.92549  21.759259</span>
+<span class="go">        Height  Weight</span>
+<span class="go">Gender                </span>
+<span class="go">Female    24.8    29.0</span>
+<span class="go">Male      38.2    38.0</span>
 </pre></div>
 </div>
 <div class="hint admonition">

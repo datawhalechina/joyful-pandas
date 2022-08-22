@@ -206,7 +206,7 @@
 
 .. ipython:: python
     
-    gb.agg(lambda x: x.mean()-x.min())
+    gb.agg(lambda x: x.max()-x.min())
 
 .. admonition:: 练一练
    :class: hint

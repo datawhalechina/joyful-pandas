@@ -140,7 +140,7 @@ Ex1：口袋妖怪数据集
     L_full = [i+' '+j if i!=j else i for i in df['Type 1'
              ].unique() for j in df['Type 1'].unique()]
     L_part = [i+' '+j if not isinstance(j, float) else i for i, j in zip(
-              df['Type 1'], df['Type 2'])]
+              attr_dup['Type 1'], attr_dup['Type 2'])]
     res = set(L_full).difference(set(L_part))
     len(res) # 太多，不打印了
 
