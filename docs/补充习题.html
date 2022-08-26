@@ -265,7 +265,7 @@
 </ul>
 <div class="math notranslate nohighlight">
 \[\lim_{n\rightarrow+\infty}\frac{\mathbb{E}|S_n|}{\sqrt{n}}=\sqrt{\frac{2}{\pi}}\]</div>
-<p>现取n为5000进行1000次试验，且每次试验中用 <span class="math notranslate nohighlight">\(\frac{1}{100}\sum_{k=1}^{100}|S_n|\)</span> 来代替 <span class="math notranslate nohighlight">\(\mathbb{E}|S_n|\)</span> 。此时可以计算得到1000个 <span class="math notranslate nohighlight">\(\lim_{n\rightarrow+\infty}\frac{\mathbb{E}|S_n|}{\sqrt{n}}-\sqrt{\frac{2}{\pi}}\)</span> 的估计值，请绘制直方图（plt.hist）来观察它们的分布。</p>
+<p>现取n为5000进行1000次试验，且每次试验中用 <span class="math notranslate nohighlight">\(\frac{1}{100}\sum_{k=1}^{100}|S_n|\)</span> 来代替 <span class="math notranslate nohighlight">\(\mathbb{E}|S_n|\)</span> 。此时可以计算得到1000个 <span class="math notranslate nohighlight">\(\lim_{n\rightarrow+\infty}\frac{\mathbb{E}|S_n|}{\sqrt{n}}-\sqrt{\frac{2}{\pi}}\)</span> 的估计值，请计算这些估计值的均值、0.05分位数和0.95分位数。</p>
 <ul class="simple">
 <li><p>在二维平面上有n个点，每个点具有k维特征，点的坐标数据记录在node_xy中，点的特征数据记录在node_fea中。现要计算所有点的相关矩阵 <span class="math notranslate nohighlight">\(S\)</span> ，点a和点b的相关系数定义如下</p></li>
 </ul>
@@ -410,6 +410,12 @@
 <span class="go">3          ...  ...         ...         ...</span>
 <span class="go">...        ...  ...         ...         ...</span>
 </pre></div>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">提示</p>
+<blockquote>
+<div><p>groupby对象上也定义了head和tail方法。</p>
+</div></blockquote>
 </div>
 </section>
 </section>
