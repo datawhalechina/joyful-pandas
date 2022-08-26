@@ -45,7 +45,7 @@ Ex1：NumPy的向量化运算
 
     \lim_{n\rightarrow+\infty}\frac{\mathbb{E}|S_n|}{\sqrt{n}}=\sqrt{\frac{2}{\pi}}
 
-现取n为5000进行1000次试验，且每次试验中用 :math:`\frac{1}{100}\sum_{k=1}^{100}|S_n|` 来代替 :math:`\mathbb{E}|S_n|` 。此时可以计算得到1000个 :math:`\lim_{n\rightarrow+\infty}\frac{\mathbb{E}|S_n|}{\sqrt{n}}-\sqrt{\frac{2}{\pi}}` 的估计值，请绘制直方图（plt.hist）来观察它们的分布。
+现取n为5000进行1000次试验，且每次试验中用 :math:`\frac{1}{100}\sum_{k=1}^{100}|S_n|` 来代替 :math:`\mathbb{E}|S_n|` 。此时可以计算得到1000个 :math:`\lim_{n\rightarrow+\infty}\frac{\mathbb{E}|S_n|}{\sqrt{n}}-\sqrt{\frac{2}{\pi}}` 的估计值，请计算这些估计值的均值、0.05分位数和0.95分位数。
 
 - 在二维平面上有n个点，每个点具有k维特征，点的坐标数据记录在node_xy中，点的特征数据记录在node_fea中。现要计算所有点的相关矩阵 :math:`S` ，点a和点b的相关系数定义如下
 
@@ -149,3 +149,8 @@ Ex3：统计商品的审核情况
         },
         index=[1,2,3,"..."]
     )
+
+.. admonition:: 提示
+   :class: hint
+
+    groupby对象上也定义了head和tail方法。
