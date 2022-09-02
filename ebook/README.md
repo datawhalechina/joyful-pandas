@@ -1,0 +1,1 @@
+joyfulpandas.pdf文件为2020年组队学习的网页版教程的pdf快照，并非纸质版图书的pdf。如需纸质书的电子版，请至[异步社区官网](https://www.epubit.com/bookDetails?id=UB7d76d794aad30&typeName=)购买，电子版书籍仅做个人学习使用目的，传播盗版内容者将追究法律责任。

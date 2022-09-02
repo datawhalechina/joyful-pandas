@@ -543,13 +543,13 @@
 </div>
 <p>对比它们的性能：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [24]: </span><span class="o">%</span><span class="k">timeit</span> -n 30 solution(B, U, Z)
-<span class="go">44.1 ms +- 1.16 ms per loop (mean +- std. dev. of 7 runs, 30 loops each)</span>
+<span class="go">33.6 ms +- 1.44 ms per loop (mean +- std. dev. of 7 runs, 30 loops each)</span>
 </pre></div>
 </div>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [25]: </span><span class="o">%</span><span class="k">timeit</span> -n 30 ((np.ones((m,n))*(B**2).sum(1).reshape(-1,1) +\
 <span class="gp">   ....: </span>                  <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">U</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">B</span><span class="nd">@U</span><span class="p">)</span><span class="o">*</span><span class="n">Z</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="gp">   ....: </span>
-<span class="go">907 us +- 12.6 us per loop (mean +- std. dev. of 7 runs, 30 loops each)</span>
+<span class="go">666 us +- 35.9 us per loop (mean +- std. dev. of 7 runs, 30 loops each)</span>
 </pre></div>
 </div>
 </section>
@@ -994,7 +994,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [87]: </span><span class="n">my_groupby</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;Type&#39;</span><span class="p">)</span>
-<span class="gh">Out[87]: </span><span class="go">&lt;__main__.my_groupby at 0x2b7976b77c0&gt;</span>
+<span class="gh">Out[87]: </span><span class="go">&lt;__main__.my_groupby at 0x2110025e8b0&gt;</span>
 </pre></div>
 </div>
 <p>单列分组：</p>
@@ -1590,11 +1590,11 @@
 </pre></div>
 </div>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [181]: </span><span class="o">%</span><span class="k">timeit</span> -n 30 s_obj.nunique()
-<span class="go">5.5 ms +- 79.7 us per loop (mean +- std. dev. of 7 runs, 30 loops each)</span>
+<span class="go">4.2 ms +- 218 us per loop (mean +- std. dev. of 7 runs, 30 loops each)</span>
 </pre></div>
 </div>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [182]: </span><span class="o">%</span><span class="k">timeit</span> -n 30 s_cat.nunique()
-<span class="go">1.31 ms +- 26.9 us per loop (mean +- std. dev. of 7 runs, 30 loops each)</span>
+<span class="go">929 us +- 37.2 us per loop (mean +- std. dev. of 7 runs, 30 loops each)</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
@@ -1822,18 +1822,39 @@
 <ol class="loweralpha simple" start="3">
 <li></li>
 </ol>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [222]: </span><span class="n">my_dt</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;-6H&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 非常慢</span>
+<span class="n">my_dt</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;-6H&#39;</span><span class="p">)</span>
+<span class="n">int_loc</span> <span class="o">=</span> <span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_indexer</span><span class="p">([</span><span class="n">i</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">my_dt</span><span class="p">]</span>
+<span class="n">int_loc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">int_loc</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Radiation</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">int_loc</span><span class="p">]</span>
+<span class="n">res</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span>
+<span class="n">res</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># 纸质版上介绍了merge_asof，性能差距可以达到3-4个数量级</span>
+<span class="gp">In [222]: </span><span class="n">target</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+<span class="gp">   .....: </span>    <span class="p">{</span>
+<span class="gp">   .....: </span>        <span class="s2">&quot;Time&quot;</span><span class="p">:</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;-6H&#39;</span><span class="p">),</span>
+<span class="gp">   .....: </span>        <span class="s2">&quot;Datetime&quot;</span><span class="p">:</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+<span class="gp">   .....: </span>    <span class="p">}</span>
+<span class="gp">   .....: </span><span class="p">)</span>
+<span class="gp">   .....: </span>
 
-<span class="gp">In [223]: </span><span class="n">int_loc</span> <span class="o">=</span> <span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">my_dt</span><span class="p">]</span>
+<span class="gp">In [223]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge_asof</span><span class="p">(</span>
+<span class="gp">   .....: </span>    <span class="n">target</span><span class="p">,</span>
+<span class="gp">   .....: </span>    <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Datetime&quot;</span><span class="p">:</span> <span class="s2">&quot;Time&quot;</span><span class="p">}),</span>
+<span class="gp">   .....: </span>    <span class="n">left_on</span><span class="o">=</span><span class="s2">&quot;Time&quot;</span><span class="p">,</span>
+<span class="gp">   .....: </span>    <span class="n">right_on</span><span class="o">=</span><span class="s2">&quot;Time&quot;</span><span class="p">,</span>
+<span class="gp">   .....: </span>    <span class="n">direction</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span>
+<span class="gp">   .....: </span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Datetime&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">Radiation</span>
+<span class="gp">   .....: </span>
 
-<span class="gp">In [224]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Radiation</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">int_loc</span><span class="p">]</span>
-
-<span class="gp">In [225]: </span><span class="n">res</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gh">Out[225]: </span><span class="go"></span>
+<span class="gp">In [224]: </span><span class="n">res</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gh">Out[224]: </span><span class="go"></span>
 <span class="go">Datetime</span>
-<span class="go">2016-12-31 17:45:02    9.33</span>
-<span class="go">2016-12-31 17:50:01    8.49</span>
-<span class="go">2016-12-31 17:55:02    5.84</span>
+<span class="go">2016-12-31 23:45:04    9.33</span>
+<span class="go">2016-12-31 23:50:03    8.49</span>
+<span class="go">2016-12-31 23:55:01    5.84</span>
 <span class="go">Name: Radiation, dtype: float64</span>
 </pre></div>
 </div>
@@ -1846,22 +1867,22 @@
 <ol class="loweralpha simple">
 <li></li>
 </ol>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [226]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/fruit.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [225]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/fruit.csv&#39;</span><span class="p">)</span>
 
-<span class="gp">In [227]: </span><span class="n">df</span><span class="o">.</span><span class="n">Date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="p">)</span>
+<span class="gp">In [226]: </span><span class="n">df</span><span class="o">.</span><span class="n">Date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="p">)</span>
 
-<span class="gp">In [228]: </span><span class="n">df_grape</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;Fruit == &#39;Grape&#39;&quot;</span><span class="p">)</span>
+<span class="gp">In [227]: </span><span class="n">df_grape</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;Fruit == &#39;Grape&#39;&quot;</span><span class="p">)</span>
 
-<span class="gp">In [229]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">df_grape</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df_grape</span><span class="o">.</span><span class="n">Date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">day</span><span class="o">&lt;=</span><span class="mi">15</span><span class="p">,</span>
+<span class="gp">In [228]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">df_grape</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df_grape</span><span class="o">.</span><span class="n">Date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">day</span><span class="o">&lt;=</span><span class="mi">15</span><span class="p">,</span>
 <span class="gp">   .....: </span>                        <span class="s1">&#39;First&#39;</span><span class="p">,</span> <span class="s1">&#39;Second&#39;</span><span class="p">),</span><span class="n">df_grape</span><span class="o">.</span><span class="n">Date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">]</span>
 <span class="gp">   .....: </span>                        <span class="p">)[</span><span class="s1">&#39;Sale&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="mi">0</span>
 <span class="gp">   .....: </span>                        <span class="p">)</span><span class="o">.</span><span class="n">droplevel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="gp">   .....: </span>
 
-<span class="gp">In [230]: </span><span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">First</span><span class="o">/</span><span class="n">res</span><span class="o">.</span><span class="n">Second</span><span class="p">)</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="s1">&#39;Month&#39;</span><span class="p">)</span>
+<span class="gp">In [229]: </span><span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">First</span><span class="o">/</span><span class="n">res</span><span class="o">.</span><span class="n">Second</span><span class="p">)</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="s1">&#39;Month&#39;</span><span class="p">)</span>
 
-<span class="gp">In [231]: </span><span class="n">res</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[231]: </span><span class="go"></span>
+<span class="gp">In [230]: </span><span class="n">res</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[230]: </span><span class="go"></span>
 <span class="go">Month</span>
 <span class="go">1    1.174998</span>
 <span class="go">2    0.968890</span>
@@ -1874,10 +1895,10 @@
 <ol class="loweralpha simple" start="2">
 <li></li>
 </ol>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [232]: </span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">is_month_end</span><span class="p">]</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;Fruit == &#39;Pear&#39;&quot;</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [231]: </span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">is_month_end</span><span class="p">]</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;Fruit == &#39;Pear&#39;&quot;</span>
 <span class="gp">   .....: </span>                          <span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Sale</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gp">   .....: </span>
-<span class="gh">Out[232]: </span><span class="go"></span>
+<span class="gh">Out[231]: </span><span class="go"></span>
 <span class="go">Date</span>
 <span class="go">2019-01-31    847</span>
 <span class="go">2019-02-28    774</span>
@@ -1890,11 +1911,11 @@
 <ol class="loweralpha simple" start="3">
 <li></li>
 </ol>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [233]: </span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;20190101&#39;</span><span class="p">,</span> <span class="s1">&#39;20191231&#39;</span><span class="p">,</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [232]: </span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;20190101&#39;</span><span class="p">,</span> <span class="s1">&#39;20191231&#39;</span><span class="p">,</span>
 <span class="gp">   .....: </span>                <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;BM&#39;</span><span class="p">))]</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;Fruit == &#39;Pear&#39;&quot;</span>
 <span class="gp">   .....: </span>                <span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Sale</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gp">   .....: </span>
-<span class="gh">Out[233]: </span><span class="go"></span>
+<span class="gh">Out[232]: </span><span class="go"></span>
 <span class="go">Date</span>
 <span class="go">2019-01-31    60.500000</span>
 <span class="go">2019-02-28    59.538462</span>
@@ -1907,20 +1928,20 @@
 <ol class="loweralpha simple" start="4">
 <li></li>
 </ol>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [234]: </span><span class="n">target_dt</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [233]: </span><span class="n">target_dt</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span>
 <span class="gp">   .....: </span>            <span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">)[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">   .....: </span>
 
-<span class="gp">In [235]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">target_dt</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span>
+<span class="gp">In [234]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">target_dt</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span>
 <span class="gp">   .....: </span>            <span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;Fruit == &#39;Apple&#39;&quot;</span><span class="p">)</span>
 <span class="gp">   .....: </span>
 
-<span class="gp">In [236]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">Date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">)[</span><span class="s1">&#39;Sale&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span>
+<span class="gp">In [235]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">Date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">)[</span><span class="s1">&#39;Sale&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span>
 <span class="gp">   .....: </span>            <span class="p">)</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="s1">&#39;Month&#39;</span><span class="p">)</span>
 <span class="gp">   .....: </span>
 
-<span class="gp">In [237]: </span><span class="n">res</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[237]: </span><span class="go"></span>
+<span class="gp">In [236]: </span><span class="n">res</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[236]: </span><span class="go"></span>
 <span class="go">Month</span>
 <span class="go">1    65.313725</span>
 <span class="go">2    54.061538</span>
@@ -1933,30 +1954,30 @@
 <ol class="arabic simple" start="2">
 <li></li>
 </ol>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [238]: </span><span class="n">month_order</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;January&#39;</span><span class="p">,</span><span class="s1">&#39;February&#39;</span><span class="p">,</span><span class="s1">&#39;March&#39;</span><span class="p">,</span><span class="s1">&#39;April&#39;</span><span class="p">,</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [237]: </span><span class="n">month_order</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;January&#39;</span><span class="p">,</span><span class="s1">&#39;February&#39;</span><span class="p">,</span><span class="s1">&#39;March&#39;</span><span class="p">,</span><span class="s1">&#39;April&#39;</span><span class="p">,</span>
 <span class="gp">   .....: </span>                <span class="s1">&#39;May&#39;</span><span class="p">,</span><span class="s1">&#39;June&#39;</span><span class="p">,</span><span class="s1">&#39;July&#39;</span><span class="p">,</span><span class="s1">&#39;August&#39;</span><span class="p">,</span><span class="s1">&#39;September&#39;</span><span class="p">,</span>
 <span class="gp">   .....: </span>                <span class="s1">&#39;October&#39;</span><span class="p">,</span><span class="s1">&#39;November&#39;</span><span class="p">,</span><span class="s1">&#39;December&#39;</span><span class="p">]</span>
 <span class="gp">   .....: </span>
 
-<span class="gp">In [239]: </span><span class="n">week_order</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Mon&#39;</span><span class="p">,</span><span class="s1">&#39;Tue&#39;</span><span class="p">,</span><span class="s1">&#39;Wed&#39;</span><span class="p">,</span><span class="s1">&#39;Thu&#39;</span><span class="p">,</span><span class="s1">&#39;Fri&#39;</span><span class="p">,</span><span class="s1">&#39;Sat&#39;</span><span class="p">,</span><span class="s1">&#39;Sum&#39;</span><span class="p">]</span>
+<span class="gp">In [238]: </span><span class="n">week_order</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Mon&#39;</span><span class="p">,</span><span class="s1">&#39;Tue&#39;</span><span class="p">,</span><span class="s1">&#39;Wed&#39;</span><span class="p">,</span><span class="s1">&#39;Thu&#39;</span><span class="p">,</span><span class="s1">&#39;Fri&#39;</span><span class="p">,</span><span class="s1">&#39;Sat&#39;</span><span class="p">,</span><span class="s1">&#39;Sum&#39;</span><span class="p">]</span>
 
-<span class="gp">In [240]: </span><span class="n">group1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month_name</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">reorder_categories</span><span class="p">(</span>
+<span class="gp">In [239]: </span><span class="n">group1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month_name</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">reorder_categories</span><span class="p">(</span>
 <span class="gp">   .....: </span>        <span class="n">month_order</span><span class="p">,</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">   .....: </span>
 
-<span class="gp">In [241]: </span><span class="n">group2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Fruit</span>
+<span class="gp">In [240]: </span><span class="n">group2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Fruit</span>
 
-<span class="gp">In [242]: </span><span class="n">group3</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofweek</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span><span class="n">week_order</span><span class="p">))</span>
+<span class="gp">In [241]: </span><span class="n">group3</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofweek</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span><span class="n">week_order</span><span class="p">))</span>
 <span class="gp">   .....: </span>         <span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">reorder_categories</span><span class="p">(</span>
 <span class="gp">   .....: </span>         <span class="n">week_order</span><span class="p">,</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">   .....: </span>
 
-<span class="gp">In [243]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">group1</span><span class="p">,</span> <span class="n">group2</span><span class="p">,</span><span class="n">group3</span><span class="p">])[</span><span class="s1">&#39;Sale&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">(</span>
+<span class="gp">In [242]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">group1</span><span class="p">,</span> <span class="n">group2</span><span class="p">,</span><span class="n">group3</span><span class="p">])[</span><span class="s1">&#39;Sale&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">(</span>
 <span class="gp">   .....: </span>         <span class="p">)</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">droplevel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="gp">   .....: </span>
 
-<span class="gp">In [244]: </span><span class="n">res</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[244]: </span><span class="go"></span>
+<span class="gp">In [243]: </span><span class="n">res</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[243]: </span><span class="go"></span>
 <span class="go">Date        January  February  March  April  May  June  July  August  September  October  November  December</span>
 <span class="go">Fruit Date                                                                                                  </span>
 <span class="go">Apple Mon        46        43     43     47   43    40    41      38         59       42        39        45</span>
@@ -1969,20 +1990,20 @@
 <ol class="arabic simple" start="3">
 <li></li>
 </ol>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [245]: </span><span class="n">df_apple</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">Fruit</span><span class="o">==</span><span class="s1">&#39;Apple&#39;</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [244]: </span><span class="n">df_apple</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">Fruit</span><span class="o">==</span><span class="s1">&#39;Apple&#39;</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span>
 <span class="gp">   .....: </span>              <span class="o">~</span><span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofweek</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]))]</span>
 <span class="gp">   .....: </span>
 
-<span class="gp">In [246]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">df_apple</span><span class="o">.</span><span class="n">Sale</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+<span class="gp">In [245]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">df_apple</span><span class="o">.</span><span class="n">Sale</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
 <span class="gp">   .....: </span>              <span class="n">index</span><span class="o">=</span><span class="n">df_apple</span><span class="o">.</span><span class="n">Date</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="gp">   .....: </span>
 
-<span class="gp">In [247]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="s1">&#39;10D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span>
+<span class="gp">In [246]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="s1">&#39;10D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span>
 <span class="gp">   .....: </span>              <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;20190101&#39;</span><span class="p">,</span><span class="s1">&#39;20191231&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;ffill&#39;</span><span class="p">)</span>
 <span class="gp">   .....: </span>
 
-<span class="gp">In [248]: </span><span class="n">res</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[248]: </span><span class="go"></span>
+<span class="gp">In [247]: </span><span class="n">res</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[247]: </span><span class="go"></span>
 <span class="go">2019-01-01    189.000000</span>
 <span class="go">2019-01-02    335.500000</span>
 <span class="go">2019-01-03    520.333333</span>

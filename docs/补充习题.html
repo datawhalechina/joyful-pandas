@@ -203,6 +203,11 @@
    Ex3：统计商品的审核情况
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ex4">
+   Ex4：删除同样的行
+  </a>
+ </li>
 </ul>
 
 </nav>
@@ -230,6 +235,12 @@
 
 <span class="gp">In [3]: </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
+</div>
+<div class="caution admonition">
+<p class="admonition-title">注意</p>
+<blockquote>
+<div><p>在补充习题中不得使用任何for循环。</p>
+</div></blockquote>
 </div>
 <section id="ex1-numpy">
 <h2>Ex1：NumPy的向量化运算<a class="headerlink" href="#ex1-numpy" title="Permalink to this heading">#</a></h2>
@@ -284,12 +295,6 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">get_S</span><span class="p">(</span><span class="n">node_xy</span><span class="p">,</span> <span class="n">node_fea</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="caution admonition">
-<p class="admonition-title">注意</p>
-<blockquote>
-<div><p>以上4题皆不得使用for循环。</p>
-</div></blockquote>
-</div>
 </section>
 <section id="ex2">
 <h2>Ex2：统计学生的成绩情况<a class="headerlink" href="#ex2" title="Permalink to this heading">#</a></h2>
@@ -309,7 +314,7 @@
 <ul class="simple">
 <li><p>该校高三年级中是否存在姓名相同的学生？</p></li>
 <li><p>在第一次周测中，请求出每个班级选修物理或化学同学的语数英总分的平均值。哪个班级最高？</p></li>
-<li><p>学生在该学期的总评计算方式是各次考试总分的加权平均值，其中周测成绩权重为50%（每次测验权重相等，即3.125%），期中权重为20%，期末权重为30%。请找出年级中总评前十的同学。</p></li>
+<li><p>学生在该学期的总评计算方式是各次考试总分的加权平均值，其中周测成绩权重为50%（每次测验权重相等，即3.125%），期中权重为20%，期末权重为30%。请结合nlargest函数找出年级中总评前十的同学。</p></li>
 <li><p>请统计1班到8班文理科（物化生为理科，政史地为文科）期末考试总分前5的学生，结果格式如下，括号内的为选科分数：</p></li>
 </ul>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
@@ -416,6 +421,59 @@
 <blockquote>
 <div><p>groupby对象上也定义了head和tail方法。</p>
 </div></blockquote>
+</div>
+</section>
+<section id="ex4">
+<h2>Ex4：删除同样的行<a class="headerlink" href="#ex4" title="Permalink to this heading">#</a></h2>
+<p>现有两张表，请在df1中剔除在df2中出现过的行。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<span class="gp">   ....: </span>    <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>
+<span class="gp">   ....: </span>    <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
+<span class="gp">   ....: </span>    <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+<span class="gp">   ....: </span>    <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
+<span class="gp">   ....: </span><span class="p">})</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [14]: </span><span class="n">df1</span>
+<span class="gh">Out[14]: </span><span class="go"></span>
+<span class="go">   A  B  C  D</span>
+<span class="go">0  3  2  1  5</span>
+<span class="go">1  2  1  2  6</span>
+<span class="go">2  2  1  2  6</span>
+<span class="go">3  3  3  7  1</span>
+<span class="go">4  1  6  7  2</span>
+<span class="go">5  3  2  1  5</span>
+
+<span class="gp">In [15]: </span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<span class="gp">   ....: </span>    <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+<span class="gp">   ....: </span>    <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span>
+<span class="gp">   ....: </span>    <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span>
+<span class="gp">   ....: </span>    <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
+<span class="gp">   ....: </span><span class="p">})</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [16]: </span><span class="n">df2</span>
+<span class="gh">Out[16]: </span><span class="go"></span>
+<span class="go">   A  B  C  D</span>
+<span class="go">0  2  1  2  6</span>
+<span class="go">1  3  9  7  1</span>
+<span class="go">2  1  6  7  2</span>
+</pre></div>
+</div>
+<p>结果应当如下：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [17]: </span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<span class="gp">   ....: </span>    <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>
+<span class="gp">   ....: </span>    <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
+<span class="gp">   ....: </span>    <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+<span class="gp">   ....: </span>    <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
+<span class="gp">   ....: </span><span class="p">})</span>
+<span class="gp">   ....: </span>
+<span class="gh">Out[17]: </span><span class="go"></span>
+<span class="go">   A  B  C  D</span>
+<span class="go">0  3  2  1  5</span>
+<span class="go">1  3  3  7  1</span>
+<span class="go">2  3  2  1  5</span>
+</pre></div>
 </div>
 </section>
 </section>

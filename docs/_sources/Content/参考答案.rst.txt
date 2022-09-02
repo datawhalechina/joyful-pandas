@@ -833,11 +833,32 @@ Ex1：太阳辐射数据集
 
 (c)
 
+.. code-block:: python
+
+    # 非常慢
+    my_dt = df.index.shift(freq='-6H')
+    int_loc = [df.index.get_indexer([i], method='nearest') for i in my_dt]
+    int_loc = np.array(int_loc).reshape(-1)
+    res = df.Radiation.iloc[int_loc]
+    res.index = df.index
+    res.tail(3)
+
 .. ipython:: python
 
-    my_dt = df.index.shift(freq='-6H')
-    int_loc = [df.index.get_loc(i, method='nearest') for i in my_dt]
-    res = df.Radiation.iloc[int_loc]
+    # 纸质版上介绍了merge_asof，性能差距可以达到3-4个数量级
+    target = pd.DataFrame(
+        {
+            "Time": df.index.shift(freq='-6H'),
+            "Datetime": df.index,
+        }
+    )
+    res = pd.merge_asof(
+        target,
+        df.reset_index().rename(columns={"Datetime": "Time"}),
+        left_on="Time",
+        right_on="Time",
+        direction="nearest"
+    ).set_index("Datetime").Radiation
     res.tail(3)
 
 Ex2：水果销量数据集
