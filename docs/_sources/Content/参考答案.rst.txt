@@ -893,7 +893,7 @@ Ex2：水果销量数据集
 
     df[df.Date.isin(pd.date_range('20190101', '20191231',
                     freq='BM'))].query("Fruit == 'Pear'"
-                    ).groupby('Date').Sale.mean().head()
+                    ).groupby('Date').Sale.sum().head()
 
 (d)
 

@@ -187,3 +187,42 @@ Ex4：删除同样的行
         "C": [1,7,1],
         "D": [5,1,5],
     })
+
+Ex5：统计每个学区的开课数量
+==================================================
+
+某个城市共有4个学区，每个学区有若干学校，学校之间名字互不相同。每一条记录为该学校开设的课程，一个学校可能有多条记录，每一条记录内部的课程不会重复，但同一学校不同记录之间的课程可能重复。
+
+.. ipython:: python
+
+    df = pd.read_csv('data/supplement/ex5/school_course.csv')
+    df.head()
+
+课程的种类共有100门，编号为"school_1"到"school_100"。现要统计每个学区各项课程的开设学校数量，结果如下格式：
+
+.. ipython:: python
+
+    res = pd.DataFrame(
+        0, index=["course_%d"%(i+1) for i in range(100)],
+        columns=["area_%d"%(i+1) for i in range(4)]
+    )
+    res.head() # 若area_1共有20所学校开设了course_1，则第一个单元格为20
+
+Ex6：捕获非零的行列索引
+=================================================
+
+给定如下的数据框，请返回非零行列组合构成的多级索引。
+
+.. ipython:: python
+
+    df = pd.DataFrame(
+        [[0,5,0],[2,1,0],[0,0,6],[0,9,0]],
+        index=list("ABCD"), columns=list("XYZ"))
+    df
+    res = pd.Index([
+        ('X', 'B'),
+        ('Y', 'A'),
+        ('Y', 'B'),
+        ('Y', 'D'),
+        ('Z', 'C')])
+    res

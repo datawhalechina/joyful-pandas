@@ -208,6 +208,16 @@
    Ex4：删除同样的行
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ex5">
+   Ex5：统计每个学区的开课数量
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ex6">
+   Ex6：捕获非零的行列索引
+  </a>
+ </li>
 </ul>
 
 </nav>
@@ -473,6 +483,74 @@
 <span class="go">0  3  2  1  5</span>
 <span class="go">1  3  3  7  1</span>
 <span class="go">2  3  2  1  5</span>
+</pre></div>
+</div>
+</section>
+<section id="ex5">
+<h2>Ex5：统计每个学区的开课数量<a class="headerlink" href="#ex5" title="Permalink to this heading">#</a></h2>
+<p>某个城市共有4个学区，每个学区有若干学校，学校之间名字互不相同。每一条记录为该学校开设的课程，一个学校可能有多条记录，每一条记录内部的课程不会重复，但同一学校不同记录之间的课程可能重复。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/supplement/ex5/school_course.csv&#39;</span><span class="p">)</span>
+
+<span class="gp">In [19]: </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="gh">Out[19]: </span><span class="go"></span>
+<span class="go">     Area      School                         Course</span>
+<span class="go">0  area_1   school_99                      course_90</span>
+<span class="go">1  area_2   school_32                      course_20</span>
+<span class="go">2  area_3   school_64                      course_38</span>
+<span class="go">3  area_1  school_231  course_9 course_40 course_100</span>
+<span class="go">4  area_3  school_147  course_57 course_77 course_28</span>
+</pre></div>
+</div>
+<p>课程的种类共有100门，编号为”school_1”到”school_100”。现要统计每个学区各项课程的开设学校数量，结果如下格式：</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [20]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+<span class="gp">   ....: </span>    <span class="mi">0</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;course_</span><span class="si">%d</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)],</span>
+<span class="gp">   ....: </span>    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;area_</span><span class="si">%d</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span>
+<span class="gp">   ....: </span><span class="p">)</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [21]: </span><span class="n">res</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># 若area_1共有20所学校开设了course_1，则第一个单元格为20</span>
+<span class="gh">Out[21]: </span><span class="go"></span>
+<span class="go">          area_1  area_2  area_3  area_4</span>
+<span class="go">course_1       0       0       0       0</span>
+<span class="go">course_2       0       0       0       0</span>
+<span class="go">course_3       0       0       0       0</span>
+<span class="go">course_4       0       0       0       0</span>
+<span class="go">course_5       0       0       0       0</span>
+</pre></div>
+</div>
+</section>
+<section id="ex6">
+<h2>Ex6：捕获非零的行列索引<a class="headerlink" href="#ex6" title="Permalink to this heading">#</a></h2>
+<p>给定如下的数据框，请返回非零行列组合构成的多级索引。</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [22]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+<span class="gp">   ....: </span>    <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">0</span><span class="p">]],</span>
+<span class="gp">   ....: </span>    <span class="n">index</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s2">&quot;ABCD&quot;</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s2">&quot;XYZ&quot;</span><span class="p">))</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [23]: </span><span class="n">df</span>
+<span class="gh">Out[23]: </span><span class="go"></span>
+<span class="go">   X  Y  Z</span>
+<span class="go">A  0  5  0</span>
+<span class="go">B  2  1  0</span>
+<span class="go">C  0  0  6</span>
+<span class="go">D  0  9  0</span>
+
+<span class="gp">In [24]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([</span>
+<span class="gp">   ....: </span>    <span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">),</span>
+<span class="gp">   ....: </span>    <span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">),</span>
+<span class="gp">   ....: </span>    <span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">),</span>
+<span class="gp">   ....: </span>    <span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">),</span>
+<span class="gp">   ....: </span>    <span class="p">(</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">)])</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [25]: </span><span class="n">res</span>
+<span class="gh">Out[25]: </span><span class="go"></span>
+<span class="go">MultiIndex([(&#39;X&#39;, &#39;B&#39;),</span>
+<span class="go">            (&#39;Y&#39;, &#39;A&#39;),</span>
+<span class="go">            (&#39;Y&#39;, &#39;B&#39;),</span>
+<span class="go">            (&#39;Y&#39;, &#39;D&#39;),</span>
+<span class="go">            (&#39;Z&#39;, &#39;C&#39;)],</span>
+<span class="go">           )</span>
 </pre></div>
 </div>
 </section>
