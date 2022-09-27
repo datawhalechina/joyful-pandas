@@ -568,15 +568,15 @@
 <span class="gp">   ....: </span>            <span class="k">break</span>
 <span class="gp">   ....: </span>        <span class="nb">print</span><span class="p">(</span><span class="n">txt</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
 <span class="gp">   ....: </span>
-<span class="go">[SAVE|2022-09-27 15:27:14] Cluster#R3#005 | KFPocWLkKA | 123.9 MB</span>
-<span class="go">[SAVE|2022-09-27 05:49:24] Cluster#R0#009 | EhxMBJvtSF | 620.86 MB</span>
-<span class="go">[PUSH|2022-09-27 11:47:39] Cluster#R1#014 | ymMpZdxyYG | 173.4 MB</span>
-<span class="go">[PUSH|2022-09-27 04:35:54] Cluster#R1#014 | xseYcSPWew | 8.65 GB</span>
-<span class="go">[PUSH|2022-09-27 02:25:10] Cluster#R2#035 | urCFJXikwz | 550.73 MB</span>
+<span class="go">[PUSH|2022-09-27 07:08:12] Cluster#R1#007 | tgfuHOAjDJ | 4.41 GB</span>
+<span class="go">[PUSH|2022-09-27 15:11:49] Cluster#R2#027 | AFHAvugnTR | 91.64 MB</span>
+<span class="go">[PUSH|2022-09-27 06:54:02] Cluster#R3#016 | cJwLKcNsmA | 489.25 MB</span>
+<span class="go">[SAVE|2022-09-27 08:17:00] Cluster#R0#019 | neLAGbGkvd | 7.99 GB</span>
+<span class="go">[PUSH|2022-09-27 05:31:50] Cluster#R2#012 | rXZyuYLlEE | 730.45 MB</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>使用高效的方法提取日志中的信息，将其存放为如下格式，其中push_time按时间顺序。file_id为文件唯一标识，file_size为文件实际大小，save_fize为文件最终被接收的大小，push_from表示PUSH该文件的服务器，push_to表示SAVE该文件的服务器。</p></li>
+<li><p>使用高效的方法提取日志中的信息，并注意脏数据的清洗（如时间格式错误和无效数字），将其存放为如下格式，其中push_time按时间顺序。file_id为文件唯一标识，file_size为文件实际大小，save_fize为文件最终被接收的大小，push_from表示PUSH该文件的服务器，push_to表示SAVE该文件的服务器。</p></li>
 </ul>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [27]: </span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
 <span class="gp">   ....: </span>    <span class="p">{</span>
@@ -608,9 +608,26 @@
 </div>
 <ul class="simple">
 <li><p>一般而言，文件在同一机房内的传输速度会比跨机房的传输速度快。请对于所有传输完成的文件，按照服务器的机房号来计算文件传输的平均速度（MB/s）。格式如下，第i行第j列表示从所有从机房i传到机房j传输完成文件的平均速度，矩阵的对角线值是否要高于非对角线值？</p></li>
-<li><p>题干中提到，并非所有文件都会传输成功，文件传输成功（Finished）当且仅当文件大小等于接收大小；如果日志中出现了只有单条记录的文件，说明当前传输任务为Missed状态；如果文件大小不等于接收大小，说明当前任务为Unfinished状态。其中对于Unfinished状态，可以按照传输的比例超过90%和超过50%分为三档：”Unfinished-Almost”、”Unfinished-Fair”和”Unfinished-Bad”。请计算每个机房的最终状态的比例，格式如下，结果先按照状态Status排序（”Finished”&gt;”Unfinished-Almost”&gt;”Unfinished-Fair”&gt;”Unfinished-Bad”&gt;”Missed”），再按照机房号排序。</p></li>
 </ul>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [28]: </span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+<span class="gp">   ....: </span>    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+<span class="gp">   ....: </span>    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;R</span><span class="si">%d</span><span class="s2">&quot;</span><span class="o">%</span><span class="k">i</span> for i in range(5)],
+<span class="gp">   ....: </span>    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;R</span><span class="si">%d</span><span class="s2">&quot;</span><span class="o">%</span><span class="k">i</span> for i in range(5)],
+<span class="gp">   ....: </span><span class="p">)</span> <span class="c1"># 数据仅为格式参考，不代表真实数据</span>
+<span class="gp">   ....: </span>
+<span class="gh">Out[28]: </span><span class="go"></span>
+<span class="go">          R0        R1        R2        R3        R4</span>
+<span class="go">R0  0.575946  0.929296  0.318569  0.667410  0.131798</span>
+<span class="go">R1  0.716327  0.289406  0.183191  0.586513  0.020108</span>
+<span class="go">R2  0.828940  0.004695  0.677817  0.270008  0.735194</span>
+<span class="go">R3  0.962189  0.248753  0.576157  0.592042  0.572252</span>
+<span class="go">R4  0.223082  0.952749  0.447125  0.846409  0.699479</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>题干中提到，并非所有文件都会传输成功，文件传输成功（Finished）当且仅当文件大小等于接收大小；如果日志中出现了只有单条记录的文件，说明当前传输任务为Missed状态；如果文件大小不等于接收大小，说明当前任务为Unfinished状态。其中对于Unfinished状态，可以按照传输的比例超过90%和超过50%分为三档：”Unfinished-Almost”、”Unfinished-Fair”和”Unfinished-Bad”。请计算每个机房的最终状态的比例，格式如下，结果先按照状态Status排序（”Finished”&gt;”Unfinished-Almost”&gt;”Unfinished-Fair”&gt;”Unfinished-Bad”&gt;”Missed”），再按照机房号排序。</p></li>
+</ul>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [29]: </span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
 <span class="gp">   ....: </span>    <span class="p">{</span>
 <span class="gp">   ....: </span>        <span class="s2">&quot;Status&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Finished&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;Missed&quot;</span><span class="p">],</span>
 <span class="gp">   ....: </span>        <span class="s2">&quot;Room&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;R0&quot;</span><span class="p">,</span> <span class="s2">&quot;R1&quot;</span><span class="p">,</span> <span class="s2">&quot;R2&quot;</span><span class="p">,</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span> <span class="s2">&quot;R5&quot;</span><span class="p">],</span>
@@ -619,28 +636,13 @@
 <span class="gp">   ....: </span>    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;...&quot;</span><span class="p">,</span><span class="mi">24</span><span class="p">]</span>
 <span class="gp">   ....: </span><span class="p">)</span>
 <span class="gp">   ....: </span>
-<span class="gh">Out[28]: </span><span class="go"></span>
+<span class="gh">Out[29]: </span><span class="go"></span>
 <span class="go">       Status Room Ratio</span>
 <span class="go">0    Finished   R0  0.10</span>
 <span class="go">1    Finished   R1  0.15</span>
 <span class="go">2    Finished   R2  0.10</span>
 <span class="go">...       ...  ...   ...</span>
 <span class="go">24     Missed   R5  0.05</span>
-</pre></div>
-</div>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [29]: </span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-<span class="gp">   ....: </span>    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
-<span class="gp">   ....: </span>    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;R</span><span class="si">%d</span><span class="s2">&quot;</span><span class="o">%</span><span class="k">i</span> for i in range(5)],
-<span class="gp">   ....: </span>    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;R</span><span class="si">%d</span><span class="s2">&quot;</span><span class="o">%</span><span class="k">i</span> for i in range(5)],
-<span class="gp">   ....: </span><span class="p">)</span> <span class="c1"># 数据仅为格式参考，不代表真实数据</span>
-<span class="gp">   ....: </span>
-<span class="gh">Out[29]: </span><span class="go"></span>
-<span class="go">          R0        R1        R2        R3        R4</span>
-<span class="go">R0  0.575946  0.929296  0.318569  0.667410  0.131798</span>
-<span class="go">R1  0.716327  0.289406  0.183191  0.586513  0.020108</span>
-<span class="go">R2  0.828940  0.004695  0.677817  0.270008  0.735194</span>
-<span class="go">R3  0.962189  0.248753  0.576157  0.592042  0.572252</span>
-<span class="go">R4  0.223082  0.952749  0.447125  0.846409  0.699479</span>
 </pre></div>
 </div>
 <ul class="simple">
