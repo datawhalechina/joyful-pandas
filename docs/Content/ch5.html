@@ -360,7 +360,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Gender&#39;</span><span class="p">:[</span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="s1">&#39;M&#39;</span><span class="p">],</span>
 <span class="gp">   ...: </span>              <span class="s1">&#39;Height&#39;</span><span class="p">:[</span><span class="mi">163</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="mi">180</span><span class="p">]})</span>
 <span class="gp">   ...: </span>
-<span class="gh">Out[3]: </span><span class="go"></span>
+<span class="gh">Out[3]: </span>
 <span class="go">  Gender  Height</span>
 <span class="go">0      F     163</span>
 <span class="go">1      F     160</span>
@@ -370,7 +370,7 @@
 <span class="gp">In [4]: </span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Height: F&#39;</span><span class="p">:[</span><span class="mi">163</span><span class="p">,</span> <span class="mi">160</span><span class="p">],</span>
 <span class="gp">   ...: </span>              <span class="s1">&#39;Height: M&#39;</span><span class="p">:[</span><span class="mi">175</span><span class="p">,</span> <span class="mi">180</span><span class="p">]})</span>
 <span class="gp">   ...: </span>
-<span class="gh">Out[4]: </span><span class="go"></span>
+<span class="gh">Out[4]: </span>
 <span class="go">   Height: F  Height: M</span>
 <span class="go">0        163        175</span>
 <span class="go">1        160        180</span>
@@ -387,7 +387,7 @@
 <span class="gp">   ...: </span>
 
 <span class="gp">In [6]: </span><span class="n">df</span>
-<span class="gh">Out[6]: </span><span class="go"></span>
+<span class="gh">Out[6]: </span>
 <span class="go">   Class       Name  Subject  Grade</span>
 <span class="go">0      1  San Zhang  Chinese     80</span>
 <span class="go">1      1  San Zhang     Math     75</span>
@@ -397,7 +397,7 @@
 </div>
 <p>对于一个基本的长变宽操作而言，最重要的有三个要素，分别是变形后的行索引、需要转到列索引的列，以及这些列和行索引对应的数值，它们分别对应了 <code class="docutils literal notranslate"><span class="pre">pivot</span></code> 方法中的 <code class="docutils literal notranslate"><span class="pre">index,</span> <span class="pre">columns,</span> <span class="pre">values</span></code> 参数。新生成表的列索引是 <code class="docutils literal notranslate"><span class="pre">columns</span></code> 对应列的 <code class="docutils literal notranslate"><span class="pre">unique</span></code> 值，而新表的行索引是 <code class="docutils literal notranslate"><span class="pre">index</span></code> 对应列的 <code class="docutils literal notranslate"><span class="pre">unique</span></code> 值，而 <code class="docutils literal notranslate"><span class="pre">values</span></code> 对应了想要展示的数值列。</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">df</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Subject&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;Grade&#39;</span><span class="p">)</span>
-<span class="gh">Out[7]: </span><span class="go"></span>
+<span class="gh">Out[7]: </span>
 <span class="go">Subject    Chinese  Math</span>
 <span class="go">Name                    </span>
 <span class="go">San Zhang       80    75</span>
@@ -432,7 +432,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [12]: </span><span class="n">df</span>
-<span class="gh">Out[12]: </span><span class="go"></span>
+<span class="gh">Out[12]: </span>
 <span class="go">   Class       Name Examination  Subject  Grade  rank</span>
 <span class="go">0      1  San Zhang         Mid  Chinese     80    10</span>
 <span class="go">1      1  San Zhang       Final  Chinese     75    15</span>
@@ -451,7 +451,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [14]: </span><span class="n">pivot_multi</span>
-<span class="gh">Out[14]: </span><span class="go"></span>
+<span class="gh">Out[14]: </span>
 <span class="go">                  Grade                     rank                 </span>
 <span class="go">Subject         Chinese       Math       Chinese       Math      </span>
 <span class="go">Examination         Mid Final  Mid Final     Mid Final  Mid Final</span>
@@ -475,7 +475,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [16]: </span><span class="n">df</span>
-<span class="gh">Out[16]: </span><span class="go"></span>
+<span class="gh">Out[16]: </span>
 <span class="go">        Name  Subject  Grade</span>
 <span class="go">0  San Zhang  Chinese     80</span>
 <span class="go">1  San Zhang  Chinese     90</span>
@@ -493,7 +493,7 @@
 <span class="gp">   ....: </span>               <span class="n">values</span> <span class="o">=</span> <span class="s1">&#39;Grade&#39;</span><span class="p">,</span>
 <span class="gp">   ....: </span>               <span class="n">aggfunc</span> <span class="o">=</span> <span class="s1">&#39;mean&#39;</span><span class="p">)</span>
 <span class="gp">   ....: </span>
-<span class="gh">Out[17]: </span><span class="go"></span>
+<span class="gh">Out[17]: </span>
 <span class="go">Subject    Chinese  Math</span>
 <span class="go">Name                    </span>
 <span class="go">San Zhang       85    95</span>
@@ -506,7 +506,7 @@
 <span class="gp">   ....: </span>               <span class="n">values</span> <span class="o">=</span> <span class="s1">&#39;Grade&#39;</span><span class="p">,</span>
 <span class="gp">   ....: </span>               <span class="n">aggfunc</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
 <span class="gp">   ....: </span>
-<span class="gh">Out[18]: </span><span class="go"></span>
+<span class="gh">Out[18]: </span>
 <span class="go">Subject    Chinese  Math</span>
 <span class="go">Name                    </span>
 <span class="go">San Zhang       85    95</span>
@@ -520,7 +520,7 @@
 <span class="gp">   ....: </span>               <span class="n">aggfunc</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span>
 <span class="gp">   ....: </span>               <span class="n">margins</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">   ....: </span>
-<span class="gh">Out[19]: </span><span class="go"></span>
+<span class="gh">Out[19]: </span>
 <span class="go">Subject    Chinese  Math    All</span>
 <span class="go">Name                           </span>
 <span class="go">San Zhang       85  95.0  90.00</span>
@@ -545,7 +545,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [21]: </span><span class="n">df</span>
-<span class="gh">Out[21]: </span><span class="go"></span>
+<span class="gh">Out[21]: </span>
 <span class="go">   Class       Name  Chinese  Math</span>
 <span class="go">0      1  San Zhang       80    80</span>
 <span class="go">1      2      Si Li       90    75</span>
@@ -557,7 +557,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [23]: </span><span class="n">df_melted</span>
-<span class="gh">Out[23]: </span><span class="go"></span>
+<span class="gh">Out[23]: </span>
 <span class="go">   Class       Name  Subject  Grade</span>
 <span class="go">0      1  San Zhang  Chinese     80</span>
 <span class="go">1      2      Si Li  Chinese     90</span>
@@ -574,7 +574,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [25]: </span><span class="n">df_unmelted</span> <span class="c1"># 下面需要恢复索引，并且重命名列索引名称</span>
-<span class="gh">Out[25]: </span><span class="go"></span>
+<span class="gh">Out[25]: </span>
 <span class="go">Subject          Chinese  Math</span>
 <span class="go">Class Name                    </span>
 <span class="go">1     San Zhang       80    80</span>
@@ -598,7 +598,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [29]: </span><span class="n">df</span>
-<span class="gh">Out[29]: </span><span class="go"></span>
+<span class="gh">Out[29]: </span>
 <span class="go">   Class       Name  Chinese_Mid  Math_Mid  Chinese_Final  Math_Final</span>
 <span class="go">0      1  San Zhang           80        90             80          90</span>
 <span class="go">1      2      Si Li           75        85             75          85</span>
@@ -610,7 +610,7 @@
 <span class="gp">   ....: </span>                <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;_&#39;</span><span class="p">,</span>
 <span class="gp">   ....: </span>                <span class="n">suffix</span><span class="o">=</span><span class="s1">&#39;.+&#39;</span><span class="p">)</span>
 <span class="gp">   ....: </span>
-<span class="gh">Out[30]: </span><span class="go"></span>
+<span class="gh">Out[30]: </span>
 <span class="go">                             Chinese  Math</span>
 <span class="go">Class Name      Examination               </span>
 <span class="go">1     San Zhang Mid               80    90</span>
@@ -636,7 +636,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [35]: </span><span class="n">res</span>
-<span class="gh">Out[35]: </span><span class="go"></span>
+<span class="gh">Out[35]: </span>
 <span class="go">                                     Grade  rank</span>
 <span class="go">Class Name      Subject_Examination             </span>
 <span class="go">1     San Zhang Chinese_Mid             80    10</span>
@@ -662,7 +662,7 @@
 <span class="gp">In [39]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="gp">In [40]: </span><span class="n">res</span>
-<span class="gh">Out[40]: </span><span class="go"></span>
+<span class="gh">Out[40]: </span>
 <span class="go">   Class       Name Examination  Subject  Grade  rank</span>
 <span class="go">0      1  San Zhang         Mid  Chinese     80    10</span>
 <span class="go">1      1  San Zhang       Final  Chinese     75    15</span>
@@ -691,7 +691,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [42]: </span><span class="n">df</span>
-<span class="gh">Out[42]: </span><span class="go"></span>
+<span class="gh">Out[42]: </span>
 <span class="go">             col_1  col_2</span>
 <span class="go">A cat big      1.0    1.0</span>
 <span class="go">  dog small    1.0    1.0</span>
@@ -699,7 +699,7 @@
 <span class="go">  dog small    1.0    1.0</span>
 
 <span class="gp">In [43]: </span><span class="n">df</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
-<span class="gh">Out[43]: </span><span class="go"></span>
+<span class="gh">Out[43]: </span>
 <span class="go">      col_1       col_2      </span>
 <span class="go">        big small   big small</span>
 <span class="go">A cat   1.0   NaN   1.0   NaN</span>
@@ -710,7 +710,7 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">unstack</span></code> 的主要参数是移动的层号，默认转化最内层，移动到列索引的最内层，同时支持同时转化多个层：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [44]: </span><span class="n">df</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="gh">Out[44]: </span><span class="go"></span>
+<span class="gh">Out[44]: </span>
 <span class="go">      col_1       col_2      </span>
 <span class="go">        big small   big small</span>
 <span class="go">A cat   1.0   NaN   1.0   NaN</span>
@@ -719,7 +719,7 @@
 <span class="go">  dog   NaN   1.0   NaN   1.0</span>
 
 <span class="gp">In [45]: </span><span class="n">df</span><span class="o">.</span><span class="n">unstack</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
-<span class="gh">Out[45]: </span><span class="go"></span>
+<span class="gh">Out[45]: </span>
 <span class="go">    col_1                  col_2                 </span>
 <span class="go">        A          B           A          B      </span>
 <span class="go">      big small  big small   big small  big small</span>
@@ -735,7 +735,7 @@
 <span class="gp">In [48]: </span><span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">my_index</span><span class="p">)</span>
 
 <span class="gp">In [49]: </span><span class="n">df</span>
-<span class="gh">Out[49]: </span><span class="go"></span>
+<span class="gh">Out[49]: </span>
 <span class="go">             col_1  col_2</span>
 <span class="go">A cat big      1.0    1.0</span>
 <span class="go">      big      1.0    1.0</span>
@@ -762,7 +762,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [53]: </span><span class="n">df</span>
-<span class="gh">Out[53]: </span><span class="go"></span>
+<span class="gh">Out[53]: </span>
 <span class="go">           A          B      </span>
 <span class="go">         cat   dog  cat   dog</span>
 <span class="go">         big small  big small</span>
@@ -770,7 +770,7 @@
 <span class="go">index_2  1.0   1.0  1.0   1.0</span>
 
 <span class="gp">In [54]: </span><span class="n">df</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
-<span class="gh">Out[54]: </span><span class="go"></span>
+<span class="gh">Out[54]: </span>
 <span class="go">                 A         B     </span>
 <span class="go">               cat  dog  cat  dog</span>
 <span class="go">index_1 big    1.0  NaN  1.0  NaN</span>
@@ -779,7 +779,7 @@
 <span class="go">        small  NaN  1.0  NaN  1.0</span>
 
 <span class="gp">In [55]: </span><span class="n">df</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-<span class="gh">Out[55]: </span><span class="go"></span>
+<span class="gh">Out[55]: </span>
 <span class="go">                     A    B</span>
 <span class="go">index_1 cat big    1.0  1.0</span>
 <span class="go">        dog small  1.0  1.0</span>
@@ -801,7 +801,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [56]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/learn_pandas.csv&#39;</span><span class="p">)</span>
 
 <span class="gp">In [57]: </span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">School</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Transfer</span><span class="p">)</span>
-<span class="gh">Out[57]: </span><span class="go"></span>
+<span class="gh">Out[57]: </span>
 <span class="go">Transfer                        N  Y</span>
 <span class="go">School                              </span>
 <span class="go">Fudan University               38  1</span>
@@ -814,7 +814,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [58]: </span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">School</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Transfer</span><span class="p">,</span>
 <span class="gp">   ....: </span>            <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">aggfunc</span> <span class="o">=</span> <span class="s1">&#39;count&#39;</span><span class="p">)</span>
 <span class="gp">   ....: </span>
-<span class="gh">Out[58]: </span><span class="go"></span>
+<span class="gh">Out[58]: </span>
 <span class="go">Transfer                          N    Y</span>
 <span class="go">School                                  </span>
 <span class="go">Fudan University               38.0  1.0</span>
@@ -829,7 +829,7 @@
 <span class="gp">   ....: </span>               <span class="n">values</span> <span class="o">=</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span>
 <span class="gp">   ....: </span>               <span class="n">aggfunc</span> <span class="o">=</span> <span class="s1">&#39;count&#39;</span><span class="p">)</span>
 <span class="gp">   ....: </span>
-<span class="gh">Out[59]: </span><span class="go"></span>
+<span class="gh">Out[59]: </span>
 <span class="go">Transfer                          N    Y</span>
 <span class="go">School                                  </span>
 <span class="go">Fudan University               38.0  1.0</span>
@@ -843,7 +843,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [60]: </span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">School</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Transfer</span><span class="p">,</span>
 <span class="gp">   ....: </span>            <span class="n">values</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Height</span><span class="p">,</span> <span class="n">aggfunc</span> <span class="o">=</span> <span class="s1">&#39;mean&#39;</span><span class="p">)</span>
 <span class="gp">   ....: </span>
-<span class="gh">Out[60]: </span><span class="go"></span>
+<span class="gh">Out[60]: </span>
 <span class="go">Transfer                                N       Y</span>
 <span class="go">School                                           </span>
 <span class="go">Fudan University               162.043750  177.20</span>
@@ -864,7 +864,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [62]: </span><span class="n">df_ex</span><span class="o">.</span><span class="n">explode</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
-<span class="gh">Out[62]: </span><span class="go"></span>
+<span class="gh">Out[62]: </span>
 <span class="go">        A  B</span>
 <span class="go">0       1  1</span>
 <span class="go">0       2  1</span>
@@ -880,7 +880,7 @@
 <h3>3. get_dummies<a class="headerlink" href="#get-dummies" title="Permalink to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">get_dummies</span></code> 是用于特征构建的重要函数之一，其作用是把类别特征转为指示变量。例如，对年级一列转为指示变量，属于某一个年级的对应列标记为1，否则为0：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [63]: </span><span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Grade</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[63]: </span><span class="go"></span>
+<span class="gh">Out[63]: </span>
 <span class="go">   Freshman  Junior  Senior  Sophomore</span>
 <span class="go">0         1       0       0          0</span>
 <span class="go">1         1       0       0          0</span>
@@ -901,7 +901,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [65]: </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gh">Out[65]: </span><span class="go"></span>
+<span class="gh">Out[65]: </span>
 <span class="go">   YYYY State COUNTY  SubstanceName  DrugReports</span>
 <span class="go">0  2011    KY  ADAIR  Buprenorphine            3</span>
 <span class="go">1  2012    KY  ADAIR  Buprenorphine            5</span>
@@ -927,7 +927,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [67]: </span><span class="n">df</span>
-<span class="gh">Out[67]: </span><span class="go"></span>
+<span class="gh">Out[67]: </span>
 <span class="go">   Class       Name  Chinese  Math</span>
 <span class="go">0      1  San Zhang       80    80</span>
 <span class="go">1      2      Si Li       90    75</span>

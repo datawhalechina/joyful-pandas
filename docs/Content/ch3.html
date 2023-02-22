@@ -408,7 +408,7 @@
 <span class="gp">   ...: </span>
 
 <span class="gp">In [4]: </span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[4]: </span><span class="go"></span>
+<span class="gh">Out[4]: </span>
 <span class="go">0      Gaopeng Yang</span>
 <span class="go">1    Changqiang You</span>
 <span class="go">2           Mei Sun</span>
@@ -419,7 +419,7 @@
 </div>
 <p>如果要取出多个列，则可以通过 <code class="docutils literal notranslate"><span class="pre">[列名组成的列表]</span></code> ，其返回值为一个 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ，例如从表中取出性别和姓名两列：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Gender&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[5]: </span><span class="go"></span>
+<span class="gh">Out[5]: </span>
 <span class="go">   Gender            Name</span>
 <span class="go">0  Female    Gaopeng Yang</span>
 <span class="go">1    Male  Changqiang You</span>
@@ -430,7 +430,7 @@
 </div>
 <p>此外，若要取出单列，且列名中不包含空格，则可以用 <code class="docutils literal notranslate"><span class="pre">.列名</span></code> 取出，这和 <code class="docutils literal notranslate"><span class="pre">[列名]</span></code> 是等价的：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="n">df</span><span class="o">.</span><span class="n">Name</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[6]: </span><span class="go"></span>
+<span class="gh">Out[6]: </span>
 <span class="go">0      Gaopeng Yang</span>
 <span class="go">1    Changqiang You</span>
 <span class="go">2           Mei Sun</span>
@@ -449,7 +449,7 @@
 <span class="gp">   ...: </span>
 
 <span class="gp">In [8]: </span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
-<span class="gh">Out[8]: </span><span class="go"></span>
+<span class="gh">Out[8]: </span>
 <span class="go">a    1</span>
 <span class="go">a    3</span>
 <span class="go">a    4</span>
@@ -462,7 +462,7 @@
 </div>
 <p>如果取出多个索引的对应元素，则可以使用 <code class="docutils literal notranslate"><span class="pre">[items的列表]</span></code> ：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">s</span><span class="p">[[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]]</span>
-<span class="gh">Out[10]: </span><span class="go"></span>
+<span class="gh">Out[10]: </span>
 <span class="go">c    6</span>
 <span class="go">b    2</span>
 <span class="go">dtype: int64</span>
@@ -470,7 +470,7 @@
 </div>
 <p>如果想要取出某两个索引之间的元素，并且这两个索引是在整个索引中唯一出现，则可以使用切片，同时需要注意这里的切片会包含两个端点：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
-<span class="gh">Out[11]: </span><span class="go"></span>
+<span class="gh">Out[11]: </span>
 <span class="go">c    6</span>
 <span class="go">a    4</span>
 <span class="go">b    2</span>
@@ -488,7 +488,7 @@
 <span class="gh">Out[13]: </span><span class="go">KeyError(&quot;Cannot get left slice bound for non-unique label: &#39;a&#39;&quot;)</span>
 
 <span class="gp">In [14]: </span><span class="n">s</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()[</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span>
-<span class="gh">Out[14]: </span><span class="go"></span>
+<span class="gh">Out[14]: </span>
 <span class="go">a    1</span>
 <span class="go">a    3</span>
 <span class="go">a    4</span>
@@ -505,13 +505,13 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [16]: </span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="gh">Out[16]: </span><span class="go"></span>
+<span class="gh">Out[16]: </span>
 <span class="go">1    a</span>
 <span class="go">1    c</span>
 <span class="go">dtype: object</span>
 
 <span class="gp">In [17]: </span><span class="n">s</span><span class="p">[[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]]</span>
-<span class="gh">Out[17]: </span><span class="go"></span>
+<span class="gh">Out[17]: </span>
 <span class="go">2    d</span>
 <span class="go">3    b</span>
 <span class="go">dtype: object</span>
@@ -519,7 +519,7 @@
 </div>
 <p>如果使用整数切片，则会取出对应索引 <span class="red">位置</span> 的值，注意这里的整数切片同 <code class="docutils literal notranslate"><span class="pre">Python</span></code> 中的切片一样不包含右端点：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
-<span class="gh">Out[18]: </span><span class="go"></span>
+<span class="gh">Out[18]: </span>
 <span class="go">3    b</span>
 <span class="go">2    d</span>
 <span class="go">dtype: object</span>
@@ -540,7 +540,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [19]: </span><span class="n">df_demo</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">)</span>
 
 <span class="gp">In [20]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[20]: </span><span class="go"></span>
+<span class="gh">Out[20]: </span>
 <span class="go">                                       School      Grade  Gender  Weight Transfer</span>
 <span class="go">Name                                                                             </span>
 <span class="go">Gaopeng Yang    Shanghai Jiao Tong University   Freshman  Female    46.0        N</span>
@@ -553,7 +553,7 @@
 <p>【a】 <code class="docutils literal notranslate"><span class="pre">*</span></code> 为单个元素</p>
 <p>此时，直接取出相应的行或列，如果该元素在索引中重复则结果为 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>，否则为 <code class="docutils literal notranslate"><span class="pre">Series</span></code> ：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [21]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Qiang Sun&#39;</span><span class="p">]</span> <span class="c1"># 多个人叫此名字</span>
-<span class="gh">Out[21]: </span><span class="go"></span>
+<span class="gh">Out[21]: </span>
 <span class="go">                                  School      Grade  Gender  Weight Transfer</span>
 <span class="go">Name                                                                        </span>
 <span class="go">Qiang Sun            Tsinghua University     Junior  Female    53.0        N</span>
@@ -561,7 +561,7 @@
 <span class="go">Qiang Sun  Shanghai Jiao Tong University     Junior  Female     NaN        N</span>
 
 <span class="gp">In [22]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Quan Zhao&#39;</span><span class="p">]</span> <span class="c1"># 名字唯一</span>
-<span class="gh">Out[22]: </span><span class="go"></span>
+<span class="gh">Out[22]: </span>
 <span class="go">School      Shanghai Jiao Tong University</span>
 <span class="go">Grade                              Junior</span>
 <span class="go">Gender                             Female</span>
@@ -572,7 +572,7 @@
 </div>
 <p>也可以同时选择行和列：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [23]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Qiang Sun&#39;</span><span class="p">,</span> <span class="s1">&#39;School&#39;</span><span class="p">]</span> <span class="c1"># 返回Series</span>
-<span class="gh">Out[23]: </span><span class="go"></span>
+<span class="gh">Out[23]: </span>
 <span class="go">Name</span>
 <span class="go">Qiang Sun              Tsinghua University</span>
 <span class="go">Qiang Sun              Tsinghua University</span>
@@ -586,7 +586,7 @@
 <p>【b】 <code class="docutils literal notranslate"><span class="pre">*</span></code> 为元素列表</p>
 <p>此时，取出列表中所有元素值对应的行或列：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [25]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;Qiang Sun&#39;</span><span class="p">,</span><span class="s1">&#39;Quan Zhao&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;School&#39;</span><span class="p">,</span><span class="s1">&#39;Gender&#39;</span><span class="p">]]</span>
-<span class="gh">Out[25]: </span><span class="go"></span>
+<span class="gh">Out[25]: </span>
 <span class="go">                                  School  Gender</span>
 <span class="go">Name                                            </span>
 <span class="go">Qiang Sun            Tsinghua University  Female</span>
@@ -598,7 +598,7 @@
 <p>【c】 <code class="docutils literal notranslate"><span class="pre">*</span></code> 为切片</p>
 <p>之前的 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 使用字符串索引时提到，如果是唯一值的起点和终点字符，那么就可以使用切片，并且包含两个端点，如果不唯一则报错：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [26]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Gaojuan You&#39;</span><span class="p">:</span><span class="s1">&#39;Gaoqiang Qian&#39;</span><span class="p">,</span> <span class="s1">&#39;School&#39;</span><span class="p">:</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span>
-<span class="gh">Out[26]: </span><span class="go"></span>
+<span class="gh">Out[26]: </span>
 <span class="go">                                      School      Grade  Gender</span>
 <span class="go">Name                                                           </span>
 <span class="go">Gaojuan You                 Fudan University  Sophomore    Male</span>
@@ -613,14 +613,14 @@
 <span class="gp">In [28]: </span><span class="n">df_loc_slice_demo</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">df_demo</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="gp">In [29]: </span><span class="n">df_loc_slice_demo</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
-<span class="gh">Out[29]: </span><span class="go"></span>
+<span class="gh">Out[29]: </span>
 <span class="go">                          School   Grade  Gender  Weight Transfer</span>
 <span class="go">5               Fudan University  Junior  Female    46.0        N</span>
 <span class="go">4            Tsinghua University  Senior  Female    50.0        N</span>
 <span class="go">3  Shanghai Jiao Tong University  Senior  Female    45.0        N</span>
 
 <span class="gp">In [30]: </span><span class="n">df_loc_slice_demo</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="c1"># 没有返回，说明不是整数位置切片</span>
-<span class="gh">Out[30]: </span><span class="go"></span>
+<span class="gh">Out[30]: </span>
 <span class="go">Empty DataFrame</span>
 <span class="go">Columns: [School, Grade, Gender, Weight, Transfer]</span>
 <span class="go">Index: []</span>
@@ -630,7 +630,7 @@
 <p>在实际的数据处理中，根据条件来筛选行是极其常见的，此处传入 <code class="docutils literal notranslate"><span class="pre">loc</span></code> 的布尔列表与 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> 长度相同，且列表为 <code class="docutils literal notranslate"><span class="pre">True</span></code> 的位置所对应的行会被选中， <code class="docutils literal notranslate"><span class="pre">False</span></code> 则会被剔除。</p>
 <p>例如，选出体重超过70kg的学生：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [31]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_demo</span><span class="o">.</span><span class="n">Weight</span><span class="o">&gt;</span><span class="mi">70</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[31]: </span><span class="go"></span>
+<span class="gh">Out[31]: </span>
 <span class="go">                                      School      Grade Gender  Weight Transfer</span>
 <span class="go">Name                                                                           </span>
 <span class="go">Mei Sun        Shanghai Jiao Tong University     Senior   Male    89.0        N</span>
@@ -642,7 +642,7 @@
 </div>
 <p>前面所提到的传入元素列表，也可以通过 <code class="docutils literal notranslate"><span class="pre">isin</span></code> 方法返回的布尔列表等价写出，例如选出所有大一和大四的同学信息：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [32]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_demo</span><span class="o">.</span><span class="n">Grade</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;Freshman&#39;</span><span class="p">,</span> <span class="s1">&#39;Senior&#39;</span><span class="p">])]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[32]: </span><span class="go"></span>
+<span class="gh">Out[32]: </span>
 <span class="go">                                       School     Grade  Gender  Weight Transfer</span>
 <span class="go">Name                                                                            </span>
 <span class="go">Gaopeng Yang    Shanghai Jiao Tong University  Freshman  Female    46.0        N</span>
@@ -670,7 +670,7 @@
 <span class="gp">In [40]: </span><span class="n">condition_2</span> <span class="o">=</span> <span class="n">condition_2_1</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="n">condition_2_2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">condition_2_3</span>
 
 <span class="gp">In [41]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">condition_1</span> <span class="o">|</span> <span class="n">condition_2</span><span class="p">]</span>
-<span class="gh">Out[41]: </span><span class="go"></span>
+<span class="gh">Out[41]: </span>
 <span class="go">                           School     Grade Gender  Weight Transfer</span>
 <span class="go">Name                                                               </span>
 <span class="go">Qiang Han       Peking University  Freshman   Male    87.0        N</span>
@@ -701,7 +701,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [43]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">condition</span><span class="p">]</span>
-<span class="gh">Out[43]: </span><span class="go"></span>
+<span class="gh">Out[43]: </span>
 <span class="go">                           School     Grade Gender  Weight Transfer</span>
 <span class="go">Name                                                               </span>
 <span class="go">Qiang Han       Peking University  Freshman   Male    87.0        N</span>
@@ -717,7 +717,7 @@
 </div>
 <p>由于函数无法返回如 <code class="docutils literal notranslate"><span class="pre">start:</span> <span class="pre">end:</span> <span class="pre">step</span></code> 的切片形式，故返回切片时要用 <code class="docutils literal notranslate"><span class="pre">slice</span></code> 对象进行包装：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [45]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;Gaojuan You&#39;</span><span class="p">,</span> <span class="s1">&#39;Gaoqiang Qian&#39;</span><span class="p">)]</span>
-<span class="gh">Out[45]: </span><span class="go"></span>
+<span class="gh">Out[45]: </span>
 <span class="go">                                      School      Grade  Gender  Weight Transfer</span>
 <span class="go">Name                                                                            </span>
 <span class="go">Gaojuan You                 Fudan University  Sophomore    Male    74.0        N</span>
@@ -736,7 +736,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [46]: </span><span class="n">df_chain</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]],</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;AB&#39;</span><span class="p">))</span>
 
 <span class="gp">In [47]: </span><span class="n">df_chain</span>
-<span class="gh">Out[47]: </span><span class="go"></span>
+<span class="gh">Out[47]: </span>
 <span class="go">   A  B</span>
 <span class="go">0  0  0</span>
 <span class="go">1  1  0</span>
@@ -760,7 +760,7 @@
 <span class="go">See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy</span>
 
 <span class="gp">In [51]: </span><span class="n">df_chain</span>
-<span class="gh">Out[51]: </span><span class="go"></span>
+<span class="gh">Out[51]: </span>
 <span class="go">   A  B</span>
 <span class="go">0  0  0</span>
 <span class="go">1  1  0</span>
@@ -769,7 +769,7 @@
 <span class="gp">In [52]: </span><span class="n">df_chain</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_chain</span><span class="o">.</span><span class="n">A</span><span class="o">!=</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="gp">In [53]: </span><span class="n">df_chain</span>
-<span class="gh">Out[53]: </span><span class="go"></span>
+<span class="gh">Out[53]: </span>
 <span class="go">   A  B</span>
 <span class="go">0  0  0</span>
 <span class="go">1  1  1</span>
@@ -784,14 +784,14 @@
 <span class="gh">Out[54]: </span><span class="go">&#39;Freshman&#39;</span>
 
 <span class="gp">In [55]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span> <span class="c1"># 前两行前两列</span>
-<span class="gh">Out[55]: </span><span class="go"></span>
+<span class="gh">Out[55]: </span>
 <span class="go">                                       School     Grade</span>
 <span class="go">Name                                                   </span>
 <span class="go">Gaopeng Yang    Shanghai Jiao Tong University  Freshman</span>
 <span class="go">Changqiang You              Peking University  Freshman</span>
 
 <span class="gp">In [56]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="c1"># 切片不包含结束端点</span>
-<span class="gh">Out[56]: </span><span class="go"></span>
+<span class="gh">Out[56]: </span>
 <span class="go">                Gender  Weight</span>
 <span class="go">Name                          </span>
 <span class="go">Changqiang You    Male    70.0</span>
@@ -799,7 +799,7 @@
 <span class="go">Xiaojuan Sun    Female    41.0</span>
 
 <span class="gp">In [57]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)]</span> <span class="c1"># 传入切片为返回值的函数</span>
-<span class="gh">Out[57]: </span><span class="go"></span>
+<span class="gh">Out[57]: </span>
 <span class="go">                                       School      Grade  Gender  Weight Transfer</span>
 <span class="go">Name                                                                             </span>
 <span class="go">Changqiang You              Peking University   Freshman    Male    70.0        N</span>
@@ -810,7 +810,7 @@
 <p>在使用布尔列表的时候要特别注意，不能传入 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 而必须传入序列的 <code class="docutils literal notranslate"><span class="pre">values</span></code> ，否则会报错。因此，在使用布尔筛选的时候还是应当优先考虑 <code class="docutils literal notranslate"><span class="pre">loc</span></code> 的方式。</p>
 <p>例如，选出体重超过80kg的学生：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [58]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">iloc</span><span class="p">[(</span><span class="n">df_demo</span><span class="o">.</span><span class="n">Weight</span><span class="o">&gt;</span><span class="mi">80</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[58]: </span><span class="go"></span>
+<span class="gh">Out[58]: </span>
 <span class="go">                                       School      Grade Gender  Weight Transfer</span>
 <span class="go">Name                                                                            </span>
 <span class="go">Mei Sun         Shanghai Jiao Tong University     Senior   Male    89.0        N</span>
@@ -825,7 +825,7 @@
 <span class="gh">Out[59]: </span><span class="go">&#39;Peking University&#39;</span>
 
 <span class="gp">In [60]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">School</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
-<span class="gh">Out[60]: </span><span class="go"></span>
+<span class="gh">Out[60]: </span>
 <span class="go">Name</span>
 <span class="go">Changqiang You    Peking University</span>
 <span class="go">Xiaojuan Sun       Fudan University</span>
@@ -844,7 +844,7 @@
 <span class="gp">   ....: </span>         <span class="s1">&#39; (Grade != &quot;Senior&quot;)&amp;&#39;</span>
 <span class="gp">   ....: </span>         <span class="s1">&#39; (Weight &gt; 80))&#39;</span><span class="p">)</span>
 <span class="gp">   ....: </span>
-<span class="gh">Out[61]: </span><span class="go"></span>
+<span class="gh">Out[61]: </span>
 <span class="go">                School     Grade            Name Gender  Weight Transfer</span>
 <span class="go">38   Peking University  Freshman       Qiang Han   Male    87.0        N</span>
 <span class="go">66    Fudan University    Senior  Chengpeng Zhou   Male    81.0        N</span>
@@ -854,7 +854,7 @@
 </div>
 <p>在 <code class="docutils literal notranslate"><span class="pre">query</span></code> 表达式中，帮用户注册了所有来自 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> 的列名，所有属于该 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 的方法都可以被调用，和正常的函数调用并没有区别，例如查询体重超过均值的学生：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [62]: </span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Weight &gt; Weight.mean()&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[62]: </span><span class="go"></span>
+<span class="gh">Out[62]: </span>
 <span class="go">                           School      Grade            Name  Gender  Weight Transfer</span>
 <span class="go">1               Peking University   Freshman  Changqiang You    Male    70.0        N</span>
 <span class="go">2   Shanghai Jiao Tong University     Senior         Mei Sun    Male    89.0        N</span>
@@ -873,7 +873,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [63]: </span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;(Grade not in [&quot;Freshman&quot;, &quot;Sophomore&quot;]) and&#39;</span>
 <span class="gp">   ....: </span>         <span class="s1">&#39;(Gender == &quot;Male&quot;)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gp">   ....: </span>
-<span class="gh">Out[63]: </span><span class="go"></span>
+<span class="gh">Out[63]: </span>
 <span class="go">                           School   Grade           Name Gender  Weight Transfer</span>
 <span class="go">2   Shanghai Jiao Tong University  Senior        Mei Sun   Male    89.0        N</span>
 <span class="go">16            Tsinghua University  Junior  Xiaoqiang Qin   Male    68.0        N</span>
@@ -884,7 +884,7 @@
 </div>
 <p>此外，在字符串中出现与列表的比较时， <code class="docutils literal notranslate"><span class="pre">==</span></code> 和 <code class="docutils literal notranslate"><span class="pre">!=</span></code> 分别表示元素出现在列表和没有出现在列表，等价于 <code class="docutils literal notranslate"><span class="pre">in</span></code> 和 <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code>，例如查询所有大三和大四的学生：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [64]: </span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Grade == [&quot;Junior&quot;, &quot;Senior&quot;]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[64]: </span><span class="go"></span>
+<span class="gh">Out[64]: </span>
 <span class="go">                           School   Grade           Name  Gender  Weight Transfer</span>
 <span class="go">2   Shanghai Jiao Tong University  Senior        Mei Sun    Male    89.0        N</span>
 <span class="go">7             Tsinghua University  Junior  Gaoqiang Qian  Female    50.0        N</span>
@@ -897,7 +897,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [65]: </span><span class="n">low</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span><span class="mi">70</span><span class="p">,</span> <span class="mi">80</span>
 
 <span class="gp">In [66]: </span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;(Weight &gt;= @low) &amp; (Weight &lt;= @high)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[66]: </span><span class="go"></span>
+<span class="gh">Out[66]: </span>
 <span class="go">                           School      Grade            Name Gender  Weight Transfer</span>
 <span class="go">1               Peking University   Freshman  Changqiang You   Male    70.0        N</span>
 <span class="go">4                Fudan University  Sophomore     Gaojuan You   Male    74.0        N</span>
@@ -917,7 +917,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [68]: </span><span class="n">df_sample</span>
-<span class="gh">Out[68]: </span><span class="go"></span>
+<span class="gh">Out[68]: </span>
 <span class="go">  id  value</span>
 <span class="go">0  a      1</span>
 <span class="go">1  b      2</span>
@@ -926,7 +926,7 @@
 <span class="go">4  e     90</span>
 
 <span class="gp">In [69]: </span><span class="n">df_sample</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="n">df_sample</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-<span class="gh">Out[69]: </span><span class="go"></span>
+<span class="gh">Out[69]: </span>
 <span class="go">  id  value</span>
 <span class="go">4  e     90</span>
 <span class="go">4  e     90</span>
@@ -957,7 +957,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [74]: </span><span class="n">df_multi</span>
-<span class="gh">Out[74]: </span><span class="go"></span>
+<span class="gh">Out[74]: </span>
 <span class="go">Indicator       Height                           Weight                        </span>
 <span class="go">Grade         Freshman Senior Sophomore Junior Freshman Senior Sophomore Junior</span>
 <span class="go">School Gender                                                                  </span>
@@ -982,13 +982,13 @@
 <span class="gh">Out[76]: </span><span class="go">FrozenList([&#39;Indicator&#39;, &#39;Grade&#39;])</span>
 
 <span class="gp">In [77]: </span><span class="n">df_multi</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
-<span class="gh">Out[77]: </span><span class="go"></span>
+<span class="gh">Out[77]: </span>
 <span class="go">array([(&#39;A&#39;, &#39;Female&#39;), (&#39;A&#39;, &#39;Male&#39;), (&#39;B&#39;, &#39;Female&#39;), (&#39;B&#39;, &#39;Male&#39;),</span>
 <span class="go">       (&#39;C&#39;, &#39;Female&#39;), (&#39;C&#39;, &#39;Male&#39;), (&#39;D&#39;, &#39;Female&#39;), (&#39;D&#39;, &#39;Male&#39;)],</span>
 <span class="go">      dtype=object)</span>
 
 <span class="gp">In [78]: </span><span class="n">df_multi</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span>
-<span class="gh">Out[78]: </span><span class="go"></span>
+<span class="gh">Out[78]: </span>
 <span class="go">array([(&#39;Height&#39;, &#39;Freshman&#39;), (&#39;Height&#39;, &#39;Senior&#39;),</span>
 <span class="go">       (&#39;Height&#39;, &#39;Sophomore&#39;), (&#39;Height&#39;, &#39;Junior&#39;),</span>
 <span class="go">       (&#39;Weight&#39;, &#39;Freshman&#39;), (&#39;Weight&#39;, &#39;Senior&#39;),</span>
@@ -1008,7 +1008,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [80]: </span><span class="n">df_multi</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;School&#39;</span><span class="p">,</span> <span class="s1">&#39;Grade&#39;</span><span class="p">])</span>
 
 <span class="gp">In [81]: </span><span class="n">df_multi</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[81]: </span><span class="go"></span>
+<span class="gh">Out[81]: </span>
 <span class="go">                                                   Name  Gender  Weight Transfer</span>
 <span class="go">School                        Grade                                             </span>
 <span class="go">Shanghai Jiao Tong University Freshman     Gaopeng Yang  Female    46.0        N</span>
@@ -1034,7 +1034,7 @@
 <span class="gp">In [84]: </span><span class="n">df_sorted</span> <span class="o">=</span> <span class="n">df_multi</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
 
 <span class="gp">In [85]: </span><span class="n">df_sorted</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="s1">&#39;Fudan University&#39;</span><span class="p">,</span> <span class="s1">&#39;Junior&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[85]: </span><span class="go"></span>
+<span class="gh">Out[85]: </span>
 <span class="go">                                  Name  Gender  Weight Transfer</span>
 <span class="go">School           Grade                                         </span>
 <span class="go">Fudan University Junior      Yanli You  Female    48.0        N</span>
@@ -1046,7 +1046,7 @@
 <span class="gp">In [86]: </span><span class="n">df_sorted</span><span class="o">.</span><span class="n">loc</span><span class="p">[[(</span><span class="s1">&#39;Fudan University&#39;</span><span class="p">,</span> <span class="s1">&#39;Senior&#39;</span><span class="p">),</span>
 <span class="gp">   ....: </span>              <span class="p">(</span><span class="s1">&#39;Shanghai Jiao Tong University&#39;</span><span class="p">,</span> <span class="s1">&#39;Freshman&#39;</span><span class="p">)]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gp">   ....: </span>
-<span class="gh">Out[86]: </span><span class="go"></span>
+<span class="gh">Out[86]: </span>
 <span class="go">                                    Name  Gender  Weight Transfer</span>
 <span class="go">School           Grade                                           </span>
 <span class="go">Fudan University Senior  Chengpeng Zheng  Female    38.0        N</span>
@@ -1056,7 +1056,7 @@
 <span class="go">                 Senior   Chengpeng Zhou    Male    81.0        N</span>
 
 <span class="gp">In [87]: </span><span class="n">df_sorted</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_sorted</span><span class="o">.</span><span class="n">Weight</span> <span class="o">&gt;</span> <span class="mi">70</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># 布尔列表也是可用的</span>
-<span class="gh">Out[87]: </span><span class="go"></span>
+<span class="gh">Out[87]: </span>
 <span class="go">                                     Name Gender  Weight Transfer</span>
 <span class="go">School           Grade                                           </span>
 <span class="go">Fudan University Freshman       Feng Wang   Male    74.0        N</span>
@@ -1066,7 +1066,7 @@
 <span class="go">                 Senior    Chengpeng Qian   Male    73.0        Y</span>
 
 <span class="gp">In [88]: </span><span class="n">df_sorted</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:(</span><span class="s1">&#39;Fudan University&#39;</span><span class="p">,</span><span class="s1">&#39;Junior&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[88]: </span><span class="go"></span>
+<span class="gh">Out[88]: </span>
 <span class="go">                                  Name  Gender  Weight Transfer</span>
 <span class="go">School           Grade                                         </span>
 <span class="go">Fudan University Junior      Yanli You  Female    48.0        N</span>
@@ -1087,7 +1087,7 @@
 <span class="gh">Out[90]: </span><span class="go">pandas.errors.UnsortedIndexError(&#39;Key length (2) was greater than MultiIndex lexsort depth (0)&#39;)</span>
 
 <span class="gp">In [91]: </span><span class="n">df_sorted</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="s1">&#39;Fudan University&#39;</span><span class="p">,</span> <span class="s1">&#39;Senior&#39;</span><span class="p">):]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[91]: </span><span class="go"></span>
+<span class="gh">Out[91]: </span>
 <span class="go">                                    Name  Gender  Weight Transfer</span>
 <span class="go">School           Grade                                           </span>
 <span class="go">Fudan University Senior  Chengpeng Zheng  Female    38.0        N</span>
@@ -1101,7 +1101,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [93]: </span><span class="n">df_unique</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[93]: </span><span class="go"></span>
+<span class="gh">Out[93]: </span>
 <span class="go">                                                   Name  Gender  Weight Transfer</span>
 <span class="go">School                        Grade                                             </span>
 <span class="go">Shanghai Jiao Tong University Freshman     Gaopeng Yang  Female    46.0        N</span>
@@ -1120,7 +1120,7 @@
 <span class="gh">Out[95]: </span><span class="go">pandas.errors.UnsortedIndexError(&#39;Key length (2) was greater than MultiIndex lexsort depth (0)&#39;)</span>
 
 <span class="gp">In [96]: </span><span class="n">df_unique</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="s1">&#39;Fudan University&#39;</span><span class="p">,</span> <span class="s1">&#39;Senior&#39;</span><span class="p">):]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[96]: </span><span class="go"></span>
+<span class="gh">Out[96]: </span>
 <span class="go">                                        Name  Gender  Weight Transfer</span>
 <span class="go">School            Grade                                              </span>
 <span class="go">Fudan University  Senior     Chengpeng Zheng  Female    38.0        N</span>
@@ -1136,7 +1136,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [98]: </span><span class="n">res</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[98]: </span><span class="go"></span>
+<span class="gh">Out[98]: </span>
 <span class="go">                                     Name  Gender  Weight Transfer</span>
 <span class="go">School            Grade                                           </span>
 <span class="go">Peking University Sophomore   Changmei Xu  Female    43.0        N</span>
@@ -1155,7 +1155,7 @@
 <span class="gp">   .....: </span>
 
 <span class="gp">In [101]: </span><span class="n">res</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[101]: </span><span class="go"></span>
+<span class="gh">Out[101]: </span>
 <span class="go">                                   Name  Gender  Weight Transfer</span>
 <span class="go">School            Grade                                         </span>
 <span class="go">Peking University Junior        Juan Xu  Female     NaN        N</span>
@@ -1188,7 +1188,7 @@
 <span class="gp">   .....: </span>
 
 <span class="gp">In [109]: </span><span class="n">df_ex</span>
-<span class="gh">Out[109]: </span><span class="go"></span>
+<span class="gh">Out[109]: </span>
 <span class="go">Big          D        E        F      </span>
 <span class="go">Small        d  e  f  d  e  f  d  e  f</span>
 <span class="go">Upper Lower                           </span>
@@ -1210,7 +1210,7 @@
 <p>【a】 <code class="docutils literal notranslate"><span class="pre">loc[idx[*,*]]</span></code> 型</p>
 <p>这种情况并不能进行多层分别切片，前一个 <code class="docutils literal notranslate"><span class="pre">*</span></code> 表示行的选择，后一个 <code class="docutils literal notranslate"><span class="pre">*</span></code> 表示列的选择，与单纯的 <code class="docutils literal notranslate"><span class="pre">loc</span></code> 是类似的：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [111]: </span><span class="n">df_ex</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">:,</span> <span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">):]]</span>
-<span class="gh">Out[111]: </span><span class="go"></span>
+<span class="gh">Out[111]: </span>
 <span class="go">Big          D  E        F      </span>
 <span class="go">Small        f  d  e  f  d  e  f</span>
 <span class="go">Upper Lower                     </span>
@@ -1221,7 +1221,7 @@
 </div>
 <p>另外，也支持布尔序列的索引：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [112]: </span><span class="n">df_ex</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">[:</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]]</span> <span class="c1"># 列和大于0</span>
-<span class="gh">Out[112]: </span><span class="go"></span>
+<span class="gh">Out[112]: </span>
 <span class="go">Big          D     F</span>
 <span class="go">Small        d  e  e</span>
 <span class="go">Upper Lower         </span>
@@ -1233,7 +1233,7 @@
 <p>【b】 <code class="docutils literal notranslate"><span class="pre">loc[idx[*,*],idx[*,*]]</span></code> 型</p>
 <p>这种情况能够分层进行切片，前一个 <code class="docutils literal notranslate"><span class="pre">idx</span></code> 指代的是行索引，后一个是列索引。</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [113]: </span><span class="n">df_ex</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">[:</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:],</span> <span class="n">idx</span><span class="p">[</span><span class="s1">&#39;E&#39;</span><span class="p">:,</span> <span class="s1">&#39;e&#39;</span><span class="p">:]]</span>
-<span class="gh">Out[113]: </span><span class="go"></span>
+<span class="gh">Out[113]: </span>
 <span class="go">Big          E     F   </span>
 <span class="go">Small        e  f  e  f</span>
 <span class="go">Upper Lower            </span>
@@ -1260,7 +1260,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [116]: </span><span class="n">my_tuple</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;cat&#39;</span><span class="p">),(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;dog&#39;</span><span class="p">),(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;cat&#39;</span><span class="p">),(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;dog&#39;</span><span class="p">)]</span>
 
 <span class="gp">In [117]: </span><span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span><span class="n">my_tuple</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;First&#39;</span><span class="p">,</span><span class="s1">&#39;Second&#39;</span><span class="p">])</span>
-<span class="gh">Out[117]: </span><span class="go"></span>
+<span class="gh">Out[117]: </span>
 <span class="go">MultiIndex([(&#39;a&#39;, &#39;cat&#39;),</span>
 <span class="go">            (&#39;a&#39;, &#39;dog&#39;),</span>
 <span class="go">            (&#39;b&#39;, &#39;cat&#39;),</span>
@@ -1272,7 +1272,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [118]: </span><span class="n">my_array</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;aabb&#39;</span><span class="p">),</span> <span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="p">]</span>
 
 <span class="gp">In [119]: </span><span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_arrays</span><span class="p">(</span><span class="n">my_array</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;First&#39;</span><span class="p">,</span><span class="s1">&#39;Second&#39;</span><span class="p">])</span>
-<span class="gh">Out[119]: </span><span class="go"></span>
+<span class="gh">Out[119]: </span>
 <span class="go">MultiIndex([(&#39;a&#39;, &#39;cat&#39;),</span>
 <span class="go">            (&#39;a&#39;, &#39;dog&#39;),</span>
 <span class="go">            (&#39;b&#39;, &#39;cat&#39;),</span>
@@ -1289,7 +1289,7 @@
 <span class="gp">   .....: </span>                            <span class="n">my_list2</span><span class="p">],</span>
 <span class="gp">   .....: </span>                           <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;First&#39;</span><span class="p">,</span><span class="s1">&#39;Second&#39;</span><span class="p">])</span>
 <span class="gp">   .....: </span>
-<span class="gh">Out[122]: </span><span class="go"></span>
+<span class="gh">Out[122]: </span>
 <span class="go">MultiIndex([(&#39;a&#39;, &#39;cat&#39;),</span>
 <span class="go">            (&#39;a&#39;, &#39;dog&#39;),</span>
 <span class="go">            (&#39;b&#39;, &#39;cat&#39;),</span>
@@ -1324,7 +1324,7 @@
 <span class="gp">   .....: </span>
 
 <span class="gp">In [129]: </span><span class="n">df_ex</span>
-<span class="gh">Out[129]: </span><span class="go"></span>
+<span class="gh">Out[129]: </span>
 <span class="go">Big                 C               D            </span>
 <span class="go">Small               c       d       c       d    </span>
 <span class="go">Other             cat dog cat dog cat dog cat dog</span>
@@ -1341,7 +1341,7 @@
 </div>
 <p>索引层的交换由 <code class="docutils literal notranslate"><span class="pre">swaplevel</span></code> 和 <code class="docutils literal notranslate"><span class="pre">reorder_levels</span></code> 完成，前者只能交换两个层，而后者可以交换任意层，两者都可以指定交换的是轴是哪一个，即行索引或列索引：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [130]: </span><span class="n">df_ex</span><span class="o">.</span><span class="n">swaplevel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># 列索引的第一层和第三层交换</span>
-<span class="gh">Out[130]: </span><span class="go"></span>
+<span class="gh">Out[130]: </span>
 <span class="go">Other             cat dog cat dog cat dog cat dog</span>
 <span class="go">Small               c   c   d   d   c   c   d   d</span>
 <span class="go">Big                 C   C   C   C   D   D   D   D</span>
@@ -1353,7 +1353,7 @@
 <span class="go">B     a     alpha   0  -9   1  -6   2   9  -7  -9</span>
 
 <span class="gp">In [131]: </span><span class="n">df_ex</span><span class="o">.</span><span class="n">reorder_levels</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># 列表数字指代原来索引中的层</span>
-<span class="gh">Out[131]: </span><span class="go"></span>
+<span class="gh">Out[131]: </span>
 <span class="go">Big                 C               D            </span>
 <span class="go">Small               c       d       c       d    </span>
 <span class="go">Other             cat dog cat dog cat dog cat dog</span>
@@ -1373,7 +1373,7 @@
 </div>
 <p>若想要删除某一层的索引，可以使用 <code class="docutils literal notranslate"><span class="pre">droplevel</span></code> 方法：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [132]: </span><span class="n">df_ex</span><span class="o">.</span><span class="n">droplevel</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="gh">Out[132]: </span><span class="go"></span>
+<span class="gh">Out[132]: </span>
 <span class="go">Big                 C               D            </span>
 <span class="go">Other             cat dog cat dog cat dog cat dog</span>
 <span class="go">Upper Lower Extra                                </span>
@@ -1387,7 +1387,7 @@
 <span class="go">            beta    2   5   9  -9   5  -6   3   1</span>
 
 <span class="gp">In [133]: </span><span class="n">df_ex</span><span class="o">.</span><span class="n">droplevel</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="gh">Out[133]: </span><span class="go"></span>
+<span class="gh">Out[133]: </span>
 <span class="go">Big     C               D            </span>
 <span class="go">Small   c       d       c       d    </span>
 <span class="go">Other cat dog cat dog cat dog cat dog</span>
@@ -1409,7 +1409,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [134]: </span><span class="n">df_ex</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Upper&#39;</span><span class="p">:</span><span class="s1">&#39;Changed_row&#39;</span><span class="p">},</span>
 <span class="gp">   .....: </span>                  <span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Other&#39;</span><span class="p">:</span><span class="s1">&#39;Changed_Col&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gp">   .....: </span>
-<span class="gh">Out[134]: </span><span class="go"></span>
+<span class="gh">Out[134]: </span>
 <span class="go">Big                       C               D            </span>
 <span class="go">Small                     c       d       c       d    </span>
 <span class="go">Changed_Col             cat dog cat dog cat dog cat dog</span>
@@ -1425,7 +1425,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [135]: </span><span class="n">df_ex</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;cat&#39;</span><span class="p">:</span><span class="s1">&#39;not_cat&#39;</span><span class="p">},</span>
 <span class="gp">   .....: </span>             <span class="n">level</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gp">   .....: </span>
-<span class="gh">Out[135]: </span><span class="go"></span>
+<span class="gh">Out[135]: </span>
 <span class="go">Big                     C                       D                </span>
 <span class="go">Small                   c           d           c           d    </span>
 <span class="go">Other             not_cat dog not_cat dog not_cat dog not_cat dog</span>
@@ -1441,7 +1441,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [136]: </span><span class="n">df_ex</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="nb">str</span><span class="o">.</span><span class="n">upper</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>
 <span class="gp">   .....: </span>             <span class="n">level</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gp">   .....: </span>
-<span class="gh">Out[136]: </span><span class="go"></span>
+<span class="gh">Out[136]: </span>
 <span class="go">Big                 C               D            </span>
 <span class="go">Small               c       d       c       d    </span>
 <span class="go">Other             cat dog cat dog cat dog cat dog</span>
@@ -1465,7 +1465,7 @@
 <span class="gp">In [138]: </span><span class="n">df_ex</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="nb">next</span><span class="p">(</span><span class="n">new_values</span><span class="p">),</span>
 <span class="gp">   .....: </span>             <span class="n">level</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="gp">   .....: </span>
-<span class="gh">Out[138]: </span><span class="go"></span>
+<span class="gh">Out[138]: </span>
 <span class="go">Big                 C               D            </span>
 <span class="go">Small               c       d       c       d    </span>
 <span class="go">Other             cat dog cat dog cat dog cat dog</span>
@@ -1492,7 +1492,7 @@
 <span class="gp">In [141]: </span><span class="n">df_temp</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">new_idx</span>
 
 <span class="gp">In [142]: </span><span class="n">df_temp</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[142]: </span><span class="go"></span>
+<span class="gh">Out[142]: </span>
 <span class="go">Big                 C               D            </span>
 <span class="go">Small               c       d       c       d    </span>
 <span class="go">Other             cat dog cat dog cat dog cat dog</span>
@@ -1515,7 +1515,7 @@
 <span class="gp">In [145]: </span><span class="n">df_temp</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">new_idx</span>
 
 <span class="gp">In [146]: </span><span class="n">df_temp</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># 单层索引</span>
-<span class="gh">Out[146]: </span><span class="go"></span>
+<span class="gh">Out[146]: </span>
 <span class="go">Big         C               D            </span>
 <span class="go">Small       c       d       c       d    </span>
 <span class="go">Other     cat dog cat dog cat dog cat dog</span>
@@ -1532,7 +1532,7 @@
 <span class="gp">In [148]: </span><span class="n">df_temp</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">new_idx</span>
 
 <span class="gp">In [149]: </span><span class="n">df_temp</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># 三层索引</span>
-<span class="gh">Out[149]: </span><span class="go"></span>
+<span class="gh">Out[149]: </span>
 <span class="go">Big         C               D            </span>
 <span class="go">Small       c       d       c       d    </span>
 <span class="go">Other     cat dog cat dog cat dog cat dog</span>
@@ -1553,7 +1553,7 @@
 <span class="gp">   .....: </span>
 
 <span class="gp">In [151]: </span><span class="n">df_new</span>
-<span class="gh">Out[151]: </span><span class="go"></span>
+<span class="gh">Out[151]: </span>
 <span class="go">   A  B  C</span>
 <span class="go">0  a  P  1</span>
 <span class="go">1  a  Q  2</span>
@@ -1563,7 +1563,7 @@
 </div>
 <p>索引的设置可以使用 <code class="docutils literal notranslate"><span class="pre">set_index</span></code> 完成，这里的主要参数是 <code class="docutils literal notranslate"><span class="pre">append</span></code> ，表示是否来保留原来的索引，直接把新设定的添加到原索引的内层：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [152]: </span><span class="n">df_new</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
-<span class="gh">Out[152]: </span><span class="go"></span>
+<span class="gh">Out[152]: </span>
 <span class="go">   B  C</span>
 <span class="go">A      </span>
 <span class="go">a  P  1</span>
@@ -1572,7 +1572,7 @@
 <span class="go">d  T  4</span>
 
 <span class="gp">In [153]: </span><span class="n">df_new</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="n">append</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gh">Out[153]: </span><span class="go"></span>
+<span class="gh">Out[153]: </span>
 <span class="go">     B  C</span>
 <span class="go">  A      </span>
 <span class="go">0 a  P  1</span>
@@ -1583,7 +1583,7 @@
 </div>
 <p>可以同时指定多个列作为索引：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [154]: </span><span class="n">df_new</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">])</span>
-<span class="gh">Out[154]: </span><span class="go"></span>
+<span class="gh">Out[154]: </span>
 <span class="go">     C</span>
 <span class="go">A B   </span>
 <span class="go">a P  1</span>
@@ -1598,7 +1598,7 @@
 <span class="gp">In [156]: </span><span class="n">df_new</span> <span class="o">=</span> <span class="n">df_new</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="n">my_index</span><span class="p">])</span>
 
 <span class="gp">In [157]: </span><span class="n">df_new</span>
-<span class="gh">Out[157]: </span><span class="go"></span>
+<span class="gh">Out[157]: </span>
 <span class="go">     B  C</span>
 <span class="go">A D      </span>
 <span class="go">a W  P  1</span>
@@ -1609,7 +1609,7 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">reset_index</span></code> 是 <code class="docutils literal notranslate"><span class="pre">set_index</span></code> 的逆函数，其主要参数是 <code class="docutils literal notranslate"><span class="pre">drop</span></code> ，表示是否要把去掉的索引层丢弃，而不是添加到列中：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [158]: </span><span class="n">df_new</span><span class="o">.</span><span class="n">reset_index</span><span class="p">([</span><span class="s1">&#39;D&#39;</span><span class="p">])</span>
-<span class="gh">Out[158]: </span><span class="go"></span>
+<span class="gh">Out[158]: </span>
 <span class="go">   D  B  C</span>
 <span class="go">A         </span>
 <span class="go">a  W  P  1</span>
@@ -1618,7 +1618,7 @@
 <span class="go">d  Z  T  4</span>
 
 <span class="gp">In [159]: </span><span class="n">df_new</span><span class="o">.</span><span class="n">reset_index</span><span class="p">([</span><span class="s1">&#39;D&#39;</span><span class="p">],</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gh">Out[159]: </span><span class="go"></span>
+<span class="gh">Out[159]: </span>
 <span class="go">   B  C</span>
 <span class="go">A      </span>
 <span class="go">a  P  1</span>
@@ -1629,7 +1629,7 @@
 </div>
 <p>如果重置了所有的索引，那么 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 会直接重新生成一个默认索引：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [160]: </span><span class="n">df_new</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="gh">Out[160]: </span><span class="go"></span>
+<span class="gh">Out[160]: </span>
 <span class="go">   A  D  B  C</span>
 <span class="go">0  a  W  P  1</span>
 <span class="go">1  a  X  Q  2</span>
@@ -1647,7 +1647,7 @@
 <span class="gp">   .....: </span>
 
 <span class="gp">In [162]: </span><span class="n">df_reindex</span>
-<span class="gh">Out[162]: </span><span class="go"></span>
+<span class="gh">Out[162]: </span>
 <span class="go">      Weight  Height</span>
 <span class="go">1001      60     176</span>
 <span class="go">1003      70     180</span>
@@ -1656,7 +1656,7 @@
 <span class="gp">In [163]: </span><span class="n">df_reindex</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;1001&#39;</span><span class="p">,</span><span class="s1">&#39;1002&#39;</span><span class="p">,</span><span class="s1">&#39;1003&#39;</span><span class="p">,</span><span class="s1">&#39;1004&#39;</span><span class="p">],</span>
 <span class="gp">   .....: </span>                   <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Weight&#39;</span><span class="p">,</span><span class="s1">&#39;Gender&#39;</span><span class="p">])</span>
 <span class="gp">   .....: </span>
-<span class="gh">Out[163]: </span><span class="go"></span>
+<span class="gh">Out[163]: </span>
 <span class="go">      Weight  Gender</span>
 <span class="go">1001    60.0     NaN</span>
 <span class="go">1002    80.0     NaN</span>
@@ -1671,7 +1671,7 @@
 <span class="gp">   .....: </span>
 
 <span class="gp">In [165]: </span><span class="n">df_reindex</span><span class="o">.</span><span class="n">reindex_like</span><span class="p">(</span><span class="n">df_existed</span><span class="p">)</span>
-<span class="gh">Out[165]: </span><span class="go"></span>
+<span class="gh">Out[165]: </span>
 <span class="go">      Weight  Gender</span>
 <span class="go">1001    60.0     NaN</span>
 <span class="go">1002    80.0     NaN</span>
@@ -1729,21 +1729,21 @@ S_A.symmetric\_difference(S_B) &amp;= \rm S_A\triangle S_B\Leftrightarrow \rm \{
 <span class="gp">In [174]: </span><span class="n">df_set_in_col_2</span> <span class="o">=</span> <span class="n">df_set_2</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 
 <span class="gp">In [175]: </span><span class="n">df_set_in_col_1</span>
-<span class="gh">Out[175]: </span><span class="go"></span>
+<span class="gh">Out[175]: </span>
 <span class="go">  id1  0  1</span>
 <span class="go">0   a  0  1</span>
 <span class="go">1   b  1  2</span>
 <span class="go">2   a  3  4</span>
 
 <span class="gp">In [176]: </span><span class="n">df_set_in_col_2</span>
-<span class="gh">Out[176]: </span><span class="go"></span>
+<span class="gh">Out[176]: </span>
 <span class="go">  id2  0  1</span>
 <span class="go">0   b  4  5</span>
 <span class="go">1   b  2  6</span>
 <span class="go">2   c  7  1</span>
 
 <span class="gp">In [177]: </span><span class="n">df_set_in_col_1</span><span class="p">[</span><span class="n">df_set_in_col_1</span><span class="o">.</span><span class="n">id1</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">df_set_in_col_2</span><span class="o">.</span><span class="n">id2</span><span class="p">)]</span>
-<span class="gh">Out[177]: </span><span class="go"></span>
+<span class="gh">Out[177]: </span>
 <span class="go">  id1  0  1</span>
 <span class="go">1   b  1  2</span>
 </pre></div>
@@ -1758,7 +1758,7 @@ S_A.symmetric\_difference(S_B) &amp;= \rm S_A\triangle S_B\Leftrightarrow \rm \{
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [178]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/company.csv&#39;</span><span class="p">)</span>
 
 <span class="gp">In [179]: </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gh">Out[179]: </span><span class="go"></span>
+<span class="gh">Out[179]: </span>
 <span class="go">   EmployeeID birthdate_key  age  city_name department      job_title gender</span>
 <span class="go">0        1318      1/3/1954   61  Vancouver  Executive            CEO      M</span>
 <span class="go">1        1319      1/3/1957   58  Vancouver  Executive      VP Stores      F</span>
@@ -1786,11 +1786,11 @@ S_A.symmetric\_difference(S_B) &amp;= \rm S_A\triangle S_B\Leftrightarrow \rm \{
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [180]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/chocolate.csv&#39;</span><span class="p">)</span>
 
 <span class="gp">In [181]: </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gh">Out[181]: </span><span class="go"></span>
-<span class="go">    Company  Review\nDate Cocoa\nPercent Company\nLocation  Rating</span>
-<span class="go">0  A. Morin          2016            63%            France    3.75</span>
-<span class="go">1  A. Morin          2015            70%            France    2.75</span>
-<span class="go">2  A. Morin          2015            70%            France    3.00</span>
+<span class="gh">Out[181]: </span>
+<span class="go">    Company  Review\r\nDate Cocoa\r\nPercent Company\r\nLocation  Rating</span>
+<span class="go">0  A. Morin            2016              63%              France    3.75</span>
+<span class="go">1  A. Morin            2015              70%              France    2.75</span>
+<span class="go">2  A. Morin            2015              70%              France    3.00</span>
 </pre></div>
 </div>
 <ol class="arabic simple">

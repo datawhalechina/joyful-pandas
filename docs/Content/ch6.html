@@ -368,7 +368,7 @@
 <span class="gp">   ...: </span>
 
 <span class="gp">In [5]: </span><span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
-<span class="gh">Out[5]: </span><span class="go"></span>
+<span class="gh">Out[5]: </span>
 <span class="go">        Name  Age Gender</span>
 <span class="go">0  San Zhang   20    NaN</span>
 <span class="go">1      Si Li   30      F</span>
@@ -384,7 +384,7 @@
 <span class="gp">   ...: </span>
 
 <span class="gp">In [8]: </span><span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;df1_name&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;df2_name&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
-<span class="gh">Out[8]: </span><span class="go"></span>
+<span class="gh">Out[8]: </span>
 <span class="go">    df1_name  Age df2_name Gender</span>
 <span class="go">0  San Zhang   20      NaN    NaN</span>
 <span class="go">1      Si Li   30    Si Li      F</span>
@@ -396,7 +396,7 @@
 <span class="gp">In [10]: </span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Name&#39;</span><span class="p">:[</span><span class="s1">&#39;San Zhang&#39;</span><span class="p">],</span><span class="s1">&#39;Grade&#39;</span><span class="p">:[</span><span class="mi">80</span><span class="p">]})</span>
 
 <span class="gp">In [11]: </span><span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">suffixes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;_Chinese&#39;</span><span class="p">,</span><span class="s1">&#39;_Math&#39;</span><span class="p">])</span>
-<span class="gh">Out[11]: </span><span class="go"></span>
+<span class="gh">Out[11]: </span>
 <span class="go">        Name  Grade_Chinese  Grade_Math</span>
 <span class="go">0  San Zhang             70          80</span>
 </pre></div>
@@ -413,19 +413,19 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [14]: </span><span class="n">df1</span>
-<span class="gh">Out[14]: </span><span class="go"></span>
+<span class="gh">Out[14]: </span>
 <span class="go">        Name  Age Class</span>
 <span class="go">0  San Zhang   20   one</span>
 <span class="go">1  San Zhang   21   two</span>
 
 <span class="gp">In [15]: </span><span class="n">df2</span>
-<span class="gh">Out[15]: </span><span class="go"></span>
+<span class="gh">Out[15]: </span>
 <span class="go">        Name Gender Class</span>
 <span class="go">0  San Zhang      F   two</span>
 <span class="go">1  San Zhang      M   one</span>
 
 <span class="gp">In [16]: </span><span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span> <span class="c1"># 错误的结果</span>
-<span class="gh">Out[16]: </span><span class="go"></span>
+<span class="gh">Out[16]: </span>
 <span class="go">        Name  Age Class_x Gender Class_y</span>
 <span class="go">0  San Zhang   20     one      F     two</span>
 <span class="go">1  San Zhang   20     one      M     one</span>
@@ -433,7 +433,7 @@
 <span class="go">3  San Zhang   21     two      M     one</span>
 
 <span class="gp">In [17]: </span><span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Class&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span> <span class="c1"># 正确的结果</span>
-<span class="gh">Out[17]: </span><span class="go"></span>
+<span class="gh">Out[17]: </span>
 <span class="go">        Name  Age Class Gender</span>
 <span class="go">0  San Zhang   20   one      M</span>
 <span class="go">1  San Zhang   21   two      F</span>
@@ -461,7 +461,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [20]: </span><span class="n">df1</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
-<span class="gh">Out[20]: </span><span class="go"></span>
+<span class="gh">Out[20]: </span>
 <span class="go">           Age Gender</span>
 <span class="go">Name                 </span>
 <span class="go">San Zhang   20    NaN</span>
@@ -480,7 +480,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [23]: </span><span class="n">df1</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">lsuffix</span><span class="o">=</span><span class="s1">&#39;_Chinese&#39;</span><span class="p">,</span> <span class="n">rsuffix</span><span class="o">=</span><span class="s1">&#39;_Math&#39;</span><span class="p">)</span>
-<span class="gh">Out[23]: </span><span class="go"></span>
+<span class="gh">Out[23]: </span>
 <span class="go">           Grade_Chinese  Grade_Math</span>
 <span class="go">Name                                </span>
 <span class="go">San Zhang             70          80</span>
@@ -500,21 +500,21 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [26]: </span><span class="n">df1</span>
-<span class="gh">Out[26]: </span><span class="go"></span>
+<span class="gh">Out[26]: </span>
 <span class="go">                 Age</span>
 <span class="go">Name      Class     </span>
 <span class="go">San Zhang one     20</span>
 <span class="go">          two     21</span>
 
 <span class="gp">In [27]: </span><span class="n">df2</span>
-<span class="gh">Out[27]: </span><span class="go"></span>
+<span class="gh">Out[27]: </span>
 <span class="go">                Gender</span>
 <span class="go">Name      Class       </span>
 <span class="go">San Zhang two        F</span>
 <span class="go">          one        M</span>
 
 <span class="gp">In [28]: </span><span class="n">df1</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
-<span class="gh">Out[28]: </span><span class="go"></span>
+<span class="gh">Out[28]: </span>
 <span class="go">                 Age Gender</span>
 <span class="go">Name      Class            </span>
 <span class="go">San Zhang one     20      M</span>
@@ -538,7 +538,7 @@
 <span class="gp">In [30]: </span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Name&#39;</span><span class="p">:[</span><span class="s1">&#39;Wu Wang&#39;</span><span class="p">],</span> <span class="s1">&#39;Age&#39;</span><span class="p">:[</span><span class="mi">40</span><span class="p">]})</span>
 
 <span class="gp">In [31]: </span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">])</span>
-<span class="gh">Out[31]: </span><span class="go"></span>
+<span class="gh">Out[31]: </span>
 <span class="go">        Name  Age</span>
 <span class="go">0  San Zhang   20</span>
 <span class="go">1      Si Li   30</span>
@@ -551,7 +551,7 @@
 <span class="gp">In [33]: </span><span class="n">df3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Gender&#39;</span><span class="p">:[</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">]})</span>
 
 <span class="gp">In [34]: </span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">df3</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
-<span class="gh">Out[34]: </span><span class="go"></span>
+<span class="gh">Out[34]: </span>
 <span class="go">        Name  Age  Grade Gender</span>
 <span class="go">0  San Zhang   20     80      M</span>
 <span class="go">1      Si Li   30     90      F</span>
@@ -561,7 +561,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [35]: </span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Name&#39;</span><span class="p">:[</span><span class="s1">&#39;Wu Wang&#39;</span><span class="p">],</span> <span class="s1">&#39;Gender&#39;</span><span class="p">:[</span><span class="s1">&#39;M&#39;</span><span class="p">]})</span>
 
 <span class="gp">In [36]: </span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">])</span>
-<span class="gh">Out[36]: </span><span class="go"></span>
+<span class="gh">Out[36]: </span>
 <span class="go">        Name   Age Gender</span>
 <span class="go">0  San Zhang  20.0    NaN</span>
 <span class="go">1      Si Li  30.0    NaN</span>
@@ -570,14 +570,14 @@
 <span class="gp">In [37]: </span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Grade&#39;</span><span class="p">:[</span><span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 
 <span class="gp">In [38]: </span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
-<span class="gh">Out[38]: </span><span class="go"></span>
+<span class="gh">Out[38]: </span>
 <span class="go">        Name   Age  Grade</span>
 <span class="go">0  San Zhang  20.0    NaN</span>
 <span class="go">1      Si Li  30.0   80.0</span>
 <span class="go">2        NaN   NaN   90.0</span>
 
 <span class="gp">In [39]: </span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
-<span class="gh">Out[39]: </span><span class="go"></span>
+<span class="gh">Out[39]: </span>
 <span class="go">    Name  Age  Grade</span>
 <span class="go">1  Si Li   30     80</span>
 </pre></div>
@@ -591,7 +591,7 @@
 <span class="gp">In [41]: </span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Name&#39;</span><span class="p">:[</span><span class="s1">&#39;Wu Wang&#39;</span><span class="p">],</span><span class="s1">&#39;Age&#39;</span><span class="p">:[</span><span class="mi">21</span><span class="p">]})</span>
 
 <span class="gp">In [42]: </span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">],</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">])</span>
-<span class="gh">Out[42]: </span><span class="go"></span>
+<span class="gh">Out[42]: </span>
 <span class="go">            Name  Age</span>
 <span class="go">one 0  San Zhang   20</span>
 <span class="go">    1      Si Li   21</span>
@@ -606,7 +606,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [43]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;Wu Wang&#39;</span><span class="p">,</span> <span class="mi">21</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 
 <span class="gp">In [44]: </span><span class="n">df1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gh">Out[44]: </span><span class="go"></span>
+<span class="gh">Out[44]: </span>
 <span class="go">        Name  Age</span>
 <span class="go">0  San Zhang   20</span>
 <span class="go">1      Si Li   21</span>
@@ -617,7 +617,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [45]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">])</span>
 
 <span class="gp">In [46]: </span><span class="n">df1</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">Grade</span><span class="o">=</span><span class="n">s</span><span class="p">)</span>
-<span class="gh">Out[46]: </span><span class="go"></span>
+<span class="gh">Out[46]: </span>
 <span class="go">        Name  Age  Grade</span>
 <span class="go">0  San Zhang   20     80</span>
 <span class="go">1      Si Li   21     90</span>
@@ -625,7 +625,7 @@
 <span class="gp">In [47]: </span><span class="n">df1</span><span class="p">[</span><span class="s1">&#39;Grade&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span>
 
 <span class="gp">In [48]: </span><span class="n">df1</span>
-<span class="gh">Out[48]: </span><span class="go"></span>
+<span class="gh">Out[48]: </span>
 <span class="go">        Name  Age  Grade</span>
 <span class="go">0  San Zhang   20     80</span>
 <span class="go">1      Si Li   21     90</span>
@@ -650,7 +650,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [51]: </span><span class="n">df1</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
-<span class="gh">Out[51]: </span><span class="go"></span>
+<span class="gh">Out[51]: </span>
 <span class="go">    Name         Class       </span>
 <span class="go">    self  other   self  other</span>
 <span class="go">1  Si Li  Li Si    NaN    NaN</span>
@@ -660,7 +660,7 @@
 <p>结果中返回了不同值所在的行列，如果相同则会被填充为缺失值 <code class="docutils literal notranslate"><span class="pre">NaN</span></code> ，其中 <code class="docutils literal notranslate"><span class="pre">other</span></code> 和 <code class="docutils literal notranslate"><span class="pre">self</span></code> 分别指代传入的参数表和被调用的表自身。</p>
 <p>如果想要完整显示表中所有元素的比较情况，可以设置 <code class="docutils literal notranslate"><span class="pre">keep_shape=True</span></code> ：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [52]: </span><span class="n">df1</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">keep_shape</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gh">Out[52]: </span><span class="go"></span>
+<span class="gh">Out[52]: </span>
 <span class="go">    Name         Age        Class       </span>
 <span class="go">    self  other self other   self  other</span>
 <span class="go">0    NaN    NaN  NaN   NaN    NaN    NaN</span>
@@ -685,7 +685,7 @@
 <span class="gp">In [55]: </span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;B&#39;</span><span class="p">:[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="s1">&#39;C&#39;</span><span class="p">:[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span> <span class="s1">&#39;D&#39;</span><span class="p">:[</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
 
 <span class="gp">In [56]: </span><span class="n">df1</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">choose_min</span><span class="p">)</span>
-<span class="gh">Out[56]: </span><span class="go"></span>
+<span class="gh">Out[56]: </span>
 <span class="go">    A    B    C   D</span>
 <span class="go">0 NaN  NaN  NaN NaN</span>
 <span class="go">1 NaN  4.0  6.0 NaN</span>
@@ -700,7 +700,7 @@
 </div>
 <p>此外，设置 <code class="docutils literal notranslate"><span class="pre">overtwrite</span></code> 参数为 <code class="docutils literal notranslate"><span class="pre">False</span></code> 可以保留 <span class="red">被调用表</span> 中未出现在传入的参数表中的列，而不会设置未缺失值：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [57]: </span><span class="n">df1</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">choose_min</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="gh">Out[57]: </span><span class="go"></span>
+<span class="gh">Out[57]: </span>
 <span class="go">     A    B    C   D</span>
 <span class="go">0  1.0  NaN  NaN NaN</span>
 <span class="go">1  2.0  4.0  6.0 NaN</span>
@@ -718,7 +718,7 @@
 <span class="gp">In [59]: </span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="s1">&#39;B&#39;</span><span class="p">:[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
 
 <span class="gp">In [60]: </span><span class="n">df1</span><span class="o">.</span><span class="n">combine_first</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
-<span class="gh">Out[60]: </span><span class="go"></span>
+<span class="gh">Out[60]: </span>
 <span class="go">     A    B</span>
 <span class="go">0  1.0  3.0</span>
 <span class="go">1  2.0  7.0</span>

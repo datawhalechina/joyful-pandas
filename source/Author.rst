@@ -2,7 +2,7 @@
 Author
 *********
 
-耿远昊，华东师范大学统计学本科，威斯康星大学麦迪逊分校统计学硕士在读，Datawhale成员，《pandas数据处理与分析》作者。pandas contributor，积极参与pandas开源社区生态建设，包括漏洞修复、功能实现与性能优化等，对pandas在数据处理与分析中的应用有丰富经验。
+耿远昊，华东师范大学统计学本科，威斯康星大学麦迪逊分校统计学硕士，Datawhale成员，《pandas数据处理与分析》作者。pandas contributor，积极参与pandas开源社区生态建设，包括漏洞修复、功能实现与性能优化等，对pandas在数据处理与分析中的应用有丰富经验。
 
 Contributions to pandas project
 ======================================

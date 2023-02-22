@@ -389,7 +389,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/learn_pandas.csv&#39;</span><span class="p">)</span>
 
 <span class="gp">In [4]: </span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Gender&#39;</span><span class="p">)[</span><span class="s1">&#39;Height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
-<span class="gh">Out[4]: </span><span class="go"></span>
+<span class="gh">Out[4]: </span>
 <span class="go">Gender</span>
 <span class="go">Female    159.6</span>
 <span class="go">Male      173.4</span>
@@ -401,7 +401,7 @@
 <h3>2. 分组依据的本质<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <p>前面提到的若干例子都是以单一维度进行分组的，比如根据性别，如果现在需要根据多个维度进行分组，该如何做？事实上，只需在 <code class="docutils literal notranslate"><span class="pre">groupby</span></code> 中传入相应列名构成的列表即可。例如，现希望根据学校和性别进行分组，统计身高的均值就可以如下写出：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;School&#39;</span><span class="p">,</span> <span class="s1">&#39;Gender&#39;</span><span class="p">])[</span><span class="s1">&#39;Height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="gh">Out[5]: </span><span class="go"></span>
+<span class="gh">Out[5]: </span>
 <span class="go">School                         Gender</span>
 <span class="go">Fudan University               Female    158.776923</span>
 <span class="go">                               Male      174.212500</span>
@@ -421,7 +421,7 @@
 </div>
 <p>然后将其传入 <code class="docutils literal notranslate"><span class="pre">groupby</span></code> 中：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">condition</span><span class="p">)[</span><span class="s1">&#39;Height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="gh">Out[7]: </span><span class="go"></span>
+<span class="gh">Out[7]: </span>
 <span class="go">Weight</span>
 <span class="go">False    159.034646</span>
 <span class="go">True     172.705357</span>
@@ -438,7 +438,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">item</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">),</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
 <span class="gp">In [9]: </span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">item</span><span class="p">)[</span><span class="s1">&#39;Height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="gh">Out[9]: </span><span class="go"></span>
+<span class="gh">Out[9]: </span>
 <span class="go">a    163.924242</span>
 <span class="go">b    162.928814</span>
 <span class="go">c    162.708621</span>
@@ -447,7 +447,7 @@
 </div>
 <p>此处的索引就是原先item中的元素，如果传入多个序列进入 <code class="docutils literal notranslate"><span class="pre">groupby</span></code> ，那么最后分组的依据就是这两个序列对应行的唯一组合：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">condition</span><span class="p">,</span> <span class="n">item</span><span class="p">])[</span><span class="s1">&#39;Height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="gh">Out[10]: </span><span class="go"></span>
+<span class="gh">Out[10]: </span>
 <span class="go">Weight   </span>
 <span class="go">False   a    160.193617</span>
 <span class="go">        b    158.921951</span>
@@ -460,7 +460,7 @@
 </div>
 <p>由此可以看出，之前传入列名只是一种简便的记号，事实上等价于传入的是一个或多个列，最后分组的依据来自于数据来源组合的unique值，通过 <code class="docutils literal notranslate"><span class="pre">drop_duplicates</span></code> 就能知道具体的组类别：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;School&#39;</span><span class="p">,</span> <span class="s1">&#39;Gender&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
-<span class="gh">Out[11]: </span><span class="go"></span>
+<span class="gh">Out[11]: </span>
 <span class="go">                           School  Gender</span>
 <span class="go">0   Shanghai Jiao Tong University  Female</span>
 <span class="go">1               Peking University    Male</span>
@@ -472,7 +472,7 @@
 <span class="go">16            Tsinghua University    Male</span>
 
 <span class="gp">In [12]: </span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;School&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]])[</span><span class="s1">&#39;Height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="gh">Out[12]: </span><span class="go"></span>
+<span class="gh">Out[12]: </span>
 <span class="go">School                         Gender</span>
 <span class="go">Fudan University               Female    158.776923</span>
 <span class="go">                               Male      174.212500</span>
@@ -492,7 +492,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">gb</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;School&#39;</span><span class="p">,</span> <span class="s1">&#39;Grade&#39;</span><span class="p">])</span>
 
 <span class="gp">In [14]: </span><span class="n">gb</span>
-<span class="gh">Out[14]: </span><span class="go">&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x0000013630DAB910&gt;</span>
+<span class="gh">Out[14]: </span><span class="go">&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x00000292283D31C0&gt;</span>
 </pre></div>
 </div>
 <p>通过 <code class="docutils literal notranslate"><span class="pre">ngroups</span></code> 属性，可以得到分组个数：</p>
@@ -515,7 +515,7 @@
 </div>
 <p>当 <code class="docutils literal notranslate"><span class="pre">size</span></code> 作为 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> 的属性时，返回的是表长乘以表宽的大小，但在 <code class="docutils literal notranslate"><span class="pre">groupby</span></code> 对象上表示统计每个组的元素个数：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="n">gb</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
-<span class="gh">Out[18]: </span><span class="go"></span>
+<span class="gh">Out[18]: </span>
 <span class="go">School                         Grade    </span>
 <span class="go">Fudan University               Freshman      9</span>
 <span class="go">                               Junior       12</span>
@@ -538,7 +538,7 @@
 </div>
 <p>通过 <code class="docutils literal notranslate"><span class="pre">get_group</span></code> 方法可以直接获取所在组对应的行，此时必须知道组的具体名字：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [19]: </span><span class="n">gb</span><span class="o">.</span><span class="n">get_group</span><span class="p">((</span><span class="s1">&#39;Fudan University&#39;</span><span class="p">,</span> <span class="s1">&#39;Freshman&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># 展示一部分</span>
-<span class="gh">Out[19]: </span><span class="go"></span>
+<span class="gh">Out[19]: </span>
 <span class="go">              School     Grade             Name</span>
 <span class="go">15  Fudan University  Freshman  Changqiang Yang</span>
 <span class="go">28  Fudan University  Freshman     Gaoqiang Qin</span>
@@ -566,14 +566,14 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [20]: </span><span class="n">gb</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Gender&#39;</span><span class="p">)[</span><span class="s1">&#39;Height&#39;</span><span class="p">]</span>
 
 <span class="gp">In [21]: </span><span class="n">gb</span><span class="o">.</span><span class="n">idxmin</span><span class="p">()</span>
-<span class="gh">Out[21]: </span><span class="go"></span>
+<span class="gh">Out[21]: </span>
 <span class="go">Gender</span>
 <span class="go">Female    143</span>
 <span class="go">Male      199</span>
 <span class="go">Name: Height, dtype: int64</span>
 
 <span class="gp">In [22]: </span><span class="n">gb</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.95</span><span class="p">)</span>
-<span class="gh">Out[22]: </span><span class="go"></span>
+<span class="gh">Out[22]: </span>
 <span class="go">Gender</span>
 <span class="go">Female    166.8</span>
 <span class="go">Male      185.9</span>
@@ -590,7 +590,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [23]: </span><span class="n">gb</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Gender&#39;</span><span class="p">)[[</span><span class="s1">&#39;Height&#39;</span><span class="p">,</span> <span class="s1">&#39;Weight&#39;</span><span class="p">]]</span>
 
 <span class="gp">In [24]: </span><span class="n">gb</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-<span class="gh">Out[24]: </span><span class="go"></span>
+<span class="gh">Out[24]: </span>
 <span class="go">        Height  Weight</span>
 <span class="go">Gender                </span>
 <span class="go">Female   170.2    63.0</span>
@@ -611,7 +611,7 @@
 <p>【a】使用多个函数</p>
 <p>当使用多个聚合函数时，需要用列表的形式把内置聚合函数对应的字符串传入，先前提到的所有字符串都是合法的。</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [25]: </span><span class="n">gb</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;idxmax&#39;</span><span class="p">,</span> <span class="s1">&#39;skew&#39;</span><span class="p">])</span>
-<span class="gh">Out[25]: </span><span class="go"></span>
+<span class="gh">Out[25]: </span>
 <span class="go">         Height                   Weight                 </span>
 <span class="go">            sum idxmax      skew     sum idxmax      skew</span>
 <span class="go">Gender                                                   </span>
@@ -623,7 +623,7 @@
 <p>【b】对特定的列使用特定的聚合函数</p>
 <p>对于方法和列的特殊对应，可以通过构造字典传入 <code class="docutils literal notranslate"><span class="pre">agg</span></code> 中实现，其中字典以列名为键，以聚合字符串或字符串列表为值。</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [26]: </span><span class="n">gb</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Height&#39;</span><span class="p">:[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span><span class="s1">&#39;max&#39;</span><span class="p">],</span> <span class="s1">&#39;Weight&#39;</span><span class="p">:</span><span class="s1">&#39;count&#39;</span><span class="p">})</span>
-<span class="gh">Out[26]: </span><span class="go"></span>
+<span class="gh">Out[26]: </span>
 <span class="go">           Height        Weight</span>
 <span class="go">             mean    max  count</span>
 <span class="go">Gender                         </span>
@@ -640,7 +640,7 @@
 <p>【c】使用自定义函数</p>
 <p>在 <code class="docutils literal notranslate"><span class="pre">agg</span></code> 中可以使用具体的自定义函数， <span class="red">需要注意传入函数的参数是之前数据源中的列，逐列进行计算</span> 。下面分组计算身高和体重的极差：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [27]: </span><span class="n">gb</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
-<span class="gh">Out[27]: </span><span class="go"></span>
+<span class="gh">Out[27]: </span>
 <span class="go">        Height  Weight</span>
 <span class="go">Gender                </span>
 <span class="go">Female    24.8    29.0</span>
@@ -662,7 +662,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [29]: </span><span class="n">gb</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">my_func</span><span class="p">)</span>
-<span class="gh">Out[29]: </span><span class="go"></span>
+<span class="gh">Out[29]: </span>
 <span class="go">       Height Weight</span>
 <span class="go">Gender              </span>
 <span class="go">Female    Low    Low</span>
@@ -672,7 +672,7 @@
 <p>【d】聚合结果重命名</p>
 <p>如果想要对聚合结果的列名进行重命名，只需要将上述函数的位置改写成元组，元组的第一个元素为新的名字，第二个位置为原来的函数，包括聚合字符串和自定义函数，现举若干例子说明：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [30]: </span><span class="n">gb</span><span class="o">.</span><span class="n">agg</span><span class="p">([(</span><span class="s1">&#39;range&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;my_sum&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">)])</span>
-<span class="gh">Out[30]: </span><span class="go"></span>
+<span class="gh">Out[30]: </span>
 <span class="go">       Height          Weight        </span>
 <span class="go">        range   my_sum  range  my_sum</span>
 <span class="go">Gender                               </span>
@@ -683,7 +683,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [31]: </span><span class="n">gb</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Height&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;my_func&#39;</span><span class="p">,</span> <span class="n">my_func</span><span class="p">),</span> <span class="s1">&#39;sum&#39;</span><span class="p">],</span>
 <span class="gp">   ....: </span>        <span class="s1">&#39;Weight&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()})</span>
 <span class="gp">   ....: </span>
-<span class="gh">Out[31]: </span><span class="go"></span>
+<span class="gh">Out[31]: </span>
 <span class="go">        Height            Weight</span>
 <span class="go">       my_func      sum &lt;lambda&gt;</span>
 <span class="go">Gender                          </span>
@@ -693,7 +693,7 @@
 </div>
 <p>另外需要注意，使用对一个或者多个列使用单个聚合的时候，重命名需要加方括号，否则就不知道是新的名字还是手误输错的内置函数字符串：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [32]: </span><span class="n">gb</span><span class="o">.</span><span class="n">agg</span><span class="p">([(</span><span class="s1">&#39;my_sum&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">)])</span>
-<span class="gh">Out[32]: </span><span class="go"></span>
+<span class="gh">Out[32]: </span>
 <span class="go">         Height  Weight</span>
 <span class="go">         my_sum  my_sum</span>
 <span class="go">Gender                 </span>
@@ -704,7 +704,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [33]: </span><span class="n">gb</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Height&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;my_func&#39;</span><span class="p">,</span> <span class="n">my_func</span><span class="p">),</span> <span class="s1">&#39;sum&#39;</span><span class="p">],</span>
 <span class="gp">   ....: </span>        <span class="s1">&#39;Weight&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;range&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">())]})</span>
 <span class="gp">   ....: </span>
-<span class="gh">Out[33]: </span><span class="go"></span>
+<span class="gh">Out[33]: </span>
 <span class="go">        Height          Weight</span>
 <span class="go">       my_func      sum  range</span>
 <span class="go">Gender                        </span>
@@ -720,7 +720,7 @@
 <h3>1. 变换函数与transform方法<a class="headerlink" href="#transform" title="Permalink to this heading">#</a></h3>
 <p>变换函数的返回值为同长度的序列，最常用的内置变换函数是累计函数： <code class="docutils literal notranslate"><span class="pre">cumcount/cumsum/cumprod/cummax/cummin</span></code> ，它们的使用方式和聚合函数类似，只不过完成的是组内累计操作。此外在 <code class="docutils literal notranslate"><span class="pre">groupby</span></code> 对象上还定义了填充类和滑窗类的变换函数，这些函数的一般形式将会分别在第七章和第十章中讨论，此处略过。</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [34]: </span><span class="n">gb</span><span class="o">.</span><span class="n">cummax</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[34]: </span><span class="go"></span>
+<span class="gh">Out[34]: </span>
 <span class="go">   Height  Weight</span>
 <span class="go">0   158.9    46.0</span>
 <span class="go">1   166.5    70.0</span>
@@ -738,7 +738,7 @@
 <p>当用自定义变换时需要使用 <code class="docutils literal notranslate"><span class="pre">transform</span></code> 方法，被调用的自定义函数， <span class="red">其传入值为数据源的序列</span> ，与 <code class="docutils literal notranslate"><span class="pre">agg</span></code> 的传入类型是一致的，其最后的返回结果是行列索引与数据源一致的 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> 。</p>
 <p>现对身高和体重进行分组标准化，即减去组均值后除以组的标准差：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [35]: </span><span class="n">gb</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">/</span><span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">())</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[35]: </span><span class="go"></span>
+<span class="gh">Out[35]: </span>
 <span class="go">     Height    Weight</span>
 <span class="go">0 -0.058760 -0.354888</span>
 <span class="go">1 -1.010925 -0.355000</span>
@@ -755,7 +755,7 @@
 </div>
 <p>前面提到了 <code class="docutils literal notranslate"><span class="pre">transform</span></code> 只能返回同长度的序列，但事实上还可以返回一个标量，这会使得结果被广播到其所在的整个组，这种 <span class="red">标量广播</span> 的技巧在特征工程中是非常常见的。例如，构造两列新特征来分别表示样本所在性别组的身高均值和体重均值：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [36]: </span><span class="n">gb</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># 传入返回标量的函数也是可以的</span>
-<span class="gh">Out[36]: </span><span class="go"></span>
+<span class="gh">Out[36]: </span>
 <span class="go">      Height     Weight</span>
 <span class="go">0  159.19697  47.918519</span>
 <span class="go">1  173.62549  72.759259</span>
@@ -773,7 +773,7 @@
 <p>在 <code class="docutils literal notranslate"><span class="pre">groupby</span></code> 对象中，定义了 <code class="docutils literal notranslate"><span class="pre">filter</span></code> 方法进行组的筛选，其中自定义函数的输入参数为数据源构成的 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> 本身，在之前例子中定义的 <code class="docutils literal notranslate"><span class="pre">groupby</span></code> 对象中，传入的就是 <code class="docutils literal notranslate"><span class="pre">df[['Height',</span> <span class="pre">'Weight']]</span></code> ，因此所有表方法和属性都可以在自定义函数中相应地使用，同时只需保证自定义函数的返回为布尔值即可。</p>
 <p>例如，在原表中通过过滤得到所有容量大于100的组：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [37]: </span><span class="n">gb</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[37]: </span><span class="go"></span>
+<span class="gh">Out[37]: </span>
 <span class="go">   Height  Weight</span>
 <span class="go">0   158.9    46.0</span>
 <span class="go">3     NaN    41.0</span>
@@ -811,7 +811,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [39]: </span><span class="n">gb</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">BMI</span><span class="p">)</span>
-<span class="gh">Out[39]: </span><span class="go"></span>
+<span class="gh">Out[39]: </span>
 <span class="go">Gender</span>
 <span class="go">Female    18.860930</span>
 <span class="go">Male      24.318654</span>
@@ -823,7 +823,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [40]: </span><span class="n">gb</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Gender&#39;</span><span class="p">,</span><span class="s1">&#39;Test_Number&#39;</span><span class="p">])[[</span><span class="s1">&#39;Height&#39;</span><span class="p">,</span><span class="s1">&#39;Weight&#39;</span><span class="p">]]</span>
 
 <span class="gp">In [41]: </span><span class="n">gb</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
-<span class="gh">Out[41]: </span><span class="go"></span>
+<span class="gh">Out[41]: </span>
 <span class="go">Gender  Test_Number</span>
 <span class="go">Female  1              0</span>
 <span class="go">        2              0</span>
@@ -834,7 +834,7 @@
 <span class="go">dtype: int64</span>
 
 <span class="gp">In [42]: </span><span class="n">gb</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="c1"># 虽然是列表，但是作为返回值仍然看作标量</span>
-<span class="gh">Out[42]: </span><span class="go"></span>
+<span class="gh">Out[42]: </span>
 <span class="go">Gender  Test_Number</span>
 <span class="go">Female  1              [0, 0]</span>
 <span class="go">        2              [0, 0]</span>
@@ -847,7 +847,7 @@
 </div>
 <p>【b】 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 情况：得到的是 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ，行索引与标量情况一致，列索引为 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 的索引</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [43]: </span><span class="n">gb</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">]))</span>
-<span class="gh">Out[43]: </span><span class="go"></span>
+<span class="gh">Out[43]: </span>
 <span class="go">                    a  b</span>
 <span class="go">Gender Test_Number      </span>
 <span class="go">Female 1            0  0</span>
@@ -869,7 +869,7 @@
 <span class="gp">   ....: </span>                                <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">],</span>
 <span class="gp">   ....: </span>                                <span class="n">columns</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([(</span><span class="s1">&#39;w&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">),(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">)])))</span>
 <span class="gp">   ....: </span>
-<span class="gh">Out[44]: </span><span class="go"></span>
+<span class="gh">Out[44]: </span>
 <span class="go">                        w    y</span>
 <span class="go">                        x    z</span>
 <span class="go">Gender Test_Number            </span>
@@ -910,7 +910,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [45]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/car.csv&#39;</span><span class="p">)</span>
 
 <span class="gp">In [46]: </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gh">Out[46]: </span><span class="go"></span>
+<span class="gh">Out[46]: </span>
 <span class="go">             Brand  Price Country  Reliability  Mileage   Type  Weight  Disp.   HP</span>
 <span class="go">0   Eagle Summit 4   8895     USA          4.0       33  Small    2560     97  113</span>
 <span class="go">1  Ford Escort   4   7402     USA          2.0       33  Small    2345    114   90</span>

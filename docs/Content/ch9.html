@@ -356,7 +356,7 @@
 <span class="gp">In [4]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Grade</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
 
 <span class="gp">In [5]: </span><span class="n">s</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[5]: </span><span class="go"></span>
+<span class="gh">Out[5]: </span>
 <span class="go">0     Freshman</span>
 <span class="go">1     Freshman</span>
 <span class="go">2       Senior</span>
@@ -368,7 +368,7 @@
 </div>
 <p>在一个分类类型的 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 中定义了 <code class="docutils literal notranslate"><span class="pre">cat</span></code> 对象，它和上一章中介绍的 <code class="docutils literal notranslate"><span class="pre">str</span></code> 对象类似，定义了一些属性和方法来进行分类类别的操作。</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="n">s</span><span class="o">.</span><span class="n">cat</span>
-<span class="gh">Out[6]: </span><span class="go">&lt;pandas.core.arrays.categorical.CategoricalAccessor object at 0x000001364229E940&gt;</span>
+<span class="gh">Out[6]: </span><span class="go">&lt;pandas.core.arrays.categorical.CategoricalAccessor object at 0x0000029222F00220&gt;</span>
 </pre></div>
 </div>
 <p>对于一个具体的分类，有两个组成部分，其一为类别的本身，它以 <code class="docutils literal notranslate"><span class="pre">Index</span></code> 类型存储，其二为是否有序，它们都可以通过 <code class="docutils literal notranslate"><span class="pre">cat</span></code> 的属性被访问：</p>
@@ -381,7 +381,7 @@
 </div>
 <p>另外，每一个序列的类别会被赋予唯一的整数编号，它们的编号取决于 <code class="docutils literal notranslate"><span class="pre">cat.categories</span></code> 中的顺序，该属性可以通过 <code class="docutils literal notranslate"><span class="pre">codes</span></code> 访问：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">s</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[9]: </span><span class="go"></span>
+<span class="gh">Out[9]: </span>
 <span class="go">0    0</span>
 <span class="go">1    0</span>
 <span class="go">2    2</span>
@@ -414,7 +414,7 @@
 <span class="gh">Out[13]: </span><span class="go">Index([&#39;Junior&#39;, &#39;Senior&#39;, &#39;Sophomore&#39;, &#39;Graduate&#39;], dtype=&#39;object&#39;)</span>
 
 <span class="gp">In [14]: </span><span class="n">s</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[14]: </span><span class="go"></span>
+<span class="gh">Out[14]: </span>
 <span class="go">0          NaN</span>
 <span class="go">1          NaN</span>
 <span class="go">2       Senior</span>
@@ -431,7 +431,7 @@
 <span class="gh">Out[16]: </span><span class="go">Index([&#39;Sophomore&#39;, &#39;PhD&#39;], dtype=&#39;object&#39;)</span>
 
 <span class="gp">In [17]: </span><span class="n">s</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[17]: </span><span class="go"></span>
+<span class="gh">Out[17]: </span>
 <span class="go">0          NaN</span>
 <span class="go">1          NaN</span>
 <span class="go">2          NaN</span>
@@ -452,7 +452,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [20]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">rename_categories</span><span class="p">({</span><span class="s1">&#39;Sophomore&#39;</span><span class="p">:</span><span class="s1">&#39;本科二年级学生&#39;</span><span class="p">})</span>
 
 <span class="gp">In [21]: </span><span class="n">s</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[21]: </span><span class="go"></span>
+<span class="gh">Out[21]: </span>
 <span class="go">0        NaN</span>
 <span class="go">1        NaN</span>
 <span class="go">2        NaN</span>
@@ -476,7 +476,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [24]: </span><span class="n">s</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[24]: </span><span class="go"></span>
+<span class="gh">Out[24]: </span>
 <span class="go">0     Freshman</span>
 <span class="go">1     Freshman</span>
 <span class="go">2       Senior</span>
@@ -486,7 +486,7 @@
 <span class="go">Categories (4, object): [&#39;Freshman&#39; &lt; &#39;Sophomore&#39; &lt; &#39;Junior&#39; &lt; &#39;Senior&#39;]</span>
 
 <span class="gp">In [25]: </span><span class="n">s</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">as_unordered</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[25]: </span><span class="go"></span>
+<span class="gh">Out[25]: </span>
 <span class="go">0     Freshman</span>
 <span class="go">1     Freshman</span>
 <span class="go">2       Senior</span>
@@ -515,7 +515,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [28]: </span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Grade&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># 值排序</span>
-<span class="gh">Out[28]: </span><span class="go"></span>
+<span class="gh">Out[28]: </span>
 <span class="go">        Grade           Name  Gender  Height  Weight</span>
 <span class="go">0    Freshman   Gaopeng Yang  Female   158.9    46.0</span>
 <span class="go">105  Freshman      Qiang Shi  Female   164.5    52.0</span>
@@ -524,7 +524,7 @@
 <span class="go">81   Freshman    Yanli Zhang  Female   165.1    52.0</span>
 
 <span class="gp">In [29]: </span><span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Grade&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># 索引排序</span>
-<span class="gh">Out[29]: </span><span class="go"></span>
+<span class="gh">Out[29]: </span>
 <span class="go">                   Name  Gender  Height  Weight</span>
 <span class="go">Grade                                          </span>
 <span class="go">Freshman   Gaopeng Yang  Female   158.9    46.0</span>
@@ -538,7 +538,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [30]: </span><span class="n">res1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Grade</span> <span class="o">==</span> <span class="s1">&#39;Sophomore&#39;</span>
 
 <span class="gp">In [31]: </span><span class="n">res1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[31]: </span><span class="go"></span>
+<span class="gh">Out[31]: </span>
 <span class="go">0    False</span>
 <span class="go">1    False</span>
 <span class="go">2    False</span>
@@ -549,7 +549,7 @@
 <span class="gp">In [32]: </span><span class="n">res2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Grade</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;PhD&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="gp">In [33]: </span><span class="n">res2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[33]: </span><span class="go"></span>
+<span class="gh">Out[33]: </span>
 <span class="go">0    False</span>
 <span class="go">1    False</span>
 <span class="go">2    False</span>
@@ -560,7 +560,7 @@
 <span class="gp">In [34]: </span><span class="n">res3</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Grade</span> <span class="o">&lt;=</span> <span class="s1">&#39;Sophomore&#39;</span>
 
 <span class="gp">In [35]: </span><span class="n">res3</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[35]: </span><span class="go"></span>
+<span class="gh">Out[35]: </span>
 <span class="go">0     True</span>
 <span class="go">1     True</span>
 <span class="go">2    False</span>
@@ -574,7 +574,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [37]: </span><span class="n">res4</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[37]: </span><span class="go"></span>
+<span class="gh">Out[37]: </span>
 <span class="go">0     True</span>
 <span class="go">1     True</span>
 <span class="go">2    False</span>
@@ -595,14 +595,14 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [38]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
 
 <span class="gp">In [39]: </span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="gh">Out[39]: </span><span class="go"></span>
+<span class="gh">Out[39]: </span>
 <span class="go">0    (0.999, 1.5]</span>
 <span class="go">1      (1.5, 2.0]</span>
 <span class="go">dtype: category</span>
 <span class="go">Categories (2, interval[float64]): [(0.999, 1.5] &lt; (1.5, 2.0]]</span>
 
 <span class="gp">In [40]: </span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="gh">Out[40]: </span><span class="go"></span>
+<span class="gh">Out[40]: </span>
 <span class="go">0      [1.0, 1.5)</span>
 <span class="go">1    [1.5, 2.001)</span>
 <span class="go">dtype: category</span>
@@ -611,7 +611,7 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">bins</span></code> 的另一个常见用法是指定区间分割点的列表（使用 <code class="docutils literal notranslate"><span class="pre">np.infty</span></code> 可以表示无穷大）：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [41]: </span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">infty</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">infty</span><span class="p">])</span>
-<span class="gh">Out[41]: </span><span class="go"></span>
+<span class="gh">Out[41]: </span>
 <span class="go">0    (-inf, 1.2]</span>
 <span class="go">1     (1.8, 2.2]</span>
 <span class="go">dtype: category</span>
@@ -624,7 +624,7 @@
 <span class="gp">In [43]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;small&#39;</span><span class="p">,</span> <span class="s1">&#39;big&#39;</span><span class="p">],</span> <span class="n">retbins</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="gp">In [44]: </span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="gh">Out[44]: </span><span class="go"></span>
+<span class="gh">Out[44]: </span>
 <span class="go">0    small</span>
 <span class="go">1      big</span>
 <span class="go">dtype: category</span>
@@ -638,7 +638,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [46]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Weight</span>
 
 <span class="gp">In [47]: </span><span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[47]: </span><span class="go"></span>
+<span class="gh">Out[47]: </span>
 <span class="go">0    (33.999, 48.0]</span>
 <span class="go">1      (55.0, 89.0]</span>
 <span class="go">2      (55.0, 89.0]</span>
@@ -648,7 +648,7 @@
 <span class="go">Categories (3, interval[float64]): [(33.999, 48.0] &lt; (48.0, 55.0] &lt; (55.0, 89.0]]</span>
 
 <span class="gp">In [48]: </span><span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[48]: </span><span class="go"></span>
+<span class="gh">Out[48]: </span>
 <span class="go">0      (44.0, 69.4]</span>
 <span class="go">1      (69.4, 89.0]</span>
 <span class="go">2      (69.4, 89.0]</span>
@@ -684,7 +684,7 @@
 <p>一般而言， <code class="docutils literal notranslate"><span class="pre">pd.IntervalIndex</span></code> 对象有四类方法生成，分别是 <code class="docutils literal notranslate"><span class="pre">from_breaks,</span> <span class="pre">from_arrays,</span> <span class="pre">from_tuples,</span> <span class="pre">interval_range</span></code> ，它们分别应用于不同的情况：</p>
 <p><code class="docutils literal notranslate"><span class="pre">from_breaks</span></code> 的功能类似于 <code class="docutils literal notranslate"><span class="pre">cut</span></code> 或 <code class="docutils literal notranslate"><span class="pre">qcut</span></code> 函数，只不过后两个是通过计算得到的分割点，而前者是直接传入自定义的分割点：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [54]: </span><span class="n">pd</span><span class="o">.</span><span class="n">IntervalIndex</span><span class="o">.</span><span class="n">from_breaks</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
-<span class="gh">Out[54]: </span><span class="go"></span>
+<span class="gh">Out[54]: </span>
 <span class="go">IntervalIndex([[1, 3], [3, 6], [6, 10]],</span>
 <span class="go">              closed=&#39;both&#39;,</span>
 <span class="go">              dtype=&#39;interval[int64]&#39;)</span>
@@ -695,7 +695,7 @@
 <span class="gp">   ....: </span>                             <span class="n">right</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">],</span>
 <span class="gp">   ....: </span>                             <span class="n">closed</span> <span class="o">=</span> <span class="s1">&#39;neither&#39;</span><span class="p">)</span>
 <span class="gp">   ....: </span>
-<span class="gh">Out[55]: </span><span class="go"></span>
+<span class="gh">Out[55]: </span>
 <span class="go">IntervalIndex([(1, 5), (3, 4), (6, 9), (10, 11)],</span>
 <span class="go">              closed=&#39;neither&#39;,</span>
 <span class="go">              dtype=&#39;interval[int64]&#39;)</span>
@@ -705,7 +705,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [56]: </span><span class="n">pd</span><span class="o">.</span><span class="n">IntervalIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),(</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">),(</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">)],</span>
 <span class="gp">   ....: </span>                              <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;neither&#39;</span><span class="p">)</span>
 <span class="gp">   ....: </span>
-<span class="gh">Out[56]: </span><span class="go"></span>
+<span class="gh">Out[56]: </span>
 <span class="go">IntervalIndex([(1, 5), (3, 4), (6, 9), (10, 11)],</span>
 <span class="go">              closed=&#39;neither&#39;,</span>
 <span class="go">              dtype=&#39;interval[int64]&#39;)</span>
@@ -713,13 +713,13 @@
 </div>
 <p>一个等差的区间序列由起点、终点、区间个数和区间长度决定，其中三个量确定的情况下，剩下一个量就确定了， <code class="docutils literal notranslate"><span class="pre">interval_range</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">start,</span> <span class="pre">end,</span> <span class="pre">periods,</span> <span class="pre">freq</span></code> 参数就对应了这四个量，从而就能构造出相应的区间：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [57]: </span><span class="n">pd</span><span class="o">.</span><span class="n">interval_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">periods</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
-<span class="gh">Out[57]: </span><span class="go"></span>
+<span class="gh">Out[57]: </span>
 <span class="go">IntervalIndex([(1.0, 1.5], (1.5, 2.0], (2.0, 2.5], (2.5, 3.0], (3.0, 3.5], (3.5, 4.0], (4.0, 4.5], (4.5, 5.0]],</span>
 <span class="go">              closed=&#39;right&#39;,</span>
 <span class="go">              dtype=&#39;interval[float64]&#39;)</span>
 
 <span class="gp">In [58]: </span><span class="n">pd</span><span class="o">.</span><span class="n">interval_range</span><span class="p">(</span><span class="n">end</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">periods</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">freq</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="gh">Out[58]: </span><span class="go"></span>
+<span class="gh">Out[58]: </span>
 <span class="go">IntervalIndex([(1.0, 1.5], (1.5, 2.0], (2.0, 2.5], (2.5, 3.0], (3.0, 3.5], (3.5, 4.0], (4.0, 4.5], (4.5, 5.0]],</span>
 <span class="go">              closed=&#39;right&#39;,</span>
 <span class="go">              dtype=&#39;interval[float64]&#39;)</span>
@@ -739,7 +739,7 @@
 <span class="gh">Out[60]: </span><span class="go">Interval(0.5, 1.5, closed=&#39;left&#39;)</span>
 
 <span class="gp">In [61]: </span><span class="n">pd</span><span class="o">.</span><span class="n">IntervalIndex</span><span class="p">([</span><span class="n">my_interval</span><span class="p">,</span> <span class="n">my_interval_2</span><span class="p">],</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
-<span class="gh">Out[61]: </span><span class="go"></span>
+<span class="gh">Out[61]: </span>
 <span class="go">IntervalIndex([[0.0, 1.0), [0.5, 1.5)],</span>
 <span class="go">              closed=&#39;left&#39;,</span>
 <span class="go">              dtype=&#39;interval[float64]&#39;)</span>
@@ -756,7 +756,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [63]: </span><span class="n">id_demo</span> <span class="o">=</span> <span class="n">id_interval</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span> <span class="c1"># 选出前5个展示</span>
 
 <span class="gp">In [64]: </span><span class="n">id_demo</span>
-<span class="gh">Out[64]: </span><span class="go"></span>
+<span class="gh">Out[64]: </span>
 <span class="go">IntervalIndex([(33.945, 52.333], (52.333, 70.667], (70.667, 89.0], (33.945, 52.333], (70.667, 89.0]],</span>
 <span class="go">              closed=&#39;right&#39;,</span>
 <span class="go">              name=&#39;Weight&#39;,</span>
@@ -772,7 +772,7 @@
 <span class="gh">Out[67]: </span><span class="go">Float64Index([43.138999999999996, 61.5, 79.8335, 43.138999999999996, 79.8335], dtype=&#39;float64&#39;)</span>
 
 <span class="gp">In [68]: </span><span class="n">id_demo</span><span class="o">.</span><span class="n">length</span>
-<span class="gh">Out[68]: </span><span class="go"></span>
+<span class="gh">Out[68]: </span>
 <span class="go">Float64Index([18.387999999999998, 18.334000000000003, 18.333,</span>
 <span class="go">              18.387999999999998, 18.333],</span>
 <span class="go">             dtype=&#39;float64&#39;)</span>
@@ -798,7 +798,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [72]: </span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">B</span><span class="p">)</span>
-<span class="gh">Out[72]: </span><span class="go"></span>
+<span class="gh">Out[72]: </span>
 <span class="go">B  cat  dog</span>
 <span class="go">A          </span>
 <span class="go">a    2    0</span>
@@ -810,7 +810,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [73]: </span><span class="n">df</span><span class="o">.</span><span class="n">B</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">B</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">add_categories</span><span class="p">(</span><span class="s1">&#39;sheep&#39;</span><span class="p">)</span>
 
 <span class="gp">In [74]: </span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="gh">Out[74]: </span><span class="go"></span>
+<span class="gh">Out[74]: </span>
 <span class="go">B  cat  dog  sheep</span>
 <span class="go">A                 </span>
 <span class="go">a    2    0      0</span>
@@ -826,7 +826,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [75]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/diamonds.csv&#39;</span><span class="p">)</span>
 
 <span class="gp">In [76]: </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gh">Out[76]: </span><span class="go"></span>
+<span class="gh">Out[76]: </span>
 <span class="go">   carat      cut clarity  price</span>
 <span class="go">0   0.23    Ideal     SI2    326</span>
 <span class="go">1   0.21  Premium     SI1    326</span>

@@ -356,7 +356,7 @@
 <span class="gp">   ...: </span>
 
 <span class="gp">In [4]: </span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[4]: </span><span class="go"></span>
+<span class="gh">Out[4]: </span>
 <span class="go">   Grade   Name  Gender  Height  Weight  Transfer</span>
 <span class="go">0  False  False   False   False   False     False</span>
 <span class="go">1  False  False   False   False   False     False</span>
@@ -365,7 +365,7 @@
 <span class="go">4  False  False   False   False   False     False</span>
 
 <span class="gp">In [5]: </span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="c1"># 查看缺失的比例</span>
-<span class="gh">Out[5]: </span><span class="go"></span>
+<span class="gh">Out[5]: </span>
 <span class="go">Grade       0.000</span>
 <span class="go">Name        0.000</span>
 <span class="go">Gender      0.000</span>
@@ -377,7 +377,7 @@
 </div>
 <p>如果想要查看某一列缺失或者非缺失的行，可以利用 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 上的 <code class="docutils literal notranslate"><span class="pre">isna</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">notna</span></code> 进行布尔索引。例如，查看身高缺失的行：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">Height</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[6]: </span><span class="go"></span>
+<span class="gh">Out[6]: </span>
 <span class="go">        Grade          Name  Gender  Height  Weight Transfer</span>
 <span class="go">3   Sophomore  Xiaojuan Sun  Female     NaN    41.0        N</span>
 <span class="go">12     Senior      Peng You  Female     NaN    48.0      NaN</span>
@@ -390,12 +390,12 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">sub_set</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Height&#39;</span><span class="p">,</span> <span class="s1">&#39;Weight&#39;</span><span class="p">,</span> <span class="s1">&#39;Transfer&#39;</span><span class="p">]]</span>
 
 <span class="gp">In [8]: </span><span class="n">df</span><span class="p">[</span><span class="n">sub_set</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span> <span class="c1"># 全部缺失</span>
-<span class="gh">Out[8]: </span><span class="go"></span>
+<span class="gh">Out[8]: </span>
 <span class="go">      Grade          Name Gender  Height  Weight Transfer</span>
 <span class="go">102  Junior  Chengli Zhao   Male     NaN     NaN      NaN</span>
 
 <span class="gp">In [9]: </span><span class="n">df</span><span class="p">[</span><span class="n">sub_set</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># 至少有一个缺失</span>
-<span class="gh">Out[9]: </span><span class="go"></span>
+<span class="gh">Out[9]: </span>
 <span class="go">        Grade           Name  Gender  Height  Weight Transfer</span>
 <span class="go">3   Sophomore   Xiaojuan Sun  Female     NaN    41.0        N</span>
 <span class="go">9      Junior        Juan Xu  Female   164.8     NaN        N</span>
@@ -404,7 +404,7 @@
 <span class="go">26     Junior      Yanli You  Female     NaN    48.0        N</span>
 
 <span class="gp">In [10]: </span><span class="n">df</span><span class="p">[</span><span class="n">sub_set</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># 没有缺失</span>
-<span class="gh">Out[10]: </span><span class="go"></span>
+<span class="gh">Out[10]: </span>
 <span class="go">       Grade            Name  Gender  Height  Weight Transfer</span>
 <span class="go">0   Freshman    Gaopeng Yang  Female   158.9    46.0        N</span>
 <span class="go">1   Freshman  Changqiang You    Male   166.5    70.0        N</span>
@@ -429,7 +429,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">15</span><span class="p">)</span> <span class="c1"># 身高被删除</span>
 
 <span class="gp">In [14]: </span><span class="n">res</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[14]: </span><span class="go"></span>
+<span class="gh">Out[14]: </span>
 <span class="go">       Grade            Name  Gender  Weight Transfer</span>
 <span class="go">0   Freshman    Gaopeng Yang  Female    46.0        N</span>
 <span class="go">1   Freshman  Changqiang You    Male    70.0        N</span>
@@ -447,7 +447,7 @@
 <span class="gp">In [17]: </span><span class="n">res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="o">~</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">&gt;</span><span class="mi">15</span><span class="p">)]</span>
 
 <span class="gp">In [18]: </span><span class="n">res</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[18]: </span><span class="go"></span>
+<span class="gh">Out[18]: </span>
 <span class="go">       Grade            Name  Gender  Weight Transfer</span>
 <span class="go">0   Freshman    Gaopeng Yang  Female    46.0        N</span>
 <span class="go">1   Freshman  Changqiang You    Male    70.0        N</span>
@@ -469,7 +469,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [20]: </span><span class="n">s</span>
-<span class="gh">Out[20]: </span><span class="go"></span>
+<span class="gh">Out[20]: </span>
 <span class="go">a    NaN</span>
 <span class="go">a    1.0</span>
 <span class="go">a    NaN</span>
@@ -479,7 +479,7 @@
 <span class="go">dtype: float64</span>
 
 <span class="gp">In [21]: </span><span class="n">s</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;ffill&#39;</span><span class="p">)</span> <span class="c1"># 用前面的值向后填充</span>
-<span class="gh">Out[21]: </span><span class="go"></span>
+<span class="gh">Out[21]: </span>
 <span class="go">a    NaN</span>
 <span class="go">a    1.0</span>
 <span class="go">a    1.0</span>
@@ -489,7 +489,7 @@
 <span class="go">dtype: float64</span>
 
 <span class="gp">In [22]: </span><span class="n">s</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;ffill&#39;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 连续出现的缺失，最多填充一次</span>
-<span class="gh">Out[22]: </span><span class="go"></span>
+<span class="gh">Out[22]: </span>
 <span class="go">a    NaN</span>
 <span class="go">a    1.0</span>
 <span class="go">a    1.0</span>
@@ -499,7 +499,7 @@
 <span class="go">dtype: float64</span>
 
 <span class="gp">In [23]: </span><span class="n">s</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="c1"># value为标量</span>
-<span class="gh">Out[23]: </span><span class="go"></span>
+<span class="gh">Out[23]: </span>
 <span class="go">a    1.5</span>
 <span class="go">a    1.0</span>
 <span class="go">a    1.5</span>
@@ -509,7 +509,7 @@
 <span class="go">dtype: float64</span>
 
 <span class="gp">In [24]: </span><span class="n">s</span><span class="o">.</span><span class="n">fillna</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">})</span> <span class="c1"># 通过索引映射填充的值</span>
-<span class="gh">Out[24]: </span><span class="go"></span>
+<span class="gh">Out[24]: </span>
 <span class="go">a    100.0</span>
 <span class="go">a      1.0</span>
 <span class="go">a    100.0</span>
@@ -523,7 +523,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [25]: </span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Grade&#39;</span><span class="p">)[</span><span class="s1">&#39;Height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span>
 <span class="gp">   ....: </span>                     <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gp">   ....: </span>
-<span class="gh">Out[25]: </span><span class="go"></span>
+<span class="gh">Out[25]: </span>
 <span class="go">0    158.900000</span>
 <span class="go">1    166.500000</span>
 <span class="go">2    188.900000</span>
@@ -573,21 +573,21 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [33]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
 
 <span class="gp">In [34]: </span><span class="n">s</span>
-<span class="gh">Out[34]: </span><span class="go"></span>
+<span class="gh">Out[34]: </span>
 <span class="go">0      0.0</span>
 <span class="go">1      NaN</span>
 <span class="go">10    10.0</span>
 <span class="go">dtype: float64</span>
 
 <span class="gp">In [35]: </span><span class="n">s</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span> <span class="c1"># 默认的线性插值，等价于计算中点的值</span>
-<span class="gh">Out[35]: </span><span class="go"></span>
+<span class="gh">Out[35]: </span>
 <span class="go">0      0.0</span>
 <span class="go">1      5.0</span>
 <span class="go">10    10.0</span>
 <span class="go">dtype: float64</span>
 
 <span class="gp">In [36]: </span><span class="n">s</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span> <span class="c1"># 和索引有关的线性插值，计算相应索引大小对应的值</span>
-<span class="gh">Out[36]: </span><span class="go"></span>
+<span class="gh">Out[36]: </span>
 <span class="go">0      0.0</span>
 <span class="go">1      1.0</span>
 <span class="go">10    10.0</span>
@@ -602,21 +602,21 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [38]: </span><span class="n">s</span>
-<span class="gh">Out[38]: </span><span class="go"></span>
+<span class="gh">Out[38]: </span>
 <span class="go">2020-01-01     0.0</span>
 <span class="go">2020-01-02     NaN</span>
 <span class="go">2020-01-11    10.0</span>
 <span class="go">dtype: float64</span>
 
 <span class="gp">In [39]: </span><span class="n">s</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span>
-<span class="gh">Out[39]: </span><span class="go"></span>
+<span class="gh">Out[39]: </span>
 <span class="go">2020-01-01     0.0</span>
 <span class="go">2020-01-02     5.0</span>
 <span class="go">2020-01-11    10.0</span>
 <span class="go">dtype: float64</span>
 
 <span class="gp">In [40]: </span><span class="n">s</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
-<span class="gh">Out[40]: </span><span class="go"></span>
+<span class="gh">Out[40]: </span>
 <span class="go">2020-01-01     0.0</span>
 <span class="go">2020-01-02     1.0</span>
 <span class="go">2020-01-11    10.0</span>
@@ -668,7 +668,7 @@
 <span class="gp">In [50]: </span><span class="n">s3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span>
 
 <span class="gp">In [51]: </span><span class="n">s1</span> <span class="o">==</span> <span class="mi">1</span>
-<span class="gh">Out[51]: </span><span class="go"></span>
+<span class="gh">Out[51]: </span>
 <span class="go">0     True</span>
 <span class="go">1    False</span>
 <span class="go">dtype: bool</span>
@@ -690,7 +690,7 @@
 </div>
 <p>那么为什么要引入 <code class="docutils literal notranslate"><span class="pre">pd.NaT</span></code> 来表示时间对象中的缺失呢？仍然以 <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> 的形式存放会有什么问题？在 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 中可以看到 <code class="docutils literal notranslate"><span class="pre">object</span></code> 类型的对象，而 <code class="docutils literal notranslate"><span class="pre">object</span></code> 是一种混杂对象类型，如果出现了多个类型的元素同时存储在 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 中，它的类型就会变成 <code class="docutils literal notranslate"><span class="pre">object</span></code> 。例如，同时存放整数和字符串的列表：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [56]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">])</span>
-<span class="gh">Out[56]: </span><span class="go"></span>
+<span class="gh">Out[56]: </span>
 <span class="go">0      1</span>
 <span class="go">1    two</span>
 <span class="go">dtype: object</span>
@@ -715,19 +715,19 @@
 <h3>2. Nullable类型的性质<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
 <p>从字面意义上看 <code class="docutils literal notranslate"><span class="pre">Nullable</span></code> 就是可空的，言下之意就是序列类型不受缺失值的影响。例如，在上述三个 <code class="docutils literal notranslate"><span class="pre">Nullable</span></code> 类型中存储缺失值，都会转为 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 内置的 <code class="docutils literal notranslate"><span class="pre">pd.NA</span></code> ：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [60]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="s1">&#39;Int64&#39;</span><span class="p">)</span> <span class="c1"># &quot;i&quot;是大写的</span>
-<span class="gh">Out[60]: </span><span class="go"></span>
+<span class="gh">Out[60]: </span>
 <span class="go">0    &lt;NA&gt;</span>
 <span class="go">1       1</span>
 <span class="go">dtype: Int64</span>
 
 <span class="gp">In [61]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="s1">&#39;boolean&#39;</span><span class="p">)</span>
-<span class="gh">Out[61]: </span><span class="go"></span>
+<span class="gh">Out[61]: </span>
 <span class="go">0    &lt;NA&gt;</span>
 <span class="go">1    True</span>
 <span class="go">dtype: boolean</span>
 
 <span class="gp">In [62]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="s1">&#39;my_str&#39;</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="s1">&#39;string&#39;</span><span class="p">)</span>
-<span class="gh">Out[62]: </span><span class="go"></span>
+<span class="gh">Out[62]: </span>
 <span class="go">0      &lt;NA&gt;</span>
 <span class="go">1    my_str</span>
 <span class="go">dtype: string</span>
@@ -735,19 +735,19 @@
 </div>
 <p>在 <code class="docutils literal notranslate"><span class="pre">Int</span></code> 的序列中，返回的结果会尽可能地成为 <code class="docutils literal notranslate"><span class="pre">Nullable</span></code> 的类型：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [63]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="s1">&#39;Int64&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="gh">Out[63]: </span><span class="go"></span>
+<span class="gh">Out[63]: </span>
 <span class="go">0    &lt;NA&gt;</span>
 <span class="go">1       1</span>
 <span class="go">dtype: Int64</span>
 
 <span class="gp">In [64]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="s1">&#39;Int64&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-<span class="gh">Out[64]: </span><span class="go"></span>
+<span class="gh">Out[64]: </span>
 <span class="go">0    &lt;NA&gt;</span>
 <span class="go">1    True</span>
 <span class="go">dtype: boolean</span>
 
 <span class="gp">In [65]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="s1">&#39;Int64&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="c1"># 只能是浮点</span>
-<span class="gh">Out[65]: </span><span class="go"></span>
+<span class="gh">Out[65]: </span>
 <span class="go">0    &lt;NA&gt;</span>
 <span class="go">1     0.0</span>
 <span class="go">dtype: Float64</span>
@@ -763,26 +763,26 @@
 
 <span class="go"># s[s_bool] # 报错</span>
 <span class="gp">In [69]: </span><span class="n">s</span><span class="p">[</span><span class="n">s_boolean</span><span class="p">]</span>
-<span class="gh">Out[69]: </span><span class="go"></span>
+<span class="gh">Out[69]: </span>
 <span class="go">0    a</span>
 <span class="go">dtype: object</span>
 </pre></div>
 </div>
 <p>第二点是在进行逻辑运算时， <code class="docutils literal notranslate"><span class="pre">bool</span></code> 类型在缺失处返回的永远是 <code class="docutils literal notranslate"><span class="pre">False</span></code> ，而 <code class="docutils literal notranslate"><span class="pre">boolean</span></code> 会根据逻辑运算是否能确定唯一结果来返回相应的值。那什么叫能否确定唯一结果呢？举个简单例子： <code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">|</span> <span class="pre">pd.NA</span></code> 中无论缺失值为什么值，必然返回 <code class="docutils literal notranslate"><span class="pre">True</span></code> ； <code class="docutils literal notranslate"><span class="pre">False</span> <span class="pre">|</span> <span class="pre">pd.NA</span></code> 中的结果会根据缺失值取值的不同而变化，此时返回 <code class="docutils literal notranslate"><span class="pre">pd.NA</span></code> ； <code class="docutils literal notranslate"><span class="pre">False</span> <span class="pre">&amp;</span> <span class="pre">pd.NA</span></code> 中无论缺失值为什么值，必然返回 <code class="docutils literal notranslate"><span class="pre">False</span></code> 。</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [70]: </span><span class="n">s_boolean</span> <span class="o">&amp;</span> <span class="kc">True</span>
-<span class="gh">Out[70]: </span><span class="go"></span>
+<span class="gh">Out[70]: </span>
 <span class="go">0    True</span>
 <span class="go">1    &lt;NA&gt;</span>
 <span class="go">dtype: boolean</span>
 
 <span class="gp">In [71]: </span><span class="n">s_boolean</span> <span class="o">|</span> <span class="kc">True</span>
-<span class="gh">Out[71]: </span><span class="go"></span>
+<span class="gh">Out[71]: </span>
 <span class="go">0    True</span>
 <span class="go">1    True</span>
 <span class="go">dtype: boolean</span>
 
 <span class="gp">In [72]: </span><span class="o">~</span><span class="n">s_boolean</span> <span class="c1"># 取反操作同样是无法唯一地判断缺失结果</span>
-<span class="gh">Out[72]: </span><span class="go"></span>
+<span class="gh">Out[72]: </span>
 <span class="go">0    False</span>
 <span class="go">1     &lt;NA&gt;</span>
 <span class="go">dtype: boolean</span>
@@ -795,7 +795,7 @@
 <span class="gp">In [74]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">convert_dtypes</span><span class="p">()</span>
 
 <span class="gp">In [75]: </span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
-<span class="gh">Out[75]: </span><span class="go"></span>
+<span class="gh">Out[75]: </span>
 <span class="go">School          string</span>
 <span class="go">Grade           string</span>
 <span class="go">Name            string</span>
@@ -824,7 +824,7 @@
 </div>
 <p>当使用累计函数时，会自动跳过缺失值所处的位置：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [79]: </span><span class="n">s</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
-<span class="gh">Out[79]: </span><span class="go"></span>
+<span class="gh">Out[79]: </span>
 <span class="go">0     2.0</span>
 <span class="go">1     5.0</span>
 <span class="go">2     NaN</span>
@@ -870,7 +870,7 @@
 </div>
 <p>另外需要注意的是， <code class="docutils literal notranslate"><span class="pre">diff,</span> <span class="pre">pct_change</span></code> 这两个函数虽然功能相似，但是对于缺失的处理不同，前者凡是参与缺失计算的部分全部设为了缺失值，而后者缺失值位置会被设为 0% 的变化率：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [91]: </span><span class="n">s</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
-<span class="gh">Out[91]: </span><span class="go"></span>
+<span class="gh">Out[91]: </span>
 <span class="go">0    NaN</span>
 <span class="go">1    1.0</span>
 <span class="go">2    NaN</span>
@@ -879,7 +879,7 @@
 <span class="go">dtype: float64</span>
 
 <span class="gp">In [92]: </span><span class="n">s</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
-<span class="gh">Out[92]: </span><span class="go"></span>
+<span class="gh">Out[92]: </span>
 <span class="go">0         NaN</span>
 <span class="go">1    0.500000</span>
 <span class="go">2    0.000000</span>
@@ -894,7 +894,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [94]: </span><span class="n">df_nan</span>
-<span class="gh">Out[94]: </span><span class="go"></span>
+<span class="gh">Out[94]: </span>
 <span class="go">  category  value</span>
 <span class="go">0        a      1</span>
 <span class="go">1        a      3</span>
@@ -905,7 +905,7 @@
 <span class="gp">In [95]: </span><span class="n">df_nan</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">,</span>
 <span class="gp">   ....: </span>                <span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="c1"># pandas版本大于1.1.0</span>
 <span class="gp">   ....: </span>
-<span class="gh">Out[95]: </span><span class="go"></span>
+<span class="gh">Out[95]: </span>
 <span class="go">category</span>
 <span class="go">a      2</span>
 <span class="go">b      5</span>
@@ -913,7 +913,7 @@
 <span class="go">Name: value, dtype: int64</span>
 
 <span class="gp">In [96]: </span><span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df_nan</span><span class="o">.</span><span class="n">category</span><span class="p">,</span> <span class="n">dummy_na</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gh">Out[96]: </span><span class="go"></span>
+<span class="gh">Out[96]: </span>
 <span class="go">   a  b  NaN</span>
 <span class="go">0  1  0    0</span>
 <span class="go">1  1  0    0</span>
@@ -932,7 +932,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [97]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/missing_chi.csv&#39;</span><span class="p">)</span>
 
 <span class="gp">In [98]: </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[98]: </span><span class="go"></span>
+<span class="gh">Out[98]: </span>
 <span class="go">    X_1  X_2  y</span>
 <span class="go">0   NaN  NaN  0</span>
 <span class="go">1   NaN  NaN  0</span>
@@ -941,14 +941,14 @@
 <span class="go">4   NaN  NaN  0</span>
 
 <span class="gp">In [99]: </span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="gh">Out[99]: </span><span class="go"></span>
+<span class="gh">Out[99]: </span>
 <span class="go">X_1    0.855</span>
 <span class="go">X_2    0.894</span>
 <span class="go">y      0.000</span>
 <span class="go">dtype: float64</span>
 
 <span class="gp">In [100]: </span><span class="n">df</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gh">Out[100]: </span><span class="go"></span>
+<span class="gh">Out[100]: </span>
 <span class="go">0    0.918</span>
 <span class="go">1    0.082</span>
 <span class="go">Name: y, dtype: float64</span>
@@ -971,7 +971,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [101]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;data/color.xlsx&#39;</span><span class="p">)</span>
 
 <span class="gp">In [102]: </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gh">Out[102]: </span><span class="go"></span>
+<span class="gh">Out[102]: </span>
 <span class="go">    X1   X2 Color</span>
 <span class="go">0 -2.5  2.8  Blue</span>
 <span class="go">1 -1.5  1.8  Blue</span>
@@ -997,7 +997,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [107]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/audit.csv&#39;</span><span class="p">)</span>
 
 <span class="gp">In [108]: </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gh">Out[108]: </span><span class="go"></span>
+<span class="gh">Out[108]: </span>
 <span class="go">        ID  Age Employment    Marital     Income  Gender  Hours</span>
 <span class="go">0  1004641   38    Private  Unmarried   81838.00  Female     72</span>
 <span class="go">1  1010229   35    Private     Absent   72099.00    Male     30</span>

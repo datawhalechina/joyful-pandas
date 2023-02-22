@@ -477,7 +477,7 @@
 <span class="gp">In [18]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Test_Date</span><span class="p">)</span>
 
 <span class="gp">In [19]: </span><span class="n">s</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[19]: </span><span class="go"></span>
+<span class="gh">Out[19]: </span>
 <span class="go">0   2019-10-05</span>
 <span class="go">1   2019-09-04</span>
 <span class="go">2   2019-09-12</span>
@@ -495,7 +495,7 @@
 </div>
 <p>注意上面由于传入的是列表，而非 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 内部的 <code class="docutils literal notranslate"><span class="pre">Series</span></code> ，因此返回的是 <code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code> ，如果想要转为 <code class="docutils literal notranslate"><span class="pre">datetime64[ns]</span></code> 的序列，需要显式用 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 转化：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [22]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[22]: </span><span class="go"></span>
+<span class="gh">Out[22]: </span>
 <span class="go">0   2020-01-01</span>
 <span class="go">1   2020-01-03</span>
 <span class="go">dtype: datetime64[ns]</span>
@@ -511,7 +511,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [24]: </span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_date_cols</span><span class="p">)</span>
-<span class="gh">Out[24]: </span><span class="go"></span>
+<span class="gh">Out[24]: </span>
 <span class="go">0   2020-01-01 10:30:20</span>
 <span class="go">1   2020-01-02 20:50:40</span>
 <span class="go">dtype: datetime64[ns]</span>
@@ -522,7 +522,7 @@
 <span class="gh">Out[25]: </span><span class="go">DatetimeIndex([&#39;2020-01-01&#39;, &#39;2020-01-11&#39;, &#39;2020-01-21&#39;], dtype=&#39;datetime64[ns]&#39;, freq=&#39;10D&#39;)</span>
 
 <span class="gp">In [26]: </span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2020-1-1&#39;</span><span class="p">,</span><span class="s1">&#39;2020-2-28&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;10D&#39;</span><span class="p">)</span>
-<span class="gh">Out[26]: </span><span class="go"></span>
+<span class="gh">Out[26]: </span>
 <span class="go">DatetimeIndex([&#39;2020-01-01&#39;, &#39;2020-01-11&#39;, &#39;2020-01-21&#39;, &#39;2020-01-31&#39;,</span>
 <span class="go">               &#39;2020-02-10&#39;, &#39;2020-02-20&#39;],</span>
 <span class="go">              dtype=&#39;datetime64[ns]&#39;, freq=&#39;10D&#39;)</span>
@@ -530,7 +530,7 @@
 <span class="gp">In [27]: </span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2020-1-1&#39;</span><span class="p">,</span>
 <span class="gp">   ....: </span>              <span class="s1">&#39;2020-2-28&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># 由于结束日期无法取到，freq不为10天</span>
 <span class="gp">   ....: </span>
-<span class="gh">Out[27]: </span><span class="go"></span>
+<span class="gh">Out[27]: </span>
 <span class="go">DatetimeIndex([&#39;2020-01-01 00:00:00&#39;, &#39;2020-01-12 14:24:00&#39;,</span>
 <span class="go">               &#39;2020-01-24 04:48:00&#39;, &#39;2020-02-04 19:12:00&#39;,</span>
 <span class="go">               &#39;2020-02-16 09:36:00&#39;, &#39;2020-02-28 00:00:00&#39;],</span>
@@ -551,7 +551,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [29]: </span><span class="n">s</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[29]: </span><span class="go"></span>
+<span class="gh">Out[29]: </span>
 <span class="go">2020-01-01    0.836578</span>
 <span class="go">2020-01-03    0.678419</span>
 <span class="go">2020-01-05    0.711897</span>
@@ -560,7 +560,7 @@
 <span class="go">dtype: float64</span>
 
 <span class="gp">In [30]: </span><span class="n">s</span><span class="o">.</span><span class="n">asfreq</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[30]: </span><span class="go"></span>
+<span class="gh">Out[30]: </span>
 <span class="go">2020-01-01    0.836578</span>
 <span class="go">2020-01-02         NaN</span>
 <span class="go">2020-01-03    0.678419</span>
@@ -569,7 +569,7 @@
 <span class="go">Freq: D, dtype: float64</span>
 
 <span class="gp">In [31]: </span><span class="n">s</span><span class="o">.</span><span class="n">asfreq</span><span class="p">(</span><span class="s1">&#39;12H&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[31]: </span><span class="go"></span>
+<span class="gh">Out[31]: </span>
 <span class="go">2020-01-01 00:00:00    0.836578</span>
 <span class="go">2020-01-01 12:00:00         NaN</span>
 <span class="go">2020-01-02 00:00:00         NaN</span>
@@ -592,28 +592,28 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [32]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2020-1-1&#39;</span><span class="p">,</span><span class="s1">&#39;2020-1-3&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">))</span>
 
 <span class="gp">In [33]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span>
-<span class="gh">Out[33]: </span><span class="go"></span>
+<span class="gh">Out[33]: </span>
 <span class="go">0    2020-01-01</span>
 <span class="go">1    2020-01-02</span>
 <span class="go">2    2020-01-03</span>
 <span class="go">dtype: object</span>
 
 <span class="gp">In [34]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">time</span>
-<span class="gh">Out[34]: </span><span class="go"></span>
+<span class="gh">Out[34]: </span>
 <span class="go">0    00:00:00</span>
 <span class="go">1    00:00:00</span>
 <span class="go">2    00:00:00</span>
 <span class="go">dtype: object</span>
 
 <span class="gp">In [35]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">day</span>
-<span class="gh">Out[35]: </span><span class="go"></span>
+<span class="gh">Out[35]: </span>
 <span class="go">0    1</span>
 <span class="go">1    2</span>
 <span class="go">2    3</span>
 <span class="go">dtype: int64</span>
 
 <span class="gp">In [36]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">daysinmonth</span>
-<span class="gh">Out[36]: </span><span class="go"></span>
+<span class="gh">Out[36]: </span>
 <span class="go">0    31</span>
 <span class="go">1    31</span>
 <span class="go">2    31</span>
@@ -622,7 +622,7 @@
 </div>
 <p>在这些属性中，经常使用的是 <code class="docutils literal notranslate"><span class="pre">dayofweek</span></code> ，它返回了周中的星期情况，周一为0、周二为1，以此类推：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [37]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofweek</span>
-<span class="gh">Out[37]: </span><span class="go"></span>
+<span class="gh">Out[37]: </span>
 <span class="go">0    2</span>
 <span class="go">1    3</span>
 <span class="go">2    4</span>
@@ -631,14 +631,14 @@
 </div>
 <p>此外，可以通过 <code class="docutils literal notranslate"><span class="pre">month_name,</span> <span class="pre">day_name</span></code> 返回英文的月名和星期名，注意它们是方法而不是属性：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [38]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month_name</span><span class="p">()</span>
-<span class="gh">Out[38]: </span><span class="go"></span>
+<span class="gh">Out[38]: </span>
 <span class="go">0    January</span>
 <span class="go">1    January</span>
 <span class="go">2    January</span>
 <span class="go">dtype: object</span>
 
 <span class="gp">In [39]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">day_name</span><span class="p">()</span>
-<span class="gh">Out[39]: </span><span class="go"></span>
+<span class="gh">Out[39]: </span>
 <span class="go">0    Wednesday</span>
 <span class="go">1     Thursday</span>
 <span class="go">2       Friday</span>
@@ -647,14 +647,14 @@
 </div>
 <p>第二类判断操作主要用于测试是否为月/季/年的第一天或者最后一天：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [40]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">is_year_start</span> <span class="c1"># 还可选 is_quarter/month_start</span>
-<span class="gh">Out[40]: </span><span class="go"></span>
+<span class="gh">Out[40]: </span>
 <span class="go">0     True</span>
 <span class="go">1    False</span>
 <span class="go">2    False</span>
 <span class="go">dtype: bool</span>
 
 <span class="gp">In [41]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">is_year_end</span> <span class="c1"># 还可选 is_quarter/month_end</span>
-<span class="gh">Out[41]: </span><span class="go"></span>
+<span class="gh">Out[41]: </span>
 <span class="go">0    False</span>
 <span class="go">1    False</span>
 <span class="go">2    False</span>
@@ -668,28 +668,28 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [43]: </span><span class="n">s</span>
-<span class="gh">Out[43]: </span><span class="go"></span>
+<span class="gh">Out[43]: </span>
 <span class="go">0   2020-01-01 20:35:00</span>
 <span class="go">1   2020-01-01 21:20:00</span>
 <span class="go">2   2020-01-01 22:05:00</span>
 <span class="go">dtype: datetime64[ns]</span>
 
 <span class="gp">In [44]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="s1">&#39;1H&#39;</span><span class="p">)</span>
-<span class="gh">Out[44]: </span><span class="go"></span>
+<span class="gh">Out[44]: </span>
 <span class="go">0   2020-01-01 21:00:00</span>
 <span class="go">1   2020-01-01 21:00:00</span>
 <span class="go">2   2020-01-01 22:00:00</span>
 <span class="go">dtype: datetime64[ns]</span>
 
 <span class="gp">In [45]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="s1">&#39;1H&#39;</span><span class="p">)</span>
-<span class="gh">Out[45]: </span><span class="go"></span>
+<span class="gh">Out[45]: </span>
 <span class="go">0   2020-01-01 21:00:00</span>
 <span class="go">1   2020-01-01 22:00:00</span>
 <span class="go">2   2020-01-01 23:00:00</span>
 <span class="go">dtype: datetime64[ns]</span>
 
 <span class="gp">In [46]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="s1">&#39;1H&#39;</span><span class="p">)</span>
-<span class="gh">Out[46]: </span><span class="go"></span>
+<span class="gh">Out[46]: </span>
 <span class="go">0   2020-01-01 20:00:00</span>
 <span class="go">1   2020-01-01 21:00:00</span>
 <span class="go">2   2020-01-01 22:00:00</span>
@@ -708,7 +708,7 @@
 <span class="gp">In [48]: </span><span class="n">idx</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span>
 
 <span class="gp">In [49]: </span><span class="n">s</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[49]: </span><span class="go"></span>
+<span class="gh">Out[49]: </span>
 <span class="go">2020-01-01    1</span>
 <span class="go">2020-01-02    1</span>
 <span class="go">2020-01-03    0</span>
@@ -719,7 +719,7 @@
 </div>
 <p>Example1：每月的第一天或者最后一天</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [50]: </span><span class="n">s</span><span class="p">[(</span><span class="n">idx</span><span class="o">.</span><span class="n">is_month_start</span><span class="o">|</span><span class="n">idx</span><span class="o">.</span><span class="n">is_month_end</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[50]: </span><span class="go"></span>
+<span class="gh">Out[50]: </span>
 <span class="go">2020-01-01    1</span>
 <span class="go">2020-01-31    0</span>
 <span class="go">2020-02-01    1</span>
@@ -730,7 +730,7 @@
 </div>
 <p>Example2：双休日</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [51]: </span><span class="n">s</span><span class="p">[</span><span class="n">idx</span><span class="o">.</span><span class="n">dayofweek</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span><span class="o">.</span><span class="n">values</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[51]: </span><span class="go"></span>
+<span class="gh">Out[51]: </span>
 <span class="go">2020-01-04    1</span>
 <span class="go">2020-01-05    0</span>
 <span class="go">2020-01-11    0</span>
@@ -749,7 +749,7 @@
 </div>
 <p>Example4：取出七月</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [54]: </span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;2020-07&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[54]: </span><span class="go"></span>
+<span class="gh">Out[54]: </span>
 <span class="go">2020-07-01    0</span>
 <span class="go">2020-07-02    1</span>
 <span class="go">2020-07-03    0</span>
@@ -760,7 +760,7 @@
 </div>
 <p>Example5：取出5月初至7月15日</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [55]: </span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;2020-05&#39;</span><span class="p">:</span><span class="s1">&#39;2020-7-15&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[55]: </span><span class="go"></span>
+<span class="gh">Out[55]: </span>
 <span class="go">2020-05-01    0</span>
 <span class="go">2020-05-02    1</span>
 <span class="go">2020-05-03    0</span>
@@ -769,7 +769,7 @@
 <span class="go">Freq: D, dtype: int32</span>
 
 <span class="gp">In [56]: </span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;2020-05&#39;</span><span class="p">:</span><span class="s1">&#39;2020-7-15&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
-<span class="gh">Out[56]: </span><span class="go"></span>
+<span class="gh">Out[56]: </span>
 <span class="go">2020-07-11    0</span>
 <span class="go">2020-07-12    0</span>
 <span class="go">2020-07-13    1</span>
@@ -799,7 +799,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [60]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_timedelta</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Time_Record</span><span class="p">)</span>
 
 <span class="gp">In [61]: </span><span class="n">s</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[61]: </span><span class="go"></span>
+<span class="gh">Out[61]: </span>
 <span class="go">0   0 days 00:04:34</span>
 <span class="go">1   0 days 00:04:20</span>
 <span class="go">2   0 days 00:05:22</span>
@@ -818,7 +818,7 @@
 </div>
 <p>对于 <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code> 序列，同样也定义了 <code class="docutils literal notranslate"><span class="pre">dt</span></code> 对象，上面主要定义了的属性包括 <code class="docutils literal notranslate"><span class="pre">days,</span> <span class="pre">seconds,</span> <span class="pre">mircroseconds,</span> <span class="pre">nanoseconds</span></code> ，它们分别返回了对应的时间差特征。需要注意的是，这里的 <code class="docutils literal notranslate"><span class="pre">seconds</span></code> 不是指单纯的秒，而是对天数取余后剩余的秒数：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [64]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">seconds</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[64]: </span><span class="go"></span>
+<span class="gh">Out[64]: </span>
 <span class="go">0    274</span>
 <span class="go">1    260</span>
 <span class="go">2    322</span>
@@ -829,7 +829,7 @@
 </div>
 <p>如果不想对天数取余而直接对应秒数，可以使用 <code class="docutils literal notranslate"><span class="pre">total_seconds</span></code></p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [65]: </span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[65]: </span><span class="go"></span>
+<span class="gh">Out[65]: </span>
 <span class="go">0    274.0</span>
 <span class="go">1    260.0</span>
 <span class="go">2    322.0</span>
@@ -840,7 +840,7 @@
 </div>
 <p>与时间戳序列类似，取整函数也是可以在 <code class="docutils literal notranslate"><span class="pre">dt</span></code> 对象上使用的：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [66]: </span><span class="n">pd</span><span class="o">.</span><span class="n">to_timedelta</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Time_Record</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="s1">&#39;min&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[66]: </span><span class="go"></span>
+<span class="gh">Out[66]: </span>
 <span class="go">0   0 days 00:05:00</span>
 <span class="go">1   0 days 00:04:00</span>
 <span class="go">2   0 days 00:05:00</span>
@@ -886,7 +886,7 @@
 <span class="gh">Out[77]: </span><span class="go">TimedeltaIndex([&#39;5 days&#39;, &#39;10 days&#39;, &#39;15 days&#39;, &#39;20 days&#39;, &#39;25 days&#39;], dtype=&#39;timedelta64[ns]&#39;, freq=&#39;5D&#39;)</span>
 
 <span class="gp">In [78]: </span><span class="n">td1</span> <span class="o">*</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span> <span class="c1"># 逐个相乘</span>
-<span class="gh">Out[78]: </span><span class="go"></span>
+<span class="gh">Out[78]: </span>
 <span class="go">0    0 days</span>
 <span class="go">1    2 days</span>
 <span class="go">2    6 days</span>
@@ -895,19 +895,19 @@
 <span class="go">dtype: timedelta64[ns]</span>
 
 <span class="gp">In [79]: </span><span class="n">td1</span> <span class="o">-</span> <span class="n">td2</span>
-<span class="gh">Out[79]: </span><span class="go"></span>
+<span class="gh">Out[79]: </span>
 <span class="go">TimedeltaIndex([&#39;0 days 12:00:00&#39;, &#39;1 days 10:00:00&#39;, &#39;2 days 08:00:00&#39;,</span>
 <span class="go">                &#39;3 days 06:00:00&#39;, &#39;4 days 04:00:00&#39;],</span>
 <span class="go">               dtype=&#39;timedelta64[ns]&#39;, freq=None)</span>
 
 <span class="gp">In [80]: </span><span class="n">td1</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;20200101&#39;</span><span class="p">)</span>
-<span class="gh">Out[80]: </span><span class="go"></span>
+<span class="gh">Out[80]: </span>
 <span class="go">DatetimeIndex([&#39;2020-01-02&#39;, &#39;2020-01-03&#39;, &#39;2020-01-04&#39;, &#39;2020-01-05&#39;,</span>
 <span class="go">               &#39;2020-01-06&#39;],</span>
 <span class="go">              dtype=&#39;datetime64[ns]&#39;, freq=&#39;D&#39;)</span>
 
 <span class="gp">In [81]: </span><span class="n">td1</span> <span class="o">+</span> <span class="n">ts</span> <span class="c1"># 逐个相加</span>
-<span class="gh">Out[81]: </span><span class="go"></span>
+<span class="gh">Out[81]: </span>
 <span class="go">DatetimeIndex([&#39;2020-01-02&#39;, &#39;2020-01-04&#39;, &#39;2020-01-06&#39;, &#39;2020-01-08&#39;,</span>
 <span class="go">               &#39;2020-01-10&#39;],</span>
 <span class="go">              dtype=&#39;datetime64[ns]&#39;, freq=None)</span>
@@ -944,7 +944,7 @@
 <span class="gp">In [88]: </span><span class="n">dr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;20200108&#39;</span><span class="p">,</span> <span class="s1">&#39;20200111&#39;</span><span class="p">)</span>
 
 <span class="gp">In [89]: </span><span class="n">dr</span><span class="o">.</span><span class="n">to_series</span><span class="p">()</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofweek</span>
-<span class="gh">Out[89]: </span><span class="go"></span>
+<span class="gh">Out[89]: </span>
 <span class="go">2020-01-08    2</span>
 <span class="go">2020-01-09    3</span>
 <span class="go">2020-01-10    4</span>
@@ -952,7 +952,7 @@
 <span class="go">Freq: D, dtype: int64</span>
 
 <span class="gp">In [90]: </span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">my_filter</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">dr</span><span class="p">]</span>
-<span class="gh">Out[90]: </span><span class="go"></span>
+<span class="gh">Out[90]: </span>
 <span class="go">[Timestamp(&#39;2020-01-10 00:00:00&#39;),</span>
 <span class="go"> Timestamp(&#39;2020-01-10 00:00:00&#39;),</span>
 <span class="go"> Timestamp(&#39;2020-01-15 00:00:00&#39;),</span>
@@ -977,7 +977,7 @@
 <span class="gh">Out[92]: </span><span class="go">DatetimeIndex([&#39;2020-01-31&#39;, &#39;2020-02-29&#39;, &#39;2020-03-31&#39;], dtype=&#39;datetime64[ns]&#39;, freq=&#39;M&#39;)</span>
 
 <span class="gp">In [93]: </span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;20200101&#39;</span><span class="p">,</span><span class="s1">&#39;20200110&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">)</span> <span class="c1"># 工作日</span>
-<span class="gh">Out[93]: </span><span class="go"></span>
+<span class="gh">Out[93]: </span>
 <span class="go">DatetimeIndex([&#39;2020-01-01&#39;, &#39;2020-01-02&#39;, &#39;2020-01-03&#39;, &#39;2020-01-06&#39;,</span>
 <span class="go">               &#39;2020-01-07&#39;, &#39;2020-01-08&#39;, &#39;2020-01-09&#39;, &#39;2020-01-10&#39;],</span>
 <span class="go">              dtype=&#39;datetime64[ns]&#39;, freq=&#39;B&#39;)</span>
@@ -1003,7 +1003,7 @@
 <span class="gh">Out[97]: </span><span class="go">DatetimeIndex([&#39;2020-01-31&#39;, &#39;2020-02-29&#39;, &#39;2020-03-31&#39;], dtype=&#39;datetime64[ns]&#39;, freq=&#39;M&#39;)</span>
 
 <span class="gp">In [98]: </span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;20200101&#39;</span><span class="p">,</span><span class="s1">&#39;20200110&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">offsets</span><span class="o">.</span><span class="n">BDay</span><span class="p">())</span>
-<span class="gh">Out[98]: </span><span class="go"></span>
+<span class="gh">Out[98]: </span>
 <span class="go">DatetimeIndex([&#39;2020-01-01&#39;, &#39;2020-01-02&#39;, &#39;2020-01-03&#39;, &#39;2020-01-06&#39;,</span>
 <span class="go">               &#39;2020-01-07&#39;, &#39;2020-01-08&#39;, &#39;2020-01-09&#39;, &#39;2020-01-10&#39;],</span>
 <span class="go">              dtype=&#39;datetime64[ns]&#39;, freq=&#39;B&#39;)</span>
@@ -1043,7 +1043,7 @@
 <span class="gp">In [105]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="n">idx</span><span class="p">)</span>
 
 <span class="gp">In [106]: </span><span class="n">s</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[106]: </span><span class="go"></span>
+<span class="gh">Out[106]: </span>
 <span class="go">2020-01-01   -1</span>
 <span class="go">2020-01-02   -2</span>
 <span class="go">2020-01-03   -1</span>
@@ -1054,25 +1054,25 @@
 <span class="gp">In [107]: </span><span class="n">r</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="s1">&#39;30D&#39;</span><span class="p">)</span>
 
 <span class="gp">In [108]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-<span class="gh">Out[108]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x1363008af70&gt;]</span>
+<span class="gh">Out[108]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x2922776adf0&gt;]</span>
 
 <span class="gp">In [109]: </span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;BOLL LINES&#39;</span><span class="p">)</span>
 <span class="gh">Out[109]: </span><span class="go">Text(0.5, 1.0, &#39;BOLL LINES&#39;)</span>
 
 <span class="gp">In [110]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
-<span class="gh">Out[110]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x136300a9070&gt;]</span>
+<span class="gh">Out[110]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x2922777d430&gt;]</span>
 
 <span class="gp">In [111]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">+</span><span class="n">r</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
-<span class="gh">Out[111]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x136300a9250&gt;]</span>
+<span class="gh">Out[111]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x2922777d610&gt;]</span>
 
 <span class="gp">In [112]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">-</span><span class="n">r</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
-<span class="gh">Out[112]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x136300a9550&gt;]</span>
+<span class="gh">Out[112]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x2922777d8b0&gt;]</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/ch10.png"><img alt="../_images/ch10.png" src="../_images/ch10.png" style="width: 400px;" /></a>
 <p>对于 <code class="docutils literal notranslate"><span class="pre">shift</span></code> 函数而言，作用在 <code class="docutils literal notranslate"><span class="pre">datetime64</span></code> 为索引的序列上时，可以指定 <code class="docutils literal notranslate"><span class="pre">freq</span></code> 单位进行滑动：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [113]: </span><span class="n">s</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;50D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[113]: </span><span class="go"></span>
+<span class="gh">Out[113]: </span>
 <span class="go">2020-02-20   -1</span>
 <span class="go">2020-02-21   -2</span>
 <span class="go">2020-02-22   -1</span>
@@ -1085,7 +1085,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [114]: </span><span class="n">my_series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 
 <span class="gp">In [115]: </span><span class="n">my_series</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[115]: </span><span class="go"></span>
+<span class="gh">Out[115]: </span>
 <span class="go">0   2020-01-01</span>
 <span class="go">1   2020-01-02</span>
 <span class="go">2   2020-01-03</span>
@@ -1094,7 +1094,7 @@
 <span class="go">dtype: datetime64[ns]</span>
 
 <span class="gp">In [116]: </span><span class="n">my_series</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[116]: </span><span class="go"></span>
+<span class="gh">Out[116]: </span>
 <span class="go">0      NaT</span>
 <span class="go">1   1 days</span>
 <span class="go">2   1 days</span>
@@ -1109,7 +1109,7 @@
 <p>重采样对象 <code class="docutils literal notranslate"><span class="pre">resample</span></code> 和第四章中分组对象 <code class="docutils literal notranslate"><span class="pre">groupby</span></code> 的用法类似，前者是针对时间序列的分组计算而设计的分组对象。</p>
 <p>例如，对上面的序列计算每10天的均值：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [117]: </span><span class="n">s</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;10D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[117]: </span><span class="go"></span>
+<span class="gh">Out[117]: </span>
 <span class="go">2020-01-01   -2.000000</span>
 <span class="go">2020-01-11   -3.166667</span>
 <span class="go">2020-01-21   -3.625000</span>
@@ -1120,7 +1120,7 @@
 </div>
 <p>同时，如果没有内置定义的处理函数，可以通过 <code class="docutils literal notranslate"><span class="pre">apply</span></code> 方法自定义：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [118]: </span><span class="n">s</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;10D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># 极差</span>
-<span class="gh">Out[118]: </span><span class="go"></span>
+<span class="gh">Out[118]: </span>
 <span class="go">2020-01-01    3</span>
 <span class="go">2020-01-11    4</span>
 <span class="go">2020-01-21    4</span>
@@ -1137,7 +1137,7 @@
 <span class="gp">In [121]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="n">idx</span><span class="p">)</span>
 
 <span class="gp">In [122]: </span><span class="n">s</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[122]: </span><span class="go"></span>
+<span class="gh">Out[122]: </span>
 <span class="go">2020-01-01 08:26:35   -1</span>
 <span class="go">2020-01-01 08:27:52   -1</span>
 <span class="go">2020-01-01 08:29:09   -2</span>
@@ -1148,7 +1148,7 @@
 </div>
 <p>下面对应的第一个组起始值为 <code class="docutils literal notranslate"><span class="pre">08:24:00</span></code> ，其是从当天0点增加72个 <code class="docutils literal notranslate"><span class="pre">freq=7</span> <span class="pre">min</span></code> 得到的，如果再增加一个 <code class="docutils literal notranslate"><span class="pre">freq</span></code> 则超出了序列的最小时间戳 <code class="docutils literal notranslate"><span class="pre">08:26:35</span></code> ：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [123]: </span><span class="n">s</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;7min&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[123]: </span><span class="go"></span>
+<span class="gh">Out[123]: </span>
 <span class="go">2020-01-01 08:24:00   -1.750000</span>
 <span class="go">2020-01-01 08:31:00   -2.600000</span>
 <span class="go">2020-01-01 08:38:00   -2.166667</span>
@@ -1159,7 +1159,7 @@
 </div>
 <p>有时候，用户希望从序列的最小时间戳开始依次增加 <code class="docutils literal notranslate"><span class="pre">freq</span></code> 进行分组，此时可以指定 <code class="docutils literal notranslate"><span class="pre">origin</span></code> 参数为 <code class="docutils literal notranslate"><span class="pre">start</span></code> ：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [124]: </span><span class="n">s</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;7min&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;start&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[124]: </span><span class="go"></span>
+<span class="gh">Out[124]: </span>
 <span class="go">2020-01-01 08:26:35   -2.333333</span>
 <span class="go">2020-01-01 08:33:35   -2.400000</span>
 <span class="go">2020-01-01 08:40:35   -1.333333</span>
@@ -1175,7 +1175,7 @@
 <span class="gp">   .....: </span>
 
 <span class="gp">In [126]: </span><span class="n">s</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[126]: </span><span class="go"></span>
+<span class="gh">Out[126]: </span>
 <span class="go">2020-01-31    0.451613</span>
 <span class="go">2020-02-29    0.448276</span>
 <span class="go">2020-03-31    0.516129</span>
@@ -1184,7 +1184,7 @@
 <span class="go">Freq: M, dtype: float64</span>
 
 <span class="gp">In [127]: </span><span class="n">s</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;MS&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># 结果一样，但索引不同</span>
-<span class="gh">Out[127]: </span><span class="go"></span>
+<span class="gh">Out[127]: </span>
 <span class="go">2020-01-01    0.451613</span>
 <span class="go">2020-02-01    0.448276</span>
 <span class="go">2020-03-01    0.516129</span>
@@ -1205,7 +1205,7 @@
 <span class="gp">   .....: </span>
 
 <span class="gp">In [129]: </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gh">Out[129]: </span><span class="go"></span>
+<span class="gh">Out[129]: </span>
 <span class="go">                    Data      Time  Radiation  Temperature</span>
 <span class="go">0  9/29/2016 12:00:00 AM  23:55:26       1.21           48</span>
 <span class="go">1  9/29/2016 12:00:00 AM  23:50:23       1.21           48</span>
@@ -1235,7 +1235,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [130]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/fruit.csv&#39;</span><span class="p">)</span>
 
 <span class="gp">In [131]: </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gh">Out[131]: </span><span class="go"></span>
+<span class="gh">Out[131]: </span>
 <span class="go">         Date  Fruit  Sale</span>
 <span class="go">0  2019-04-18  Peach    15</span>
 <span class="go">1  2019-12-29  Peach    15</span>

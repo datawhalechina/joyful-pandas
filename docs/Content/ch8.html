@@ -405,10 +405,10 @@
 <span class="gp">In [5]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;abcd&#39;</span><span class="p">,</span> <span class="s1">&#39;efg&#39;</span><span class="p">,</span> <span class="s1">&#39;hi&#39;</span><span class="p">])</span>
 
 <span class="gp">In [6]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span>
-<span class="gh">Out[6]: </span><span class="go">&lt;pandas.core.strings.accessor.StringMethods at 0x13630ffc430&gt;</span>
+<span class="gh">Out[6]: </span><span class="go">&lt;pandas.core.strings.accessor.StringMethods at 0x29238d56fa0&gt;</span>
 
 <span class="gp">In [7]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="c1"># pandas中str对象上的upper方法</span>
-<span class="gh">Out[7]: </span><span class="go"></span>
+<span class="gh">Out[7]: </span>
 <span class="go">0    ABCD</span>
 <span class="go">1     EFG</span>
 <span class="go">2      HI</span>
@@ -431,21 +431,21 @@
 </div>
 <p>通过对 <code class="docutils literal notranslate"><span class="pre">str</span></code> 对象使用 <code class="docutils literal notranslate"><span class="pre">[]</span></code> 索引器，可以完成完全一致的功能，并且如果超出范围则返回缺失值：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="gh">Out[10]: </span><span class="go"></span>
+<span class="gh">Out[10]: </span>
 <span class="go">0    a</span>
 <span class="go">1    e</span>
 <span class="go">2    h</span>
 <span class="go">dtype: object</span>
 
 <span class="gp">In [11]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">0</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
-<span class="gh">Out[11]: </span><span class="go"></span>
+<span class="gh">Out[11]: </span>
 <span class="go">0    db</span>
 <span class="go">1     g</span>
 <span class="go">2     i</span>
 <span class="go">dtype: object</span>
 
 <span class="gp">In [12]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="gh">Out[12]: </span><span class="go"></span>
+<span class="gh">Out[12]: </span>
 <span class="go">0      c</span>
 <span class="go">1      g</span>
 <span class="go">2    NaN</span>
@@ -461,7 +461,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;temp_1&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;temp_2&#39;</span><span class="p">},</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;my_string&#39;</span><span class="p">])</span>
 
 <span class="gp">In [14]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="gh">Out[14]: </span><span class="go"></span>
+<span class="gh">Out[14]: </span>
 <span class="go">0    temp_1</span>
 <span class="go">1         b</span>
 <span class="go">2       NaN</span>
@@ -469,7 +469,7 @@
 <span class="go">dtype: object</span>
 
 <span class="gp">In [15]: </span><span class="n">s</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="gh">Out[15]: </span><span class="go"></span>
+<span class="gh">Out[15]: </span>
 <span class="go">0    1</span>
 <span class="go">1    &#39;</span>
 <span class="go">2    .</span>
@@ -482,47 +482,47 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">])</span>
 
 <span class="gp">In [17]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
-<span class="gh">Out[17]: </span><span class="go"></span>
+<span class="gh">Out[17]: </span>
 <span class="go">0    1</span>
 <span class="go">dtype: int64</span>
 
 <span class="gp">In [18]: </span><span class="n">s</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
-<span class="gh">Out[18]: </span><span class="go"></span>
+<span class="gh">Out[18]: </span>
 <span class="go">0    1</span>
 <span class="go">dtype: Int64</span>
 
 <span class="gp">In [19]: </span><span class="n">s</span> <span class="o">==</span> <span class="s1">&#39;a&#39;</span>
-<span class="gh">Out[19]: </span><span class="go"></span>
+<span class="gh">Out[19]: </span>
 <span class="go">0    True</span>
 <span class="go">dtype: bool</span>
 
 <span class="gp">In [20]: </span><span class="n">s</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;a&#39;</span>
-<span class="gh">Out[20]: </span><span class="go"></span>
+<span class="gh">Out[20]: </span>
 <span class="go">0    True</span>
 <span class="go">dtype: boolean</span>
 
 <span class="gp">In [21]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span> <span class="c1"># 带有缺失值</span>
 
 <span class="gp">In [22]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
-<span class="gh">Out[22]: </span><span class="go"></span>
+<span class="gh">Out[22]: </span>
 <span class="go">0    1.0</span>
 <span class="go">1    NaN</span>
 <span class="go">dtype: float64</span>
 
 <span class="gp">In [23]: </span><span class="n">s</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
-<span class="gh">Out[23]: </span><span class="go"></span>
+<span class="gh">Out[23]: </span>
 <span class="go">0       1</span>
 <span class="go">1    &lt;NA&gt;</span>
 <span class="go">dtype: Int64</span>
 
 <span class="gp">In [24]: </span><span class="n">s</span> <span class="o">==</span> <span class="s1">&#39;a&#39;</span>
-<span class="gh">Out[24]: </span><span class="go"></span>
+<span class="gh">Out[24]: </span>
 <span class="go">0     True</span>
 <span class="go">1    False</span>
 <span class="go">dtype: bool</span>
 
 <span class="gp">In [25]: </span><span class="n">s</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;a&#39;</span>
-<span class="gh">Out[25]: </span><span class="go"></span>
+<span class="gh">Out[25]: </span>
 <span class="go">0    True</span>
 <span class="go">1    &lt;NA&gt;</span>
 <span class="go">dtype: boolean</span>
@@ -532,7 +532,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [26]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">12</span><span class="p">,</span> <span class="mi">345</span><span class="p">,</span> <span class="mi">6789</span><span class="p">])</span>
 
 <span class="gp">In [27]: </span><span class="n">s</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="gh">Out[27]: </span><span class="go"></span>
+<span class="gh">Out[27]: </span>
 <span class="go">0    2</span>
 <span class="go">1    4</span>
 <span class="go">2    7</span>
@@ -687,13 +687,13 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [43]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;[市区路]&#39;</span><span class="p">)</span>
-<span class="gh">Out[43]: </span><span class="go"></span>
+<span class="gh">Out[43]: </span>
 <span class="go">0    [上海, 黄浦, 方浜中, 249号]</span>
 <span class="go">1       [上海, 宝山, 密山, 5号]</span>
 <span class="go">dtype: object</span>
 
 <span class="gp">In [44]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;[市区路]&#39;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gh">Out[44]: </span><span class="go"></span>
+<span class="gh">Out[44]: </span>
 <span class="go">    0   1         2</span>
 <span class="go">0  上海  黄浦  方浜中路249号</span>
 <span class="go">1  上海  宝山     密山路5号</span>
@@ -701,7 +701,7 @@
 </div>
 <p>与其类似的函数是 <code class="docutils literal notranslate"><span class="pre">str.rsplit</span></code> ，其区别在于使用 <code class="docutils literal notranslate"><span class="pre">n</span></code> 参数的时候是从右到左限制最大拆分次数。但是当前版本下 <code class="docutils literal notranslate"><span class="pre">rsplit</span></code> 因为 <code class="docutils literal notranslate"><span class="pre">bug</span></code> 而无法使用正则表达式进行分割：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [45]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;[市区路]&#39;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gh">Out[45]: </span><span class="go"></span>
+<span class="gh">Out[45]: </span>
 <span class="go">                0</span>
 <span class="go">0  上海市黄浦区方浜中路249号</span>
 <span class="go">1     上海市宝山区密山路5号</span>
@@ -714,7 +714,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [46]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">],</span> <span class="p">[[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="s1">&#39;c&#39;</span><span class="p">]])</span>
 
 <span class="gp">In [47]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
-<span class="gh">Out[47]: </span><span class="go"></span>
+<span class="gh">Out[47]: </span>
 <span class="go">0    a-b</span>
 <span class="go">1    NaN</span>
 <span class="go">2    NaN</span>
@@ -727,7 +727,7 @@
 <span class="gp">In [49]: </span><span class="n">s2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span><span class="s1">&#39;dog&#39;</span><span class="p">])</span>
 
 <span class="gp">In [50]: </span><span class="n">s1</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">s2</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
-<span class="gh">Out[50]: </span><span class="go"></span>
+<span class="gh">Out[50]: </span>
 <span class="go">0    a-cat</span>
 <span class="go">1    b-dog</span>
 <span class="go">dtype: object</span>
@@ -735,7 +735,7 @@
 <span class="gp">In [51]: </span><span class="n">s2</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 
 <span class="gp">In [52]: </span><span class="n">s1</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">s2</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">na_rep</span><span class="o">=</span><span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
-<span class="gh">Out[52]: </span><span class="go"></span>
+<span class="gh">Out[52]: </span>
 <span class="go">0      a-?</span>
 <span class="go">1    b-cat</span>
 <span class="go">2    ?-dog</span>
@@ -749,7 +749,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [53]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;my cat&#39;</span><span class="p">,</span> <span class="s1">&#39;he is fat&#39;</span><span class="p">,</span> <span class="s1">&#39;railway station&#39;</span><span class="p">])</span>
 
 <span class="gp">In [54]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;\s\wat&#39;</span><span class="p">)</span>
-<span class="gh">Out[54]: </span><span class="go"></span>
+<span class="gh">Out[54]: </span>
 <span class="go">0     True</span>
 <span class="go">1     True</span>
 <span class="go">2    False</span>
@@ -758,14 +758,14 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">str.startswith</span></code> 和 <code class="docutils literal notranslate"><span class="pre">str.endswith</span></code> 返回了每个字符串以给定模式为开始和结束的布尔序列，它们都不支持正则表达式：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [55]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;my&#39;</span><span class="p">)</span>
-<span class="gh">Out[55]: </span><span class="go"></span>
+<span class="gh">Out[55]: </span>
 <span class="go">0     True</span>
 <span class="go">1    False</span>
 <span class="go">2    False</span>
 <span class="go">dtype: bool</span>
 
 <span class="gp">In [56]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
-<span class="gh">Out[56]: </span><span class="go"></span>
+<span class="gh">Out[56]: </span>
 <span class="go">0     True</span>
 <span class="go">1     True</span>
 <span class="go">2    False</span>
@@ -774,14 +774,14 @@
 </div>
 <p>如果需要用正则表达式来检测开始或结束字符串的模式，可以使用 <code class="docutils literal notranslate"><span class="pre">str.match</span></code> ，其返回了每个字符串起始处是否符合给定正则模式的布尔序列：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [57]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;m|h&#39;</span><span class="p">)</span>
-<span class="gh">Out[57]: </span><span class="go"></span>
+<span class="gh">Out[57]: </span>
 <span class="go">0     True</span>
 <span class="go">1     True</span>
 <span class="go">2    False</span>
 <span class="go">dtype: bool</span>
 
 <span class="gp">In [58]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;ta[f|g]|n&#39;</span><span class="p">)</span> <span class="c1"># 反转后匹配</span>
-<span class="gh">Out[58]: </span><span class="go"></span>
+<span class="gh">Out[58]: </span>
 <span class="go">0    False</span>
 <span class="go">1     True</span>
 <span class="go">2     True</span>
@@ -790,14 +790,14 @@
 </div>
 <p>当然，这些也能通过在 <code class="docutils literal notranslate"><span class="pre">str.contains</span></code> 的正则中使用 <code class="docutils literal notranslate"><span class="pre">^</span></code> 和 <code class="docutils literal notranslate"><span class="pre">$</span></code> 来实现：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [59]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;^[m|h]&#39;</span><span class="p">)</span>
-<span class="gh">Out[59]: </span><span class="go"></span>
+<span class="gh">Out[59]: </span>
 <span class="go">0     True</span>
 <span class="go">1     True</span>
 <span class="go">2    False</span>
 <span class="go">dtype: bool</span>
 
 <span class="gp">In [60]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;[f|g]at|n$&#39;</span><span class="p">)</span>
-<span class="gh">Out[60]: </span><span class="go"></span>
+<span class="gh">Out[60]: </span>
 <span class="go">0    False</span>
 <span class="go">1     True</span>
 <span class="go">2     True</span>
@@ -808,12 +808,12 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [61]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;This is an apple. That is not an apple.&#39;</span><span class="p">])</span>
 
 <span class="gp">In [62]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;apple&#39;</span><span class="p">)</span>
-<span class="gh">Out[62]: </span><span class="go"></span>
+<span class="gh">Out[62]: </span>
 <span class="go">0    11</span>
 <span class="go">dtype: int64</span>
 
 <span class="gp">In [63]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s1">&#39;apple&#39;</span><span class="p">)</span>
-<span class="gh">Out[63]: </span><span class="go"></span>
+<span class="gh">Out[63]: </span>
 <span class="go">0    33</span>
 <span class="go">dtype: int64</span>
 </pre></div>
@@ -825,7 +825,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [64]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;a_1_b&#39;</span><span class="p">,</span><span class="s1">&#39;c_?&#39;</span><span class="p">])</span>
 
 <span class="gp">In [65]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;\d|\?&#39;</span><span class="p">,</span> <span class="s1">&#39;new&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gh">Out[65]: </span><span class="go"></span>
+<span class="gh">Out[65]: </span>
 <span class="go">0    a_new_b</span>
 <span class="go">1      c_new</span>
 <span class="go">dtype: object</span>
@@ -863,7 +863,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [72]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">pat</span><span class="p">,</span> <span class="n">my_func</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gh">Out[72]: </span><span class="go"></span>
+<span class="gh">Out[72]: </span>
 <span class="go">0    Shanghai HP District Mid Fangbin Road No. 249</span>
 <span class="go">1           Shanghai BS District Mishan Road No. 5</span>
 <span class="go">2           Beijing CP District Beinong Road No. 2</span>
@@ -885,7 +885,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [75]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">pat</span><span class="p">,</span> <span class="n">my_func</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gh">Out[75]: </span><span class="go"></span>
+<span class="gh">Out[75]: </span>
 <span class="go">0    Shanghai HP District Mid Fangbin Road No. 249</span>
 <span class="go">1           Shanghai BS District Mishan Road No. 5</span>
 <span class="go">2           Beijing CP District Beinong Road No. 2</span>
@@ -900,7 +900,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [76]: </span><span class="n">pat</span> <span class="o">=</span> <span class="s1">&#39;(\w+市)(\w+区)(\w+路)(\d+号)&#39;</span>
 
 <span class="gp">In [77]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">pat</span><span class="p">)</span>
-<span class="gh">Out[77]: </span><span class="go"></span>
+<span class="gh">Out[77]: </span>
 <span class="go">     0    1     2     3</span>
 <span class="go">0  上海市  黄浦区  方浜中路  249号</span>
 <span class="go">1  上海市  宝山区   密山路    5号</span>
@@ -911,7 +911,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [78]: </span><span class="n">pat</span> <span class="o">=</span> <span class="s1">&#39;(?P&lt;市名&gt;\w+市)(?P&lt;区名&gt;\w+区)(?P&lt;路名&gt;\w+路)(?P&lt;编号&gt;\d+号)&#39;</span>
 
 <span class="gp">In [79]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">pat</span><span class="p">)</span>
-<span class="gh">Out[79]: </span><span class="go"></span>
+<span class="gh">Out[79]: </span>
 <span class="go">    市名   区名    路名    编号</span>
 <span class="go">0  上海市  黄浦区  方浜中路  249号</span>
 <span class="go">1  上海市  宝山区   密山路    5号</span>
@@ -924,7 +924,7 @@
 <span class="gp">In [81]: </span><span class="n">pat</span> <span class="o">=</span> <span class="s1">&#39;[A|B](\d+)[T|S](\d+)&#39;</span>
 
 <span class="gp">In [82]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">pat</span><span class="p">)</span>
-<span class="gh">Out[82]: </span><span class="go"></span>
+<span class="gh">Out[82]: </span>
 <span class="go">              0   1</span>
 <span class="go">     match         </span>
 <span class="go">my_A 0      135  15</span>
@@ -935,7 +935,7 @@
 <span class="gp">In [83]: </span><span class="n">pat_with_name</span> <span class="o">=</span> <span class="s1">&#39;[A|B](?P&lt;name1&gt;\d+)[T|S](?P&lt;name2&gt;\d+)&#39;</span>
 
 <span class="gp">In [84]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">pat_with_name</span><span class="p">)</span>
-<span class="gh">Out[84]: </span><span class="go"></span>
+<span class="gh">Out[84]: </span>
 <span class="go">           name1 name2</span>
 <span class="go">     match            </span>
 <span class="go">my_A 0       135    15</span>
@@ -946,7 +946,7 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">str.findall</span></code> 的功能类似于 <code class="docutils literal notranslate"><span class="pre">str.extractall</span></code> ，区别在于前者把结果存入列表中，而后者处理为多级索引，每个行只对应一组匹配，而不是把所有匹配组合构成列表。</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [85]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pat</span><span class="p">)</span>
-<span class="gh">Out[85]: </span><span class="go"></span>
+<span class="gh">Out[85]: </span>
 <span class="go">my_A    [(135, 15), (26, 5)]</span>
 <span class="go">my_B     [(674, 2), (25, 6)]</span>
 <span class="go">dtype: object</span>
@@ -963,7 +963,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [86]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="s1">&#39;CAPITALS&#39;</span><span class="p">,</span> <span class="s1">&#39;this is a sentence&#39;</span><span class="p">,</span> <span class="s1">&#39;SwApCaSe&#39;</span><span class="p">])</span>
 
 <span class="gp">In [87]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-<span class="gh">Out[87]: </span><span class="go"></span>
+<span class="gh">Out[87]: </span>
 <span class="go">0                 LOWER</span>
 <span class="go">1              CAPITALS</span>
 <span class="go">2    THIS IS A SENTENCE</span>
@@ -971,7 +971,7 @@
 <span class="go">dtype: object</span>
 
 <span class="gp">In [88]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<span class="gh">Out[88]: </span><span class="go"></span>
+<span class="gh">Out[88]: </span>
 <span class="go">0                 lower</span>
 <span class="go">1              capitals</span>
 <span class="go">2    this is a sentence</span>
@@ -979,7 +979,7 @@
 <span class="go">dtype: object</span>
 
 <span class="gp">In [89]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
-<span class="gh">Out[89]: </span><span class="go"></span>
+<span class="gh">Out[89]: </span>
 <span class="go">0                 Lower</span>
 <span class="go">1              Capitals</span>
 <span class="go">2    This Is A Sentence</span>
@@ -987,7 +987,7 @@
 <span class="go">dtype: object</span>
 
 <span class="gp">In [90]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
-<span class="gh">Out[90]: </span><span class="go"></span>
+<span class="gh">Out[90]: </span>
 <span class="go">0                 Lower</span>
 <span class="go">1              Capitals</span>
 <span class="go">2    This is a sentence</span>
@@ -995,7 +995,7 @@
 <span class="go">dtype: object</span>
 
 <span class="gp">In [91]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">swapcase</span><span class="p">()</span>
-<span class="gh">Out[91]: </span><span class="go"></span>
+<span class="gh">Out[91]: </span>
 <span class="go">0                 LOWER</span>
 <span class="go">1              capitals</span>
 <span class="go">2    THIS IS A SENTENCE</span>
@@ -1010,7 +1010,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [92]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2.2&#39;</span><span class="p">,</span> <span class="s1">&#39;2e&#39;</span><span class="p">,</span> <span class="s1">&#39;??&#39;</span><span class="p">,</span> <span class="s1">&#39;-2.1&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">])</span>
 
 <span class="gp">In [93]: </span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
-<span class="gh">Out[93]: </span><span class="go"></span>
+<span class="gh">Out[93]: </span>
 <span class="go">0       1</span>
 <span class="go">1     2.2</span>
 <span class="go">2      2e</span>
@@ -1020,7 +1020,7 @@
 <span class="go">dtype: object</span>
 
 <span class="gp">In [94]: </span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
-<span class="gh">Out[94]: </span><span class="go"></span>
+<span class="gh">Out[94]: </span>
 <span class="go">0    1.0</span>
 <span class="go">1    2.2</span>
 <span class="go">2    NaN</span>
@@ -1032,7 +1032,7 @@
 </div>
 <p>在数据清洗时，可以利用 <code class="docutils literal notranslate"><span class="pre">coerce</span></code> 的设定，快速查看非数值型的行：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [95]: </span><span class="n">s</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
-<span class="gh">Out[95]: </span><span class="go"></span>
+<span class="gh">Out[95]: </span>
 <span class="go">2    2e</span>
 <span class="go">3    ??</span>
 <span class="go">dtype: object</span>
@@ -1045,13 +1045,13 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [96]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;cat rat fat at&#39;</span><span class="p">,</span> <span class="s1">&#39;get feed sheet heat&#39;</span><span class="p">])</span>
 
 <span class="gp">In [97]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;[r|f]at|ee&#39;</span><span class="p">)</span>
-<span class="gh">Out[97]: </span><span class="go"></span>
+<span class="gh">Out[97]: </span>
 <span class="go">0    2</span>
 <span class="go">1    2</span>
 <span class="go">dtype: int64</span>
 
 <span class="gp">In [98]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
-<span class="gh">Out[98]: </span><span class="go"></span>
+<span class="gh">Out[98]: </span>
 <span class="go">0    14</span>
 <span class="go">1    19</span>
 <span class="go">dtype: int64</span>
@@ -1077,21 +1077,21 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [103]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">])</span>
 
 <span class="gp">In [104]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;left&#39;</span><span class="p">,</span><span class="s1">&#39;*&#39;</span><span class="p">)</span>
-<span class="gh">Out[104]: </span><span class="go"></span>
+<span class="gh">Out[104]: </span>
 <span class="go">0    ****a</span>
 <span class="go">1    ****b</span>
 <span class="go">2    ****c</span>
 <span class="go">dtype: object</span>
 
 <span class="gp">In [105]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;right&#39;</span><span class="p">,</span><span class="s1">&#39;*&#39;</span><span class="p">)</span>
-<span class="gh">Out[105]: </span><span class="go"></span>
+<span class="gh">Out[105]: </span>
 <span class="go">0    a****</span>
 <span class="go">1    b****</span>
 <span class="go">2    c****</span>
 <span class="go">dtype: object</span>
 
 <span class="gp">In [106]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;both&#39;</span><span class="p">,</span><span class="s1">&#39;*&#39;</span><span class="p">)</span>
-<span class="gh">Out[106]: </span><span class="go"></span>
+<span class="gh">Out[106]: </span>
 <span class="go">0    **a**</span>
 <span class="go">1    **b**</span>
 <span class="go">2    **c**</span>
@@ -1100,21 +1100,21 @@
 </div>
 <p>上述的三种情况可以分别用 <code class="docutils literal notranslate"><span class="pre">rjust,</span> <span class="pre">ljust,</span> <span class="pre">center</span></code> 来等效完成，需要注意 <code class="docutils literal notranslate"><span class="pre">ljust</span></code> 是指右侧填充而不是左侧填充：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [107]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">)</span>
-<span class="gh">Out[107]: </span><span class="go"></span>
+<span class="gh">Out[107]: </span>
 <span class="go">0    ****a</span>
 <span class="go">1    ****b</span>
 <span class="go">2    ****c</span>
 <span class="go">dtype: object</span>
 
 <span class="gp">In [108]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">)</span>
-<span class="gh">Out[108]: </span><span class="go"></span>
+<span class="gh">Out[108]: </span>
 <span class="go">0    a****</span>
 <span class="go">1    b****</span>
 <span class="go">2    c****</span>
 <span class="go">dtype: object</span>
 
 <span class="gp">In [109]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">)</span>
-<span class="gh">Out[109]: </span><span class="go"></span>
+<span class="gh">Out[109]: </span>
 <span class="go">0    **a**</span>
 <span class="go">1    **b**</span>
 <span class="go">2    **c**</span>
@@ -1125,21 +1125,21 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [110]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span> <span class="mi">155</span><span class="p">,</span> <span class="mi">303000</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span>
 
 <span class="gp">In [111]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;left&#39;</span><span class="p">,</span><span class="s1">&#39;0&#39;</span><span class="p">)</span>
-<span class="gh">Out[111]: </span><span class="go"></span>
+<span class="gh">Out[111]: </span>
 <span class="go">0    000007</span>
 <span class="go">1    000155</span>
 <span class="go">2    303000</span>
 <span class="go">dtype: string</span>
 
 <span class="gp">In [112]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;0&#39;</span><span class="p">)</span>
-<span class="gh">Out[112]: </span><span class="go"></span>
+<span class="gh">Out[112]: </span>
 <span class="go">0    000007</span>
 <span class="go">1    000155</span>
 <span class="go">2    303000</span>
 <span class="go">dtype: string</span>
 
 <span class="gp">In [113]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-<span class="gh">Out[113]: </span><span class="go"></span>
+<span class="gh">Out[113]: </span>
 <span class="go">0    000007</span>
 <span class="go">1    000155</span>
 <span class="go">2    303000</span>
@@ -1158,7 +1158,7 @@
 <span class="gp">   .....: </span>
 
 <span class="gp">In [115]: </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gh">Out[115]: </span><span class="go"></span>
+<span class="gh">Out[115]: </span>
 <span class="go">      floor    year    area price</span>
 <span class="go">0   高层（共6层）  1986年建  58.23㎡  155万</span>
 <span class="go">1  中层（共20层）  2020年建     88㎡  155万</span>
@@ -1177,7 +1177,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [116]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/script.csv&#39;</span><span class="p">)</span>
 
 <span class="gp">In [117]: </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gh">Out[117]: </span><span class="go"></span>
+<span class="gh">Out[117]: </span>
 <span class="go">  Release Date    Season   Episode      Episode Title          Name                                           Sentence</span>
 <span class="go">0   2011-04-17  Season 1  Episode 1  Winter is Coming  waymar royce  What do you expect? They&#39;re savages. One lot s...</span>
 <span class="go">1   2011-04-17  Season 1  Episode 1  Winter is Coming          will  I&#39;ve never seen wildlings do a thing like this...</span>

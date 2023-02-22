@@ -247,7 +247,7 @@ Ex2：巧克力数据集
 .. ipython:: python
     
     df = pd.read_csv('data/chocolate.csv')
-    df.columns = [' '.join(i.split('\n')) for i in df.columns]
+    df.columns = [' '.join(i.split('\r\n')) for i in df.columns]
     df.head(3)
 
 2.

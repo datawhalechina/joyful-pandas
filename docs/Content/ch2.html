@@ -390,7 +390,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="n">df_csv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/my_csv.csv&#39;</span><span class="p">)</span>
 
 <span class="gp">In [5]: </span><span class="n">df_csv</span>
-<span class="gh">Out[5]: </span><span class="go"></span>
+<span class="gh">Out[5]: </span>
 <span class="go">   col1 col2  col3    col4      col5</span>
 <span class="go">0     2    a   1.4   apple  2020/1/1</span>
 <span class="go">1     3    b   3.4  banana  2020/1/2</span>
@@ -400,7 +400,7 @@
 <span class="gp">In [6]: </span><span class="n">df_txt</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;data/my_table.txt&#39;</span><span class="p">)</span>
 
 <span class="gp">In [7]: </span><span class="n">df_txt</span>
-<span class="gh">Out[7]: </span><span class="go"></span>
+<span class="gh">Out[7]: </span>
 <span class="go">   col1 col2  col3             col4</span>
 <span class="go">0     2    a   1.4   apple 2020/1/1</span>
 <span class="go">1     3    b   3.4  banana 2020/1/2</span>
@@ -410,7 +410,7 @@
 <span class="gp">In [8]: </span><span class="n">df_excel</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;data/my_excel.xlsx&#39;</span><span class="p">)</span>
 
 <span class="gp">In [9]: </span><span class="n">df_excel</span>
-<span class="gh">Out[9]: </span><span class="go"></span>
+<span class="gh">Out[9]: </span>
 <span class="go">   col1 col2  col3    col4      col5</span>
 <span class="go">0     2    a   1.4   apple  2020/1/1</span>
 <span class="go">1     3    b   3.4  banana  2020/1/2</span>
@@ -420,7 +420,7 @@
 </div>
 <p>这里有一些常用的公共参数， <code class="docutils literal notranslate"><span class="pre">header=None</span></code> 表示第一行不作为列名， <code class="docutils literal notranslate"><span class="pre">index_col</span></code> 表示把某一列或几列作为索引，索引的内容将会在第三章进行详述， <code class="docutils literal notranslate"><span class="pre">usecols</span></code> 表示读取列的集合，默认读取所有的列， <code class="docutils literal notranslate"><span class="pre">parse_dates</span></code> 表示需要转化为时间的列，关于时间序列的有关内容将在第十章讲解， <code class="docutils literal notranslate"><span class="pre">nrows</span></code> 表示读取的数据行数。上面这些参数在上述的三个函数里都可以使用。</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;data/my_table.txt&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="gh">Out[10]: </span><span class="go"></span>
+<span class="gh">Out[10]: </span>
 <span class="go">      0     1     2                3</span>
 <span class="go">0  col1  col2  col3             col4</span>
 <span class="go">1     2     a   1.4   apple 2020/1/1</span>
@@ -429,7 +429,7 @@
 <span class="go">4     5     d   3.2   lemon 2020/1/7</span>
 
 <span class="gp">In [11]: </span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/my_csv.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;col1&#39;</span><span class="p">,</span> <span class="s1">&#39;col2&#39;</span><span class="p">])</span>
-<span class="gh">Out[11]: </span><span class="go"></span>
+<span class="gh">Out[11]: </span>
 <span class="go">           col3    col4      col5</span>
 <span class="go">col1 col2                        </span>
 <span class="go">2    a      1.4   apple  2020/1/1</span>
@@ -438,7 +438,7 @@
 <span class="go">5    d      3.2   lemon  2020/1/7</span>
 
 <span class="gp">In [12]: </span><span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;data/my_table.txt&#39;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;col1&#39;</span><span class="p">,</span> <span class="s1">&#39;col2&#39;</span><span class="p">])</span>
-<span class="gh">Out[12]: </span><span class="go"></span>
+<span class="gh">Out[12]: </span>
 <span class="go">   col1 col2</span>
 <span class="go">0     2    a</span>
 <span class="go">1     3    b</span>
@@ -446,7 +446,7 @@
 <span class="go">3     5    d</span>
 
 <span class="gp">In [13]: </span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/my_csv.csv&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;col5&#39;</span><span class="p">])</span>
-<span class="gh">Out[13]: </span><span class="go"></span>
+<span class="gh">Out[13]: </span>
 <span class="go">   col1 col2  col3    col4       col5</span>
 <span class="go">0     2    a   1.4   apple 2020-01-01</span>
 <span class="go">1     3    b   3.4  banana 2020-01-02</span>
@@ -454,7 +454,7 @@
 <span class="go">3     5    d   3.2   lemon 2020-01-07</span>
 
 <span class="gp">In [14]: </span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;data/my_excel.xlsx&#39;</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="gh">Out[14]: </span><span class="go"></span>
+<span class="gh">Out[14]: </span>
 <span class="go">   col1 col2  col3    col4      col5</span>
 <span class="go">0     2    a   1.4   apple  2020/1/1</span>
 <span class="go">1     3    b   3.4  banana  2020/1/2</span>
@@ -462,7 +462,7 @@
 </div>
 <p>在读取 <code class="docutils literal notranslate"><span class="pre">txt</span></code> 文件时，经常遇到分隔符非空格的情况， <code class="docutils literal notranslate"><span class="pre">read_table</span></code> 有一个分割参数 <code class="docutils literal notranslate"><span class="pre">sep</span></code> ，它使得用户可以自定义分割符号，进行 <code class="docutils literal notranslate"><span class="pre">txt</span></code> 数据的读取。例如，下面的读取的表以 <code class="docutils literal notranslate"><span class="pre">||||</span></code> 为分割：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;data/my_table_special_sep.txt&#39;</span><span class="p">)</span>
-<span class="gh">Out[15]: </span><span class="go"></span>
+<span class="gh">Out[15]: </span>
 <span class="go">              col1 |||| col2</span>
 <span class="go">0  TS |||| This is an apple.</span>
 <span class="go">1    GQ |||| My name is Bob.</span>
@@ -474,7 +474,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;data/my_table_special_sep.txt&#39;</span><span class="p">,</span>
 <span class="gp">   ....: </span>              <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; \|\|\|\| &#39;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;python&#39;</span><span class="p">)</span>
 <span class="gp">   ....: </span>
-<span class="gh">Out[16]: </span><span class="go"></span>
+<span class="gh">Out[16]: </span>
 <span class="go">  col1               col2</span>
 <span class="go">0   TS  This is an apple.</span>
 <span class="go">1   GQ    My name is Bob.</span>
@@ -538,7 +538,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [23]: </span><span class="n">s</span>
-<span class="gh">Out[23]: </span><span class="go"></span>
+<span class="gh">Out[23]: </span>
 <span class="go">my_idx</span>
 <span class="go">id1              100</span>
 <span class="go">20                 a</span>
@@ -588,7 +588,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [32]: </span><span class="n">df</span>
-<span class="gh">Out[32]: </span><span class="go"></span>
+<span class="gh">Out[32]: </span>
 <span class="go">       col_0 col_1  col_2</span>
 <span class="go">row_0      1     a    1.2</span>
 <span class="go">row_1      2     b    2.2</span>
@@ -602,7 +602,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [34]: </span><span class="n">df</span>
-<span class="gh">Out[34]: </span><span class="go"></span>
+<span class="gh">Out[34]: </span>
 <span class="go">       col_0 col_1  col_2</span>
 <span class="go">row_0      1     a    1.2</span>
 <span class="go">row_1      2     b    2.2</span>
@@ -611,14 +611,14 @@
 </div>
 <p>由于这种映射关系，在 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> 中可以用 <code class="docutils literal notranslate"><span class="pre">[col_name]</span></code> 与 <code class="docutils literal notranslate"><span class="pre">[col_list]</span></code> 来取出相应的列与由多个列组成的表，结果分别为 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 和 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [35]: </span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;col_0&#39;</span><span class="p">]</span>
-<span class="gh">Out[35]: </span><span class="go"></span>
+<span class="gh">Out[35]: </span>
 <span class="go">row_0    1</span>
 <span class="go">row_1    2</span>
 <span class="go">row_2    3</span>
 <span class="go">Name: col_0, dtype: int64</span>
 
 <span class="gp">In [36]: </span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;col_0&#39;</span><span class="p">,</span> <span class="s1">&#39;col_1&#39;</span><span class="p">]]</span>
-<span class="gh">Out[36]: </span><span class="go"></span>
+<span class="gh">Out[36]: </span>
 <span class="go">       col_0 col_1</span>
 <span class="go">row_0      1     a</span>
 <span class="go">row_1      2     b</span>
@@ -627,7 +627,7 @@
 </div>
 <p>与 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 类似，在数据框中同样可以取出相应的属性：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [37]: </span><span class="n">df</span><span class="o">.</span><span class="n">values</span>
-<span class="gh">Out[37]: </span><span class="go"></span>
+<span class="gh">Out[37]: </span>
 <span class="go">array([[1, &#39;a&#39;, 1.2],</span>
 <span class="go">       [2, &#39;b&#39;, 2.2],</span>
 <span class="go">       [3, &#39;c&#39;, 3.2]], dtype=object)</span>
@@ -639,7 +639,7 @@
 <span class="gh">Out[39]: </span><span class="go">Index([&#39;col_0&#39;, &#39;col_1&#39;, &#39;col_2&#39;], dtype=&#39;object&#39;)</span>
 
 <span class="gp">In [40]: </span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span> <span class="c1"># 返回的是值为相应列数据类型的Series</span>
-<span class="gh">Out[40]: </span><span class="go"></span>
+<span class="gh">Out[40]: </span>
 <span class="go">col_0      int64</span>
 <span class="go">col_1     object</span>
 <span class="go">col_2    float64</span>
@@ -651,7 +651,7 @@
 </div>
 <p>通过 <code class="docutils literal notranslate"><span class="pre">.T</span></code> 可以把 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> 进行转置：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [42]: </span><span class="n">df</span><span class="o">.</span><span class="n">T</span>
-<span class="gh">Out[42]: </span><span class="go"></span>
+<span class="gh">Out[42]: </span>
 <span class="go">      row_0 row_1 row_2</span>
 <span class="go">col_0     1     2     3</span>
 <span class="go">col_1     a     b     c</span>
@@ -666,7 +666,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [43]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/learn_pandas.csv&#39;</span><span class="p">)</span>
 
 <span class="gp">In [44]: </span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
-<span class="gh">Out[44]: </span><span class="go"></span>
+<span class="gh">Out[44]: </span>
 <span class="go">Index([&#39;School&#39;, &#39;Grade&#39;, &#39;Name&#39;, &#39;Gender&#39;, &#39;Height&#39;, &#39;Weight&#39;, &#39;Transfer&#39;,</span>
 <span class="go">       &#39;Test_Number&#39;, &#39;Test_Date&#39;, &#39;Time_Record&#39;],</span>
 <span class="go">      dtype=&#39;object&#39;)</span>
@@ -680,13 +680,13 @@
 <h3>1. 汇总函数<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">head,</span> <span class="pre">tail</span></code> 函数分别表示返回表或者序列的前 <code class="docutils literal notranslate"><span class="pre">n</span></code> 行和后 <code class="docutils literal notranslate"><span class="pre">n</span></code> 行，其中 <code class="docutils literal notranslate"><span class="pre">n</span></code> 默认为5：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [46]: </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="gh">Out[46]: </span><span class="go"></span>
+<span class="gh">Out[46]: </span>
 <span class="go">                          School     Grade            Name  Gender  Height  Weight Transfer</span>
 <span class="go">0  Shanghai Jiao Tong University  Freshman    Gaopeng Yang  Female   158.9    46.0        N</span>
 <span class="go">1              Peking University  Freshman  Changqiang You    Male   166.5    70.0        N</span>
 
 <span class="gp">In [47]: </span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gh">Out[47]: </span><span class="go"></span>
+<span class="gh">Out[47]: </span>
 <span class="go">                            School      Grade            Name  Gender  Height  Weight Transfer</span>
 <span class="go">197  Shanghai Jiao Tong University     Senior  Chengqiang Chu  Female   153.9    45.0        N</span>
 <span class="go">198  Shanghai Jiao Tong University     Senior   Chengmei Shen    Male   175.3    71.0        N</span>
@@ -711,7 +711,7 @@
 <span class="go">memory usage: 11.1+ KB</span>
 
 <span class="gp">In [49]: </span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-<span class="gh">Out[49]: </span><span class="go"></span>
+<span class="gh">Out[49]: </span>
 <span class="go">           Height      Weight</span>
 <span class="go">count  183.000000  189.000000</span>
 <span class="go">mean   163.218033   55.015873</span>
@@ -736,13 +736,13 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [50]: </span><span class="n">df_demo</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Height&#39;</span><span class="p">,</span> <span class="s1">&#39;Weight&#39;</span><span class="p">]]</span>
 
 <span class="gp">In [51]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="gh">Out[51]: </span><span class="go"></span>
+<span class="gh">Out[51]: </span>
 <span class="go">Height    163.218033</span>
 <span class="go">Weight     55.015873</span>
 <span class="go">dtype: float64</span>
 
 <span class="gp">In [52]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-<span class="gh">Out[52]: </span><span class="go"></span>
+<span class="gh">Out[52]: </span>
 <span class="go">Height    193.9</span>
 <span class="go">Weight     89.0</span>
 <span class="go">dtype: float64</span>
@@ -750,19 +750,19 @@
 </div>
 <p>此外，需要介绍的是 <code class="docutils literal notranslate"><span class="pre">quantile,</span> <span class="pre">count,</span> <span class="pre">idxmax</span></code> 这三个函数，它们分别返回的是分位数、非缺失值个数、最大值对应的索引：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [53]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
-<span class="gh">Out[53]: </span><span class="go"></span>
+<span class="gh">Out[53]: </span>
 <span class="go">Height    167.5</span>
 <span class="go">Weight     65.0</span>
 <span class="go">Name: 0.75, dtype: float64</span>
 
 <span class="gp">In [54]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
-<span class="gh">Out[54]: </span><span class="go"></span>
+<span class="gh">Out[54]: </span>
 <span class="go">Height    183</span>
 <span class="go">Weight    189</span>
 <span class="go">dtype: int64</span>
 
 <span class="gp">In [55]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span> <span class="c1"># idxmin是对应的函数</span>
-<span class="gh">Out[55]: </span><span class="go"></span>
+<span class="gh">Out[55]: </span>
 <span class="go">Height    193</span>
 <span class="go">Weight      2</span>
 <span class="go">dtype: int64</span>
@@ -770,7 +770,7 @@
 </div>
 <p>上面这些所有的函数，由于操作后返回的是标量，所以又称为聚合函数，它们有一个公共参数 <code class="docutils literal notranslate"><span class="pre">axis</span></code> ，默认为0代表逐列聚合，如果设置为1则表示逐行聚合：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [56]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># 在这个数据集上体重和身高的均值并没有意义</span>
-<span class="gh">Out[56]: </span><span class="go"></span>
+<span class="gh">Out[56]: </span>
 <span class="go">0    102.45</span>
 <span class="go">1    118.25</span>
 <span class="go">2    138.95</span>
@@ -784,7 +784,7 @@
 <h3>3. 唯一值函数<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
 <p>对序列使用 <code class="docutils literal notranslate"><span class="pre">unique</span></code> 和 <code class="docutils literal notranslate"><span class="pre">nunique</span></code> 可以分别得到其唯一值组成的列表和唯一值的个数：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [57]: </span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;School&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-<span class="gh">Out[57]: </span><span class="go"></span>
+<span class="gh">Out[57]: </span>
 <span class="go">array([&#39;Shanghai Jiao Tong University&#39;, &#39;Peking University&#39;,</span>
 <span class="go">       &#39;Fudan University&#39;, &#39;Tsinghua University&#39;], dtype=object)</span>
 
@@ -794,7 +794,7 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">value_counts</span></code> 可以得到唯一值和其对应出现的频数：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [59]: </span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;School&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-<span class="gh">Out[59]: </span><span class="go"></span>
+<span class="gh">Out[59]: </span>
 <span class="go">Tsinghua University              69</span>
 <span class="go">Shanghai Jiao Tong University    57</span>
 <span class="go">Fudan University                 40</span>
@@ -806,7 +806,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [60]: </span><span class="n">df_demo</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Gender&#39;</span><span class="p">,</span><span class="s1">&#39;Transfer&#39;</span><span class="p">,</span><span class="s1">&#39;Name&#39;</span><span class="p">]]</span>
 
 <span class="gp">In [61]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">([</span><span class="s1">&#39;Gender&#39;</span><span class="p">,</span> <span class="s1">&#39;Transfer&#39;</span><span class="p">])</span>
-<span class="gh">Out[61]: </span><span class="go"></span>
+<span class="gh">Out[61]: </span>
 <span class="go">    Gender Transfer            Name</span>
 <span class="go">0   Female        N    Gaopeng Yang</span>
 <span class="go">1     Male        N  Changqiang You</span>
@@ -816,7 +816,7 @@
 <span class="go">43  Female        Y      Gaoli Feng</span>
 
 <span class="gp">In [62]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">([</span><span class="s1">&#39;Gender&#39;</span><span class="p">,</span> <span class="s1">&#39;Transfer&#39;</span><span class="p">],</span> <span class="n">keep</span><span class="o">=</span><span class="s1">&#39;last&#39;</span><span class="p">)</span>
-<span class="gh">Out[62]: </span><span class="go"></span>
+<span class="gh">Out[62]: </span>
 <span class="go">     Gender Transfer            Name</span>
 <span class="go">147    Male      NaN        Juan You</span>
 <span class="go">150    Male        Y   Chengpeng You</span>
@@ -828,7 +828,7 @@
 <span class="gp">In [63]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">([</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Gender&#39;</span><span class="p">],</span>
 <span class="gp">   ....: </span>                     <span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># 保留只出现过一次的性别和姓名组合</span>
 <span class="gp">   ....: </span>
-<span class="gh">Out[63]: </span><span class="go"></span>
+<span class="gh">Out[63]: </span>
 <span class="go">   Gender Transfer            Name</span>
 <span class="go">0  Female        N    Gaopeng Yang</span>
 <span class="go">1    Male        N  Changqiang You</span>
@@ -837,7 +837,7 @@
 <span class="go">5  Female        N     Xiaoli Qian</span>
 
 <span class="gp">In [64]: </span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;School&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span> <span class="c1"># 在Series上也可以使用</span>
-<span class="gh">Out[64]: </span><span class="go"></span>
+<span class="gh">Out[64]: </span>
 <span class="go">0    Shanghai Jiao Tong University</span>
 <span class="go">1                Peking University</span>
 <span class="go">3                 Fudan University</span>
@@ -847,7 +847,7 @@
 </div>
 <p>此外， <code class="docutils literal notranslate"><span class="pre">duplicated</span></code> 和 <code class="docutils literal notranslate"><span class="pre">drop_duplicates</span></code> 的功能类似，但前者返回了是否为唯一值的布尔列表，其 <code class="docutils literal notranslate"><span class="pre">keep</span></code> 参数与后者一致。其返回的序列，把重复元素设为 <code class="docutils literal notranslate"><span class="pre">True</span></code> ，否则为 <code class="docutils literal notranslate"><span class="pre">False</span></code> 。 <code class="docutils literal notranslate"><span class="pre">drop_duplicates</span></code> 等价于把 <code class="docutils literal notranslate"><span class="pre">duplicated</span></code> 为 <code class="docutils literal notranslate"><span class="pre">True</span></code> 的对应行剔除。</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [65]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">duplicated</span><span class="p">([</span><span class="s1">&#39;Gender&#39;</span><span class="p">,</span> <span class="s1">&#39;Transfer&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[65]: </span><span class="go"></span>
+<span class="gh">Out[65]: </span>
 <span class="go">0    False</span>
 <span class="go">1    False</span>
 <span class="go">2     True</span>
@@ -856,7 +856,7 @@
 <span class="go">dtype: bool</span>
 
 <span class="gp">In [66]: </span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;School&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># 在Series上也可以使用</span>
-<span class="gh">Out[66]: </span><span class="go"></span>
+<span class="gh">Out[66]: </span>
 <span class="go">0    False</span>
 <span class="go">1    False</span>
 <span class="go">2     True</span>
@@ -871,7 +871,7 @@
 <p>一般而言，替换操作是针对某一个列进行的，因此下面的例子都以 <code class="docutils literal notranslate"><span class="pre">Series</span></code> 举例。 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 中的替换函数可以归纳为三类：映射替换、逻辑替换、数值替换。其中映射替换包含 <code class="docutils literal notranslate"><span class="pre">replace</span></code> 方法、第八章中的 <code class="docutils literal notranslate"><span class="pre">str.replace</span></code> 方法以及第九章中的 <code class="docutils literal notranslate"><span class="pre">cat.codes</span></code> 方法，此处介绍 <code class="docutils literal notranslate"><span class="pre">replace</span></code> 的用法。</p>
 <p>在 <code class="docutils literal notranslate"><span class="pre">replace</span></code> 中，可以通过字典构造，或者传入两个列表来进行替换：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [67]: </span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;Female&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Male&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[67]: </span><span class="go"></span>
+<span class="gh">Out[67]: </span>
 <span class="go">0    0</span>
 <span class="go">1    1</span>
 <span class="go">2    1</span>
@@ -880,7 +880,7 @@
 <span class="go">Name: Gender, dtype: int64</span>
 
 <span class="gp">In [68]: </span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="s1">&#39;Female&#39;</span><span class="p">,</span> <span class="s1">&#39;Male&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[68]: </span><span class="go"></span>
+<span class="gh">Out[68]: </span>
 <span class="go">0    0</span>
 <span class="go">1    1</span>
 <span class="go">2    1</span>
@@ -893,7 +893,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [69]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">])</span>
 
 <span class="gp">In [70]: </span><span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;ffill&#39;</span><span class="p">)</span>
-<span class="gh">Out[70]: </span><span class="go"></span>
+<span class="gh">Out[70]: </span>
 <span class="go">0    a</span>
 <span class="go">1    a</span>
 <span class="go">2    b</span>
@@ -904,7 +904,7 @@
 <span class="go">dtype: object</span>
 
 <span class="gp">In [71]: </span><span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;bfill&#39;</span><span class="p">)</span>
-<span class="gh">Out[71]: </span><span class="go"></span>
+<span class="gh">Out[71]: </span>
 <span class="go">0    a</span>
 <span class="go">1    b</span>
 <span class="go">2    b</span>
@@ -925,7 +925,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [72]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.2345</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">])</span>
 
 <span class="gp">In [73]: </span><span class="n">s</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">s</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span>
-<span class="gh">Out[73]: </span><span class="go"></span>
+<span class="gh">Out[73]: </span>
 <span class="go">0    -1.0</span>
 <span class="go">1     NaN</span>
 <span class="go">2     NaN</span>
@@ -933,7 +933,7 @@
 <span class="go">dtype: float64</span>
 
 <span class="gp">In [74]: </span><span class="n">s</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">s</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="gh">Out[74]: </span><span class="go"></span>
+<span class="gh">Out[74]: </span>
 <span class="go">0     -1.0</span>
 <span class="go">1    100.0</span>
 <span class="go">2    100.0</span>
@@ -941,7 +941,7 @@
 <span class="go">dtype: float64</span>
 
 <span class="gp">In [75]: </span><span class="n">s</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="n">s</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span>
-<span class="gh">Out[75]: </span><span class="go"></span>
+<span class="gh">Out[75]: </span>
 <span class="go">0         NaN</span>
 <span class="go">1      1.2345</span>
 <span class="go">2    100.0000</span>
@@ -949,7 +949,7 @@
 <span class="go">dtype: float64</span>
 
 <span class="gp">In [76]: </span><span class="n">s</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="n">s</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">)</span>
-<span class="gh">Out[76]: </span><span class="go"></span>
+<span class="gh">Out[76]: </span>
 <span class="go">0    -50.0000</span>
 <span class="go">1      1.2345</span>
 <span class="go">2    100.0000</span>
@@ -961,7 +961,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [77]: </span><span class="n">s_condition</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">,</span><span class="kc">False</span><span class="p">,</span><span class="kc">True</span><span class="p">],</span><span class="n">index</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 
 <span class="gp">In [78]: </span><span class="n">s</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="n">s_condition</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">)</span>
-<span class="gh">Out[78]: </span><span class="go"></span>
+<span class="gh">Out[78]: </span>
 <span class="go">0    -50.0000</span>
 <span class="go">1      1.2345</span>
 <span class="go">2    100.0000</span>
@@ -973,7 +973,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [79]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.2345</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">])</span>
 
 <span class="gp">In [80]: </span><span class="n">s</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="gh">Out[80]: </span><span class="go"></span>
+<span class="gh">Out[80]: </span>
 <span class="go">0     -1.00</span>
 <span class="go">1      1.23</span>
 <span class="go">2    100.00</span>
@@ -981,7 +981,7 @@
 <span class="go">dtype: float64</span>
 
 <span class="gp">In [81]: </span><span class="n">s</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>
-<span class="gh">Out[81]: </span><span class="go"></span>
+<span class="gh">Out[81]: </span>
 <span class="go">0      1.0000</span>
 <span class="go">1      1.2345</span>
 <span class="go">2    100.0000</span>
@@ -989,7 +989,7 @@
 <span class="go">dtype: float64</span>
 
 <span class="gp">In [82]: </span><span class="n">s</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># 前两个数分别表示上下截断边界</span>
-<span class="gh">Out[82]: </span><span class="go"></span>
+<span class="gh">Out[82]: </span>
 <span class="go">0    0.0000</span>
 <span class="go">1    1.2345</span>
 <span class="go">2    2.0000</span>
@@ -1015,7 +1015,7 @@
 </div>
 <p>对身高进行排序，默认参数 <code class="docutils literal notranslate"><span class="pre">ascending=True</span></code> 为升序：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [84]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Height&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[84]: </span><span class="go"></span>
+<span class="gh">Out[84]: </span>
 <span class="go">                         Height  Weight</span>
 <span class="go">Grade     Name                         </span>
 <span class="go">Junior    Xiaoli Chu      145.4    34.0</span>
@@ -1025,7 +1025,7 @@
 <span class="go">Sophomore Changjuan You   150.5    40.0</span>
 
 <span class="gp">In [85]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Height&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[85]: </span><span class="go"></span>
+<span class="gh">Out[85]: </span>
 <span class="go">                        Height  Weight</span>
 <span class="go">Grade    Name                         </span>
 <span class="go">Senior   Xiaoqiang Qin   193.9    79.0</span>
@@ -1037,7 +1037,7 @@
 </div>
 <p>在排序中，经常遇到多列排序的问题，比如在体重相同的情况下，对身高进行排序，并且保持身高降序排列，体重升序排列：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [86]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Weight&#39;</span><span class="p">,</span><span class="s1">&#39;Height&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[86]: </span><span class="go"></span>
+<span class="gh">Out[86]: </span>
 <span class="go">                       Height  Weight</span>
 <span class="go">Grade     Name                       </span>
 <span class="go">Sophomore Peng Han      147.8    34.0</span>
@@ -1049,7 +1049,7 @@
 </div>
 <p>索引排序的用法和值排序完全一致，只不过元素的值在索引中，此时需要指定索引层的名字或者层号，用参数 <code class="docutils literal notranslate"><span class="pre">level</span></code> 表示。另外，需要注意的是字符串的排列顺序由字母顺序决定。</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [87]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Grade&#39;</span><span class="p">,</span><span class="s1">&#39;Name&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[87]: </span><span class="go"></span>
+<span class="gh">Out[87]: </span>
 <span class="go">                        Height  Weight</span>
 <span class="go">Grade    Name                         </span>
 <span class="go">Freshman Yanquan Wang    163.5    55.0</span>
@@ -1071,7 +1071,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [90]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">my_mean</span><span class="p">)</span>
-<span class="gh">Out[90]: </span><span class="go"></span>
+<span class="gh">Out[90]: </span>
 <span class="go">Height    163.218033</span>
 <span class="go">Weight     55.015873</span>
 <span class="go">dtype: float64</span>
@@ -1079,7 +1079,7 @@
 </div>
 <p>同样的，可以利用 <code class="docutils literal notranslate"><span class="pre">lambda</span></code> 表达式使得书写简洁，这里的 <code class="docutils literal notranslate"><span class="pre">x</span></code> 就指代被调用的 <code class="docutils literal notranslate"><span class="pre">df_demo</span></code> 表中逐个输入的序列：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [91]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
-<span class="gh">Out[91]: </span><span class="go"></span>
+<span class="gh">Out[91]: </span>
 <span class="go">Height    163.218033</span>
 <span class="go">Weight     55.015873</span>
 <span class="go">dtype: float64</span>
@@ -1087,7 +1087,7 @@
 </div>
 <p>若指定 <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> ，那么每次传入函数的就是行元素组成的 <code class="docutils literal notranslate"><span class="pre">Series</span></code> ，其结果与之前的逐行均值结果一致。</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [92]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[92]: </span><span class="go"></span>
+<span class="gh">Out[92]: </span>
 <span class="go">0    102.45</span>
 <span class="go">1    118.25</span>
 <span class="go">2    138.95</span>
@@ -1098,7 +1098,7 @@
 </div>
 <p>这里再举一个例子： <code class="docutils literal notranslate"><span class="pre">mad</span></code> 函数返回的是一个序列中偏离该序列均值的绝对值大小的均值，例如序列1,3,7,10中，均值为5.25，每一个元素偏离的绝对值为4.25,2.25,1.75,4.75，这个偏离序列的均值为3.25。现在利用 <code class="docutils literal notranslate"><span class="pre">apply</span></code> 计算升高和体重的 <code class="docutils literal notranslate"><span class="pre">mad</span></code> 指标：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [93]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:(</span><span class="n">x</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
-<span class="gh">Out[93]: </span><span class="go"></span>
+<span class="gh">Out[93]: </span>
 <span class="go">Height     6.707229</span>
 <span class="go">Weight    10.391870</span>
 <span class="go">dtype: float64</span>
@@ -1106,7 +1106,7 @@
 </div>
 <p>这与使用内置的 <code class="docutils literal notranslate"><span class="pre">mad</span></code> 函数计算结果一致：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [94]: </span><span class="n">df_demo</span><span class="o">.</span><span class="n">mad</span><span class="p">()</span>
-<span class="gh">Out[94]: </span><span class="go"></span>
+<span class="gh">Out[94]: </span>
 <span class="go">Height     6.707229</span>
 <span class="go">Weight    10.391870</span>
 <span class="go">dtype: float64</span>
@@ -1136,7 +1136,7 @@
 </div>
 <p>在得到了滑窗对象后，能够使用相应的聚合函数进行计算，需要注意的是窗口包含当前行所在的元素，例如在第四个位置进行均值运算时，应当计算(2+3+4)/3，而不是(1+2+3)/3：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [98]: </span><span class="n">roller</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="gh">Out[98]: </span><span class="go"></span>
+<span class="gh">Out[98]: </span>
 <span class="go">0    NaN</span>
 <span class="go">1    NaN</span>
 <span class="go">2    2.0</span>
@@ -1145,7 +1145,7 @@
 <span class="go">dtype: float64</span>
 
 <span class="gp">In [99]: </span><span class="n">roller</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span class="gh">Out[99]: </span><span class="go"></span>
+<span class="gh">Out[99]: </span>
 <span class="go">0     NaN</span>
 <span class="go">1     NaN</span>
 <span class="go">2     6.0</span>
@@ -1158,7 +1158,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [100]: </span><span class="n">s2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">30</span><span class="p">])</span>
 
 <span class="gp">In [101]: </span><span class="n">roller</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
-<span class="gh">Out[101]: </span><span class="go"></span>
+<span class="gh">Out[101]: </span>
 <span class="go">0     NaN</span>
 <span class="go">1     NaN</span>
 <span class="go">2     2.5</span>
@@ -1167,7 +1167,7 @@
 <span class="go">dtype: float64</span>
 
 <span class="gp">In [102]: </span><span class="n">roller</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
-<span class="gh">Out[102]: </span><span class="go"></span>
+<span class="gh">Out[102]: </span>
 <span class="go">0         NaN</span>
 <span class="go">1         NaN</span>
 <span class="go">2    0.944911</span>
@@ -1178,7 +1178,7 @@
 </div>
 <p>此外，还支持使用 <code class="docutils literal notranslate"><span class="pre">apply</span></code> 传入自定义函数，其传入值是对应窗口的 <code class="docutils literal notranslate"><span class="pre">Series</span></code> ，例如上述的均值函数可以等效表示：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [103]: </span><span class="n">roller</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
-<span class="gh">Out[103]: </span><span class="go"></span>
+<span class="gh">Out[103]: </span>
 <span class="go">0    NaN</span>
 <span class="go">1    NaN</span>
 <span class="go">2    2.0</span>
@@ -1191,7 +1191,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [104]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">])</span>
 
 <span class="gp">In [105]: </span><span class="n">s</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="gh">Out[105]: </span><span class="go"></span>
+<span class="gh">Out[105]: </span>
 <span class="go">0    NaN</span>
 <span class="go">1    NaN</span>
 <span class="go">2    1.0</span>
@@ -1200,7 +1200,7 @@
 <span class="go">dtype: float64</span>
 
 <span class="gp">In [106]: </span><span class="n">s</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gh">Out[106]: </span><span class="go"></span>
+<span class="gh">Out[106]: </span>
 <span class="go">0     NaN</span>
 <span class="go">1     NaN</span>
 <span class="go">2     NaN</span>
@@ -1209,7 +1209,7 @@
 <span class="go">dtype: float64</span>
 
 <span class="gp">In [107]: </span><span class="n">s</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
-<span class="gh">Out[107]: </span><span class="go"></span>
+<span class="gh">Out[107]: </span>
 <span class="go">0         NaN</span>
 <span class="go">1    2.000000</span>
 <span class="go">2    1.000000</span>
@@ -1218,7 +1218,7 @@
 <span class="go">dtype: float64</span>
 
 <span class="gp">In [108]: </span><span class="n">s</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="gh">Out[108]: </span><span class="go"></span>
+<span class="gh">Out[108]: </span>
 <span class="go">0     3.0</span>
 <span class="go">1     6.0</span>
 <span class="go">2    10.0</span>
@@ -1227,7 +1227,7 @@
 <span class="go">dtype: float64</span>
 
 <span class="gp">In [109]: </span><span class="n">s</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
-<span class="gh">Out[109]: </span><span class="go"></span>
+<span class="gh">Out[109]: </span>
 <span class="go">0   -5.0</span>
 <span class="go">1   -7.0</span>
 <span class="go">2   -9.0</span>
@@ -1238,7 +1238,7 @@
 </div>
 <p>将其视作类滑窗函数的原因是，它们的功能可以用窗口大小为 <code class="docutils literal notranslate"><span class="pre">n+1</span></code> 的 <code class="docutils literal notranslate"><span class="pre">rolling</span></code> 方法等价代替：</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [110]: </span><span class="n">s</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># s.shift(2)</span>
-<span class="gh">Out[110]: </span><span class="go"></span>
+<span class="gh">Out[110]: </span>
 <span class="go">0    NaN</span>
 <span class="go">1    NaN</span>
 <span class="go">2    1.0</span>
@@ -1247,7 +1247,7 @@
 <span class="go">dtype: float64</span>
 
 <span class="gp">In [111]: </span><span class="n">s</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># s.diff(3)</span>
-<span class="gh">Out[111]: </span><span class="go"></span>
+<span class="gh">Out[111]: </span>
 <span class="go">0     NaN</span>
 <span class="go">1     NaN</span>
 <span class="go">2     NaN</span>
@@ -1261,7 +1261,7 @@
 <span class="gp">   .....: </span>
 
 <span class="gp">In [113]: </span><span class="n">s</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">my_pct</span><span class="p">)</span> <span class="c1"># s.pct_change()</span>
-<span class="gh">Out[113]: </span><span class="go"></span>
+<span class="gh">Out[113]: </span>
 <span class="go">0         NaN</span>
 <span class="go">1    2.000000</span>
 <span class="go">2    1.000000</span>
@@ -1283,7 +1283,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [114]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
 
 <span class="gp">In [115]: </span><span class="n">s</span><span class="o">.</span><span class="n">expanding</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="gh">Out[115]: </span><span class="go"></span>
+<span class="gh">Out[115]: </span>
 <span class="go">0    1.000000</span>
 <span class="go">1    2.000000</span>
 <span class="go">2    3.333333</span>
@@ -1312,7 +1312,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [116]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/pokemon.csv&#39;</span><span class="p">)</span>
 
 <span class="gp">In [117]: </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gh">Out[117]: </span><span class="go"></span>
+<span class="gh">Out[117]: </span>
 <span class="go">   #       Name Type 1  Type 2  Total  HP  Attack  Defense  Sp. Atk  Sp. Def  Speed</span>
 <span class="go">0  1  Bulbasaur  Grass  Poison    318  45      49       49       65       65     45</span>
 <span class="go">1  2    Ivysaur  Grass  Poison    405  60      62       63       80       80     60</span>
@@ -1356,7 +1356,7 @@
 <span class="gp">In [119]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">())</span>
 
 <span class="gp">In [120]: </span><span class="n">s</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[120]: </span><span class="go"></span>
+<span class="gh">Out[120]: </span>
 <span class="go">0   -1</span>
 <span class="go">1   -1</span>
 <span class="go">2   -2</span>
@@ -1365,7 +1365,7 @@
 <span class="go">dtype: int32</span>
 
 <span class="gp">In [121]: </span><span class="n">s</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="gh">Out[121]: </span><span class="go"></span>
+<span class="gh">Out[121]: </span>
 <span class="go">0   -1.000000</span>
 <span class="go">1   -1.000000</span>
 <span class="go">2   -1.409836</span>
