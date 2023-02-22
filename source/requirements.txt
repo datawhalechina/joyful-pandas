@@ -2,7 +2,7 @@ numpy==1.22.0
 pandas==1.2.0
 matplotlib==3.5.2
 sphinx==5.0.2
-ipython==7.33.0
+ipython==8.10.0
 xlrd==1.2.0
 tabulate==0.8.10
 openpyxl==3.0.9
