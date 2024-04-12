@@ -1,5 +1,8 @@
 # Joyful-Pandas
 
+> [!IMPORTANT]
+> 本项目地址已由原先的 **joyfulpandas.datawhale.club** 更换至 [https://inter.joyfulpandas.datawhale.club](https://inter.joyfulpandas.datawhale.club)
+
 基于Joyful Pandas教程编写的纸质版书籍已在各大网络平台上线，欢迎选购。本书使用新版的1.4.0，对网页版教程（基于1.2.0）内容作了大量修订，包括内容增改以及习题更新，同时增加了数据可视化、特征工程和性能优化三个章节的内容。本书设计练一练共计121题，章后习题共计41题，各章节分布与目录见后文。有关本书籍和pandas的任何问题可以在本仓库提issue，或者加最后的二维码进讨论群提问。
 
 <img src="source/_static/pandas封面.jpg" width="38%"/>
