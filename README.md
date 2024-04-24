@@ -2,7 +2,7 @@
 
 > [!IMPORTANT]
 > 本项目地址已由原先的 **joyfulpandas.datawhale.club** 更换至 [https://inter.joyfulpandas.datawhale.club](https://inter.joyfulpandas.datawhale.club)
->
+
 > [!NOTE]
 > 智海平台：https://aiplusx.momodel.cn/classroom/class/658d379f891ad518e0274bc2?activeKey=intro
 
